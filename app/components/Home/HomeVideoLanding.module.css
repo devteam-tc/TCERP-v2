@@ -1,0 +1,64 @@
+/* HomeVideoLanding.module.css */
+
+.videoBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .bannerWrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .bannerContent {
+    border-radius: 10px;
+    border: 3px solid #FCE2DB;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(7.5px);
+    background: linear-gradient(150deg, rgb(237 237 255 / 81%) 0%, rgb(239 248 251 / 51%) 22%, rgb(193 222 228 / 49%) 52%, rgb(211 226 230 / 40%) 66%, rgb(241 241 254 / 83%) 100%);
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  .bannerTitle {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #EF5226;
+  }
+  
+  .bannerSubtitle {
+    font-weight: 900;
+    font-size: 5rem;
+    color: #EF5226;
+  }
+  
+  .bannerText {
+    font-size: 17px;
+    color: #000;
+    text-align: center !important;
+  }
+  
+  @media (max-width: 992px) {
+    .bannerTitle {
+      font-size: 1.9rem;
+    }
+  
+    .bannerSubtitle {
+      font-size: 1.9rem;
+    }
+  
+    .bannerText {
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,44 @@
+{
+    "industries": {
+      "construction": {
+        "title": "Construction Industry | Innovation & Trends",
+        "description": "Explore the latest construction industry trends, from smart buildings to sustainable materials.",
+        "keywords": "construction industry, smart buildings, sustainable construction"
+      },
+      "healthcare": {
+        "title": "Healthcare Industry Insights & Innovations",
+        "description": "Learn about the latest healthcare innovations, medical advancements, and digital health trends.",
+        "keywords": "healthcare industry, medical innovations, digital health"
+      },
+      "automative-industry": {
+        "title": "Automotive Industry: Future of Mobility",
+        "description": "Explore the future of the automotive industry, electric vehicles, and self-driving technology.",
+        "keywords": "automotive industry, electric vehicles, self-driving cars"
+      }
+    },
+    "products": {
+      "smartphone-x": {
+        "title": "Smartphone X | Cutting-Edge Technology",
+        "description": "Discover the revolutionary Smartphone X with advanced AI and ultra-fast performance.",
+        "keywords": "smartphone X, latest smartphones, AI phone"
+      },
+      "laptop-pro": {
+        "title": "Laptop Pro | The Ultimate Productivity Machine",
+        "description": "Experience unmatched power with Laptop Pro – the best choice for professionals and creatives.",
+        "keywords": "Laptop Pro, best laptops, creative workstations"
+      }
+    },
+    "services": {
+      "digital-marketing": {
+        "title": "Digital Marketing Services | SEO & Social Media",
+        "description": "Boost your online presence with expert digital marketing services, SEO strategies, and social media marketing.",
+        "keywords": "digital marketing, SEO services, social media marketing"
+      },
+      "cloud-computing": {
+        "title": "Cloud Computing Solutions | Secure & Scalable",
+        "description": "Transform your business with cloud computing solutions that offer security, scalability, and efficiency.",
+        "keywords": "cloud computing, cloud solutions, secure cloud"
+      }
+    }
+  }
+  

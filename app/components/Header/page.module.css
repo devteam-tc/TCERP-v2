@@ -1,0 +1,413 @@
+
+/* ================================ 
+Global
+=======================================*/
+.container a {
+    text-decoration: none;
+  }
+  
+ .nav__container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .container button {
+    cursor: pointer;
+    color: var(--mainColor);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .block {
+    display: block;
+  }
+  
+  .h-0 {
+    height: 0;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  /* ================================ 
+  End Global
+  =======================================*/
+  
+  .nav__header {
+    position: relative;
+    top: 0;
+    z-index: 50;
+    /* height: 70px; */
+    background-color: white;
+    border-bottom: 1px solid var(--borderColor);
+    border-top: 2px solid #ef5226;
+  }
+  .sticky-navbar {
+    position: fixed; /* Use fixed positioning when sticky */
+    top: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: #fff; /* Background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow for visibility */
+    transition: top 0.3s; /* Smooth transition for top property */
+  }
+  
+  .nav {
+    transition: top 0.3s; /* Optional: adds smooth transition for navbar movement */
+  }
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: 16px;
+  }
+  
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .logo__link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu_icon {
+    border: none;
+    height: 45px;
+    width: 45px;
+    margin-left: -12px;
+    background-color: transparent;
+  }
+  
+  .menu_icon:focus {
+    outline: none;
+    background-color: #d7d4d4;
+    border-radius: 100px;
+    height: 45px;
+    width: 45px;
+  }
+  
+  .nav_item_content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--borderColor);
+    height: 3rem;
+  }
+  
+  .nav_item_content a {
+    color: inherit;
+    width: 100%;
+    font-size: 14.5px;
+    font-weight: 500;
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+  
+    @media screen and (max-width: 992px) {
+      margin-top: 0; 
+    }
+  }
+  
+  
+  .nav_item_content button {
+    padding-inline: 0.75rem;
+    border: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .register a {
+    font-size: 15px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    background-color: #fff;
+  }
+  
+  .dropdown_content {
+    font-size: 0.875rem;
+  }
+  
+  .dropdown_content h6 {
+    font-weight: 500;
+    line-height: 1.25rem;
+    margin-top: 0.75rem;
+  }
+  
+  .dropdown_content li {
+    line-height: 1.85rem;
+  }
+  
+  .dropdown_content li a {
+    color: inherit;
+    font-weight: 400;
+  }
+  .dropdown_content li a:hover {
+    color: #ef5226;
+    font-weight: 500;
+  }
+  
+.hiddenOnMobile{
+  display: none;
+}
+  
+  /* ================================ 
+  Hero
+  =======================================*/
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #5c5c5c;
+    height: 450px;
+  }
+  
+  .img_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .img_wrapper img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    color: transparent;
+    object-fit: cover;
+  }
+  
+  .img_wrapper .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(217, 33%, 17%, 0.4);
+  }
+  
+  .hero .content {
+    color: #fff;
+    width: 100%;
+    position: relative;
+  }
+  
+  .hero_title {
+    font-size: 32px;
+    font-weight: 900;
+  }
+  
+  /* ================================ 
+  Mobile
+  =======================================*/
+  .mobile_navigation {
+    position: fixed;
+    z-index: 99;
+    max-height: 100vh;
+    overflow-y: auto;
+    border-top: 2px solid #ef5226;
+  }
+  
+  .backdrop {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .drawer_content {
+    background-color: white;
+    position: fixed;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    max-width: 280px;
+    height: 115vh;
+    z-index: 100;
+    padding: 10px;
+  
+    overflow-y: auto;
+    transition: 0.5s;
+    transform: translateX(-100%);
+  }
+  
+  .drawer_content.active {
+    transform: translateX(0);
+  }
+  
+  
+  .close_drawer {
+    position: sticky;
+    top: 0;
+    background-color: white; /* Optional: set a background color for better visibility */
+    z-index: 10; /* Ensure it's on top of the other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    /* Add padding or margin as per your design */
+  }
+  
+  
+  .close_drawer button {
+    padding: 12px;
+    border: none;
+    background-color: white;
+  }
+  
+  /* ================================ 
+  MEDIA QUERIES
+  =======================================*/
+  /* Hide the button on desktop screens */
+  @media (max-width: 996px){
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+    .hiddenOnMobile{
+      display: block;
+    }
+    
+  }
+  
+  @media (min-width: 996px) {
+    .container {
+      max-width: 996px;
+    }
+  
+    .md\:h-auto {
+      height: auto;
+    }
+  
+    .md\:block {
+      display: block;
+    }
+  
+    .mdHidden  {
+      display: none;
+    }
+  
+    .logo__link {
+      margin-right: 1rem;
+    }
+  
+    .nav__container > nav > ul {
+      display: flex;
+      align-items: end;
+      line-height: 50px;
+    }
+  
+    .nav_item_content {
+      border-style: none;
+      height: auto;
+    }
+  
+    .nav_item_content a {
+      padding-inline: 0.7rem;
+    }
+  
+    .nav_item_content .mdHidden  {
+      display: none;
+      
+    }
+  
+    .register {
+      margin-left: auto;
+    }
+  
+    .dropdown {
+      position: absolute;
+      /* right: 0; */
+      top: 50px;
+      /* width: 100%; */
+      border-bottom: 1px solid var(--borderColor);
+      /* border-radius: 0 0 16px 16px; */
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      visibility: hidden;
+      z-index: 10;
+    }
+  
+    .nav__container ul li:focus-within .dropdown,
+    .nav__container ul li:hover .dropdown {
+      visibility: visible;
+      margin-top: 1.5vh;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+  
+    .nav_item_content:hover a:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      text-align: center;
+      bottom: 8px;
+      width: 100%;
+      border-bottom: 2px solid #ef5226;
+    }
+  
+    .dropdown_content {
+      gap: 1rem;
+    }
+    /* Apply grid style for Industries submenu only */
+    .industries_grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+    .dropdown_content h6 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+  
+    .hero_title {
+      font-size: 56px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap; /* This allows the items to wrap to the next line if needed */
+    gap: 10px; /* Adds spacing between the items */
+  }
+  
+  .skill-item {
+    display: flex;
+    align-items: center; /* Centers the content vertically */
+  }
+  

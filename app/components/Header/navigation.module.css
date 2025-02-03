@@ -1,0 +1,148 @@
+/* Navigation.module.css */
+
+/* General styles for the navigation bar */
+.navHeader {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .stickyNavbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  /* navigation.module.css */
+
+.sticky-navbar {
+  position: fixed; /* Use fixed positioning when sticky */
+  top: 0;
+  width: 100%; /* Ensure it spans the full width */
+  z-index: 1000; /* Ensure it stays above other content */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow for visibility */
+  transition: top 0.3s; /* Smooth transition for top property */
+}
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .toolbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .logoLink {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hiddenOnMobile {
+    display: none;
+  }
+  
+  .menuIcon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  /* Social Media Icons */
+  .socialMediaIcons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .socialMediaIcons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    color: #000;
+    font-size: 16px;
+    transition: all 0.3s;
+  }
+  
+  .socialMediaIcons a:hover {
+    color: var(--hover-color);
+    border-color: var(--hover-color);
+  }
+  
+  /* Phone Dropdown */
+  .phoneDropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .dropdownContent {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdownItem:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .hiddenOnDesktop {
+    display: none;
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 996px) {
+    .hiddenOnMobile {
+      display: block;
+    }
+    .hiddenOnDesktop {
+      display: none;
+    }
+  }
+  
