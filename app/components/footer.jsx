@@ -22,7 +22,7 @@ const Footer = () => {
             <Image
               src="/logo.webp"
               alt="Tech Cloud ERP Logo"
-              width={150}
+              width={180}
               height={80}
               className={styles.logo}
             />
