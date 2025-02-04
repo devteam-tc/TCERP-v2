@@ -1,109 +1,44 @@
-// import { menuData } from "../../utils/menuData"; // Import menu data
+// import { menuData } from "../../utils/menuData";
+// import metaInfo from "../../utils/metaInfo.json"; // Import metadata from JSON
 // import { notFound } from "next/navigation";
 
-// export default function IndustryPage({ params }) {
-//   const { slug } = params;
-
-//   // Find matching industry in menuData
-//   const industry = menuData
-//     .find((item) => item.label === "Industries")?.children
-//     ?.flatMap((group) => group.submenu)
-//     ?.find((item) => item.href.endsWith(slug));
-
-//   // If industry not found, return 404
-//   if (!industry) return notFound();
-
-//   return (
-//     <div>
-//       <h1>{industry.label}</h1>
-//       <p>Details about {industry.label} industry.</p>
-//     </div>
-//   );
-// }
-
-
-// import Navigation from "../../components/Header/navigation";
-// import { menuData } from "../../utils/menuData"; // Import menu data
-// import { notFound } from "next/navigation";
-
-// // Function to generate static paths for dynamic pages
-// export function generateStaticParams() {
-//   const industries = menuData.find((item) => item.label === "Industries")?.children?.flatMap((group) => group.submenu) || [];
-//   const products = menuData.find((item) => item.label === "Products")?.children?.flatMap((group) => group.submenu) || [];
-//   const services = menuData.find((item) => item.label === "Services")?.children?.flatMap((group) => group.submenu) || [];
-
-//   // Combine all items (industries, products, services)
-//   const allItems = [...industries, ...products, ...services];
-
-//   // Map over the items and return their slugs as params
-//   return allItems.map((item) => ({
-//     slug: item.href.split('/').pop(),  // Assuming href is always in the form "/industries/slug"
-//   }));
-// }
-
-// export default function IndustryPage({ params }) {
-//   const { slug } = params;
-
-//   // Find matching industry in menuData
-//   const industry = menuData
-//     .find((item) => item.label === "Industries")?.children
-//     ?.flatMap((group) => group.submenu)
-//     ?.find((item) => item.href.endsWith(slug));
-
-//   // If industry not found, return 404
-//   if (!industry) return notFound();
-
-//   return (
-//     <div>
-//       <Navigation/>
-//       <h1>{industry.label}</h1>
-//       <p>Details about {industry.label} industry.</p>
-//     </div>
-//   );
-// }
-
-
-// import { menuData } from "../../utils/menuData"; // Import menu data
-// import { notFound } from "next/navigation";
-
-// // ✅ Function to generate static paths for all industry pages
+// // ✅ Generate static paths
 // export function generateStaticParams() {
 //   const industries = menuData.find((item) => item.label === "Industries")?.children
 //     ?.flatMap((group) => group.submenu) || [];
 
 //   return industries.map((item) => ({
-//     slug: item.href.split("/").pop(), // Extracting slug from URL
+//     slug: item.href.split("/").pop(), // Extract slug from href
 //   }));
 // }
 
-// // ✅ Function to generate dynamic metadata
+// // ✅ Generate unique metadata for each industry
 // export async function generateMetadata({ params }) {
 //   const { slug } = params;
 
-//   const industry = menuData
-//     .find((item) => item.label === "Industries")?.children
-//     ?.flatMap((group) => group.submenu)
-//     ?.find((item) => item.href.endsWith(slug));
+//   // Debugging: Log slug and available metadata keys
+//   console.log("Requested Slug:", slug);
+//   console.log("Available Metadata Keys:", Object.keys(metaInfo.industries));
 
-//   if (!industry) {
+//   // Get metadata from metaInfo.json (case insensitive match)
+//   const metadata = metaInfo.industries[slug];
+
+//   if (!metadata) {
 //     return {
-//       title: "Page Not Found - Industries",
-//       description: "The industry page you are looking for does not exist.",
-//       keywords: "not found, industries, missing page",
+//       title: "Industry Not Found",
+//       description: "This industry page does not exist.",
+//       keywords: "not found, industry, missing page",
 //     };
 //   }
 
-//   return {
-//     title: `${industry.label} - Industry Information`,
-//     description: `Explore details about the ${industry.label}, its features, and its significance.`,
-//     keywords: `${industry.label}, ${industry.label} details, ${industry.label} industry`,
-//   };
+//   return metadata; // ✅ Return metadata from JSON
 // }
 
 // // ✅ Industry Page Component
 // export default function IndustryPage({ params }) {
 //   const { slug } = params;
 
+//   // Find matching industry in menuData
 //   const industry = menuData
 //     .find((item) => item.label === "Industries")?.children
 //     ?.flatMap((group) => group.submenu)
@@ -114,35 +49,39 @@
 //   return (
 //     <div>
 //       <h1>{industry.label}</h1>
-//       <p>Details about {industry.label} industry.</p>
+//       <p>{metaInfo.industries[slug]?.description || `Explore insights and trends in the ${industry.label} industry.`}</p>
 //     </div>
 //   );
 // }
 
 
-import { menuData } from "../../utils/menuData";
-import metaInfo from "../../utils/metaInfo.json"; // Import metadata from JSON
+
+
+import {sectionsData} from "../../utils/constants";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import OurPartnerSection from "../../components/OurPartnerSection";
+import AnimatedColumn from "../../components/Home/AnimatedColumn";
+import styles from "./industry.module.css";  // CSS module for styling
+import Navigation from "../../components/Header/navigation";
+// import { metaInfo } from "../../utils/menuData";
+import metaInfo from "../../utils/metaInfo.json";
+import ElfsightScript from "./ElfsightScript";
+import Footer from "../../components/Footer";
+import PartnershipSection from "../../components/PartnershipSection";
 
-// ✅ Generate static paths
+// Generate Static Params
 export function generateStaticParams() {
-  const industries = menuData.find((item) => item.label === "Industries")?.children
-    ?.flatMap((group) => group.submenu) || [];
-
-  return industries.map((item) => ({
-    slug: item.href.split("/").pop(), // Extract slug from href
+  return Object.keys(sectionsData).map((slug) => ({
+    slug,
   }));
 }
 
-// ✅ Generate unique metadata for each industry
+// Generate Metadata
 export async function generateMetadata({ params }) {
   const { slug } = params;
-
-  // Debugging: Log slug and available metadata keys
-  console.log("Requested Slug:", slug);
-  console.log("Available Metadata Keys:", Object.keys(metaInfo.industries));
-
-  // Get metadata from metaInfo.json (case insensitive match)
   const metadata = metaInfo.industries[slug];
 
   if (!metadata) {
@@ -153,25 +92,99 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  return metadata; // ✅ Return metadata from JSON
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
+  };
 }
 
-// ✅ Industry Page Component
+// Industry Page Component
 export default function IndustryPage({ params }) {
   const { slug } = params;
+  const data = sectionsData[slug];
 
-  // Find matching industry in menuData
-  const industry = menuData
-    .find((item) => item.label === "Industries")?.children
-    ?.flatMap((group) => group.submenu)
-    ?.find((item) => item.href.endsWith(slug));
-
-  if (!industry) return notFound();
+  if (!data) {
+    return notFound();
+  }
 
   return (
-    <div>
-      <h1>{industry.label}</h1>
-      <p>{metaInfo.industries[slug]?.description || `Explore insights and trends in the ${industry.label} industry.`}</p>
-    </div>
+    <>
+    <Navigation/>
+      <section className={styles.section}>
+        <div className="container">
+          <AnimatedColumn direction="left">
+            <div>
+              <h2 className={styles.heading}>{data.heading}</h2>
+              <div className={styles.divider}></div>
+              <p className={styles.description}>{data.description}</p>
+            </div>
+          </AnimatedColumn>
+        </div>
+      </section>
+
+      <div className={styles.bodySection}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8">
+              <div className="border border-1 rounded-3 bg-dark-50 p-3 my-3">
+                <Image
+                  src={data.top_img}
+                  alt={data.alt_text1}
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+                <h1 className={styles.industryTitle}>{data.heading}</h1>
+                <p className={styles.industryText}>{data.top_description}</p>
+              </div>
+              <div className="border border-1 rounded-3 bg-dark-50 p-3">
+                <Image
+                  src={data.bottom_img}
+                  alt={data.alt_text2}
+                  width={600}
+                  height={400}
+                  className={styles.image}
+                />
+                <h1 className={styles.industryTitle}>{data.subheading}</h1>
+                <p className={styles.industryText}>{data.bottom_description}</p>
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <div className="border border-1 rounded-3 bg-dark-50 p-3 my-3 shadow-sm">
+                <h1 className={styles.subTitle}>Similar Industries</h1>
+                <ul className={styles.similarIndustriesList}>
+                  {data.similar_industries && data.similar_industries.length > 0 ? (
+                    data.similar_industries.map((industry, index) => (
+                      <li key={index} className={styles.similarIndustryItem}>
+                        <Link href={industry.link}>
+                          {industry.title} <FaExternalLinkAlt />
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <p>No similar industries available.</p>
+                  )}
+                </ul>
+              </div>
+              <div className="border border-1 rounded-3 bg-dark-50 p-3 my-3 shadow-sm">
+                <div className={styles.contactForm}>
+                <ElfsightScript /> {/* This loads the script separately */}
+                  <div className="elfsight-app-781289d2-3d2a-4085-8436-a5eb3b9bf3c1" data-elfsight-app-lazy></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="py-3">
+          <PartnershipSection />
+        </div>
+        <div className="py-3">
+          <OurPartnerSection />
+        </div>
+      </div>
+    <Footer/>
+    </>
   );
 }

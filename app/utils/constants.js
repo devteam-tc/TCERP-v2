@@ -102,7 +102,8 @@ export const ctaData = {
     ]
   };
 
-  // coFounders Data
+
+   // coFounders Data
 export const coFoundersData = [
   {
       name: "Mr. Devang Patel",
