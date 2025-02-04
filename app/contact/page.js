@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Phone, Mail, MapPin, Youtube, Instagram, Facebook, Twitter } from 'lucide-react'
 import styles from '../styles/contact.module.css'
 import { Header } from '../components/header'
-import { Footer } from '../components/footer'
+import { Footer } from '../components/Footer'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
