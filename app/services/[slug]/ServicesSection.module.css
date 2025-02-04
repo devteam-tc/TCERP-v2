@@ -1,0 +1,163 @@
+/* General Styles */
+.descriptionContainer {
+    text-align: justify;
+  }
+  
+  .text {
+    font-size: 1.125rem;
+    color: #4a5568;
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+  
+  /* FAQ Container */
+  .faqContainer {
+    margin: 0 auto;
+    padding: 5rem;
+    background: #fff7f4;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .faqContainer {
+      padding: 2rem !important;
+    }
+  }
+  
+  /* FAQ Title */
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #333;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
+  
+  .subtitle span {
+    color: #05a7cc;
+    font-weight: 500;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .subtitle span {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
+  
+  /* Section Styles */
+  .sectionWrapper {
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .sectionSubtitle {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 40px;
+  }
+  
+  /* Card Styles */
+  .cardWrapper {
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px, rgba(173, 216, 230, 0.7) 0px 6px 6px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .cardHeader {
+    display: flex;
+    align-items: end;
+    margin-bottom: 10px;
+  }
+  
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cardTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-left: 15px;
+  }
+  
+  .cardText {
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.01em;
+    color: #393939;
+    margin-top: 10px;
+  }
+  
+  .cardImage {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* FAQ Section */
+  .faqItem {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+  
+  .questionContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .question {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .question {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+  
+  .answer {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: #4a5568;
+  }
+  
+  .icon {
+    color: #e55300;
+  }
+  
+  /* Image Animation */
+  @keyframes upDownAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animatedImage {
+    width: 75%;
+    border: none;
+    transition: transform 0.5s ease-in-out;
+    animation: upDownAnimation 3s ease-in-out infinite;
+  }
+  
+  .animatedImage:hover {
+    transform: scale(1.05);
+  }
+  

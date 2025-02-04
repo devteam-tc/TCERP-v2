@@ -1,6 +1,7 @@
-// components/AnimatedSection.js
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './AnimatedSection.module.css'; // Import the CSS Module
+"use client"; // Add this at the top
+
+import React, { useEffect, useRef, useState } from "react";
+import styles from "./AnimatedSection.module.css"; // Import the CSS Module
 
 const AnimatedSection = ({ children, className, ...props }) => {
   const sectionRef = useRef(null);
@@ -19,13 +20,15 @@ const AnimatedSection = ({ children, className, ...props }) => {
     const element = sectionRef.current;
     if (element) observer.observe(element);
 
-    return () => observer.disconnect();
+    return () => {
+      if (element) observer.unobserve(element);
+    };
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className={`${styles.section} ${className} ${isVisible ? styles.visible : ''}`}
+      className={`${styles.section} ${className} ${isVisible ? styles.visible : ""}`}
       {...props}
     >
       {children}

@@ -1,0 +1,42 @@
+.sectionWrapper {
+    padding: 40px 0;
+    background: #F4FDFF;
+  }
+  
+  .title {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .iconWrapper {
+    font-size: 40px;
+    color: #f26633;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .line {
+    width: 177px;
+    height: 4px;
+    text-align: left;
+    background-color: #00bcd4;
+    margin: 10px 0;
+  }
+  
+  .cardWrapper {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .description {
+    color: #7a7a7a;
+    text-align: left;
+  }
+  
+  .animatedSection {
+    width: 100%;
+  }
+  
