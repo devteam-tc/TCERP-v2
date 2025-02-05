@@ -12,7 +12,7 @@ import { IoSpeedometerOutline } from "react-icons/io5";
 import { TbLayoutGridAdd } from 'react-icons/tb';
 
 export const releavant = {
-  logo: "/logo.webp",
+  
   testimonials_bg: "/home/testimonials_bg.webp",
   Quotation_mark: "/home/Quotation_mark.webp",
   ourMission: {
@@ -341,8 +341,8 @@ export const sectionsData = {
       },
   ]
   },
-  "FMCG-industry": {
-    link: '/industries/FMCG-industry',
+  "fmcg-industry": {
+    link: '/industries/fmcg-industry',
     heading: 'FMCG Industry',
     subheading:'The Best ERP For FMCG Industry',
     description: 'Our ERP solutions for FMCG streamline supply chain management, optimize inventory, improve efficiency and enable real-time decision-making.',
