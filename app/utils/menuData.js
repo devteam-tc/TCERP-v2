@@ -98,7 +98,7 @@ export const menuData = [
     
     {
       label: 'Products',
-      href: '/all-products',
+      href: '/products',
       children: [
         {
           submenu: [
@@ -120,13 +120,13 @@ export const menuData = [
       href: '/business-intelligence' },
     {
       label: 'Services',
-      href: '/all-services',
+      href: '/services',
       children: [
         {
           submenu: [
-            { label: 'Digital Marketing', href: 'services/digital-marketing' },
-            { label: 'Web Development', href: 'services/web-development' },
-            { label: 'Mobile Application Development', href: 'services/mobile-application-development' },
+            { label: 'Digital Marketing', href: '/services/digital-marketing' },
+            { label: 'Web Development', href: '/services/web-development' },
+            { label: 'Mobile Application Development', href: '/services/mobile-application-development' },
           ],
         }
       ],
