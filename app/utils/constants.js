@@ -1122,6 +1122,10 @@ export const sectionsData = {
       heading: "Tech Cloud ERP Products",
       description: "Tech Cloud ERP is an all-in-one cloud platform that integrates ERP, CRM, POS, Trading, E-commerce, HRM and Accounting Software to streamline operations, improve customer relationships and automate key business processes, all from a unified system.",
     },
+    'ContactUs_content':{
+      heading: "Contact us",
+      description :"Connect with our team today to discover how our expert ERP guidance can streamline your business operations and drive growth. Get in touch now to unlock your business potential.",
+      },
   };
 
   export const industriesDataList = {
@@ -2977,4 +2981,142 @@ export const coFoundersData = [
     { number: '38K+', text: 'Professionals', icon: <FaUserTie  /> },
   ];
 
-  
+  export const contactData = {
+    corporateOffice: {
+      address: "Office Unit No. 705, Jain Sadguru Capital Park Madhapur, Hyderabad-500081",
+      phoneNumber: "+91 8919439603",
+      email: "info@techclouderp.com",
+    },
+    headquarters: {
+      phoneNumber: "+1 (312) 766-3390",
+      address: "  1101, E Bell Street, Suite-E, Bloomington, IL - 61701.",
+      email: "contact@techclouderp.com",
+    },
+  };
+
+
+
+  export const regions = [
+    {
+      title: 'India',
+      cities: [
+        {
+          name: 'Hyderabad',
+          mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2634991537893!2d78.38372387594076!3d17.44709790108069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb910d8d1c4f8b%3A0x6ef1b184af90fa3f!2sCapital%20Park!5e0!3m2!1sen!2sus!4v1731043718127!5m2!1sen!2sus',
+          address: 'Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur, Hyderabad, Telangana, India-500081.',
+          email: 'info@techclouderp.com',
+          phone: '+91 8919439603',
+        },
+        {
+          name: 'Coimbatore',
+          mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3916.198273209867!2d77.00275377504545!3d11.0237456891404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDAxJzI1LjUiTiA3N8KwMDAnMTkuMiJF!5e0!3m2!1sen!2sin!4v1731044790506!5m2!1sen!2sin',
+          address: 'MayFlower Signature, Office No. 7C, 531-537 , Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004.', 
+          email: 'info@techclouderp.com',
+          phone: '+91 9159044666',
+        },
+        {
+          name: 'Chennai',
+          mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3887.1930149392415!2d80.20511247507736!3d13.023377387296796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAxJzI0LjIiTiA4MMKwMTInMjcuNyJF!5e0!3m2!1sen!2sin!4v1731043909152!5m2!1sen!2sin',
+          address: 'North Gate, NP 11, Developed PLot,Thiru Vi-Ka Industrial Estate,Ekkathuthangal, Chennai, TamilNadu - 600035.', 
+          email: 'info@techclouderp.com',
+          phone: '+91 9159044666',
+        },
+        {
+          name: 'Indore',
+          mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.367069331865!2d75.89414307603104!3d22.751755026378873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302aa5e382429%3A0xcc759bbcdf086959!2sNRK%20Business%20Park!5e0!3m2!1sen!2sus!4v1731043840362!5m2!1sen!2sus',
+          address: 'Unit No 903-B, NRK Business Park, Vijay Nagar, Indore, Madhya Pradesh - 452010.', 
+          email: 'info@techclouderp.com',
+          phone: '+91 8919439603',
+        },
+      ],
+    },
+    {
+      title: 'USA',
+      cities: [
+        {
+          name: 'Illinois',
+          mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.133293017857!2d-88.98461760985107!3d40.472316078600876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b702b59fe7f7b%3A0x70f9e298d95bd2d0!2s1101%20E%20Bell%20St%20e%2C%20Bloomington%2C%20IL%2061701!5e0!3m2!1sen!2sus!4v1731044006414!5m2!1sen!2sus',
+          address: '1101, E Bell Street, Suite-E, Bloomington, IL - 61701.', 
+          email: ' contact@techclouderp.com',
+          phone: '+ (312) 766-3390',
+        },
+      ],
+    },
+  ];
+
+
+  export const sliderData = [
+    {
+      title: 'ERP Software',
+      description: 'Make better business decisions with the world\'s leading ERP software, optimizing operations through data and analytics.',
+      linkText: 'Explore',
+      link: '/products/tech-cloud-erp', 
+    },
+    {
+      title: 'CRM Software',
+      description: 'Enhance customer relationships with the world\'s leading CRM software, leveraging data and analytics for success.',
+      linkText: 'Explore',
+      link: '/products/customer-relationship-management',
+    },
+    {
+      title: 'POS Software',
+      description: 'Simplify transactions with the world\'s leading POS software, leveraging data and analytics.',
+      linkText: 'Explore',
+      link: '/products/point-of-sale', 
+    },
+    {
+      title: 'Trading Software',
+      description: 'Improve market strategies with the world\'s leading trading software, using data and analytics.',
+      linkText: 'Explore',
+      link: '/products/trading-software', 
+    },
+    {
+      title: 'E-Commerce Software',
+      description: 'Scale your business with leading eCommerce software, utilizing data to optimize sales.',
+      linkText: 'Explore',
+      link: '/products/Ecommerce-software', 
+    },
+  ];
+
+
+  export const ReportingSectionContent = {
+    heading: 'Upgrade your reporting.',
+    subText: 'End the days of emailing spreadsheets around and reviewing stale data in meetings.',
+    items: [
+      {
+        title: 'Empower business users',
+        description: 'To analyze data, making sure the right people get the right data.'
+      },
+      {
+        title: 'Send fresh, meaningful data',
+        description: 'To the people who need it, in formats they prefer.'
+      },
+      {
+        title: 'Create alerts',
+        description: 'That automatically notify teams when important data changes.'
+      }
+    ],
+    imageSrc: ("/BI/report_img.webp"),
+    imageAlt: 'Report Summary'
+  };
+
+
+
+
+  export const industryData = [
+    { title: "Agriculture", icon: <FaLeaf /> },
+    { title: "Beverage", icon: <FaBeer /> },
+    { title: "Chemical", icon: <FaIndustry /> },
+    { title: "Educational", icon: <FaGraduationCap /> },
+    { title: "Electric", icon: <FaBolt /> },
+    { title: "Food", icon: <FaPizzaSlice /> },
+    { title: "Furniture", icon: <FaCouch /> },
+    { title: "Garment", icon: <FaTshirt /> },
+    { title: "Jewellery", icon: <FaGem /> },
+    { title: "Leather", icon: <FaBriefcase /> }, // Updated
+    { title: "Logistics", icon: <FaTruck /> },
+    { title: "Wood", icon: <FaTree /> },
+    { title: "Paper", icon: <FaBook /> },
+    { title: "Printing", icon: <FaPrint /> }, // Updated
+    { title: "Plastic", icon: <FaRecycle /> }, // Updated
+  ];
