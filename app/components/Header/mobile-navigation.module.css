@@ -26,7 +26,6 @@ Mobile
     height: 115vh;
     z-index: 100;
     padding: 10px;
-  
     overflow-y: auto;
     transition: 0.5s;
     transform: translateX(-100%);

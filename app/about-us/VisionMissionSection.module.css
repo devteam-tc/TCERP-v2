@@ -1,0 +1,49 @@
+.section {
+    padding: 50px 0;
+    background-color: #fff;
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+  
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .orangeBorder {
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
+    z-index: -1;
+  }
+  
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  
+  @media (max-width: 992px) {
+    .textContainer {
+      padding-left: 0;
+    }
+  }
+  
+  .title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ef5226;
+  }
+  
+  .text {
+    font-size: 18px;
+    text-align: justify;
+    line-height: 22px;
+    margin-bottom: 40px;
+  }
+  

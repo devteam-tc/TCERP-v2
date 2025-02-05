@@ -1,13 +1,3 @@
-// import ProductPage from './ProductPage'; // Adjust the path as needed
-// import { productData } from '../../utils/constants';
-
-// export function generateStaticParams() {
-//   return Object.keys(productData).map((slug) => ({ slug }));
-// }
-
-// export default function ProductPageWrapper({ params }) {
-//   return <ProductPage slug={params.slug} />;
-// }
 
 
 import ProductPage from './ProductPage'; // Adjust the path as needed

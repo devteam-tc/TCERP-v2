@@ -1,0 +1,145 @@
+.section {
+  padding: 60px 0;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.divider {
+  width: 50px;
+  height: 4px;
+  background: #05a7cc;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #4a5568;
+  text-align: justify;
+}
+
+.descriptionContainer {
+  background: #fff7f4;
+  padding: 5rem;
+}
+
+@media screen and (max-width: 992px) {
+  .descriptionContainer {
+    padding: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.text {
+  font-size: 1.125rem;
+  color: #4a5568;
+  text-align: justify;
+}
+
+.animatedImage {
+  width: 75%;
+  transition: transform 0.5s ease-in-out;
+  animation: upDownAnimation 3s ease-in-out infinite;
+}
+
+.animatedImage:hover {
+  transform: scale(1.05);
+}
+
+@keyframes upDownAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.sectionWrapper {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.cardWrapper {
+  box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px,
+              rgba(173, 216, 230, 0.7) 0px 6px 6px;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cardImage {
+  width: 40px;
+  height: 40px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-left: 15px;
+}
+
+.cardText {
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.01em;
+  color: #393939;
+  margin-top: 10px;
+}
+
+.faqContainer {
+  padding: 5rem;
+  background: #fff7f4;
+}
+
+.faqItem {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.questionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.question {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.answer {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.icon {
+  color: #e55300;
+}

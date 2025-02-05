@@ -1,0 +1,55 @@
+.whyTechCloudERPContainer {
+  padding: 50px 0;
+}
+
+@media (max-width: 768px) {
+  .whyTechCloudERPContainer {
+    padding: 30px 15px;
+  }
+}
+
+.imageContainer {
+  text-align: center;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title Styling */
+.title {
+  color: #ef5226;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+}
+
+.textContainer p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .textContainer p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,67 @@
+.sectionContainer {
+    padding: 60px 0;
+    background: #F4FDFF;
+    text-align: center;
+}
+
+.Title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e55039;
+    margin-top: 10px;
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.styledCard {
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px,
+                rgba(173, 216, 230, 0.7) 0px 6px 6px;
+    padding: 20px;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e55039;
+    margin-top: 10px;
+}
+
+.cardSubtitle {
+    font-size: 1rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.cardText {
+    font-size: 1rem;
+    color: #666;
+    text-align: justify;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* ✅ Social Icons */
+.socialIcons {
+    font-size: 1.2rem;
+    color: #e55039;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.socialIcons > div {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.socialIcons > div:hover {
+    color: #000;
+}

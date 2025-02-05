@@ -1,0 +1,108 @@
+.sectionWrapper {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px, 
+                rgba(173, 216, 230, 0.7) 0px 6px 6px;
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .sectionWrapper {
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+    }
+  }
+  
+  .textSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left: 2vw;
+  }
+  
+  .textSection h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  
+  .textSection p {
+    color: #4a4a4a;
+    margin-bottom: 16px;
+    width: 50%;
+  }
+  
+  .textSection button {
+    background: linear-gradient(90deg, #ef5226 0%, #892f16 100%);
+    border: none;
+  }
+  
+  .textSection button:hover {
+    background-color: #d32f2f;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .textSection {
+      padding-top: 2vh;
+    }
+  
+    .textSection h1 {
+      font-size: 1.5rem;
+    }
+  
+    .textSection p {
+      font-size: 1rem;
+      width: 100%;
+    }
+  
+    .textSection button {
+      font-size: 1rem;
+      margin-bottom: 5vh;
+    }
+  }
+  
+  .statsSection {
+    background: linear-gradient(180deg, #e13e11 0%, #aa3a1b 100%);
+    color: white;
+    padding: 60px;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .statsSection {
+      border-radius: 0;
+    }
+  }
+  
+  .statsSection h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .statsSection h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .statsSection ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .statsSection li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .statsSection li span {
+    white-space: nowrap;
+  }
+  

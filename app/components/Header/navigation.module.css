@@ -137,12 +137,22 @@
   }
   
   /* Responsive styles */
-  @media (min-width: 996px) {
+  /* @media (min-width: 996px) {
     .hiddenOnMobile {
       display: block;
     }
     .hiddenOnDesktop {
       display: none;
     }
+  } */
+/* Hide on larger screens */
+.hiddenOnDesktop {
+  display: none !important;
+}
+
+/* Show only on screens smaller than 992px */
+@media (max-width: 992px) {
+  .hiddenOnDesktop {
+    display: block !important;
   }
-  
+}

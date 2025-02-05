@@ -6,7 +6,7 @@
         "description": "Grow your Apparel business with our Advanced ERP Software.",
         "keywords": "Apparel ERP Software, ERP System, Apparel Inventory Management Software, Apparel Manufacturing Software, Clothing Manufacturing Software, Apparel Management Software, Apparel Inventory Software"
       },
-      "automtaive-industry": {
+      "automative-industry": {
         "title": "Best Automotive industry software | TechCloud ERP",
         "description": "Explore automotive software designed for the automotive industry. Simplify processes, enhance efficiency, and drive growth with Tech Cloud ERP",
         "keywords": "automotive it solutions, automotive industry solutions, automotive crm software,automotive industry software"
@@ -172,82 +172,81 @@
         "keywords": "Textile erp, Textile industry software, erp for textile industry, textile erp software, Textile industry erp"
       }
 
+  },
+  "products": {
+    "tech-cloud-erp": {
+      "title": "Tech Cloud ERP Products | All-in-One Solutions for Business Growth",
+      "description": "Explore Tech Cloud ERP solutions to streamline operations, boost efficiency, and drive business growth.",
+      "keywords": "Tech cloud erp, Tech Cloud, best cloud based erp software,"
     },
-    "products": {
-      "tech-cloud-erp": {
-        "title": "Tech Cloud ERP Products | All-in-One Solutions for Business Growth",
-        "description": "Explore Tech Cloud ERP solutions to streamline operations, boost efficiency, and drive business growth.",
-        "keywords": "Tech cloud erp, Tech Cloud, best cloud based erp software,"
-      },
-      "customer-relationship-management": {
-        "title": "CRM Software | Elevate Sales & Optimize Customer Engagement",
-        "description": "CRM software empowers businesses to strengthen relationships, improve communication, and increase revenue. Start your transformation today!",
-        "keywords": "What is Customer Relationship Management, What is CRM, Customer Relationship Management, crm software, crm management software, best crm software, crm system"
-      },
-      "point-of-sale": {
-        "title": "Transform Retail Operations with Advanced POS Software",
-        "description": "Get free POS software in India for your retail store. Simplify operations and enhance your customer experience effortlessly",
-        "keywords": "POS Software, Point of Sale Software, pos billing software, retail pos software india, best pos software in india, download pos software, best pos billing software in india, best retail pos software in india, pos software india, point of sale software india, free pos software india, pos software for retail stores in india"
-      },
-      "trading-software": {
-        "title": "Best Trading Software for Enhanced Business Efficiency",
-        "description": "Manage your trading seamlessly with the best futures trading platform. Enhance efficiency, accuracy, and profitability with top-notch software.",
-        "keywords": "Trading Software, best futures trading platform"
-      },
-      "Ecommerce-software": {
-        "title": "Best E-Commerce Software for Small Business Success",
-        "description": "Build an online store for your business with powerful e-commerce software. Simplify operations with inventory management and ERP integration.",
-        "keywords": "Build an online store for your ecommerce business, E-commerce software, erp system ecommerce, best ecommerce platform for small business, e commerce platforms, ecommerce inventory management software, ecommerce inventory software"
-      },
-      "hr-managament-software": {
-        "title": "Transform Your Workforce Management with Cloud Solutions",
-        "description": "Techcloud HRMS solutions provide data security, automation, and scalability to enhance HR effectiveness and employee experience.",
-        "keywords": "human resources management system, HCM, hr management, erp software, best hr software, best hr systems"
-      },
-      "financial-management-systemst": {
-        "title": "Discover How Techcloud ERP Improves Financial Management and Cash Flow",
-        "description": "Learn how TechCloud ERP’s Financial Management System automates processes, improves cash flow, and enhances financial reporting for your business.",
-        "keywords": "Financial Management System, financial management software, personal finance management software, personal money management software, finance, accounting, erp financial management tools, cloud financial management"
-      },
-      "integrated-erp-software": {
-        "title": "What Is ERP Integration? | Integrated ERP System Explained",
-        "description": "Explore the power of integrated ERP systems that unify business processes, boost collaboration, and provide real-time insights for smarter decisions.",
-        "keywords": "ERP Integration, What is an ERP Integration"
-      },
-      "erp-for-restaraunt": {
-        "title": "Restaurant Management Software | Comprehensive Restaurant ERP Solution",
-        "description": "Our restaurant ERP solution enables managers to streamline and automate key aspects of inventory management, monitor purchase orders, and more.",
-        "keywords": "ERP for restaurants, Restaurant ERP, Restaurant ERP software, Restaurant ERP Systems"
-      },
-      "erp-for-accounting-software": {
-        "title": "Best Accouting software for your business | Tech Cloud ERP",
-        "description": "Optimize financial operations and ensure accuracy with ERP in finance and accounting. Simplify workflows, enhance decision-making, and drive business growth today",
-        "keywords": "erp in finance and accounting, erp for finance and accounting, ERP for Accounting and Financial Management"
-      }
+    "customer-relationship-management": {
+      "title": "CRM Software | Elevate Sales & Optimize Customer Engagement",
+      "description": "CRM software empowers businesses to strengthen relationships, improve communication, and increase revenue. Start your transformation today!",
+      "keywords": "What is Customer Relationship Management, What is CRM, Customer Relationship Management, crm software, crm management software, best crm software, crm system"
     },
-    "services": {
-      "digital-marketing": {
-        "title": "Enhance Your Brand with Expert Digital Marketing Services | TechCloud ERP",
-        "description": "Unlock growth with tailored digital marketing services. From SEO to social media, we deliver strategies that drive traffic, engagement, and results.",
-        "keywords": "Digital Marketing Services, Digital Marketing company, marketing digital marketing, online digital marketing, marketing agency near me"
-      },
-      "web-development": {
-        "title": "Professional Web Design Services |  Tech Cloud ERP",
-        "description": "Enhance your business with tailored web development services. Integrate ERP solutions from TechCloud ERP for efficient and scalable operations.",
-        "keywords": "Web Development Services, website development company, web developers near me, website development company, web development firm, Best Website Development Services, Website Development company in india"
-     },
-      "mobile-application-development": {
-      "title": "Advanced Mobile App Development Services | TechCloud ERP",
-      "description": "Transform your business with TechCloud ERP's expert Mobile App Development. Scalable, innovative apps designed to meet your business goals.",
-      "keywords": "Mobile App Development Services, app development, mobile app development, mobile app development company"
+    "point-of-sale": {
+      "title": "Transform Retail Operations with Advanced POS Software",
+      "description": "Get free POS software in India for your retail store. Simplify operations and enhance your customer experience effortlessly",
+      "keywords": "POS Software, Point of Sale Software, pos billing software, retail pos software india, best pos software in india, download pos software, best pos billing software in india, best retail pos software in india, pos software india, point of sale software india, free pos software india, pos software for retail stores in india"
+    },
+    "trading-software": {
+      "title": "Best Trading Software for Enhanced Business Efficiency",
+      "description": "Manage your trading seamlessly with the best futures trading platform. Enhance efficiency, accuracy, and profitability with top-notch software.",
+      "keywords": "Trading Software, best futures trading platform"
+    },
+    "Ecommerce-software": {
+      "title": "Best E-Commerce Software for Small Business Success",
+      "description": "Build an online store for your business with powerful e-commerce software. Simplify operations with inventory management and ERP integration.",
+      "keywords": "Build an online store for your ecommerce business, E-commerce software, erp system ecommerce, best ecommerce platform for small business, e commerce platforms, ecommerce inventory management software, ecommerce inventory software"
+    },
+    "hr-managament-software": {
+      "title": "Transform Your Workforce Management with Cloud Solutions",
+      "description": "Techcloud HRMS solutions provide data security, automation, and scalability to enhance HR effectiveness and employee experience.",
+      "keywords": "human resources management system, HCM, hr management, erp software, best hr software, best hr systems"
+    },
+    "financial-management-systemst": {
+      "title": "Discover How Techcloud ERP Improves Financial Management and Cash Flow",
+      "description": "Learn how TechCloud ERP’s Financial Management System automates processes, improves cash flow, and enhances financial reporting for your business.",
+      "keywords": "Financial Management System, financial management software, personal finance management software, personal money management software, finance, accounting, erp financial management tools, cloud financial management"
+    },
+    "integrated-erp-software": {
+      "title": "What Is ERP Integration? | Integrated ERP System Explained",
+      "description": "Explore the power of integrated ERP systems that unify business processes, boost collaboration, and provide real-time insights for smarter decisions.",
+      "keywords": "ERP Integration, What is an ERP Integration"
+    },
+    "erp-for-restaraunt": {
+      "title": "Restaurant Management Software | Comprehensive Restaurant ERP Solution",
+      "description": "Our restaurant ERP solution enables managers to streamline and automate key aspects of inventory management, monitor purchase orders, and more.",
+      "keywords": "ERP for restaurants, Restaurant ERP, Restaurant ERP software, Restaurant ERP Systems"
+    },
+    "erp-for-accounting-software": {
+      "title": "Best Accouting software for your business | Tech Cloud ERP",
+      "description": "Optimize financial operations and ensure accuracy with ERP in finance and accounting. Simplify workflows, enhance decision-making, and drive business growth today",
+      "keywords": "erp in finance and accounting, erp for finance and accounting, ERP for Accounting and Financial Management"
     }
+  },
+  "services": {
+    "digital-marketing": {
+      "title": "Enhance Your Brand with Expert Digital Marketing Services | Tech Cloud ERP",
+      "description": "Unlock growth with tailored digital marketing services. From SEO to social media, we deliver strategies that drive traffic, engagement, and results.",
+      "keywords": "Digital Marketing Services, Digital Marketing company, marketing digital marketing, online digital marketing, marketing agency near me"
     },
-    "about-us": {
-      "about-us":{
-      "title": "About Tech Cloud ERP | Leading Cloud-Based ERP Solutions in India",
-      "description": "Discover Tech Cloud ERP, a Hyderabad-based company offering scalable and user-friendly cloud ERP solutions to streamline business operations across industries in India.",
-      "keywords": "ERP software solution in hyderabad, Best ERP Solutions Provider in India, cloud-based ERP solutions provider in India, Manufacturing ERP, Manufacturing Software, Production ERP, Production Software, Manufacturing ERP software, Production ERP software"
-    }
+    "web-development": {
+      "title": "Professional Web Design Services |  Tech Cloud ERP",
+      "description": "Enhance your business with tailored web development services. Integrate ERP solutions from TechCloud ERP for efficient and scalable operations.",
+      "keywords": "Web Development Services, website development company, web developers near me, website development company, web development firm, Best Website Development Services, Website Development company in india"
+   },
+    "mobile-application-development": {
+    "title": "Advanced Mobile App Development Services | Tech Cloud ERP",
+    "description": "Transform your business with TechCloud ERP's expert Mobile App Development. Scalable, innovative apps designed to meet your business goals.",
+    "keywords": "Mobile App Development Services, app development, mobile app development, mobile app development company"
+  }
+  },
+  "about-us": {
+    "about-us":{
+    "title": "About Tech Cloud ERP | Leading Cloud-Based ERP Solutions in India",
+    "description": "Discover Tech Cloud ERP, a Hyderabad-based company offering scalable and user-friendly cloud ERP solutions to streamline business operations across industries in India.",
+    "keywords": "ERP software solution in hyderabad, Best ERP Solutions Provider in India, cloud-based ERP solutions provider in India, Manufacturing ERP, Manufacturing Software, Production ERP, Production Software, Manufacturing ERP software, Production ERP software"
   }
 }
-  
+}

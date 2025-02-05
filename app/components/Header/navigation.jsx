@@ -62,50 +62,17 @@ const Navigation = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              {/* <FaPhone size={24} />
-              {showPhoneDropdown && (
-                <div className={navigationStyles.dropdownContent}>
-                  <a className={navigationStyles.dropdownItem} href="tel:+91 8919439603">
-                    <ReactCountryFlag countryCode="IN" svg style={{ width: '24px', height: '18px' }} />
-                    <span>+91 8919439603</span>
-                  </a>
-                  <a className={navigationStyles.dropdownItem} href="tel:+13127663390">
-                    <ReactCountryFlag countryCode="US" svg style={{ width: '24px', height: '18px' }} />
-                    <span>+1 (312) 766-3390</span>
-                  </a>
-                </div>
-              )} */}
             </div>
-            <button
-              ref={drawerButtonRef}
-              className={styles.menuIcon}
-              aria-haspopup="true"
-              onClick={() => setIsDrawerOpen(true)}
-            >
-              <AlignJustify />
-            </button>
-            {/* Social Media Icons */}
-            {/* <div className={styles.socialMediaIcons}>
-              <a href="https://www.instagram.com/techclouderp/?hl=en" target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
-              </a>
-              <a href="https://www.facebook.com/TechCloudERPSoftwareSolutions" target="_blank" rel="noopener noreferrer">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.linkedin.com/company/13619340/admin/feed/posts/" target="_blank" rel="noopener noreferrer">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://in.pinterest.com/techclouderp/" target="_blank" rel="noopener noreferrer">
-                <FaPinterest />
-              </a>
-              <a href="https://www.youtube.com/channel/UChUCWRHTzZkYEPRR-AauNkA" target="_blank" rel="noopener noreferrer">
-                <FaYoutube />
-              </a>
-              <a href="https://twitter.com/TechCloudERP" target="_blank" rel="noopener noreferrer">
-                <FaXTwitter />
-              </a>
-            </div> */}
-            {/* Mobile navigation drawer */}
+            <div className={navigationStyles.hiddenOnDesktop}>
+          <button
+            ref={drawerButtonRef}
+            className={styles.menuButton} // Optional: Use a class for styling
+            aria-haspopup="true"
+            onClick={() => setIsDrawerOpen(true)}
+          >
+            <AlignJustify />
+          </button>
+        </div>
             <div className={styles.hiddenOnDesktop}>
               <MobileNavigationDrawer
                 {...{ isDrawerOpen, setIsDrawerOpen, drawerButtonRef }}
