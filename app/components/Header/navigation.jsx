@@ -51,7 +51,7 @@ const Navigation = () => {
         <div className={styles.container}>
           <div className={styles.toolbar}>
             <Link href={'/'} className={styles.logo__link} onClick={() => window.scrollTo(0, 0)}>
-              <Image src="/logo.webp" height={80} width={200} alt="Tech Cloud ERP Logo" />
+              <img src="/logo.webp" height={80} width={200} alt="Tech Cloud ERP Logo" />
             </Link>
             <div className={styles.hiddenOnMobile} >
               <MegaMenu />

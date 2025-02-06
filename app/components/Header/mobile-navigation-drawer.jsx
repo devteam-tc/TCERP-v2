@@ -62,7 +62,7 @@ const MobileNavigationDrawer = ({
 
       <div className={`${styles.drawer_content} ${isDrawerOpen ?  `${styles.active}`  : 'none'}`}>
         <div className={styles.close_drawer}>
-          <Image
+          <img
             src="./logo.webp"
             alt="MobileLogoImg"
             width={200}

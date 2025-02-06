@@ -1,0 +1,67 @@
+/* app/components/AllProductsSection.module.css */
+
+.section {
+    padding: 40px 0;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    color: #ef5226;
+  }
+  
+  .divider {
+    width: 50px;
+    height: 4px;
+    background-color: #ef5226;
+    margin: 10px 0;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card {
+    margin: 15px;
+    border: none;
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px, rgba(173, 216, 230, 0.7) 0px 6px 6px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .cardBody {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .exploreLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #ef5226;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .exploreArrow {
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+  

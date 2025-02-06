@@ -13,7 +13,7 @@ import { TbLayoutGridAdd } from 'react-icons/tb';
 import { FaArrowsRotate } from "react-icons/fa6"; // Corrected FaGroupArrowsRotate
 
 export const releavant = {
-  logo: "/logo.webp",
+  
   testimonials_bg: "/home/testimonials_bg.webp",
   Quotation_mark: "/home/Quotation_mark.webp",
   ourMission: {
@@ -342,8 +342,8 @@ export const sectionsData = {
       },
   ]
   },
-  "FMCG-industry": {
-    link: '/industries/FMCG-industry',
+  "fmcg-industry": {
+    link: '/industries/fmcg-industry',
     heading: 'FMCG Industry',
     subheading:'The Best ERP For FMCG Industry',
     description: 'Our ERP solutions for FMCG streamline supply chain management, optimize inventory, improve efficiency and enable real-time decision-making.',
@@ -2855,7 +2855,29 @@ export const sectionsData = {
       "You get direct access to real-time data and enjoy some of the best reporting tools available with Tech Cloud ERP, as it drives your insights in making informed decisions. With an easy user interface, there is easy adoption and integration to any team right away with improved workflows."
     ],
   };
-  
+  export const servicesContent = [
+    {
+      title: "Digital Marketing",
+      description1: "Digital marketing refers to the promotion of products or services through digital channels like search engines, social media, email and websites. It involves strategies and tactics to connect with a target audience online and achieve business objectives.",
+      description2: "Digital marketing is important because it helps businesses reach a larger audience and drive engagement through online channels. It allows businesses to target specific audiences and measure the effectiveness of their marketing strategies.",
+      buttonText: "Read more",
+      imageUrl: '/Services/digital.webp'
+    },
+    {
+      title: "Web Development",
+      description1: "In today's digitized marketing environment, online promotion is essential. Advertisers must use digital marketing tools and techniques to enhance customer value and achieve organizational goals. At Tech Cloud ERP Software Solutions, we boost your global online visibility and profits through effective internet marketing strategies.",
+      description2: "Our digital marketing experts excel with web analysis tools, live traffic and ad creation to attract customers. ",
+      buttonText: "Read more",
+      imageUrl: '/Services/web-app.webp'
+    },
+    {
+      title: "Mobile Application Development",
+      description1: "Mobile app development means that designing or developing an application software whose primary function or purpose will be run within a smartphone or mobile phone and tabloid. Achieve a frictionless intuitive use experience such that an app runs naturally on whatever version of either iOS or Android.",
+      description2: "Cross-platform development is the development of the application using one codebase but runs on multiple platforms. This cross-platform would, thus, eliminate the need to write redundant codes on various platforms and therefore reduce development time and cost; it would mean that the same application was developed for running on iOS and Android.",
+      buttonText: "Read more",
+      imageUrl: '/Services/mobile-app.webp'
+    }
+  ];
   export const ExpertiseData = [
     {
       icon: FiEye,
@@ -3053,32 +3075,80 @@ export const coFoundersData = [
       link: '/products/tech-cloud-erp', 
     },
     {
-      title: 'CRM Software',
-      description: 'Enhance customer relationships with the world\'s leading CRM software, leveraging data and analytics for success.',
+      title: "CRM",
+      description: "Manages customer interactions and data, enhancing sales, service and relationships for stronger customer connections.",
+      image: "/Products/crm-pdt.webp",
       linkText: 'Explore',
-      link: '/products/customer-relationship-management',
+      link: '/products/customer-relationship-management', 
     },
     {
-      title: 'POS Software',
-      description: 'Simplify transactions with the world\'s leading POS software, leveraging data and analytics.',
+      title: "POS",
+      description: "Ensures secure sales transactions, integrates with inventory and customer data and provides real-time updates for efficiency.",
+      image: "/Products/pos-pdt.webp",
       linkText: 'Explore',
       link: '/products/point-of-sale', 
     },
     {
-      title: 'Trading Software',
-      description: 'Improve market strategies with the world\'s leading trading software, using data and analytics.',
+      title: "Trading Software",
+      description: "It helps optimize procurement, inventory and order management with real-time tracking, thus enhancing workflows automatically.",
+      image: "/Products/trading-pdt.webp",
       linkText: 'Explore',
       link: '/products/trading-software', 
     },
     {
-      title: 'E-Commerce Software',
-      description: 'Scale your business with leading eCommerce software, utilizing data to optimize sales.',
+      title: "E-commerce",
+      description: "Online stores management with product catalogs, payment systems and real-time updates to improve customer experience.",
+      image: "/Products/ecommerce-pdt.webp",
       linkText: 'Explore',
       link: '/products/Ecommerce-software', 
     },
+    {
+      title: "HRM",
+      description: "It automates payroll, attendance, recruitment and performance management for an efficient workforce while keeping track of compliance.",
+      image: "/Products/hrms-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/hr-managament-software', 
+    },
+    {
+      title: "ERP Integrated-With-CRM-Ecommerce-POS",
+      description: "Sales, inventory and customer data are integrated, enabling automation and improving efficiency.",
+      image: "/Products/integrated-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/integrated-erp-software', 
+    },
+    {
+      title: "Restaurant ERP",
+      description: "The integration of order management, inventory, HR and accounting automates tasks for efficient restaurant operations and service delivery.",
+      image: "/Products/resturant-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/erp-for-restaraunt', 
+    },
+    {
+      title: "Accounting Software",
+      description: "Automates bookkeeping, invoicing, tax calculations and legal compliance, providing real-time financial insights and streamlined management.",
+      image: "/Products/accounting-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/erp-for-accounting-software', 
+    },
   ];
-
-
+  export const industryData = [
+    { title: "Agriculture", icon: <FaLeaf /> },
+    { title: "Beverage", icon: <FaBeer /> },
+    { title: "Chemical", icon: <FaIndustry /> },
+    { title: "Educational", icon: <FaGraduationCap /> },
+    { title: "Electric", icon: <FaBolt /> },
+    { title: "Food", icon: <FaPizzaSlice /> },
+    { title: "Furniture", icon: <FaCouch /> },
+    { title: "Garment", icon: <FaTshirt /> },
+    { title: "Jewellery", icon: <FaGem /> },
+    { title: "Leather", icon: <FaBriefcase /> }, // Updated
+    { title: "Logistics", icon: <FaTruck /> },
+    { title: "Wood", icon: <FaTree /> },
+    { title: "Paper", icon: <FaBook /> },
+    { title: "Printing", icon: <FaPrint /> }, // Updated
+    { title: "Plastic", icon: <FaRecycle /> }, // Updated
+  ];
+  
   export const ReportingSectionContent = {
     heading: 'Upgrade your reporting.',
     subText: 'End the days of emailing spreadsheets around and reviewing stale data in meetings.',
@@ -3100,23 +3170,68 @@ export const coFoundersData = [
     imageAlt: 'Report Summary'
   };
 
-
-
-
-  export const industryData = [
-    { title: "Agriculture", icon: <FaLeaf /> },
-    { title: "Beverage", icon: <FaBeer /> },
-    { title: "Chemical", icon: <FaIndustry /> },
-    { title: "Educational", icon: <FaGraduationCap /> },
-    { title: "Electric", icon: <FaBolt /> },
-    { title: "Food", icon: <FaPizzaSlice /> },
-    { title: "Furniture", icon: <FaCouch /> },
-    { title: "Garment", icon: <FaTshirt /> },
-    { title: "Jewellery", icon: <FaGem /> },
-    { title: "Leather", icon: <FaBriefcase /> }, // Updated
-    { title: "Logistics", icon: <FaTruck /> },
-    { title: "Wood", icon: <FaTree /> },
-    { title: "Paper", icon: <FaBook /> },
-    { title: "Printing", icon: <FaPrint /> }, // Updated
-    { title: "Plastic", icon: <FaRecycle /> }, // Updated
+  export const modulesData = [
+    {
+      title: "ERP",
+      description: "Integrates finance, HR and inventory into one system, automating processes and boosting efficiency for better decision-making.",
+      image: "/Products/products_main_img.webp",
+      linkText: 'Explore',
+      link: '/products/tech-cloud-erp', 
+    },
+    {
+      title: "CRM",
+      description: "Manages customer interactions and data, enhancing sales, service and relationships for stronger customer connections.",
+      image: "/Products/crm-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/customer-relationship-management', 
+    },
+    {
+      title: "POS",
+      description: "Ensures secure sales transactions, integrates with inventory and customer data and provides real-time updates for efficiency.",
+      image: "/Products/pos-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/point-of-sale', 
+    },
+    {
+      title: "Trading Software",
+      description: "It helps optimize procurement, inventory and order management with real-time tracking, thus enhancing workflows automatically.",
+      image: "/Products/trading-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/trading-software', 
+    },
+    {
+      title: "E-commerce",
+      description: "Online stores management with product catalogs, payment systems and real-time updates to improve customer experience.",
+      image: "/Products/ecommerce-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/Ecommerce-software', 
+    },
+    {
+      title: "HRM",
+      description: "It automates payroll, attendance, recruitment and performance management for an efficient workforce while keeping track of compliance.",
+      image: "/Products/hrms-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/hr-managament-software', 
+    },
+    {
+      title: "ERP Integrated-With-CRM-Ecommerce-POS",
+      description: "Sales, inventory and customer data are integrated, enabling automation and improving efficiency.",
+      image: "/Products/integrated-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/integrated-erp-software', 
+    },
+    {
+      title: "Restaurant ERP",
+      description: "The integration of order management, inventory, HR and accounting automates tasks for efficient restaurant operations and service delivery.",
+      image: "/Products/resturant-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/erp-for-restaraunt', 
+    },
+    {
+      title: "Accounting Software",
+      description: "Automates bookkeeping, invoicing, tax calculations and legal compliance, providing real-time financial insights and streamlined management.",
+      image: "/Products/accounting-pdt.webp",
+      linkText: 'Explore',
+      link: '/products/erp-for-accounting-software', 
+    },
   ];

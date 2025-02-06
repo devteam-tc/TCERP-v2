@@ -48,7 +48,7 @@ export const menuData = [
           submenu: [
             {
               label: 'FMCG Industry',
-              href: '/industries/FMCG-industry',
+              href: '/industries/fmcg-industry',
             },
             { label: 'Food Industry', 
               href: '/industries/food-industry' },
@@ -184,7 +184,7 @@ export const metaInfo = [
       "description": "Tech Cloud ERP offers tailored ERP solutions for the electronics industry to boost efficiency, reduce costs, and streamline production processes.",
       "keywords": "Electronics industry,Best ERP Software for Electronics Manufacturing Industry,Electronics Manufacturing Software,ERP for Electronics"
     },
-    "FMCG-industry": {
+    "fmcg-industry": {
       "title": "Custom ERP Solutions for the FMCG Industry | Empower Growth",
       "description": "Tech Cloud  ERP offers the best FMCG software with advanced inventory, accounting, and billing features.",
       "keywords": "ERP software for FMCG industry, FMCG ERP Software, ERP for FMCG Business"

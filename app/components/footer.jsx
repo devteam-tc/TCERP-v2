@@ -19,7 +19,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={8} xl={3} sm={12}>
-            <Image
+            <img
               src="/logo.webp"
               alt="Tech Cloud ERP Logo"
               width={180}
@@ -40,14 +40,14 @@ const Footer = () => {
               <li><Link href="/features">Our Features</Link></li>
               <li><Link href="/">Our Blogs</Link></li>
               <li><Link href="/ourbranches">Our Branches</Link></li>
-              <li><Link href="/all-products">All Products</Link></li>
+              <li><Link href="/products">All Products</Link></li>
               <li><Link href="/careers">Careers</Link></li>
             </ul>
           </Col>
           <Col md={4} xl={2} sm={6}>
             <h5 className={styles.footerHeading}>Industries</h5>
             <ul className={styles.footerLinkList}>
-              <li><Link href="/all-industries">All Industries</Link></li>
+              <li><Link href="/industries">All Industries</Link></li>
               <li><Link href="/industries/jewellery-industry">Jewellery</Link></li>
               <li><Link href="/industries/pharma-industry">Pharma</Link></li>
               <li><Link href="/industries/agriculture-industry">Agriculture</Link></li>
@@ -61,7 +61,7 @@ const Footer = () => {
           <h5 className={styles.footerHeading}>Services</h5>
           <ul className={styles.footerLinkList}>
               <li>
-                <Link href="/all-services" >
+                <Link href="/services" >
                   All Services
                 </Link>
               </li>
@@ -71,7 +71,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/services/e-commerce-website" >
+                <Link href="/" >
                   E-Commerce Website
                 </Link>
               </li>
@@ -86,7 +86,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/whatsapp-business" >
+                <Link href="/" >
                   Whatsapp Business
                 </Link>
               </li>
@@ -96,7 +96,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/web-hosting">
+                <Link href="/">
                   Web Hosting
                 </Link>
               </li>
