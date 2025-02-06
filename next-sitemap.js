@@ -1,6 +1,6 @@
 // next-sitemap.js
 module.exports = {
-    siteUrl: 'http://localhost:3000/', // Replace with your domain
+    siteUrl: 'https://svmvavepub.com/', // Replace with your domain
     generateRobotsTxt: true,             // Automatically generate robots.txt
     exclude: [
       '/_next/static/*',                  // Exclude all static chunks

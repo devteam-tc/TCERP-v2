@@ -1,12 +1,18 @@
 {
   "hosting": {
     "public": "out",
+    "cleanUrls": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/industries/:slug",
+        "destination": "/index.html"
+      },
       {
         "source": "**",
         "destination": "/index.html"

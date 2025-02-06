@@ -12,10 +12,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Felis Leo | Redefining Cinema Excellence",
-  description: "Felis Leo Productions excels in quality film production across Tamil, Telugu, Hindi, Malayalam, and Kannada, creating engaging cinematic experiences.",
-};
 
 export default function RootLayout({ children }) {
   return (
