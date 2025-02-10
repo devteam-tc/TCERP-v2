@@ -32,12 +32,17 @@
   }
 }
 
-.title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
+.Title {
+  font-size: 40px;
+  color: rgb(239, 82, 38);
+  margin-bottom: 20px;
 }
-
+.mainTitle{
+  font-size: 40px;
+    color: rgb(239, 82, 38);
+    margin-bottom: 20px;
+    text-align: center;
+}
 .text {
   font-size: 1.125rem;
   color: #4a5568;
@@ -68,9 +73,9 @@
   text-align: center;
 }
 
-.sectionSubtitle {
+.Subtitle {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: bold;
   color: #000;
   margin-bottom: 40px;
 }
@@ -109,37 +114,64 @@
   letter-spacing: 0.01em;
   color: #393939;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.faqContainer {
+
+.FAQContainer {
+  margin: 0 auto;
   padding: 5rem;
   background: #fff7f4;
 }
 
-.faqItem {
+@media screen and (max-width: 992px) {
+  .FAQContainer {
+    padding: 2rem !important;
+  }
+}
+
+.FAQItem {
   border-bottom: 1px solid #ddd;
   padding: 1rem 0;
 }
 
-.questionContainer {
+.QuestionContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  /* padding: 1rem; */
+  /* background: #f9f9f9; */
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
-.question {
-  font-size: 1.125rem;
+/* .QuestionContainer:hover {
+  background: #f0f0f0;
+} */
+.spanpara{
+  color: rgb(5, 167, 204);
+    font-weight: 500;
+}
+.Question {
+  font-size: 1.2rem;
   font-weight: 600;
   color: #333;
 }
 
-.answer {
-  margin-top: 0.75rem;
+.Answer {
+  padding: 1rem;
   font-size: 1rem;
-  color: #4a5568;
+  color: #555;
+  line-height: 1.5;
 }
 
-.icon {
-  color: #e55300;
+.Icon {
+  /* font-size: 1.5rem; */
+  color: #ef5226;
+  transition: transform 0.3s ease-in-out;
+}
+
+.Open {
+  transform: rotate(180deg);
 }

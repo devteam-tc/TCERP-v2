@@ -13,9 +13,10 @@
 /** @type {import('next').NextConfig} */ 
 const nextConfig = {
   output: 'export', // Enables static export
-  trailingSlash: false, // Adds trailing slashes to URLs
+  trailingSlash: true, // Adds trailing slashes to URLs
   images: {
     unoptimized: true, // Required for next/image in static export
+    
   },
   assetPrefix: '/', // Ensures assets (CSS, JS) use relative paths
   
@@ -27,7 +28,7 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Robots-Tag',
-            value: 'noindex, nofollow', // Prevent crawling of chunk URLs
+            value: 'index, follow', // Prevent crawling of chunk URLs
           },
         ],
       },

@@ -1,0 +1,81 @@
+.galleryContainer {
+    padding: 20px;
+    text-align: center;
+    background: #F5FDFF;
+  }
+  
+  @media (max-width: 992px) {
+    .galleryContainer {
+      padding: 40px;
+    }
+  }
+  
+  .description {
+    text-align: center !important;
+    width: 50% !important;
+  }
+  
+  @media (max-width: 992px) {
+    .description {
+      width: 100% !important;
+      padding: 1rem !important; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  .cardContainer {
+    margin: 20px 0;
+  }
+  
+  .cardContainer:hover {
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .cardItem {
+    background: white;
+    padding: 20px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    color: #565756;
+    flex-direction: column;
+  }
+  
+  .cardItem img {
+    width: 100% !important;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  @media (max-width: 992px) {
+    .cardItem {
+      height: auto;
+    }
+  }
+  
+  .cardItem p {
+    margin: 2px;
+  }
+  
+  .title {
+    font-size: 40px;
+    color: #ef5226;
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  }
+  

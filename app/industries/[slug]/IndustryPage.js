@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import OurPartnerSection from "../../components/OurPartnerSection";
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
-import styles from "./industry.module.css";
+import styles from "./IndustryPage.module.css";
 import Navigation from "../../components/Header/navigation";
 import ElfsightScript from "./ElfsightScript";
 import Footer from "../../components/Footer";

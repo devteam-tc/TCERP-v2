@@ -1,0 +1,88 @@
+/* ExpoDetail.module.css */
+.flippedImage {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .flippedImage:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fixedSizeImage {
+    width: 100%;
+    max-width: 1296px;
+    height: 444px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 992px) {
+    .fixedSizeImage {
+      height: auto;
+    }
+  }
+  
+  .responsiveText {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  
+  @media (max-width: 992px) {
+    .responsiveText {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .responsiveText {
+      font-size: 0.875rem;
+    }
+  }
+  
+  .responsiveIcon {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 992px) {
+    .responsiveIcon {
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .responsiveIcon {
+      font-size: 1rem;
+    }
+  }
+  
+  .responsiveRow {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 991px) {
+    .responsiveRow {
+      justify-content: flex-start;
+      text-align: left;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .responsiveRow {
+      justify-content: center;
+    }
+  }
+  
+  .textCenter {
+    text-align: center;
+    height: 100%;
+  }
+  
+  .lightGalleryContainer {
+    margin-top: 1rem;
+  }
+  

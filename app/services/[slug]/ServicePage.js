@@ -6,12 +6,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import { servicesData } from "../../utils/constants";
 import styles from "./ServicePage.module.css";
 import Navigation from "../../components/Header/navigation";
-import industrystyles from "../../industries/[slug]/industry.module.css"
+import industrystyles from "../../industries/[slug]/industry.module.css";
 import Footer from "../../components/Footer";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const ServicePage = () => {
   const { slug } = useParams();
-  const router = useRouter(); 
+  const router = useRouter();
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -100,7 +101,7 @@ const ServicePage = () => {
       {service.services?.length > 0 && (
         <section className={styles.sectionWrapper}>
           <Container>
-            <h3 className="text-center pt-4 pt-md-0">{service.mainTitle}</h3>
+            <h3 className={styles.mainTitle}>{service.mainTitle}</h3>
             <p className={styles.sectionSubtitle}>{service.sectionSubtitle}</p>
             <Row>
               {service.services.map((srv, index) => (
@@ -108,7 +109,7 @@ const ServicePage = () => {
                   <div className={styles.cardWrapper}>
                     <div className={styles.cardHeader}>
                       <img
-                        src={srv.icon}
+                        src={srv.image}
                         alt={srv.title}
                         className={styles.cardImage}
                       />
@@ -122,8 +123,33 @@ const ServicePage = () => {
           </Container>
         </section>
       )}
-          <Footer/>
 
+      {service.faq?.length > 0 && (
+        <div className={styles.FAQContainer}>
+          <Container>
+            <h1 className={styles.Title}>FAQ</h1>
+            <h2 className={styles.Subtitle}>
+              Have any questions? <span className={styles.spanpara} >Read popular answers below</span>
+            </h2>
+            {service.faq.map((item, index) => (
+              <div key={index} className={styles.FAQItem}>
+                <div
+                  className={styles.QuestionContainer}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span className={styles.Question}>{item.question}</span>
+                  <span className={`${styles.Icon} ${activeIndex === index ? styles.Open : ""}`}>
+                    {activeIndex === index ? <FaMinus /> : <FaPlus />}
+                  </span>
+                </div>
+                {activeIndex === index && <p className={styles.Answer}>{item.answer}</p>}
+              </div>
+            ))}
+          </Container>
+        </div>
+      )}
+
+      <Footer />
     </>
   );
 };

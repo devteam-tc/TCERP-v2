@@ -1,0 +1,46 @@
+/* PrivacyPolicy.module.css */
+.privacyPolicy {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .changetext {
+    color: #000; /* Customize your heading color */
+  }
+  
+  .privacyPolicy ul {
+    line-height: 1.5;
+  }
+  
+  .privacyPolicy strong {
+    margin-top: 1rem;
+    display: block;
+  }
+  
+  .note {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .section {
+    padding: 50px 0;
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .divider {
+    height: 2px;
+    background-color: #000;
+    width: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

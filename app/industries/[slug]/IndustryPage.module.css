@@ -125,12 +125,13 @@
     text-align: left;
     color: #EF5226;
     margin-top: 2%;
+    
   }
   
   @media (max-width: 992px) {
     .industryTitle {
       font-size: 18px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
   }
   
@@ -138,8 +139,9 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: justify;
+    
   }
   
   @media (max-width: 992px) {

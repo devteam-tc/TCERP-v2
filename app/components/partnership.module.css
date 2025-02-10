@@ -3,7 +3,7 @@
     background: #fff;
     box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px, 
                 rgba(173, 216, 230, 0.7) 0px 6px 6px;
-    margin-top: 15vh;
+    margin-top: 5vh;
     margin-bottom: 5vh;
   }
   
@@ -31,7 +31,7 @@
   .textSection p {
     color: #4a4a4a;
     margin-bottom: 16px;
-    width: 50%;
+    width: 49%;
   }
   
   .textSection button {
