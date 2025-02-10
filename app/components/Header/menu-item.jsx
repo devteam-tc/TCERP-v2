@@ -25,39 +25,64 @@ const MenuItem = ({
   };
 
   return (
+    // <li>
+    //   <div className={styles.nav_item_content}>
+    //     <Link
+    //       href={href}
+    //       className={({ isActive }) => (isActive ? `${styles.active}` : '')}
+    //       onClick={(e) => {
+    //         handleItemClick(e); // Call the first function
+    //         window.scrollTo(0, 0); // Call the scroll functionality
+    //       }}
+    //     >
+    //       <div>{label}</div>
+    //     </Link>
+    //     {children && (
+    //       <button
+    //         className={styles.mdHidden}
+    //         onClick={onToggle}
+    //         aria-label="Toggle dropdown"
+    //         aria-haspopup="menu"
+    //         aria-expanded={active ? 'true' : 'false'}
+    //       >
+    //         {active ? (
+    //           <FiMinus size={20} className="mobile-only" />
+    //         ) : (
+    //           <FiPlus size={20} className="desktop-only" />
+    //         )}
+    //       </button>
+    //     )}
+    //   </div>
+    //   {children && (
+    //     <div
+    //       role="menu"
+    //       className={`${styles.dropdown} ${active ? 'h-auto' : 'h-0 overflow-hidden md:h-auto'}`}
+    //     >
+    //       <Container>
+    //         <DropdownContent
+    //           submenuscontent={children}
+    //           setIsDrawerOpen={setIsDrawerOpen}
+    //           handleClick={handleClick}
+    //           parentLabel={label}
+    //         />
+    //       </Container>
+    //     </div>
+    //   )}
+    // </li>
     <li>
       <div className={styles.nav_item_content}>
-        <Link
-          href={href}
-          className={({ isActive }) => (isActive ? `${styles.active}` : '')}
-          onClick={(e) => {
-            handleItemClick(e); // Call the first function
-            window.scrollTo(0, 0); // Call the scroll functionality
-          }}
-        >
+        <Link href={href} className={active ? styles.active : ''} onClick={handleItemClick}>
           <div>{label}</div>
         </Link>
         {children && (
-          <button
-            className={styles.mdHidden}
-            onClick={onToggle}
-            aria-label="Toggle dropdown"
-            aria-haspopup="menu"
-            aria-expanded={active ? 'true' : 'false'}
-          >
-            {active ? (
-              <FiMinus size={20} className="mobile-only" />
-            ) : (
-              <FiPlus size={20} className="desktop-only" />
-            )}
+          <button className={styles.mdHidden} onClick={onToggle} aria-label="Toggle dropdown">
+            {active ? <FiMinus size={20} /> : <FiPlus size={20} />}
           </button>
         )}
       </div>
-      {children && (
-        <div
-          role="menu"
-          className={`${styles.dropdown} ${active ? 'h-auto' : 'h-0 overflow-hidden md:h-auto'}`}
-        >
+
+      {children && active && (
+        <div className={styles.dropdown} role="menu">
           <Container>
             <DropdownContent
               submenuscontent={children}
