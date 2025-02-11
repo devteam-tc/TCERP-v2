@@ -13,6 +13,7 @@ import styles from "./JobDetails.module.css";
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/Footer";
 import Link from "next/link";
+import Perks from "./Perks";
 
 const JobDetails = ({ jobId }) => {
   const [job, setJob] = useState(null);
@@ -174,6 +175,7 @@ const JobDetails = ({ jobId }) => {
         </Container>
       </div>
     </Container>
+    <Perks/>
     <Footer/>
     </>
   );
