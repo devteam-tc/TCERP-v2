@@ -1,0 +1,42 @@
+.styledCard {
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, calc(20rem + 2vw), 22rem);
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .styledCard:hover {
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px,
+      rgba(173, 216, 230, 0.7) 0px 6px 6px;
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .cardBody {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  @media (max-width: 992px) {
+    .styledCard {
+      width: 100% !important;
+    }
+  }
+  
+  .subTitle {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+  

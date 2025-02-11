@@ -14,6 +14,7 @@ import AnimatedSection from '../../components/Home/AnimatedSection';
 import styles from './ProductPage.module.css';
 import industryStyles from '../../industries/[slug]/industry.module.css';
 import Navigation from '../../components/Header/navigation';
+import Footer from '../../components/Footer';
 
 const TabContent = ({ content, image, alt }) => {
   const contentArray = Array.isArray(content) ? content : [];
@@ -24,9 +25,11 @@ const TabContent = ({ content, image, alt }) => {
         <div className="col-12 col-lg-6 mb-4">
           {contentArray.map((item, index) => (
             <div key={index} className="mb-4">
+              <div className='w-100'>
               <p>
                 <span className="fw-bold">{item.title}</span> {item.description}
               </p>
+            </div>
             </div>
           ))}
         </div>
@@ -99,9 +102,9 @@ const ProductPage = () => {
           <Col md={6}>
             <AnimatedColumn direction="right">
               <div className={styles.textContainer}>
-                <h1>{product.title}</h1>
-                {product.productDescription.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+              <h1 className={styles.productTitle}>{product.title }</h1>
+              {product.productDescription.map((paragraph, index) => (
+                  <p className={styles.productPara} key={index}>{paragraph}</p>
                 ))}
               </div>
             </AnimatedColumn>
@@ -110,9 +113,9 @@ const ProductPage = () => {
         </Container>
       </div>
       <div className={styles.bodySection}>
-        <Container className="my-4">
-          <h1 className="text-center text-orange-600 mb-5">{product.mainTitle}</h1>
-          <Row>
+        <Container className="my-2">
+        <h1 className={styles.mainTitle}>{product.mainTitle}</h1>
+        <Row>
             {product.cards.map((card, index) => (
               <Col md={6} lg={4} key={index} className="mb-4 d-flex">
                 <AnimatedSection>
@@ -147,8 +150,8 @@ const ProductPage = () => {
                 <h1 className={styles.styledProductsHeading} style={{ color: '#000000' }}>
                   {product.productTitle}
                 </h1>
-                {/* <Divider style={{ backgroundColor: '#EF5226', marginTop: '10px' }} /> */}
-              </div>
+                <hr className={styles.divider} style={{ backgroundColor: '#EF5226' }} />
+                </div>
               <Row>
                 <Col md={3} className="m-auto">
                   <div>
@@ -203,6 +206,8 @@ const ProductPage = () => {
       </Container>
     </div>
       <OurPartnerSection className="py-2" />
+      <Footer />
+
     </>
   );
 };

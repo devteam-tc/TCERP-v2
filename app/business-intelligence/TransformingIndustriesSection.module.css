@@ -1,0 +1,106 @@
+.section {
+    background-color: #f4faff;
+    padding: 60px 0;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 items per row by default */
+    grid-gap: 0px; /* No gaps between items */
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .gridContainer--largeTablet {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row on large tablets */
+  }
+  
+  .gridContainer--tablet {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row on tablets */
+  }
+  
+  .gridContainer--mobile {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row on mobile */
+  }
+  
+  .gridContainer--smallMobile {
+    grid-template-columns: repeat(5, 1fr); 
+  }
+  
+  .gridContainer:nth-child(3n + 1) {
+    margin-bottom: 20px; /* Add margin to the last item in each row for spacing */
+  }
+  
+  .industryItem {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .industryIcon {
+    background-color: #ff5722;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .industryTitle {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .verticalLine {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #c3d9e7;
+  }
+  
+  .horizontalLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #c3d9e7;
+  }
+  
+  .title {
+    font-size: 2.5rem; /* Default size for larger screens */
+    text-align: center;
+  }
+  
+  .title--largeTablet {
+    font-size: 2rem;
+    line-height: 35px;
+  }
+  
+  .title--tablet {
+    font-size: 1.5rem;
+  }
+  
+  .title--smallMobile {
+    font-size: 1.25rem;
+  }
+  

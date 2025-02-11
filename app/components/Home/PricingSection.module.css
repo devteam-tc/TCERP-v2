@@ -1,0 +1,158 @@
+.section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .title {
+    font-size: 40px;
+    color: #ef5226;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .title {
+      font-size: 32px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 28px;
+    }
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #b2e4ef;
+    border-radius: 10px;
+    cursor: pointer;
+    max-width: 340px;
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px,
+      rgba(173, 216, 230, 0.7) 0px 6px 6px;
+  }
+  
+  @media (max-width: 992px) {
+    .card {
+      margin: 0 10px;
+    }
+  }
+  
+  .badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background-color: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px;
+  }
+  
+  .planTitle {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .popularButton {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    width: 35% !important;
+    padding: 5px 10px;
+    border: none !important;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .rupeeIcon {
+    margin-right: 5px;
+  }
+  
+  .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b2e4ef;
+    padding-bottom: 20px;
+  }
+  
+  @media (max-width: 992px) {
+    .description {
+      font-size: 14px;
+    }
+  }
+  
+  .coverageList {
+    text-align: left;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22.4px;
+    letter-spacing: -0.03em;
+  }
+  
+  .coverageItem {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 992px) {
+    .coverageItem {
+      font-size: 12px;
+    }
+  }
+  
+  .checkIcon {
+    margin-right: 8px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ef5226;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  
+  @media (max-width: 992px) {
+    .button {
+      font-size: 14px;
+    }
+  }
+  
+  .creditCardText {
+    text-align: center;
+    padding-top: 10px;
+  }
+  

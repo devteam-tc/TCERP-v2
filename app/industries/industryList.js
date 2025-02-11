@@ -5,7 +5,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import styles from './industries.module.css'
+import styles from './industryList.module.css'
 
 export default function IndustryList({ industryList, index }) {
   const router = useRouter();

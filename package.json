@@ -10,12 +10,15 @@
     "export": "next export"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-accordion": "^1.2.2",
     "bootstrap": "^5.3.3",
     "clsx": "^2.1.1",
     "firebase": "^11.2.0",
+    "formik": "^2.4.6",
+    "lightgallery": "^2.8.2",
     "lucide-react": "^0.469.0",
     "next": "15.1.2",
     "next-sitemap": "^4.2.3",
@@ -24,9 +27,13 @@
     "react-country-flag": "^3.1.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.3",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.14",
     "tailwind-merge": "^2.6.0",
-    "typewriter-effect": "^2.21.0"
+    "typewriter-effect": "^2.21.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

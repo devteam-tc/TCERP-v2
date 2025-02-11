@@ -71,11 +71,10 @@ import industrystyles from "../industries/[slug]/industry.module.css"
 import { aboutus_data } from '../utils/constants'
 import Footer from '../components/Footer';
 
-// Meta information for the About Us page
-const metaInfo = {
-  title: "About Us | Tech Cloud ERP",
-  description: "Learn about Tech Cloud ERP, our mission, our team, and our innovative solutions designed to take your business to the next level.",
-  keywords: "about us, tech cloud erp, business solutions, company mission"
+export const metadata = {
+  title: "About Us - Tech Cloud ERP",
+  description: "Learn more about Tech Cloud ERP and our mission.",
+  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
 };
 
 export default function Page() {

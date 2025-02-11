@@ -1,0 +1,128 @@
+/* BusinessSlider.module.css */
+
+.sectionBackground {
+    background: #f8feff;
+    width: 100%;
+    padding: 20px 0px 60px 0px;
+    box-sizing: border-box;
+  }
+  
+  .carouselContainer .slick-slide {
+    padding: 0 20px; /* Add spacing between cards */
+  }
+  
+  .carouselContainer .slick-prev,
+  .carouselContainer .slick-next {
+    color: #ff5733;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  @media (max-width: 992px) {
+    .title {
+      font-size: 2rem;
+      line-height: 35px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .title {
+      font-size: 1.25rem;
+    }
+  }
+  
+  /* Styled Card */
+  .styledCard {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #ff5733;
+    text-align: center;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .styledCard .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .styledCard .card-title {
+    font-weight: 500;
+    margin-top: 20px;
+    overflow: hidden;
+    text-align: left;
+  }
+  
+  .styledCard .card-text {
+    color: #666;
+    font-size: 1rem;
+    margin: 10px 0px;
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .exploreLink {
+    color: #ff5733;
+    text-align: right;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-top: auto;
+    margin-bottom: 14px;
+    transition: transform 0.3s ease;
+  }
+  
+  .exploreLink:hover {
+    transform: translateX(5px);
+  }
+  
+  .exploreArrow {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Responsive Card */
+  @media (max-width: 992px) {
+    .styledCard {
+      height: auto;
+      padding: 10px;
+    }
+  
+    .styledCard .card-title {
+      font-size: 1.25rem;
+    }
+  
+    .styledCard .card-text {
+      font-size: 0.9rem;
+      height: auto;
+    }
+  
+    .exploreLink {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .styledCard .card-title {
+      font-size: 1.1rem;
+    }
+  
+    .exploreLink {
+      font-size: 0.9rem;
+    }
+  }
+  

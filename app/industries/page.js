@@ -91,8 +91,8 @@ import IndustryList from "./industryList";
 import industryStyles from '../industries/[slug]/industry.module.css'
 
 export const metadata = {
-  title: "Tech Cloud ERP Products | All-in-One Solutions for Business Growth",
-  description: "Explore Tech Cloud ERP products to streamline operations, boost efficiency, and drive business growth effectively.",
+  title: "Tech Cloud ERP Industries | All-in-One Solutions for Business Growth",
+  description: "Explore Tech Cloud ERP industries to streamline operations, boost efficiency, and drive business growth effectively.",
   
 };
 

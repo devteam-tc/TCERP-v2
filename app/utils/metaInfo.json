@@ -227,17 +227,17 @@
   },
   "services": {
     "digital-marketing": {
-      "title": "Enhance Your Brand with Expert Digital Marketing Services | Tech Cloud ERP",
+      "title": "Maximize Your Brand Impact with Digital Marketing | Tech Cloud ERP",
       "description": "Unlock growth with tailored digital marketing services. From SEO to social media, we deliver strategies that drive traffic, engagement, and results.",
       "keywords": "Digital Marketing Services, Digital Marketing company, marketing digital marketing, online digital marketing, marketing agency near me"
     },
     "web-development": {
-      "title": "Professional Web Design Services |  Tech Cloud ERP",
+      "title": "Custom Web Development Solutions for Modern Enterprises |  Tech Cloud ERP",
       "description": "Enhance your business with tailored web development services. Integrate ERP solutions from TechCloud ERP for efficient and scalable operations.",
       "keywords": "Web Development Services, website development company, web developers near me, website development company, web development firm, Best Website Development Services, Website Development company in india"
    },
     "mobile-application-development": {
-    "title": "Advanced Mobile App Development Services | Tech Cloud ERP",
+    "title": "Innovative Mobile Applications for Competitive Edge | Tech Cloud ERP",
     "description": "Transform your business with TechCloud ERP's expert Mobile App Development. Scalable, innovative apps designed to meet your business goals.",
     "keywords": "Mobile App Development Services, app development, mobile app development, mobile app development company"
   }
@@ -247,6 +247,13 @@
     "title": "About Tech Cloud ERP | Leading Cloud-Based ERP Solutions in India",
     "description": "Discover Tech Cloud ERP, a Hyderabad-based company offering scalable and user-friendly cloud ERP solutions to streamline business operations across industries in India.",
     "keywords": "ERP software solution in hyderabad, Best ERP Solutions Provider in India, cloud-based ERP solutions provider in India, Manufacturing ERP, Manufacturing Software, Production ERP, Production Software, Manufacturing ERP software, Production ERP software"
+  },
+  "contact-us":{
+    "contact-us":{
+      "title": "Expert ERP Solutions Tailored for Your Business",
+      "description": "Contact Tech Cloud ERP today to learn how our innovative ERP solutions can optimize your business operations. Our expert team is here to support you every step of the way.",
+      "keywords": "erp software solution provider in hyderabad, ERP software solution provider in India"
+    }
   }
 }
 }

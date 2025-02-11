@@ -1,0 +1,72 @@
+.transactionArea {
+    padding-bottom: 3rem;
+  }
+  
+  @media (max-width: 992px) {
+    .transactionArea {
+      padding-bottom: 2rem;
+    }
+  }
+  
+  .styledTableContainer {
+    margin-top: 5rem;
+  }
+  
+  .styledTableContainer .table th {
+    color: #ef5226;
+  }
+  
+  .styledTableContainer .table tbody tr {
+    background-color: #fff;
+    color: #fc653c;
+    font-size: 13px;
+    text-align: center;
+    border-left: 5px solid #05a7cc;
+  }
+  
+  .styledTableContainer .table tbody tr:hover td {
+    color: #ef5226;
+  }
+  
+  @media (max-width: 992px) {
+    .styledTableContainer {
+      margin-top: 2rem;
+    }
+  
+    .styledTableContainer .table {
+      font-size: 12px;
+    }
+  
+    .styledTableContainer .table th,
+    .styledTableContainer .table td {
+      padding: 0.75rem;
+    }
+  
+    .styledTableContainer .table tbody tr {
+      font-size: 12px;
+      border-left: 3px solid #05a7cc;
+    }
+  }
+  
+  .sectionTitle {
+    text-align: center;
+  }
+  
+  .sectionTitle h5 {
+    color: #fc653c;
+  }
+  
+  .sectionTitle h3 {
+    color: #ef5226;
+  }
+  
+  @media (max-width: 992px) {
+    .sectionTitle h5 {
+      font-size: 14px;
+    }
+  
+    .sectionTitle h3 {
+      font-size: 20px;
+    }
+  }
+  

@@ -1,0 +1,61 @@
+/* CareersList.module.css */
+
+.currentOpeningsSection {
+    text-align: center;
+  }
+  
+  .jobCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    height: 95%; /* Makes cards fill available height within column */
+    max-width: 100%;
+    min-height: 300px; /* Set a minimum height for uniformity */
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+  
+  .customJobAlertSection {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    gap: 5vh;
+  }
+  
+  .customJobAlertSection img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .customJobAlertSection h1 {
+    margin-bottom: 1rem;
+    color: #FF5200;
+    width: 75%;
+  }
+  
+  @media (max-width: 768px) {
+    .customJobAlertSection h1 {
+      width: 100%;
+    }
+  }
+  
+  .customJobAlertSection form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .styledImage {
+    border-radius: 10px 0px 0px 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .styledImage {
+      border-radius: 0px; /* Modify border-radius for mobile devices */
+    }
+  }
