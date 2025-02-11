@@ -10,6 +10,7 @@ import GalleryTabs from "../app/gallery/GalleryTabs";
 import PricingSection from './components/Home/PricingSection'
 import Recordsection from './about-us/RecordSection'
 import ScrollFeature from './components/Home/ScrollFeature'
+import ImportantModuleSection from './components/Home/ImportantModuleSection'
 export default function Page() {
   return (
     <div className="min-h-screen">
@@ -18,12 +19,12 @@ export default function Page() {
         <HomeVideoLanding/>
         <OurMissionSection/>
         <CardSection/>
+        <ImportantModuleSection />
         <Recordsection />
+        <ScrollFeature />
         <CallToAction/>
         <GalleryTabs /> 
-<ScrollFeature />
        <PricingSection />
-       
 
       </main>
       <OurPartnerSection/>

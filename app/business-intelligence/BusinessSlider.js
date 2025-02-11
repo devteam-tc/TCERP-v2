@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
@@ -27,9 +27,10 @@ const BusinessSlider = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 1500,
     responsive: [
+      { breakpoint: 1200, settings: { slidesToShow: 3 } },
       { breakpoint: 992, settings: { slidesToShow: 2 } },
       { breakpoint: 576, settings: { slidesToShow: 1 } },
     ],
@@ -41,16 +42,19 @@ const BusinessSlider = () => {
         <h2 className={styles.title}>
           Complete your business intelligence solution with products from across the Customer 360°
         </h2>
+
         <Slider {...settings} className={styles.carouselContainer}>
           {sliderData.map((item, index) => (
             <div key={index}>
-              <Card className={styles.styledCard}>
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
-                  <Link href={item.link} className={styles.exploreLink}>
-                    {item.linkText} <FaArrowRight className={styles.exploreArrow} />
-                  </Link>
+              <Card className={`${styles.styledCard} text-center pt-4 pt-md-0 mb-3`}> 
+                <Card.Body className={styles.cardBody}>
+                  <Card.Title className={styles.cardTitle}>{item.title}</Card.Title>
+                  <Card.Text className={styles.cardText}>{item.description}</Card.Text>
+                  <div className={styles.exploreWrapper}>
+                    <Link href={item.link} className={styles.exploreLink}>
+                      {item.linkText} <FaArrowRight className={styles.exploreArrow} />
+                    </Link>
+                  </div>
                 </Card.Body>
               </Card>
             </div>

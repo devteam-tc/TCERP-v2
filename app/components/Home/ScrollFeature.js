@@ -54,7 +54,7 @@ const ScrollFeature = () => {
           <Slider {...settings}>
             {featuresData.map((feature, index) => (
               <div key={index} className={styles.card}>
-                <img src={feature.image} alt={feature.title} className={styles.imgSrc} />
+                <img src={feature.imgSrc} alt={feature.title} className={styles.cardImage} />
                 <h5 className={styles.cardTitle}>{feature.title}</h5>
                 <p className={styles.cardText}>{feature.description}</p>
               </div>

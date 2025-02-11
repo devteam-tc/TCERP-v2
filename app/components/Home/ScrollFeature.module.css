@@ -67,6 +67,9 @@
     object-fit: cover;
     border-radius: 8px;
   }
+  .card {
+    margin: 0 10px; /* Adds spacing between cards */
+  }
   
   @media (max-width: 992px) {
     .cardImage {
@@ -106,7 +109,10 @@
       font-size: 11px;
     }
   }
-  
+  .slick-slider{
+    display:  flex !important;
+    gap:30px !important;
+  }
   .card {
     background-color: #fff;
     border: 1px solid #e5e5e5;

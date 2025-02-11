@@ -10,6 +10,8 @@
     "export": "next export"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.11.0",
+    "@amcharts/amcharts5-geodata": "^5.1.4",
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",

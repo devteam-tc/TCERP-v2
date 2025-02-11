@@ -35,7 +35,7 @@ const CoFoundersSection = () => {
                                     <h6 className={styles.cardSubtitle}>{coFounder.title}</h6>
 
                                     {/* ✅ Social Media Icons */}
-                                    <div className={styles.socialIcons}>
+                                    {/* <div className={styles.socialIcons}>
                                         {coFounder.socialLinks.facebook && (
                                             <div onClick={() => handleSocialClick(coFounder.socialLinks.facebook)}>
                                                 <FaFacebookF />
@@ -56,7 +56,7 @@ const CoFoundersSection = () => {
                                                 <FaXTwitter />
                                             </div>
                                         )}
-                                    </div>
+                                    </div> */}
 
                                     <p className={styles.cardText}>{coFounder.description}</p>
                                 </Card.Body>

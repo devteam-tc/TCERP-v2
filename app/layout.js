@@ -19,12 +19,6 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"], // Load multiple weights
 });
 
-export const metadata = {
-  title: "Tech Cloud ERP | Best ERP Software",
-  description: "Tech Cloud ERP is a modern cloud-based business management solution.",
-  keywords: "ERP, Tech Cloud ERP, Business Management, Cloud ERP",
-  viewport: "width=device-width, initial-scale=1",
-};
 
 export default function RootLayout({ children }) {
   return (

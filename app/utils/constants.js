@@ -1126,6 +1126,11 @@ export const sectionsData = {
       heading: "Contact us",
       description :"Connect with our team today to discover how our expert ERP guidance can streamline your business operations and drive growth. Get in touch now to unlock your business potential.",
       },
+      'businessData' :{
+        heading: "ERP Insights Drive Business Growth",
+        description: "Increase growth and decision-making using BI for ERP. Get access to data, analytics and insights in real time to maximise performance and stimulate strategic possibilities.",
+      },
+      
   };
 
   export const industriesDataList = {
@@ -2973,23 +2978,13 @@ export const coFoundersData = [
       name: "Mr. Devang Patel",
       title: "Chairman",
       description: "Mr. Devang Patel, Chairman of Tech Cloud ERP, brings over 30 years of expertise in business development and a deep understanding of diverse industries. His visionary leadership and commitment to excellence have driven advancements in enterprise resource planning systems. With a relentless focus on innovation, Mr. Patel has inspired growth and progress, positioning Tech Cloud ERP as a leader in the industry. Under his guidance, the company has set new benchmarks, consistently delivering innovative solutions and enhancing client satisfaction.",
-      socialLinks: {
-          facebook: "#",
-          linkedin: "#",
-          instagram: "#",
-          twitter: "#",
-      },
+     
   },
   {
       name: "Mr. Raja Shanmugam",
       title: "Founder & CEO",
       description: "Mr. Raj, a Mechanical Engineer and certified SAP Production Planning Consultant, brings over 30 years of expertise across sectors like Design, Chemical Processing, Manufacturing, FMCG and IT. Renowned for his dynamic personality and sharp problem-solving skills, he has guided countless professionals and businesses to success. As the Founder and CEO of Tech Cloud ERP, Mr. Raj drives strategic planning, operations and growth, leading the company with vision, dedication and unwavering commitment to excellence.",
-      socialLinks: {
-          facebook: "#",
-          linkedin: "https://www.linkedin.com/in/raj-techclouderp/",
-          instagram: "#",
-          twitter: "#",
-      },
+    
   },
 ];
 
@@ -3404,61 +3399,162 @@ export const coFoundersData = [
     note: "NOTE: IF YOU DO NOT AGREE WITH THE TERMS OF THIS PRIVACY POLICY, PLEASE DO NOT ACCESS THE WEBSITE.",
   };
 
-
+  export const ModulecardsData = [
+    {
+      id: 1,
+      image: ('home/crmimg.webp'),
+      title: 'CRM',
+      description:
+        'CRM stands for Customer Relationship Management. It\'s a strategy businesses use to manage interactions.',
+    },
+    {
+      id: 2,
+      image: ('home/sales.webp'),
+      title: 'Sales Management',
+      description:
+        'Sales & Marketing Module handles all the sales activities of domestic and international operations.',
+    },
+    {
+    id: 3,
+    image: ('home/Purchasemanagement.webp'),
+    title: ' Purchase Management',
+    description:
+    'Streamline procurement with integrated workflows, real-time inventory, and automated orders for cost-effective sourcing.',
+    },
+    {
+      id: 4,
+      image: ('home/secure.webp'),
+      title: 'Inventory Management',
+      description: 'Facilitating seamless coordination among departments. Automated notifications maintain optimum levels, enhancing efficiency.',
+    },
+    {
+      id: 5,
+      image: ('home/Productiomanagement.webp'),
+      title: 'Production Management',
+      description: 'Boost efficiency by tracking tasks, reallocating resources, and ensuring timely delivery with smart planning.',
+    },
+    {
+      id: 6,
+      image: ('home/jobwork.webp'),
+      title: 'Job Work Management',
+      description:
+        'Easily outsource specialized tasks with our Job Work module, optimizing production and reducing workload.',
+    },
+    {
+      id: 7,
+      image: ('home/qualitycontrol.webp'),
+      title: 'Quality Control',
+      description: 'A process through which a business seeks to ensure that product quality is maintained perfectly.',
+    },
+    {
+      id: 8,
+      image: ('home/QualityAssurance.webp'),
+      title: 'Quality Assurance',
+      description: 'Achieve excellence with live quality checks, automated inspections, and compliance to reduce errors.',
+    },
+    {
+      id: 9,
+      image: ('home/assetmanagement.webp'),
+      title: 'Fixed Assets',
+      description: 'Streamline asset management from procurement to disposal with centralized views and seamless integration.',
+    },
+    {
+      id: 10,
+      image: ('home/plant maintenance.webp'),
+      title: 'Plant Maintenance',
+      description: 'Prevent downtime with predictive tools, equipment monitoring, and proactive servicing for peak performance.',
+    },
+    {
+      id: 11,
+      image: ('home/hrms.webp'),
+      title: 'HRM',
+      description: 'Simplify HR tasks from hiring to retirement with efficient payroll, performance insights, and compliance.',
+    },
+    {
+      id: 12,
+      image: ('home/financeaccounting.webp'),
+      title: 'Finance & Accounting',
+      description: 'Manages financial transactions, budgeting, and reporting, ensuring compliance and providing real-time decision-making insights.',
+    },
+    {
+      id: 13,
+      image: ('home/exportandimport.webp'),
+      title: 'Imports and Exports',
+      description: 'Streamline global trade with our Export and Import module. Manage logistics, documentation and more.',
+    },
+    {
+      id: 14,
+      image: ('home/projmanage.webp'),
+      title: 'Project Management',
+      description: 'Keep projects on track with real-time oversight of schedules, budgets, and resources for timely delivery.',
+    },
+    {
+      id: 15,
+      image: ('home/Design.webp'),
+      title: 'Design',
+      description: 'Streamline design workflows, collaborate in real-time, and drive efficient product development from concept to production.',
+    },
+    {
+      id: 16,
+      image: ('home/point of sale.webp'),
+      title: 'POS',
+      description: 'Enhance sales with integrated POS systems, offering instant inventory updates, quick checkouts, and superior service.',
+    },
+    ];
 
   export const featuresData = [
     {
-        imgSrc: ("/features/webbased.webp"),
+        imgSrc: ("features/webbased.webp"),
         title: "Web Based And Cloud Computing",
         description: "Web-based and cloud computing provide scalable, flexible access to apps and data online.",
     },
     {
-        imgSrc: ("/features/dynamic.webp"),
+        imgSrc: ("features/dynamic.webp"),
         title: "Dynamic Dashboards",
         description: "Dynamic dashboards offer real-time, interactive data visualization for better decision-making.",
     },
     {
-        imgSrc: ("/features/Whatsapp_email.webp"),
+        imgSrc: ("features/Whatsapp_email.webp"),
         title: "Email & Whatsapp Integration",
         description: "Email and SMS integration enables seamless, efficient communication across both channels.",
     },
     {
-        imgSrc: ("/features/mobilenadtab.webp"),
+        imgSrc: ("features/mobilenadtab.webp"),
         title: "Mobile & Tab Compatibility",
         description: "Ensures a seamless user experience across devices, enhancing accessibility and usability.",
     },
     {
-        imgSrc: ("/features/autobackup.webp"),
+        imgSrc: ("features/autobackup.webp"),
         title: "Data Auto Backup",
         description: "Automates secure data storage, ensuring continuity and protection against loss.",
     },
     {
-        imgSrc: ("/features/customisable.webp"),
+        imgSrc: ("features/customisable.webp"),
         title: "Customizable Software",
         description: "Allows users to tailor applications to specific needs, enhancing functionality and satisfaction.",
     },
     {
-        imgSrc: ("/features/payasgo.webp"),
+        imgSrc: ("features/payasgo.webp"),
         title: "Pay As You Go",
         description: "Enables users to pay for services based on actual usage, promoting flexibility and cost-efficiency.",
     },
     {
-        imgSrc: ("/features/chatusers.webp"),
+        imgSrc: ("features/chatusers.webp"),
         title: "Chat Between Users",
         description: "Facilitates real-time communication and collaboration, enhancing interaction and connectivity.",
     },
     {
-        imgSrc: ("/features/infiniteusers.webp"),
+        imgSrc: ("features/infiniteusers.webp"),
         title: "Unlimited Users",
         description: "Accommodates an unlimited number of users, ensuring scalability and accessibility.",
     },
     {
-        imgSrc: ("/features/Audit_trail.webp"),
+        imgSrc: ("features/Audit_trail.webp"),
         title: "Audit Trail",
         description: "Detailed log of system activities, supporting accountability, compliance and security.",
     },
     {
-        imgSrc: ("/features/Inventory.webp"),
+        imgSrc: ("features/Inventory.webp"),
         title: "Multiple Inventory Location",
         description: "Centralized inventory management across multiple locations, ensuring accuracy and seamless transfers.",
     }

@@ -108,4 +108,5 @@ const ExpoDetail = () => {
   );
 };
 
+
 export default ExpoDetail;

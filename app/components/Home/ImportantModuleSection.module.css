@@ -1,0 +1,170 @@
+.sliderWrapper {
+  padding: 10px 0;
+}
+
+.slick-list {
+  display: flex !important;
+  gap: 20px; /* Space between slides */
+}
+
+
+.slick-slider {
+  display: flex !important;
+  justify-content: center;
+  margin-right: 20px; /* Add gap between cards */
+}
+
+/* Remove margin for the last item in each row */
+.slick-slider:last-child {
+  margin-right: 0 !important;
+}
+
+/* Hide dots on smaller screens */
+@media (max-width: 992px) {
+  .slick-dots {
+    display: none !important;
+  }
+}
+
+.slick-dots {
+  bottom: -5px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #ef5226 !important;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 420px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Card Sizing */
+@media (max-width: 1200px) {
+  .card {
+    width: 45vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .card {
+    width: 40vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 80vw;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 40vh !important;
+    height: auto;
+  }
+}
+
+/* Card Image */
+.cardImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .cardImage {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardImage {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardImage {
+    height: 150px;
+  }
+}
+
+/* Card Title */
+.cardTitle {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .cardTitle {
+    font-size: 20px;
+  }
+}
+
+/* Card Text */
+.cardText {
+  font-size: 13px;
+  color: #666;
+}
+
+@media (max-width: 992px) {
+  .cardText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardText {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardText {
+    font-size: 11px;
+  }
+}
+
+/* Section Title */
+.title {
+  font-size: 40px;
+  color: #ef5226;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
