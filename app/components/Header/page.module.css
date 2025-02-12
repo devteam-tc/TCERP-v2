@@ -290,7 +290,7 @@ Global
     }
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 996px) {
     .container {
       max-width: 768px;
     }

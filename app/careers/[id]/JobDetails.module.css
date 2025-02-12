@@ -37,8 +37,10 @@
   
   .shareSection {
     display: flex;
+    justify-content: start;
+    gap: 15px;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   
   .socialIcon {
@@ -63,3 +65,40 @@
     }
   }
   
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px; /* Adjust as needed */
+  }
+  
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px; /* Adjust spacing */
+  }
+  
+  .icon {
+    font-size: 24px; /* Adjust size as needed */
+    color: #fff; /* Example color */
+  }
+  
+.CustomButton {
+  /* Custom button styles */
+  padding: 10px 20px;
+  background-color: transparent; /* Set background color */
+  border: 2px solid white; /* Set border color */
+  border-radius: 4px;
+  cursor: pointer;
+  color: white; /* Set default link color to white */
+  text-decoration: none;
+
+  /* Style the Link inside the button */
+
+
+};
+
+.CustomButton:hover{
+    color: #333;
+}

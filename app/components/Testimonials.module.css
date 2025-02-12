@@ -1,0 +1,116 @@
+.gradientContainer {
+    background-image: url('/testimonials_bg.webp');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin: auto;
+    height: auto;
+    padding: 2%;
+  }
+  
+  @media (max-width: 992px) {
+    .gradientContainer {
+      width: 100%;
+    }
+  }
+  
+  .styledCard {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .styledCardBody {
+    background-color: transparent !important;
+    padding: 2rem;
+  }
+  
+  .carouselWrapper {
+    position: relative;
+  }
+  
+  .styledCarouselItem .row {
+    justify-content: center;
+  }
+  
+  .styledCarouselItem .text-center.text-lg-start {
+    text-align: center;
+  }
+  
+  @media (min-width: 992px) {
+    .styledCarouselItem .text-center.text-lg-start {
+      text-align: left;
+    }
+  }
+  
+  .carouselControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5vh;
+  }
+  
+  .carouselControls button {
+    background: none;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e93906;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  
+  .carouselControls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+  
+  .title {
+    font-size: 40px;
+    color: #ef5226;
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .title {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .testimonialBox {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
+    border: 20px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+    width: 65%;
+  }
+  
+  @media (max-width: 992px) {
+    .testimonialBox {
+      width: 100%;
+    }
+  }
+  
+  .testimonialText {
+    color: #3f3d56;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+  
+  .testimonialAuthor h4 {
+    margin-top: 1rem;
+    color: black;
+  }
+  

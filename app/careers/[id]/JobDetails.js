@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaBook, FaBriefcase,  FaLinkedin, FaFacebook, FaWhatsapp } from "react-icons/fa6";
+import { FaBook, FaBriefcase,  FaLinkedin, FaFacebook, FaWhatsapp, FaClock, FaChair, FaPeopleLine } from "react-icons/fa6";
 import JobApplicationForm from "./JobApplicationForm";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import industryStyles from "../../industries/[slug]/industry.module.css";
@@ -12,9 +12,12 @@ import industryStyles from "../../industries/[slug]/industry.module.css";
 import styles from "./JobDetails.module.css";
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/Footer";
+import Link from "next/link";
+import Perks from "./Perks";
 
 const JobDetails = ({ jobId }) => {
   const [job, setJob] = useState(null);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     if (!jobId) return;
@@ -72,22 +75,88 @@ const JobDetails = ({ jobId }) => {
 
       <div className={styles.jobHighlights}>
         <h2>Job Highlights</h2>
-        <Row>
-          <Col md={4}>
+        <Row >
+
+
+          
+
+          <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
             <FaBriefcase className={styles.icon} />
-            <strong>Work mode:</strong> {job.workMode}
+          </div>
+          <div className={styles.textContainer}>
+            <strong>Work mode: </strong> {job.workMode}
+          </div>
           </Col>
-          <Col md={4}>
+
+          <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
             <FaMapMarkerAlt className={styles.icon} />
-            {job.location}
+          </div>
+          <div className={styles.textContainer}>
+                  {job.location}
+          </div>
           </Col>
-          <Col md={4}>
+
+          <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
+            <FaPeopleLine className={styles.icon} />
+          </div>
+          <div className={styles.textContainer}>
+            <strong>Preferred Candidates: </strong> {job.prefferedCandidates}
+          </div>
+          </Col>
+
+          <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
             <FaBook className={styles.icon} />
-            <strong>Preferred Candidates:</strong> {job.preferredCandidates}
+          </div>
+          <div className={styles.textContainer}>
+            <strong>Experience : </strong> {job.experience}
+          </div>
           </Col>
+          
+
+          <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
+            <FaClock className={styles.icon} />
+          </div>
+          <div className={styles.textContainer}>
+            <strong>Working Hours: </strong> 10 AM - 7 PM
+          </div>
+          </Col>
+
+        <Col md={4} className="d-flex align-items-center mt-4 mb-4">
+          <div className={styles.iconContainer}>
+            <FaChair className={styles.icon} />
+          </div>
+          <div className={styles.textContainer}>
+            <strong>No. of Vacancy:</strong> {job.vacancies}
+          </div>
+        </Col>
+
+          
         </Row>
+        <div className="mt-4">
+          <button className={styles.CustomButton}>
+            
+          <Link
+            href="/careers"
+            style={{
+              textDecoration: "none",
+              color: hover ? "black" : "#fff",
+              transition: "color 0.3s ease",
+            }}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          >
+            View all jobs
+          </Link>
+
+          </button>
+        </div>
         <div className={styles.shareSection}>
-          <p>Share this job:</p>
+          <p style={{margin: '0px'}}>Share this job:</p>
           <a href={linkedinShare} target="_blank">
             <FaLinkedin className={styles.socialIcon} />
           </a>
@@ -106,6 +175,7 @@ const JobDetails = ({ jobId }) => {
         </Container>
       </div>
     </Container>
+    <Perks/>
     <Footer/>
     </>
   );

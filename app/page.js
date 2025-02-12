@@ -1,5 +1,6 @@
 
 import Footer from './components/Footer'
+import Testimonials from './components/Testimonials'
 import Navigation from './components/Header/navigation'
 import CallToAction from './components/Home/CallToAction'
 import CardSection from './components/Home/CardSection'
@@ -21,10 +22,11 @@ export default function Page() {
         <CardSection/>
         <ImportantModuleSection />
         <Recordsection />
-        <ScrollFeature />
         <CallToAction/>
         <GalleryTabs /> 
+<ScrollFeature />
        <PricingSection />
+       
 
       </main>
       <OurPartnerSection/>

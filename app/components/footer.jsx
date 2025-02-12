@@ -10,7 +10,7 @@ import SocialMediaIcons from "./Header/socialmedia-icons";
 
 const obfuscateEmail = (user, domain, tld) => `${user}@${domain}.${tld}`;
 
-const Footer = () => {
+export default function Footer() {
   const corporateEmail = obfuscateEmail("info", "techclouderp", "com");
   const headquartersEmail = obfuscateEmail("contact", "techclouderp", "com");
 
@@ -126,4 +126,3 @@ const Footer = () => {
   );
 };
 
-export default Footer;

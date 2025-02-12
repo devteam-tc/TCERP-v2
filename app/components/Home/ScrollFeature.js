@@ -9,6 +9,7 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import styles from './ScrollFeature.module.css';
 import { featuresData } from '../../utils/constants';
 import { Container } from 'react-bootstrap';
+import Image from 'next/image';
 
 const PrevArrow = ({ onClick }) => (
   <div className={styles.customArrow} style={{ left: '-45px' }} onClick={onClick}>
@@ -54,7 +55,7 @@ const ScrollFeature = () => {
           <Slider {...settings}>
             {featuresData.map((feature, index) => (
               <div key={index} className={styles.card}>
-                <img src={feature.imgSrc} alt={feature.title} className={styles.cardImage} />
+                <img src={feature.image} alt={feature.title} className={styles.imgSrc} />
                 <h5 className={styles.cardTitle}>{feature.title}</h5>
                 <p className={styles.cardText}>{feature.description}</p>
               </div>

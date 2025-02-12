@@ -80,6 +80,8 @@
 
 
 // app/industries/page.js
+export const dynamic = "force-static"; // Ensures this page is statically generated
+
 
 import { Container, Row, Col } from "react-bootstrap";
 import { aboutus_data, industriesDataList } from "../utils/constants";
