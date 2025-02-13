@@ -22,7 +22,6 @@ export default function Page() {
         <CardSection/>
         <ImportantModuleSection />
         <Recordsection />
-        <ScrollFeature />
         <CallToAction/>
         <GalleryTabs /> 
         <Testimonials/>
