@@ -12,7 +12,7 @@ export default function Page() {
   const metadata = {
     title: "Expert ERP Solutions Tailored for Your Business",
     description: "Contact Tech Cloud ERP today to learn how our innovative ERP solutions can optimize your business operations. Our expert team is here to support you every step of the way.",
-    keywords: "Contact Us ERP",
+    keywords: "erp software contact, erp solutions inquiry, get in touch erp, erp support team",
   };
 
   return (

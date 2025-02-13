@@ -9,8 +9,8 @@ import  WorldMapWithMarkers from './WorldMapWithMarkers'
 
 export const metadata = {
   title: "Tech Cloud ERP | Serving Businesses Across Regions",
-  description: "Learn more about Tech Cloud ERP and our mission.",
-  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
+  description: "Tech Cloud ERP ensures seamless business operations across regions with our advanced, cloud-based ERP solutions. Optimize efficiency and scale effortlessly.",
+  keywords: "tech cloud erp locations, erp software branches, tech cloud erp offices, erp solutions near me, global erp service providers, erp company branches, cloud erp service locations, best erp providers worldwide, tech cloud erp support centre's  , erp software dealers and partners",
 };
 
 export default function Page() {

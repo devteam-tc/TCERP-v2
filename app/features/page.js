@@ -5,12 +5,12 @@ import OurPartnerSection from '../components/OurPartnerSection'
 import industrystyles from "../industries/[slug]/industry.module.css"
 import { aboutus_data } from '../utils/constants'
 import Footer from '../components/Footer';
-// import FeaturePage from './FeaturePage';
+import FeaturePage from './FeaturePage';
 
 export const metadata = {
-  title: "About Us - Tech Cloud ERP",
-  description: "Learn more about Tech Cloud ERP and our mission.",
-  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
+  title: "Smart ERP Features | Streamline Operations with Ease",
+  description: "Enhance efficiency with smart ERP features. Automate processes, optimize resources, and streamline operations for seamless business management.",
+  keywords: "Cloud ERP Features,Best ERP Software,ERP System for Businesses,Cloud-Based ERP Solutions,ERP Software ModulesERP for Manufacturing, Inventory Management ERP, Finance and Accounting ERP, Production Planning Software,CRM and Sales Management ERP",
 };
 
 export default function Page() {
@@ -29,7 +29,7 @@ export default function Page() {
   </Container>
 </section>
       <main>
-      {/* <FeaturePage /> */}
+      <FeaturePage />
         <CTA />
         <OurPartnerSection />
         

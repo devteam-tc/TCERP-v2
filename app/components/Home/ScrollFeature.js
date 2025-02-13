@@ -1,70 +1,70 @@
-'use client';
+"use client"; // It is CLIENT COMPONENT
 
+import React, { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import styles from "./ScrollFeature.module.css";
+import { featuresData } from "../../utils/constants";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import styles from './ScrollFeature.module.css';
-import { featuresData } from '../../utils/constants';
-import { Container } from 'react-bootstrap';
-import Image from 'next/image';
-
-const PrevArrow = ({ onClick }) => (
-  <div className={styles.customArrow} style={{ left: '-45px' }} onClick={onClick}>
-    <BiChevronLeft />
-  </div>
+// Custom Arrow Component
+const CustomArrow = ({ onClick, children, className }) => (
+  <button className={`${styles.customArrow} ${className}`} onClick={onClick}>
+    {children}
+  </button>
 );
 
-const NextArrow = ({ onClick }) => (
-  <div className={styles.customArrow} style={{ right: '-45px' }} onClick={onClick}>
-    <BiChevronRight />
-  </div>
-);
-
-const ScrollFeature = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
+const FeatureSlider = () => {
+  const swiperRef = useRef(null);
 
   return (
-    <div className={styles.animatedBackground}>
-      <Container className={styles.styledContainer}>
-        <div className={styles.sliderWrapper}>
-          <Slider {...settings}>
+    <section className={styles.sliderSection}>
+      <h3 className={styles.title}>Unique Features</h3>
+      <p className={styles.description}>
+        Tech Cloud ERP provides an easy-to-use solution with smooth integration, powerful real-time analytics, and tools to help businesses improve operations, boost productivity, and make smarter decisions.
+      </p>
+      <div className={styles.sliderWrapper}>
+        <CustomArrow className={styles.leftArrow} onClick={() => swiperRef.current && swiperRef.current.slidePrev()}>
+          <BiChevronLeft size={32} />
+        </CustomArrow>
+        <div className={styles.sliderContainer}>
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={3}
+            autoplay={{ delay: 4000 }}
+            navigation={false}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
             {featuresData.map((feature, index) => (
-              <div key={index} className={styles.card}>
-                <img src={feature.image} alt={feature.title} className={styles.imgSrc} />
-                <h5 className={styles.cardTitle}>{feature.title}</h5>
-                <p className={styles.cardText}>{feature.description}</p>
-              </div>
+              <SwiperSlide key={index}>
+                <div className={styles.card}>
+                  <img src={feature.image} alt={feature.title} className={styles.cardImage} />
+                  <h5 className={styles.cardTitle}>{feature.title}</h5>
+                  <p className={styles.cardText}>{feature.description}</p>
+                </div>
+              </SwiperSlide>
             ))}
-          </Slider>
+          </Swiper>
         </div>
-      </Container>
-    </div>
+        <CustomArrow className={styles.rightArrow} onClick={() => swiperRef.current && swiperRef.current.slideNext()}>
+          <BiChevronRight size={32} />
+        </CustomArrow>
+      </div>
+      <div className={styles.paginationDots}>
+        {featuresData.map((_, index) => (
+          <span key={index} className={styles.dot}></span>
+        ))}
+      </div>
+    </section>
   );
 };
 
-export default ScrollFeature;
+export default FeatureSlider;

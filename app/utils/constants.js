@@ -2860,6 +2860,14 @@ export const sectionsData = {
       "You get direct access to real-time data and enjoy some of the best reporting tools available with Tech Cloud ERP, as it drives your insights in making informed decisions. With an easy user interface, there is easy adoption and integration to any team right away with improved workflows."
     ],
   };
+  export const BiIntroContent = {
+    imageSrc: "/about-us/bi-img.webp", // Ensure file extension is correct
+    title: "Business Intelligence",
+    description: [
+      "How do you organize people’s shared potential into a competitive advantage? Support them with data, solve their oddities in business and encourage their creativity. Tech Cloud ERP’s business intelligence enables your teams to do work faster and smarter by providing a seamless experience. Users can feel easy collaboration, security and governance by preparing analytics, building data fields and dashboards and publishing & sharing the data with a single click.",
+      "Tech Cloud ERP’s BI Tool is a fully hosted solution, so users can run it in minutes and add users as your needs grow without configuring servers, managing software upgrades, etc."
+    ],
+  };
   export const servicesContent = [
     {
       title: "Digital Marketing",
@@ -3502,64 +3510,64 @@ export const coFoundersData = [
     },
     ];
 
-  export const featuresData = [
-    {
-        imgSrc: ("features/webbased.webp"),
-        title: "Web Based And Cloud Computing",
-        description: "Web-based and cloud computing provide scalable, flexible access to apps and data online.",
-    },
-    {
-        imgSrc: ("features/dynamic.webp"),
-        title: "Dynamic Dashboards",
-        description: "Dynamic dashboards offer real-time, interactive data visualization for better decision-making.",
-    },
-    {
-        imgSrc: ("features/Whatsapp_email.webp"),
-        title: "Email & Whatsapp Integration",
-        description: "Email and SMS integration enables seamless, efficient communication across both channels.",
-    },
-    {
-        imgSrc: ("features/mobilenadtab.webp"),
-        title: "Mobile & Tab Compatibility",
-        description: "Ensures a seamless user experience across devices, enhancing accessibility and usability.",
-    },
-    {
-        imgSrc: ("features/autobackup.webp"),
-        title: "Data Auto Backup",
-        description: "Automates secure data storage, ensuring continuity and protection against loss.",
-    },
-    {
-        imgSrc: ("features/customisable.webp"),
-        title: "Customizable Software",
-        description: "Allows users to tailor applications to specific needs, enhancing functionality and satisfaction.",
-    },
-    {
-        imgSrc: ("features/payasgo.webp"),
-        title: "Pay As You Go",
-        description: "Enables users to pay for services based on actual usage, promoting flexibility and cost-efficiency.",
-    },
-    {
-        imgSrc: ("features/chatusers.webp"),
-        title: "Chat Between Users",
-        description: "Facilitates real-time communication and collaboration, enhancing interaction and connectivity.",
-    },
-    {
-        imgSrc: ("features/infiniteusers.webp"),
-        title: "Unlimited Users",
-        description: "Accommodates an unlimited number of users, ensuring scalability and accessibility.",
-    },
-    {
-        imgSrc: ("features/Audit_trail.webp"),
-        title: "Audit Trail",
-        description: "Detailed log of system activities, supporting accountability, compliance and security.",
-    },
-    {
-        imgSrc: ("features/Inventory.webp"),
-        title: "Multiple Inventory Location",
-        description: "Centralized inventory management across multiple locations, ensuring accuracy and seamless transfers.",
-    }
+    export const featuresData = [
+      {
+          image: "/features/webbased.webp", // Use absolute path
+          title: "Web Based And Cloud Computing",
+          description: "Web-based and cloud computing provide scalable, flexible access to apps and data online.",
+      },
+      {
+          image: "/features/dynamic.webp",
+          title: "Dynamic Dashboards",
+          description: "Dynamic dashboards offer real-time, interactive data visualization for better decision-making.",
+      },
+      {
+          image: "/features/Whatsapp_email.webp",
+          title: "Email & Whatsapp Integration",
+          description: "Email and SMS integration enables seamless, efficient communication across both channels.",
+      },
+      {
+          image: "/features/mobilenadtab.webp",
+          title: "Mobile & Tab Compatibility",
+          description: "Ensures a seamless user experience across devices, enhancing accessibility and usability.",
+      },
+      {
+          image: "/features/autobackup.webp",
+          title: "Data Auto Backup",
+          description: "Automates secure data storage, ensuring continuity and protection against loss.",
+      },
+      {
+          image: "/features/customisable.webp",
+          title: "Customizable Software",
+          description: "Allows users to tailor applications to specific needs, enhancing functionality and satisfaction.",
+      },
+      {
+          image: "/features/payasgo.webp",
+          title: "Pay As You Go",
+          description: "Enables users to pay for services based on actual usage, promoting flexibility and cost-efficiency.",
+      },
+      {
+          image: "/features/chatusers.webp",
+          title: "Chat Between Users",
+          description: "Facilitates real-time communication and collaboration, enhancing interaction and connectivity.",
+      },
+      {
+          image: "/features/infiniteusers.webp",
+          title: "Unlimited Users",
+          description: "Accommodates an unlimited number of users, ensuring scalability and accessibility.",
+      },
+      {
+          image: "/features/Audit_trail.webp",
+          title: "Audit Trail",
+          description: "Detailed log of system activities, supporting accountability, compliance and security.",
+      },
+      {
+          image: "/features/Inventory.webp",
+          title: "Multiple Inventory Location",
+          description: "Centralized inventory management across multiple locations, ensuring accuracy and seamless transfers.",
+      }
   ];
-
+  
 
   //pricing plans
 export const pricingPlans = [
@@ -3603,3 +3611,8 @@ export const pricingPlans = [
     color: '#000',
   }
 ];
+
+
+export const assetsbrochure = {
+  brochureLink: "/broucher-web.pdf", // Direct public URL
+};

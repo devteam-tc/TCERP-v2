@@ -72,9 +72,9 @@ import { aboutus_data } from '../utils/constants'
 import Footer from '../components/Footer';
 
 export const metadata = {
-  title: "About Us - Tech Cloud ERP",
-  description: "Learn more about Tech Cloud ERP and our mission.",
-  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
+  title: "About Tech Cloud ERP | Leading Cloud-Based ERP Solutions in India",
+  description: "Discover Tech Cloud ERP, a Hyderabad-based company offering scalable and user-friendly cloud ERP solutions to streamline business operations across industries in India.",
+  keywords: "ERP software solution in hyderabad, Best ERP Solutions Provider in India, cloud-based ERP solutions provider in India, Manufacturing ERP, Manufacturing Software, Production ERP, Production Software, Manufacturing ERP software,",
 };
 
 export default function Page() {
