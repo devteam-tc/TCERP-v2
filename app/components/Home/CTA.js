@@ -10,7 +10,7 @@ const CTA = () => {
   const router = useRouter(); // Initialize router
 
   const handleDemoClick = () => {
-    router.push("/scheduledemo"); // Navigate to demo page
+    router.push("/schedule-demo"); // Navigate to demo page
     window.scrollTo(0, 0);
   };
 

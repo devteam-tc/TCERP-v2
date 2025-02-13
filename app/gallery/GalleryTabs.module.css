@@ -34,14 +34,15 @@
   .cardItem {
     background: white;
     padding: 20px;
-    height: 400px;
+    /* height: 400px; */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     display: flex;
     color: #565756;
     flex-direction: column;
-  }
+}
+  
   
   .cardItem img {
     width: 100% !important;
@@ -57,6 +58,7 @@
   
   .cardItem p {
     margin: 2px;
+    text-align: left;
   }
   
   .title {

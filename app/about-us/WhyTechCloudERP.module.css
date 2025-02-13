@@ -26,19 +26,23 @@
 
 /* Title Styling */
 .title {
+  font-size: 40px;
   color: #ef5226;
-  font-size: 36px;
-  font-weight: 700;
   margin-bottom: 20px;
-  line-height: 1.2;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .title {
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 32px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
 
 .textContainer p {
   font-size: 16px;
