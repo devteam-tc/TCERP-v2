@@ -8,9 +8,8 @@ import Footer from '../components/Footer';
 import PrivacyPage from './PrivacyPage'
 
 export const metadata = {
-  title: "About Us - Tech Cloud ERP",
-  description: "Learn more about Tech Cloud ERP and our mission.",
-  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
+  title: "Tech Cloud ERP - Privacy Policy",
+  description: "Understand how Tech Cloud ERP safeguards your data and ensures your privacy through transparent practices and secure systems.",
 };
 
 export default function Page() {
