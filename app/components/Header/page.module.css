@@ -411,4 +411,47 @@ Global
     align-items: center; /* Centers the content vertically */
   }
   
-  
+/* Hide toggle button ( + / - ) on large screens */
+@media (min-width: 996px) {
+  .toggleButton {
+    display: none !important;
+  }
+}
+
+/* Ensure dropdown opens on hover in desktop */
+@media (min-width: 996px) {
+  .nav_item:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+/* Default dropdown state: closed (mobile & tablet) */
+.dropdown {
+  background-color: #fff;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+/* When dropdown is open */
+.open {
+  height: auto; /* Take full height only when open */
+  opacity: 1;
+}
+
+/* Ensure dropdown is hidden when closed */
+.closed {
+  height: 0 !important;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.menuButton{
+  background-color: #fff;
+  color: #797575;
+  border: 2px solid #797575;
+}
+

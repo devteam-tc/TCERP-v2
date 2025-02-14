@@ -63,9 +63,8 @@ const MobileNavigationDrawer = ({
       <div className={`${styles.drawer_content} ${isDrawerOpen ?  `${styles.active}`  : 'none'}`}>
         <div className={styles.close_drawer}>
           <img
-            src="./logo.webp"
+            src="/logo.webp"
             alt="MobileLogoImg"
-            width={200}
             height={50}
             style={{ cursor: 'pointer' }}
             onClick={() => {
@@ -80,7 +79,7 @@ const MobileNavigationDrawer = ({
               }
             }}
           >
-            <X size={30} />
+            <X size={50} />
           </button>
         </div>
 

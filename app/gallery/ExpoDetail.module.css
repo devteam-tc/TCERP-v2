@@ -1,88 +1,148 @@
-/* ExpoDetail.module.css */
-.flippedImage {
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-    border-radius: 8px;
+/* /* Image Grid Layout */
+.galleryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.galleryCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 33%;
+  flex: 1 1 30%;
+}
+
+.galleryImage {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.responsiveRow{
+margin: auto;
+}
+.responsiveText{
+  margin: 0px;
+  font-size: 30px;
+}
+
+.galleryImage:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Grid */
+@media (max-width: 992px) {
+  .galleryCol {
+    max-width: 50%;
   }
-  
-  .flippedImage:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .galleryCol {
+    max-width: 100%;
   }
-  
-  .fixedSizeImage {
-    width: 100%;
-    max-width: 1296px;
-    height: 444px;
-    border-radius: 10px;
-    object-fit: cover;
+}
+
+/* Image Viewer Overlay */
+.imageViewerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+/* Image Viewer */
+.imageViewer {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.imageViewerImage {
+  width: 100%;
+  max-height: 80vh;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Navigation Buttons */
+.closeButton,
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton {
+  right: 15px;
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 50px;
+}
+
+/* Previous and Next Buttons - Centered Vertically */
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 15px;
+}
+
+/* Responsive Fix for Mobile Image Grid */
+@media (max-width: 768px) {
+  .galleryCol {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
-  
-  @media (max-width: 992px) {
-    .fixedSizeImage {
-      height: auto;
-    }
+}
+@media (max-width: 996px) {
+  .galleryCol {
+    max-width: 100%;
+    flex: 2 2 100%;
   }
-  
-  .responsiveText {
-    font-size: 1.25rem;
-    margin: 0;
-  }
-  
-  @media (max-width: 992px) {
-    .responsiveText {
-      font-size: 1rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .responsiveText {
-      font-size: 0.875rem;
-    }
-  }
-  
-  .responsiveIcon {
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  @media (max-width: 992px) {
-    .responsiveIcon {
-      font-size: 1.25rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .responsiveIcon {
-      font-size: 1rem;
-    }
-  }
-  
-  .responsiveRow {
-    display: flex;
-    align-items: center;
-  }
-  
-  @media (max-width: 991px) {
-    .responsiveRow {
-      justify-content: flex-start;
-      text-align: left;
-    }
-  }
-  
-  @media (min-width: 992px) {
-    .responsiveRow {
-      justify-content: center;
-    }
-  }
-  
-  .textCenter {
-    text-align: center;
-    height: 100%;
-  }
-  
-  .lightGalleryContainer {
-    margin-top: 1rem;
-  }
-  
+}

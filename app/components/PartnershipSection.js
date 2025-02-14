@@ -9,7 +9,7 @@ export default function PartnershipSection() {
   const router = useRouter();
 
   const handleDemoClick = () => {
-    router.push("/demo");
+    router.push("/schedule-demo");
     window.scrollTo(0, 0);
   };
 

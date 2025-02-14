@@ -1,6 +1,7 @@
-import ExpoDetail from "../ExpoDetail";
+
 import { db } from "../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import dynamic from "next/dynamic";
 
 export async function generateStaticParams() {
   try {
@@ -15,6 +16,10 @@ export async function generateStaticParams() {
     return [];
   }
 }
+
+// Lazy load ExpoDetail
+const ExpoDetail = dynamic(() => import("../ExpoDetail"));
+
 
 const ExpoPage = ({ params }) => {
   return <ExpoDetail id={params.id} />; // Ensure ExpoDetail receives the id prop correctly

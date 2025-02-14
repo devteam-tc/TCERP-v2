@@ -13,7 +13,7 @@ import { TbLayoutGridAdd } from 'react-icons/tb';
 import { FaArrowsRotate } from "react-icons/fa6"; // Corrected FaGroupArrowsRotate
 
 export const releavant = {
-  
+  techCloudLogo: "/logo.webp",
   testimonials_bg: "/home/testimonials_bg.webp",
   Quotation_mark: "/home/Quotation_mark.webp",
   ourMission: {
@@ -165,7 +165,7 @@ export const sectionsData = {
       },
   
       {
-      title: 'Automative Industry',
+      title: 'Automotive Industry',
       link: '/industries/automative-industry',
       },
   
@@ -173,15 +173,15 @@ export const sectionsData = {
   },
   "automative-industry": {
     link: '/industries/automative-industry',
-    heading: 'Automative Industry',
-    subheading:'The Best ERP For Automative Industry',
+    heading: 'Automotive Industry',
+    subheading:'The Best ERP For Automotive Industry',
     description: 'With its advanced technology, impeccable engineering and sustainable solutions for a connected future, the automotive sector is driving innovation and revolutionising mobility.',
     top_img: '/industries/automotive_top_img.webp',
     bottom_img: '/industries/automotive_Bottom_img.webp',
     alt_text1: "automative_top_Img",
     alt_text2: "automative_bottom_Img",
-    top_description: "The automobile industry functions under a dynamic and fiercely competitive environment. Businesses require strong tools to manage intricate supply chains, guarantee quality and deliver goods on schedule if they want to stay ahead of the competition. In order to meet their particular needs, our Automotive industry software was created especially for automakers, suppliers and dealers.",
-    bottom_description: "In the competitive automobile industry, efficiency, accuracy and innovation are unavoidable. ERP for the automobile sector simplifies supply chain management, improves production planning and assures smooth departmental interaction. With real-time analytics, sophisticated inventory monitoring and compliance management, a cloud-based ERP for the Automotive Industry manufacturers to optimise operations, cut costs and offer superior goods. Stay ahead of the competition in a rapidly changing industry by leveraging technology that promotes growth and performance.",
+    top_description: "The automotive industry functions under a dynamic and fiercely competitive environment. Businesses require strong tools to manage intricate supply chains, guarantee quality and deliver goods on schedule if they want to stay ahead of the competition. In order to meet their particular needs, our Automotive industry software was created especially for automakers, suppliers and dealers.",
+    bottom_description: "In the competitive automotive industry, efficiency, accuracy and innovation are unavoidable. ERP for the automobile sector simplifies supply chain management, improves production planning and assures smooth departmental interaction. With real-time analytics, sophisticated inventory monitoring and compliance management, a cloud-based ERP for the Automotive Industry manufacturers to optimise operations, cut costs and offer superior goods. Stay ahead of the competition in a rapidly changing industry by leveraging technology that promotes growth and performance.",
     similar_industries: [
       {
       title: 'Electronic Industry',
@@ -289,7 +289,7 @@ export const sectionsData = {
   },
   
   "electric-solar-industry": {
-    link: '/industries/electrical-solar-industry',
+    link: '/industries/electric-solar-industry',
     heading: 'Electrical Solar Industry',
     subheading:'The Best ERP For Electrical Solar Industry',
     description: 'Utilising cutting-edge solar energy technologies to power a sustainable future and provide everyone with affordable, dependable and clean electricity.',
@@ -453,8 +453,8 @@ export const sectionsData = {
   
   "hydraulic-industry": {
     link: '/industries/hydraulic-industry',
-    heading: 'Hydraulic Industry',
-    subheading:'The Best ERP For Hydraulic Industry',
+    heading: 'Hydraulic Cylinders Industry',
+    subheading:'The Best ERP For Hydraulic Cylinders Industry',
     description: 'Our ERP solutions for the hydraulics industry help companies reduce costs, improve efficiency and streamline supply chain, inventory and manufacturing.',
     top_img: '/industries/Hydralic_top_img.webp',
     bottom_img: '/industries/Hydralic_bottom_img.webp',
@@ -1190,7 +1190,7 @@ export const sectionsData = {
         description: "The electrical industry includes manufacturers of generation, transmission and related equipment. ",
         icon: '/AllIndustries/electric.webp',
         linkText: 'Explore',
-        link: '/industries/electrical-solar-industry', 
+        link: '/industries/electric-solar-industry', 
       },
       {
         id: 8,
@@ -2874,21 +2874,21 @@ export const sectionsData = {
       description1: "Digital marketing refers to the promotion of products or services through digital channels like search engines, social media, email and websites. It involves strategies and tactics to connect with a target audience online and achieve business objectives.",
       description2: "Digital marketing is important because it helps businesses reach a larger audience and drive engagement through online channels. It allows businesses to target specific audiences and measure the effectiveness of their marketing strategies.",
       buttonText: "Read more",
-      imageUrl: '/Services/digital.webp'
+      imageUrl: '/services/digital.webp'
     },
     {
       title: "Web Development",
       description1: "In today's digitized marketing environment, online promotion is essential. Advertisers must use digital marketing tools and techniques to enhance customer value and achieve organizational goals. At Tech Cloud ERP Software Solutions, we boost your global online visibility and profits through effective internet marketing strategies.",
       description2: "Our digital marketing experts excel with web analysis tools, live traffic and ad creation to attract customers. ",
       buttonText: "Read more",
-      imageUrl: '/Services/web-app.webp'
+      imageUrl: '/services/web-app.webp'
     },
     {
       title: "Mobile Application Development",
       description1: "Mobile app development means that designing or developing an application software whose primary function or purpose will be run within a smartphone or mobile phone and tabloid. Achieve a frictionless intuitive use experience such that an app runs naturally on whatever version of either iOS or Android.",
       description2: "Cross-platform development is the development of the application using one codebase but runs on multiple platforms. This cross-platform would, thus, eliminate the need to write redundant codes on various platforms and therefore reduce development time and cost; it would mean that the same application was developed for running on iOS and Android.",
       buttonText: "Read more",
-      imageUrl: '/Services/mobile-app.webp'
+      imageUrl: '/services/mobile-app.webp'
     }
   ];
   export const ExpertiseData = [

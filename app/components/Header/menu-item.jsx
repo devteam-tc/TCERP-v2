@@ -1,21 +1,185 @@
+// import Link from 'next/link';
+// import Container from './container';
+// import DropdownContent from './dropdown-content';
+// import { FiPlus, FiMinus } from 'react-icons/fi';
+// import styles from './page.module.css'
+
+// const MenuItem = ({
+//   label,
+//   href,
+//   children,
+//   onToggle,
+//   active,
+//   setIsDrawerOpen,
+//   onMenuClick,
+// }) => {
+//   const handleClick = () => {
+//     const activeElement = document.activeElement;
+//     activeElement.blur();
+//   };
+
+//   const handleItemClick = () => {
+//     onMenuClick && onMenuClick();
+//     handleClick();
+//     setIsDrawerOpen && setIsDrawerOpen(false);
+//   };
+
+  
+
+//   return (
+//     <li>
+//       <div className={styles.nav_item_content}>
+//         <Link
+//           href={href}
+//           className={({ isActive }) => (isActive ? `${styles.active}` : '')}
+//           onClick={(e) => {
+//             handleItemClick(e); // Call the first function
+//             window.scrollTo(0, 0); // Call the scroll functionality
+//           }}
+//         >
+//           <div>{label}</div>
+//         </Link>
+//         {children && (
+//           <button
+//             className={styles.mdHidden}
+//             onClick={onToggle}
+//             aria-label="Toggle dropdown"
+//             aria-haspopup="menu"
+//             aria-expanded={active ? 'true' : 'false'}
+//           >
+//             {active ? (
+//               <FiMinus size={20} className="mobile-only" />
+//             ) : (
+//               <FiPlus size={20} className="desktop-only" />
+//             )}
+//           </button>
+
+//         )}
+//       </div>
+      // {children && (
+      //   <div
+      //     role="menu"
+      //     className={`${styles.dropdown} ${active ? 'h-auto' : 'h-0 overflow-hidden md:h-auto'}`}
+      //   >
+      //     <Container>
+      //       <DropdownContent
+      //         submenuscontent={children}
+      //         setIsDrawerOpen={setIsDrawerOpen}
+      //         handleClick={handleClick}
+      //         parentLabel={label}
+      //       />
+      //     </Container>
+      //   </div>
+      // )}
+//     </li>
+
+//   );
+// };
+
+// export default MenuItem;
+
+// import Link from 'next/link';
+// import Container from './container';
+// import DropdownContent from './dropdown-content';
+// import { FiPlus, FiMinus } from 'react-icons/fi';
+// import styles from './page.module.css';
+// import { useState, useEffect } from 'react';
+
+// const MenuItem = ({ label, href, children, setIsDrawerOpen, onMenuClick }) => {
+//   const [active, setActive] = useState(false);
+//   const [isDesktop, setIsDesktop] = useState(false);
+
+//   useEffect(() => {
+//     // Check screen size to determine desktop view
+//     const checkScreenSize = () => {
+//       setIsDesktop(window.innerWidth >= 996);
+//     };
+//     checkScreenSize();
+//     window.addEventListener('resize', checkScreenSize);
+//     return () => window.removeEventListener('resize', checkScreenSize);
+//   }, []);
+
+//   const handleClick = () => {
+//     document.activeElement?.blur();
+//   };
+
+//   const handleItemClick = () => {
+//     onMenuClick && onMenuClick();
+//     handleClick();
+//     setIsDrawerOpen && setIsDrawerOpen(false);
+//   };
+
+//   const toggleDropdown = () => {
+//     setActive((prev) => !prev);
+//   };
+
+//   return (
+//     <li className={styles.nav_item} onMouseEnter={() => isDesktop && setActive(true)} onMouseLeave={() => isDesktop && setActive(false)}>
+//       <div className={styles.nav_item_content}>
+//         <Link
+//           href={href}
+//           className={({ isActive }) => (isActive ? `${styles.active}` : '')}
+//           onClick={(e) => {
+//             handleItemClick(e);
+//             window.scrollTo(0, 0);
+//           }}
+//         >
+//           <div>{label}</div>
+//         </Link>
+//         {children && !isDesktop && ( // Hide + and - icons on desktop
+//           <button
+//             className={styles.toggleButton}
+//             onClick={toggleDropdown}
+//             aria-label="Toggle dropdown"
+//             aria-haspopup="menu"
+//             aria-expanded={active ? 'true' : 'false'}
+//           >
+//             {active ? <FiMinus size={20} /> : <FiPlus size={20} />}
+//           </button>
+//         )}
+//       </div>
+//       {children && (
+//         <div className={`${styles.dropdown} ${active ? styles.open : ''}`}>
+//           <Container>
+//             <DropdownContent
+//               submenuscontent={children}
+//               setIsDrawerOpen={setIsDrawerOpen}
+//               handleClick={handleClick}
+//               parentLabel={label}
+//             />
+//           </Container>
+//         </div>
+//       )}
+//     </li>
+//   );
+// };
+
+// export default MenuItem;
+
+
 import Link from 'next/link';
 import Container from './container';
 import DropdownContent from './dropdown-content';
 import { FiPlus, FiMinus } from 'react-icons/fi';
-import styles from './page.module.css'
+import styles from './page.module.css';
+import { useState, useEffect } from 'react';
 
-const MenuItem = ({
-  label,
-  href,
-  children,
-  onToggle,
-  active,
-  setIsDrawerOpen,
-  onMenuClick,
-}) => {
+const MenuItem = ({ label, href, children, setIsDrawerOpen, onMenuClick }) => {
+  const [active, setActive] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Check screen size to determine desktop view
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 996);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   const handleClick = () => {
-    const activeElement = document.activeElement;
-    activeElement.blur();
+    document.activeElement?.blur();
   };
 
   const handleItemClick = () => {
@@ -24,40 +188,41 @@ const MenuItem = ({
     setIsDrawerOpen && setIsDrawerOpen(false);
   };
 
+  const toggleDropdown = () => {
+    setActive((prev) => !prev);
+  };
+
   return (
-    <li>
+    <li
+      className={styles.nav_item}
+      onMouseEnter={() => isDesktop && setActive(true)}
+      onMouseLeave={() => isDesktop && setActive(false)}
+    >
       <div className={styles.nav_item_content}>
         <Link
           href={href}
           className={({ isActive }) => (isActive ? `${styles.active}` : '')}
           onClick={(e) => {
-            handleItemClick(e); // Call the first function
-            window.scrollTo(0, 0); // Call the scroll functionality
+            handleItemClick(e);
+            window.scrollTo(0, 0);
           }}
         >
           <div>{label}</div>
         </Link>
-        {children && (
+        {children && !isDesktop && ( // Hide + and - icons on desktop
           <button
-            className={styles.mdHidden}
-            onClick={onToggle}
+            className={styles.toggleButton}
+            onClick={toggleDropdown}
             aria-label="Toggle dropdown"
             aria-haspopup="menu"
             aria-expanded={active ? 'true' : 'false'}
           >
-            {active ? (
-              <FiMinus size={20} className="mobile-only" />
-            ) : (
-              <FiPlus size={20} className="desktop-only" />
-            )}
+            {active ? <FiMinus size={20} /> : <FiPlus size={20} />}
           </button>
         )}
       </div>
       {children && (
-        <div
-          role="menu"
-          className={`${styles.dropdown} ${active ? 'h-auto' : 'h-0 overflow-hidden md:h-auto'}`}
-        >
+        <div className={`${styles.dropdown} ${active ? styles.open : styles.closed}`}>
           <Container>
             <DropdownContent
               submenuscontent={children}
@@ -69,31 +234,6 @@ const MenuItem = ({
         </div>
       )}
     </li>
-    // <li>
-    //   <div className={styles.nav_item_content}>
-    //     <Link href={href} className={active ? styles.active : ''} onClick={handleItemClick}>
-    //       <div>{label}</div>
-    //     </Link>
-    //     {children && (
-    //       <button className={styles.mdHidden} onClick={onToggle} aria-label="Toggle dropdown">
-    //         {active ? <FiMinus size={20} /> : <FiPlus size={20} />}
-    //       </button>
-    //     )}
-    //   </div>
-
-    //   {children && active && (
-    //     <div className={styles.dropdown} role="menu">
-    //       <Container>
-    //         <DropdownContent
-    //           submenuscontent={children}
-    //           setIsDrawerOpen={setIsDrawerOpen}
-    //           handleClick={handleClick}
-    //           parentLabel={label}
-    //         />
-    //       </Container>
-    //     </div>
-    //   )}
-    // </li>
   );
 };
 
