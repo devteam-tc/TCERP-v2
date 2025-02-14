@@ -65,7 +65,7 @@ export const menuData = [
             { label: 'Jewellery Industry', 
               href: '/industries/jewellery-industry' },
             { label: 'Leather Industry', href: '/industries/leather-industry' },
-            { title: 'Logistics Industry ', href: '/industries/logistics-industry' },
+            { label: 'Logistics Industry ', href: '/industries/logistics-industry' },
   
           { label: 'Medical Equipment Manufacturing Industry', href: '/industries/medicalequipmentmanufacturing-industry' },
           { label: 'Wood Industry', href: '/industries/wood-industry' },

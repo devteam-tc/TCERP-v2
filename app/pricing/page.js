@@ -9,9 +9,9 @@ import PricingCard from './PricingCard';
 import PricingTable from './PricingTable';
 
 export const metadata = {
-  title: "About Us - Tech Cloud ERP",
-  description: "Learn more about Tech Cloud ERP and our mission.",
-  keywords: "About Tech Cloud ERP, ERP Software, Business Management",
+  title: "Choose the right plan for you",
+  description: "Compare the pricing and pick the best service plan of techclouerp based on your Business needs!",
+  keywords: "software price, erp software price in india, enterprise erp Pricing, erp cost for small businesses,erp subscription plans",
 };
 
 export default function Page() {

@@ -21,6 +21,7 @@
   
   .industryCount {
     font-size: 16px;
+    margin: 10px;
     color: #e85600;
     cursor: pointer;
   }
@@ -83,9 +84,9 @@
     color: #e85600;
   }
   
-  .cardContent {
+  /* .cardContent {
     flex-grow: 1;
-  }
+  } */
   
   @media (max-width: 992px) {
     .cardContent {

@@ -1,0 +1,49 @@
+@keyframes moveUpDown {
+    0% {
+      top: 300px;
+    }
+    100% {
+      top: 320px;
+    }
+  }
+  
+  .stickyButtonWrapper {
+    position: fixed;
+    right: -188px;
+    top: 300px;
+    width: 200px;
+    height: 25px;
+    z-index: 99999;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    animation: moveUpDown 2s infinite alternate;
+  }
+  
+  .left {
+    right: auto;
+    left: 45px;
+  }
+  
+  @media only screen and (max-width: 996px) {
+    .stickyButtonWrapper {
+      display: none;
+    }
+  }
+  
+  .styledButton {
+    border-radius: 15px;
+    border: 1px solid #ef5226;
+    font-size: 16px;
+    background: #ef5226;
+    padding: 5px 15px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .styledButton:hover {
+    background: #05a7cc;
+    border: 1px solid #05a7cc;
+  }
+  

@@ -12,6 +12,7 @@ import PricingSection from './components/Home/PricingSection'
 import Recordsection from './about-us/RecordSection'
 import ScrollFeature from './components/Home/ScrollFeature'
 import ImportantModuleSection from './components/Home/ImportantModuleSection'
+import StickyButton from './components/StickyButton'
 export default function Page() {
   return (
     <div className="min-h-screen">
@@ -22,14 +23,17 @@ export default function Page() {
         <CardSection/>
         <ImportantModuleSection />
         <Recordsection />
-        <CallToAction/>
+        <ScrollFeature />
+
         <GalleryTabs /> 
         <Testimonials/>
         <PricingSection />
+        <CallToAction/>
 
       </main>
       <OurPartnerSection/>
       <Footer/>
+      <StickyButton />
     </div>
   )
 }

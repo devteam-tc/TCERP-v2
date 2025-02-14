@@ -46,8 +46,9 @@ import { Poppins } from "next/font/google";
 import GTM from "./components/GTM";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import WhatsappButton from './components/WhatsappButton';
+import ScrollToTopButton  from './components/ScrollToTopButton'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -120,12 +121,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable}`}
-        style={{ fontFamily: "var(--font-poppins), sans-serif" }}
-      >
-        <GTM />
-        <GoogleAnalytics />{children}
+      <body className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable}`} style={{ fontFamily: "var(--font-poppins), sans-serif" }}>
+        {children}
+        <WhatsappButton />
+        <ScrollToTopButton />
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=e3ca5133-37b8-460b-bdc3-25e8d82513ff" /> 
       </body>
     </html>
   );

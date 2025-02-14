@@ -17,7 +17,7 @@ export default function IndustryList({ industryList, index }) {
 
   return (
     <Container className={`${styles.styledContainer} mt-5 mb-5`}>
-      <Row className="justify-content-between align-items-center">
+      <Row className=" align-items-center">
         <Col>
           <h2 className={styles.header}>
             {index === 0
@@ -27,7 +27,10 @@ export default function IndustryList({ industryList, index }) {
               : "Oil and Gas Industry"}
           </h2>
         </Col>
-        <Col className="d-flex justify-content-end">
+        
+      </Row>
+      <Row>
+      <Col className="d-flex justify-content-end">
           <a href="#" className={styles.industryCount}>
             {industryList.length} Industries
           </a>
@@ -42,7 +45,7 @@ export default function IndustryList({ industryList, index }) {
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.title}>{industry.title}</h3>
-                <p className="mb-1">{industry.description}</p>
+                <p className="mb-1 text-justify">{industry.description}</p>
               </div>
               <div className={styles.arrow} onClick={() => handleArrowClick(industry.link)}>
                 <FaArrowRight />
