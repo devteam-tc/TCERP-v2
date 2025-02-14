@@ -5,11 +5,12 @@ import OurPartnerSection from '../components/OurPartnerSection'
 import industrystyles from "../industries/[slug]/industry.module.css"
 import { aboutus_data } from '../utils/constants'
 import Footer from '../components/Footer';
-import TermsPage from './TermsPage'
+import ComparisonTable from './ComparisonTable'
 
 export const metadata = {
-  title: "Tech Cloud ERP - Terms and Conditions",
-  description: "Review the terms and conditions for using Tech Cloud ERP services, ensuring clarity and transparency in every interaction.",
+  title: "ERP products/ techcloud erp best software company in  india",
+  description: "Techcloud erp provide best software solution for manufaturing industries such as CRM, POS, HRM,Accounting Software etc",
+  keywords: "erp comparison, erp software comparison,compare erp,choosing the right erp, erp software benefits,choosing the right ERP",
 };
 
 export default function Page() {
@@ -20,15 +21,15 @@ export default function Page() {
   <Container>
     <Row>
       <Col md={6}>
-        <h2 className={industrystyles.heading}>{aboutus_data.termsAndConditionscontent.heading}</h2>
+        <h2 className={industrystyles.heading}>{aboutus_data.productcomparison.heading}</h2>
         <div className={industrystyles.divider}></div>
-        <p className={industrystyles.description}>{aboutus_data.termsAndConditionscontent.description}</p>
+        <p className={industrystyles.description}>{aboutus_data.productcomparison.description}</p>
       </Col>
     </Row>
   </Container>
 </section>
       <main>
-      <TermsPage />
+        <ComparisonTable />
         <CTA />
         <OurPartnerSection />
         

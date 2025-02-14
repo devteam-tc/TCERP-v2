@@ -3009,7 +3009,7 @@ export const coFoundersData = [
   export const contactData = {
     corporateOffice: {
       address: "Office Unit No. 705, Jain Sadguru Capital Park Madhapur, Hyderabad-500081",
-      phoneNumber: "+91 8919439603",
+      phoneNumber: "+91 8919439603, +91 7032803200",
       email: "info@techclouderp.com",
     },
     headquarters: {
@@ -3615,4 +3615,132 @@ export const pricingPlans = [
 
 export const assetsbrochure = {
   brochureLink: "/broucher-web.pdf", // Direct public URL
+};
+
+
+
+export const comparisonData = {
+  features: [
+      {
+          id: 1,
+          name: "Users",
+          techCloudERP: "Unlimited Users",
+          sapBusinessOne: "User-based license costing",
+      },
+      {
+          id: 2,
+          name: "Accessing the ERP",
+          techCloudERP: "Web based",
+          sapBusinessOne: "Web based",
+      },
+      {
+          id: 3,
+          name: "Dashboard",
+          techCloudERP: "Dynamic Dashboard with a Graphical User Interface",
+          sapBusinessOne: "No Dynamic Dashboards",
+      },
+
+      {
+        id: 4,
+        name: "Email & SMS",
+        techCloudERP: "Inbuilt SMS & Email Integration",
+        sapBusinessOne: "Not Available",
+    },
+    {
+      id: 5,
+      name: "Language",
+      techCloudERP: "Multi-language",
+      sapBusinessOne: "No Multi-language",
+  },
+  {
+    id: 6,
+    name: "Data Import/Export",
+    techCloudERP: "Available",
+    sapBusinessOne: "Available",
+},
+{
+  id: 7,
+  name: "Reports",
+  techCloudERP: "User defined & Inbuilt reports",
+  sapBusinessOne: "Inbuilt reports",
+},
+{
+  id: 8,
+  name: "Server",
+  techCloudERP: "Web Server",
+  sapBusinessOne: "Web Server",
+},
+{
+  id: 9,
+  name: "Server Maintenance",
+  techCloudERP: "Auto Backup & Restore Facility",
+  sapBusinessOne: "Manual Triggering",
+},
+{
+  id: 10,
+  name: "Software",
+  techCloudERP: "PHP",
+  sapBusinessOne: "ABAP",
+},
+{
+  id: 11,
+  name: "Database",
+  techCloudERP: "MySQL",
+  sapBusinessOne: "Oracle",
+},
+{
+  id: 12,
+  name: "Source Code",
+  techCloudERP: "Complete Source code will be given to the Client",
+  sapBusinessOne: "Source Code will be with the Development Company",
+},
+
+{
+  id: 13,
+  name: "Renewal/License Cost",
+  techCloudERP: "Lifetime Solution & No Renewal",
+  sapBusinessOne: "Renewal / License Cost is present",
+},
+
+{
+  id: 14,
+  name: "AMC",
+  techCloudERP: "15% or Not Mandate",
+  sapBusinessOne: "30% and Mandate",
+},
+{
+  id: 15,
+  name: "Implementation Period",
+  techCloudERP: "Plug & Play, If customisation - 1 month deployment period",
+  sapBusinessOne: "Product will not match exactly and needs 50 % customisation Heavy customisation charge and takes more time.",
+},
+{
+  id: 16,
+  name: "Implementation Cost",
+  techCloudERP: "Low",
+  sapBusinessOne: "High",
+},
+      // Add more features as needed
+  ],
+  salesAndCRMFeatures: [
+      {
+          id: 1,
+          name: "Delivery Against Sales Orders",
+          techCloudERP: "Yes",
+          sapBusinessOne: "No",
+      },
+      {
+          id: 2,
+          name: "Invoice Against Sales Orders",
+          techCloudERP: "Yes",
+          sapBusinessOne: "No",
+      },
+      {
+          id: 3,
+          name: "Opportunities & Pipeline Management",
+          techCloudERP: "Yes",
+          sapBusinessOne: "Yes",
+      },
+      // Add more features as needed
+  ],
 };
