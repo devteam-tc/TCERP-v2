@@ -230,6 +230,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
+export const dynamic = "error"; // Ensures build-time validation
 // Industry Page Component
 export default function IndustryPage({ params }) {
   const { slug } = params;
