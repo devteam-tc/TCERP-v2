@@ -92,9 +92,9 @@ const WorldMapWithMarkers = () => {
 
     pointSeries.data.setAll([
       { title: "Delhi", address: "New Delhi, India", geometry: { type: "Point", coordinates: [77.1025, 28.7041] } },
-      { title: "Coimbatore", address: "MayFlower Signature, Office No. 7C, 531-537 , Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004", geometry: { type: "Point", coordinates: [76.9558, 11.0168] } },
+      { title: "Coimbatore", address: "MayFlower Signature, Office No. 7C, 531-537, Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004", geometry: { type: "Point", coordinates: [76.9558, 11.0168] } },
       { title: "Ahmedabad", address: "Ahmedabad, Gujarat, India", geometry: { type: "Point", coordinates: [72.5714, 23.0225] } },
-      { title: "Chennai", address: "North Gate, NP 11, Developed PLot,Thiru Vi-Ka Industrial Estate,Ekkathuthangal, Chennai, TamilNadu - 600035", geometry: { type: "Point", coordinates: [80.2785, 13.0878] } },
+      { title: "Chennai", address: "North Gate, NP 11, Developed PLot, Thiru Vi-Ka Industrial Estate, Ekkathuthangal, Chennai, TamilNadu - 600035", geometry: { type: "Point", coordinates: [80.2785, 13.0878] } },
       { title: "Hyderabad", address: "Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur, Hyderabad, Telangana, India-500081", geometry: { type: "Point", coordinates: [78.4867, 17.3850] } },
       { title: "Surat", address: "Surat, Gujarat, India", geometry: { type: "Point", coordinates: [72.8311, 21.1702] } },
       { title: "Indore", address: "Unit No 903-B, NRK Business Park, Vijay Nagar, Indore, Madhya Pradesh - 452010", geometry: { type: "Point", coordinates: [75.8577, 22.7196] } },

@@ -3574,7 +3574,7 @@ export const pricingPlans = [
   {
     price: "2000*",
     title: "Basic",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "1-5 Modules",
       "1-5 Users",
@@ -3587,7 +3587,7 @@ export const pricingPlans = [
   {
     price: "1500*",
     title: "",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "1-15 Modules",
       "1-25 Users",
@@ -3600,7 +3600,7 @@ export const pricingPlans = [
   {
     price: "0*",
     title: " Ultimate",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "Unlimited Modules",
       "Unlimited Customization",
