@@ -1,7 +1,7 @@
 "use client";
 import Script from "next/script";
 
-const GTM_ID = "GTM-KR25VPKW"; // Replace with your GTM ID
+const GTM_ID = "GTM-KFKHH8W"; // Replace with your GTM ID
 
 export default function GTM() {
   return (

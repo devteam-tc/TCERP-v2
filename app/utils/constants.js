@@ -113,34 +113,100 @@ export const ctaData = {
 
 // industries data 
 export const sectionsData = {
+  // "agriculture-industry": {
+  //   link: '/industries/agriculture-industry',
+  //   heading: 'Agriculture Industry',
+  //   subheading:'The Best ERP For Agriculture Industry',
+  //   description: 'In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.',
+  //   top_img: '/industries/agriculture_top_img.webp',
+  //   bottom_img: '/industries/agriculture_bottom_img.webp',
+  //   alt_text1: "agriculture_top_Img",
+  //   alt_text2: "agriculture_bottom_Img",
+  //   top_description: "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency. Whether you work in agribusiness distribution, livestock management or crop production . Our ERP software is designed to satisfy the particular requirements of the agriculture industry.",
+  //   bottom_description: "Tech Cloud ERP is an best ERP for the agricultural business, optimising sales, inventory and crop management. With a scalable, cloud-based platform, it measures productivity, optimises supply chains, provides real-time data access and lowers expenses. Through improved decision-making, teamwork and operational effectiveness, Tech Cloud ERP assists agribusinesses in increasing output, cutting waste and maintaining competitiveness in a rapidly changing market.",
+  //   similar_industries: [
+  //     {
+  //     title: 'Chemical Industry',
+  //     link: '/industries/chemical-industry',
+  //     },
+  
+  //     {
+  //     title: 'Food Industry',
+  //     link: '/industries/food-industry',
+  //     },
+  
+  //     {
+  //     title: 'Textile Industry',
+  //     link: '/industries/textiles-industry',
+  //     },
+  
+  //   ]
+  // },
+
   "agriculture-industry": {
-    link: '/industries/agriculture-industry',
-    heading: 'Agriculture Industry',
-    subheading:'The Best ERP For Agriculture Industry',
-    description: 'In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.',
-    top_img: '/industries/agriculture_top_img.webp',
-    bottom_img: '/industries/agriculture_bottom_img.webp',
+    link: "/industries/agriculture-industry",
+    heading: "Agriculture Industry",
+    subheading: "The Best ERP For Agriculture Industry",
+    description:
+      "In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.",
+    
+    // Images
+    top_img: "/industries/agriculture_top_img.webp",
+    bottom_img: "/industries/agriculture_bottom_img.webp",
     alt_text1: "agriculture_top_Img",
     alt_text2: "agriculture_bottom_Img",
-    top_description: "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency. Whether you work in agribusiness distribution, livestock management or crop production . Our ERP software is designed to satisfy the particular requirements of the agriculture industry.",
-    bottom_description: "Tech Cloud ERP is an best ERP for the agricultural business, optimising sales, inventory and crop management. With a scalable, cloud-based platform, it measures productivity, optimises supply chains, provides real-time data access and lowers expenses. Through improved decision-making, teamwork and operational effectiveness, Tech Cloud ERP assists agribusinesses in increasing output, cutting waste and maintaining competitiveness in a rapidly changing market.",
+
+    // Content
+    top_description:
+      "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency.",
+    bottom_description:
+      "Tech Cloud ERP is the best ERP for the agricultural business, optimising sales, inventory and crop management. It provides real-time data access, optimises supply chains and lowers expenses, helping agribusinesses stay competitive.",
+
+    // FAQ Section
+    faqs: [
+      {
+        question: "What is an ERP system for the agriculture industry?",
+        answer: "An ERP system for agriculture integrates and automates key processes such as farming operations, inventory management, supply chain logistics, and financials, providing real-time data and insights to enhance productivity and efficiency.",
+      },
+      {
+        question: "Why should I implement ERP in my agriculture business?",
+        answer: "ERP provides real-time data on crop management, inventory, and sales, helping farmers make informed decisions.",
+      },
+      {
+        question: "What are the critical business benefits from the implementation of ERP in agriculture?",
+        answer: "ERP is associated with key business benefits that involve enhancement of decision-making, reduction of operations into the simplest form, better management of resources, and control of finances as well. It minimizes errors, increases visibility in the whole process of agriculture, and helps manage everything: from crop planning to logistics of supply chains in one system.",
+      },
+      {
+        question: "How does an ERP integrate other technologies meant for agriculture?",
+        answer: "ERP systems may integrate other technologies such as IoT sensors, GPS tracking, drones, and automated machinery into the system. This integration allows the farmer to generate data from the entire range of sources and better in decision making and boosting operational efficiency.",
+      },
+      {
+        
+      }
+    ],
+
+    // Related Industries
     similar_industries: [
+      { title: "Chemical Industry", link: "/industries/chemical-industry" },
+      { title: "Food Industry", link: "/industries/food-industry" },
+      { title: "Textile Industry", link: "/industries/textiles-industry" },
+    ],
+
+    // Articles Section
+    articles: [
       {
-      title: 'Chemical Industry',
-      link: '/industries/chemical-industry',
+        title: "How ERP Transforms Agriculture Supply Chains",
+        description: "Discover how ERP solutions optimize supply chains in the agriculture industry.",
+        link: "/blog/how-erp-transforms-agriculture-supply-chains",
+        image: "/blogs/agriculture_erp.webp",
       },
-  
       {
-      title: 'Food Industry',
-      link: '/industries/food-industry',
+        title: "Top Benefits of Using ERP in Farming",
+        description: "Learn the key advantages of ERP software in modern farming practices.",
+        link: "/blog/top-benefits-erp-farming",
+        image: "/blogs/farming_erp.webp",
       },
-  
-      {
-      title: 'Textile Industry',
-      link: '/industries/textiles-industry',
-      },
-  
-  ]
+    ],
   },
   "apparel-industry": {
     link: '/industries/apparel-industry',
