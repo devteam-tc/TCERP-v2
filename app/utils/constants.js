@@ -165,7 +165,7 @@ export const sectionsData = {
       },
   
       {
-      title: 'Automative Industry',
+      title: 'Automotive Industry',
       link: '/industries/automative-industry',
       },
   
@@ -173,15 +173,15 @@ export const sectionsData = {
   },
   "automative-industry": {
     link: '/industries/automative-industry',
-    heading: 'Automative Industry',
-    subheading:'The Best ERP For Automative Industry',
+    heading: 'Automotive Industry',
+    subheading:'The Best ERP For Automotive Industry',
     description: 'With its advanced technology, impeccable engineering and sustainable solutions for a connected future, the automotive sector is driving innovation and revolutionising mobility.',
     top_img: '/industries/automotive_top_img.webp',
     bottom_img: '/industries/automotive_Bottom_img.webp',
     alt_text1: "automative_top_Img",
     alt_text2: "automative_bottom_Img",
-    top_description: "The automobile industry functions under a dynamic and fiercely competitive environment. Businesses require strong tools to manage intricate supply chains, guarantee quality and deliver goods on schedule if they want to stay ahead of the competition. In order to meet their particular needs, our Automotive industry software was created especially for automakers, suppliers and dealers.",
-    bottom_description: "In the competitive automobile industry, efficiency, accuracy and innovation are unavoidable. ERP for the automobile sector simplifies supply chain management, improves production planning and assures smooth departmental interaction. With real-time analytics, sophisticated inventory monitoring and compliance management, a cloud-based ERP for the Automotive Industry manufacturers to optimise operations, cut costs and offer superior goods. Stay ahead of the competition in a rapidly changing industry by leveraging technology that promotes growth and performance.",
+    top_description: "The automotive industry functions under a dynamic and fiercely competitive environment. Businesses require strong tools to manage intricate supply chains, guarantee quality and deliver goods on schedule if they want to stay ahead of the competition. In order to meet their particular needs, our Automotive industry software was created especially for automakers, suppliers and dealers.",
+    bottom_description: "In the competitive automotive industry, efficiency, accuracy and innovation are unavoidable. ERP for the automobile sector simplifies supply chain management, improves production planning and assures smooth departmental interaction. With real-time analytics, sophisticated inventory monitoring and compliance management, a cloud-based ERP for the Automotive Industry manufacturers to optimise operations, cut costs and offer superior goods. Stay ahead of the competition in a rapidly changing industry by leveraging technology that promotes growth and performance.",
     similar_industries: [
       {
       title: 'Electronic Industry',
@@ -453,8 +453,8 @@ export const sectionsData = {
   
   "hydraulic-industry": {
     link: '/industries/hydraulic-industry',
-    heading: 'Hydraulic Industry',
-    subheading:'The Best ERP For Hydraulic Industry',
+    heading: 'Hydraulic Cylinders Industry',
+    subheading:'The Best ERP For Hydraulic Cylinders Industry',
     description: 'Our ERP solutions for the hydraulics industry help companies reduce costs, improve efficiency and streamline supply chain, inventory and manufacturing.',
     top_img: '/industries/Hydralic_top_img.webp',
     bottom_img: '/industries/Hydralic_bottom_img.webp',

@@ -24,7 +24,6 @@ export default function Page() {
         <ImportantModuleSection />
         <Recordsection />
         <ScrollFeature />
-
         <GalleryTabs /> 
         <Testimonials/>
         <PricingSection />
