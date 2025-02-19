@@ -92,15 +92,15 @@ const ProductPage = () => {
       <div className={styles.whyContainer}>
         <Container>
         <Row className="align-items-center">
-          <Col md={6}>
+          <Col md={6}  className="pl-6rem">
             <AnimatedColumn direction="left">
               <div className={styles.imageContainer}>
                 <img src={product.imageSrc} alt={product.imageAlt} />
               </div>
             </AnimatedColumn>
           </Col>
-          <Col md={6}>
-            <AnimatedColumn direction="right">
+          <Col md={6} className="pr-6rem" >
+            <AnimatedColumn direction="right" >
               <div className={styles.textContainer}>
               <h1 className={styles.productTitle}>{product.title }</h1>
               {product.productDescription.map((paragraph, index) => (

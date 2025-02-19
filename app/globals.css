@@ -40,3 +40,31 @@ hr{
     border: none !important;
      opacity: inherit !important;
 }
+.pl-6rem {
+  padding-left: 4rem !important;
+}
+@media screen and (max-width: 992px) {
+  .pl-6rem {
+    padding-left: 1rem !important;
+  }
+}
+.pr-6rem {
+  padding-left: 0rem !important;
+}
+@media screen and (max-width: 992px) {
+  .pr-6rem {
+    padding-left: 1rem !important;
+  }
+}
+th, thead{
+  color: #ef5226 !important;
+  font-weight: 600 !important;
+}
+/* ✅ Ensuring Background Colors Apply */
+tbody tr:nth-child(even) {
+  background-color: #fdeee9 !important; /* Light Orange */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e6f6fa !important; /* Light Blue */
+}

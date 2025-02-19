@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,6 +8,7 @@ import { ModulecardsData } from "../../utils/constants";
 import { Container } from "react-bootstrap";
 import AnimatedSection from "../../components/Home/AnimatedSection";
 import styles from "./ImportantModuleSection.module.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"; // Import icons
 
 const settings = {
   dots: false,
@@ -15,10 +16,10 @@ const settings = {
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
-  autoplay: true, // ✅ Enables auto sliding
-  autoplaySpeed: 3000, // ✅ Adjusts speed (3 seconds)
-  arrows: true,
-  pauseOnHover: false, // ✅ Ensures autoplay doesn't stop on hover
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: false, // Disable default arrows to use custom ones
+  pauseOnHover: true, // ✅ Pauses autoplay on hover
   responsive: [
     {
       breakpoint: 1200,
@@ -36,13 +37,23 @@ const settings = {
 };
 
 const ImportantModuleSection = () => {
+  const sliderRef = useRef(null);
+
   return (
     <AnimatedSection id="hero" className="animated-section">
       <h1 className={`${styles.title} text-center pt-4 pt-md-0`}>
         Important Modules
       </h1>
-      <Container className="mb-3">
-        <Slider {...settings} className={styles.carouselContainer}>
+      <Container className="mb-3 position-relative">
+        {/* Custom Navigation Buttons */}
+        <button className={`${styles.prevButton}`} onClick={() => sliderRef.current.slickPrev()}>
+          <FaChevronLeft />
+        </button>
+        <button className={`${styles.nextButton}`} onClick={() => sliderRef.current.slickNext()}>
+          <FaChevronRight />
+        </button>
+
+        <Slider ref={sliderRef} {...settings} className={styles.carouselContainer}>
           {ModulecardsData.map((card) => (
             <div key={card.id} className={styles.cardWrapper}>
               <div className={styles.card}>

@@ -152,7 +152,7 @@ export const sectionsData = {
     alt_text1: "apparel_top_Img",
     alt_text2: "apparel_bottom_Img",
     top_description: "To stay ahead in the ever-changing clothing and apparel manufacturing sector, you must maximise every facet of your company. Supply chain coordination, production scheduling, inventory management and other complicated procedures are made simpler by Tech Cloud ERP. Increase efficiency, optimise processes and obtain real-time insights while more quickly satisfying client expectations.",
-    bottom_description: "Optimising every facet of your organisation is essential to remain ahead in the ever-changing clothing and textile manufacturing sector. Complex procedures like supply chain coordination, production scheduling and inventory management are made simpler with Tech Cloud ERP. Meet client requests more quickly while increasing efficiency, streamlining processes and gaining real-time insights. Increase productivity, guarantee quality and increase profitability with Tech Cloud ERP for Garment and Apparel Manufacturing—all in one cohesive system.",
+    bottom_description: "Optimising every facet of your organisation is essential to remain ahead in the ever-changing clothing and textile manufacturing sector. Complex procedures like supply chain coordination, production scheduling and inventory management are made simpler with Tech Cloud ERP. Meet client requests more quickly while increasing efficiency, streamlining processes and gaining real-time insights. Increase productivity, guarantee quality and increase profitability with Tech Cloud ERP for Garment and Apparel Manufacturing.",
     similar_industries: [
       {
       title: 'Food Industry',
@@ -488,8 +488,8 @@ export const sectionsData = {
     bottom_img: '/industries/jewellery_Bottom_img.webp',
     alt_text1: "jewellery_top_Img",
     alt_text2: "jewellery_bottom_Img",
-    top_description: "In the jewellery industry, accuracy, quality and customer satisfaction are critical. Our ERP software is particularly built to address the unique issues that jewellery manufacturers experience, from raw material management to final product monitoring. It assures smooth operations, improves inventory control and gives real-time data to help with decision-making with our solution.",
-    bottom_description: "Tech Cloud ERP is the ideal ERP solution for the jewellery industry, including features for effectively managing production, inventory and customer relations. Our cloud-based technology helps organizations to manage resources, reduce expenses and boost profits while maintaining accuracy and quality. With real-time data and advanced features.",
+    top_description: "In the Jewellery Industry, accuracy, quality and customer satisfaction are critical. Our ERP software is particularly built to address the unique issues that jewellery manufacturers experience, from raw material management to final product monitoring. It assures smooth operations, improves inventory control and gives real-time data to help with decision-making with our solution.",
+    bottom_description: "Tech Cloud ERP is the ideal ERP solution for the jewellery industry, including features for effectively managing production, inventory and customer relations. Our cloud-based technology helps organizations to manage resources, reduce expenses and boost profits while maintaining accuracy and quality.",
     similar_industries: [
       {
         title: 'FMCG Industry',
@@ -1139,7 +1139,7 @@ export const sectionsData = {
       {
         id: 1,
         title: "Agriculture Industry",
-        description: "Tech Cloud ERP software for Agriculture Industry in India provides a unique ERP Online Software Application.",
+        description: "Tech Cloud ERP software for Agriculture Industry in India provides a unique ERP online software application.",
         icon: '/AllIndustries/agriculture.webp',
         linkText: 'Explore',
         link: '/industries/agriculture-industry', 
@@ -1237,7 +1237,7 @@ export const sectionsData = {
       },
       {
         id: 5,
-        title: "Hydrolic Cylinders Industry",
+        title: "Hydraulic Cylinders Industry",
         description: "Advanced ERP analytics help hydraulic cylinder industries optimize workflows and make data-driven decisions.",
         icon: '/AllIndustries/hydraulic.webp',
         linkText: 'Explore',
@@ -1478,7 +1478,7 @@ export const sectionsData = {
           text: "Ensure product quality and compliance with our ERP's advanced quality management tools.",
           items: [
             "Create inspection plans and checklists.",
-            "Assign inventory with custom QC statuses.",
+            "Assign inventory with custom QC status.",
             "Generate personalized Certificates of Analysis.",
           ]
         },
@@ -1807,7 +1807,7 @@ export const sectionsData = {
               items: [
                 "Uncover insights to guide business decisions.",
                 "Identify trends for effective strategic planning.",
-                "Identify trends for effective strategic planning.",
+                "Optimize sales and marketing strategies with data-driven insights.",
               ]
             }
           ],
@@ -2282,7 +2282,7 @@ export const sectionsData = {
         },
         {
           image: "/products/Finance/report.png",
-          title: "Multi-currency",
+          title: "Multi-Currency",
           text: "We provide robust multi-currency support, enabling smooth management of global transactions with accuracy and seamless international operations.",
           items: [
             "Manage global transactions with ease.",
@@ -3009,7 +3009,7 @@ export const coFoundersData = [
   export const contactData = {
     corporateOffice: {
       address: "Office Unit No. 705, Jain Sadguru Capital Park Madhapur, Hyderabad-500081",
-      phoneNumber: "+91 8919439603",
+      phoneNumber: "+91 8919439603 , +91 7032082300",
       email: "info@techclouderp.com",
     },
     headquarters: {
@@ -3030,28 +3030,28 @@ export const coFoundersData = [
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2634991537893!2d78.38372387594076!3d17.44709790108069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb910d8d1c4f8b%3A0x6ef1b184af90fa3f!2sCapital%20Park!5e0!3m2!1sen!2sus!4v1731043718127!5m2!1sen!2sus',
           address: 'Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur, Hyderabad, Telangana, India-500081.',
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603',
+          phone: '+91 8919439603 , +91 7032082300',
         },
         {
           name: 'Coimbatore',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3916.198273209867!2d77.00275377504545!3d11.0237456891404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDAxJzI1LjUiTiA3N8KwMDAnMTkuMiJF!5e0!3m2!1sen!2sin!4v1731044790506!5m2!1sen!2sin',
           address: 'MayFlower Signature, Office No. 7C, 531-537 , Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004.', 
           email: 'info@techclouderp.com',
-          phone: '+91 9159044666',
+          phone: '+91 9159044666 , +91 7032082300  ',
         },
         {
           name: 'Chennai',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3887.1930149392415!2d80.20511247507736!3d13.023377387296796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAxJzI0LjIiTiA4MMKwMTInMjcuNyJF!5e0!3m2!1sen!2sin!4v1731043909152!5m2!1sen!2sin',
           address: 'North Gate, NP 11, Developed PLot,Thiru Vi-Ka Industrial Estate,Ekkathuthangal, Chennai, TamilNadu - 600035.', 
           email: 'info@techclouderp.com',
-          phone: '+91 9159044666',
+          phone: '+91 9159044666 , +91 7032082300',
         },
         {
           name: 'Indore',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.367069331865!2d75.89414307603104!3d22.751755026378873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302aa5e382429%3A0xcc759bbcdf086959!2sNRK%20Business%20Park!5e0!3m2!1sen!2sus!4v1731043840362!5m2!1sen!2sus',
           address: 'Unit No 903-B, NRK Business Park, Vijay Nagar, Indore, Madhya Pradesh - 452010.', 
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603',
+          phone: '+91 8919439603 , +91 7032082300',
         },
       ],
     },
@@ -3625,26 +3625,26 @@ export const comparisonData = {
           id: 1,
           name: "Users",
           techCloudERP: "Unlimited Users",
-          sapBusinessOne: "User-based license costing",
+          sapBusinessOne: "User-Based License Costing",
       },
       {
           id: 2,
           name: "Accessing the ERP",
-          techCloudERP: "Web based",
-          sapBusinessOne: "Web based",
+          techCloudERP: "Web Based / Cloud Based",
+          sapBusinessOne: "Web Based",
       },
       {
           id: 3,
-          name: "Dashboard",
-          techCloudERP: "Dynamic Dashboard with a Graphical User Interface",
+          name: "Dynamic Dashboards",
+          techCloudERP: "Dynamic DashboardS with a Graphical User Interface",
           sapBusinessOne: "No Dynamic Dashboards",
       },
 
       {
         id: 4,
-        name: "Email & SMS",
-        techCloudERP: "Inbuilt SMS & Email Integration",
-        sapBusinessOne: "Not Available",
+        name: "Email & Whatsapp Integration",
+        techCloudERP: "Inbuilt Email & Whatsapp Integration",
+        sapBusinessOne: "Basic Integration Options",
     },
     {
       id: 5,
@@ -3661,8 +3661,8 @@ export const comparisonData = {
 {
   id: 7,
   name: "Reports",
-  techCloudERP: "User defined & Inbuilt reports",
-  sapBusinessOne: "Inbuilt reports",
+  techCloudERP: "User defined & Inbuilt Reports",
+  sapBusinessOne: "Inbuilt Reports",
 },
 {
   id: 8,
@@ -3673,13 +3673,13 @@ export const comparisonData = {
 {
   id: 9,
   name: "Server Maintenance",
-  techCloudERP: "Auto Backup & Restore Facility",
+  techCloudERP: "No Need of IT Maintenance or Server Maintenance",
   sapBusinessOne: "Manual Triggering",
 },
 {
   id: 10,
   name: "Software",
-  techCloudERP: "PHP",
+  techCloudERP: "Frontend PHP & Backend MySQL",
   sapBusinessOne: "ABAP",
 },
 {
@@ -3688,59 +3688,38 @@ export const comparisonData = {
   techCloudERP: "MySQL",
   sapBusinessOne: "Oracle",
 },
+
 {
   id: 12,
-  name: "Source Code",
-  techCloudERP: "Complete Source code will be given to the Client",
-  sapBusinessOne: "Source Code will be with the Development Company",
+  name: "Renewal/License Cost",
+  techCloudERP: "Lifetime Solution & No Renewal",
+  sapBusinessOne: "Renewal / License Cost is Present",
 },
 
 {
   id: 13,
-  name: "Renewal/License Cost",
-  techCloudERP: "Lifetime Solution & No Renewal",
-  sapBusinessOne: "Renewal / License Cost is present",
-},
-
-{
-  id: 14,
   name: "AMC",
-  techCloudERP: "15% or Not Mandate",
+  techCloudERP: "20% or Not Mandate",
   sapBusinessOne: "30% and Mandate",
 },
 {
-  id: 15,
+  id: 14,
   name: "Implementation Period",
-  techCloudERP: "Plug & Play, If customisation - 1 month deployment period",
+  techCloudERP: "Plug & Play, If Customisation - 1 Month Deployment Period",
   sapBusinessOne: "Product will not match exactly and needs 50 % customisation Heavy customisation charge and takes more time.",
 },
 {
-  id: 16,
+  id: 15,
   name: "Implementation Cost",
   techCloudERP: "Low",
   sapBusinessOne: "High",
 },
-      // Add more features as needed
+{
+  id: 16,
+  name: "24/7 Support",
+  techCloudERP: "Available",
+  sapBusinessOne: "Limited Support",
+},
   ],
-  salesAndCRMFeatures: [
-      {
-          id: 1,
-          name: "Delivery Against Sales Orders",
-          techCloudERP: "Yes",
-          sapBusinessOne: "No",
-      },
-      {
-          id: 2,
-          name: "Invoice Against Sales Orders",
-          techCloudERP: "Yes",
-          sapBusinessOne: "No",
-      },
-      {
-          id: 3,
-          name: "Opportunities & Pipeline Management",
-          techCloudERP: "Yes",
-          sapBusinessOne: "Yes",
-      },
-      // Add more features as needed
-  ],
+  
 };

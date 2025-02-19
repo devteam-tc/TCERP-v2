@@ -8,6 +8,14 @@
     color: red;
 }
 
+.evenRow {
+    background-color: #f8f9fa; /* Light Gray */
+}
+
+.oddRow {
+    background-color: #ffffff; /* White */
+}
+
 .section {
     padding: 2rem 0;
 }
