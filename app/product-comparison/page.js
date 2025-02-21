@@ -8,9 +8,9 @@ import Footer from '../components/Footer';
 import ComparisonTable from './ComparisonTable'
 
 export const metadata = {
-  title: "ERP products/ techcloud erp best software company in  india",
-  description: "Techcloud erp provide best software solution for manufaturing industries such as CRM, POS, HRM,Accounting Software etc",
-  keywords: "erp comparison, erp software comparison,compare erp,choosing the right erp, erp software benefits,choosing the right ERP",
+  title: "ERP products | tech cloud erp best software company in  india",
+  description: "Tech cloud erp provide best software solution for manufaturing industries such as CRM, POS, HRM, Accounting Software etc",
+  keywords: "erp comparison, erp software comparison, compare erp, choosing the right erp, erp software benefits, choosing the right ERP",
 };
 
 export default function Page() {

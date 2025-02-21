@@ -33,31 +33,6 @@ const ComparisonTable = () => {
                         ))}
                     </tbody>
                 </Table>
-
-                <br /><br />
-
-                {/* Second Comparison Table */}
-                <Table striped bordered hover>
-                    <caption>Feature Comparison: Sales and Customer Relationship Management</caption>
-                    <thead>
-                        <tr>
-                            <th>S.NO</th>
-                            <th>Features</th>
-                            <th>Tech Cloud ERP</th>
-                            <th>SAP Business One</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {comparisonData.salesAndCRMFeatures.map((feature, index) => (
-                            <tr key={feature.id}>
-                                <td>{index + 1}</td>
-                                <td>{feature.name}</td>
-                                <td>{feature.techCloudERP}</td>
-                                <td className={styles.dangerText}>{feature.sapBusinessOne}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
             </div>
         </>
     );

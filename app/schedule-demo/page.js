@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 // Generate Metadata for SEO
 export async function generateMetadata() {
   return {
-    title: "Book a Demo | TechCloud ERP",
+    title: "Book a Demo | Tech Cloud ERP",
     description:
       "Schedule a live, personalized demo of TechCloud ERP to explore key features, streamline your business processes, and get expert insights.",
     keywords: [

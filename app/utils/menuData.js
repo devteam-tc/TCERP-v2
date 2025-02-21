@@ -21,8 +21,8 @@ export const menuData = [
               label: 'Apparel Industry',
               href: '/industries/apparel-industry',
             },
-            { label: 'Automative Industry', 
-              href: '/industries/automative-industry' 
+            { label: 'Automotive Industry', 
+              href: '/industries/automotive-industry' 
             },
             { label: 'Beverage Industry', 
               href: '/industries/beverage-industry' 
@@ -35,8 +35,8 @@ export const menuData = [
               href: '/industries/educational-institutes' 
             },
             {
-              label: 'Electric Industry',
-              href: '/industries/electric-solar-industry',
+              label: 'Electrical Solar Industry',
+              href: '/industries/electrical-solar-industry',
             },
             { label: 'Electronics Industry', 
               href: '/industries/electronics-industry' 
@@ -60,7 +60,7 @@ export const menuData = [
               label: 'Garment Industry',
               href: '/industries/garment-industry',
             },
-            { label: 'Hydraulic Industry', 
+            { label: 'Hydraulic Cylinders Industry', 
               href: '/industries/hydraulic-industry' },
             { label: 'Jewellery Industry', 
               href: '/industries/jewellery-industry' },
@@ -174,7 +174,7 @@ export const metaInfo = [
     "description": "Discover Education ERP software to optimize academic and administrative processes. Simplify management and improve efficiency with Tech Cloud ERP.",
     "keywords": "Education ERP software,school erp, erp for school management,school management system software, erp for education institutes,erp software for schools & college, school erp software"
   },
-  "electric-solar-industry": {
+  "electrical-solar-industry": {
     "title": "Digital Marketing Services | SEO & Social Media",
     "description": "Boost your online presence with expert digital marketing services, SEO strategies, and social media marketing.",
     "keywords": "digital marketing, SEO services, social media marketing"
