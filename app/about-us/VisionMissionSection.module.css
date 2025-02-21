@@ -5,11 +5,14 @@
   
   .imageContainer {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .imageContainer img {
-    width: 100%;
-    height: auto;
+    width: 600px;
+    height: 400px;
   }
   
   .orangeBorder {
@@ -32,11 +35,22 @@
     .textContainer {
       padding-left: 0;
     }
+    .imageContainer {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .imageContainer img {
+      width: 350px;
+      height: 250px;
+    }
   }
   
   .title {
     font-size: 32px;
     margin-bottom: 20px;
+    margin-top: 20px;
     color: #ef5226;
   }
   

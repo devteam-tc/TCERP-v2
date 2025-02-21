@@ -113,34 +113,100 @@ export const ctaData = {
 
 // industries data 
 export const sectionsData = {
+  // "agriculture-industry": {
+  //   link: '/industries/agriculture-industry',
+  //   heading: 'Agriculture Industry',
+  //   subheading:'The Best ERP For Agriculture Industry',
+  //   description: 'In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.',
+  //   top_img: '/industries/agriculture_top_img.webp',
+  //   bottom_img: '/industries/agriculture_bottom_img.webp',
+  //   alt_text1: "agriculture_top_Img",
+  //   alt_text2: "agriculture_bottom_Img",
+  //   top_description: "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency. Whether you work in agribusiness distribution, livestock management or crop production . Our ERP software is designed to satisfy the particular requirements of the agriculture industry.",
+  //   bottom_description: "Tech Cloud ERP is an best ERP for the agricultural business, optimising sales, inventory and crop management. With a scalable, cloud-based platform, it measures productivity, optimises supply chains, provides real-time data access and lowers expenses. Through improved decision-making, teamwork and operational effectiveness, Tech Cloud ERP assists agribusinesses in increasing output, cutting waste and maintaining competitiveness in a rapidly changing market.",
+  //   similar_industries: [
+  //     {
+  //     title: 'Chemical Industry',
+  //     link: '/industries/chemical-industry',
+  //     },
+  
+  //     {
+  //     title: 'Food Industry',
+  //     link: '/industries/food-industry',
+  //     },
+  
+  //     {
+  //     title: 'Textile Industry',
+  //     link: '/industries/textiles-industry',
+  //     },
+  
+  //   ]
+  // },
+
   "agriculture-industry": {
-    link: '/industries/agriculture-industry',
-    heading: 'Agriculture Industry',
-    subheading:'The Best ERP For Agriculture Industry',
-    description: 'In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.',
-    top_img: '/industries/agriculture_top_img.webp',
-    bottom_img: '/industries/agriculture_bottom_img.webp',
+    link: "/industries/agriculture-industry",
+    heading: "Agriculture Industry",
+    subheading: "The Best ERP For Agriculture Industry",
+    description:
+      "In order to improve yield tracking and efficiency, ERP solutions in the agriculture sector optimise supply networks, manage inventories and simplify operations.",
+    
+    // Images
+    top_img: "/industries/agriculture_top_img.webp",
+    bottom_img: "/industries/agriculture_bottom_img.webp",
     alt_text1: "agriculture_top_Img",
     alt_text2: "agriculture_bottom_Img",
-    top_description: "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency. Whether you work in agribusiness distribution, livestock management or crop production . Our ERP software is designed to satisfy the particular requirements of the agriculture industry.",
-    bottom_description: "Tech Cloud ERP is an best ERP for the agricultural business, optimising sales, inventory and crop management. With a scalable, cloud-based platform, it measures productivity, optimises supply chains, provides real-time data access and lowers expenses. Through improved decision-making, teamwork and operational effectiveness, Tech Cloud ERP assists agribusinesses in increasing output, cutting waste and maintaining competitiveness in a rapidly changing market.",
+
+    // Content
+    top_description:
+      "In the fast-paced world of agriculture today, accuracy and efficiency are crucial. An enterprise resource planning (ERP system made specifically for the agricultural sector aids in decision-making, cost reduction and operational efficiency.",
+    bottom_description:
+      "Tech Cloud ERP is the best ERP for the agricultural business, optimising sales, inventory and crop management. It provides real-time data access, optimises supply chains and lowers expenses, helping agribusinesses stay competitive.",
+
+    // FAQ Section
+    faqs: [
+      {
+        question: "What is an ERP system for the agriculture industry?",
+        answer: "An ERP system for agriculture integrates and automates key processes such as farming operations, inventory management, supply chain logistics, and financials, providing real-time data and insights to enhance productivity and efficiency.",
+      },
+      {
+        question: "Why should I implement ERP in my agriculture business?",
+        answer: "ERP provides real-time data on crop management, inventory, and sales, helping farmers make informed decisions.",
+      },
+      {
+        question: "What are the critical business benefits from the implementation of ERP in agriculture?",
+        answer: "ERP is associated with key business benefits that involve enhancement of decision-making, reduction of operations into the simplest form, better management of resources, and control of finances as well. It minimizes errors, increases visibility in the whole process of agriculture, and helps manage everything: from crop planning to logistics of supply chains in one system.",
+      },
+      {
+        question: "How does an ERP integrate other technologies meant for agriculture?",
+        answer: "ERP systems may integrate other technologies such as IoT sensors, GPS tracking, drones, and automated machinery into the system. This integration allows the farmer to generate data from the entire range of sources and better in decision making and boosting operational efficiency.",
+      },
+      {
+        
+      }
+    ],
+
+    // Related Industries
     similar_industries: [
+      { title: "Chemical Industry", link: "/industries/chemical-industry" },
+      { title: "Food Industry", link: "/industries/food-industry" },
+      { title: "Textile Industry", link: "/industries/textiles-industry" },
+    ],
+
+    // Articles Section
+    articles: [
       {
-      title: 'Chemical Industry',
-      link: '/industries/chemical-industry',
+        title: "How ERP Transforms Agriculture Supply Chains",
+        description: "Discover how ERP solutions optimize supply chains in the agriculture industry.",
+        link: "/blog/how-erp-transforms-agriculture-supply-chains",
+        image: "/blogs/agriculture_erp.webp",
       },
-  
       {
-      title: 'Food Industry',
-      link: '/industries/food-industry',
+        title: "Top Benefits of Using ERP in Farming",
+        description: "Learn the key advantages of ERP software in modern farming practices.",
+        link: "/blog/top-benefits-erp-farming",
+        image: "/blogs/farming_erp.webp",
       },
-  
-      {
-      title: 'Textile Industry',
-      link: '/industries/textiles-industry',
-      },
-  
-  ]
+    ],
   },
   "apparel-industry": {
     link: '/industries/apparel-industry',
@@ -557,7 +623,7 @@ export const sectionsData = {
         link: '/industries/wood-industry',
       },
       {
-        title: 'Medical equipment manufacturing Industry',
+        title: 'Medical Equipment Manufacturing Industry',
         link: '/industries/medicalequipmentmanufacturing-industry',
       },
   ]
@@ -565,15 +631,15 @@ export const sectionsData = {
   
   "medicalequipmentmanufacturing-industry": {
     link: '/industries/medicalequipmentmanufacturing-industry',
-    heading: 'Medical equipment manufacturing Industry',
-    subheading:'The Best ERP For Medical equipment manufacturing Industry',
+    heading: 'Medical Equipment Manufacturing Industry',
+    subheading:'The Best ERP For Medical Equipment Manufacturing Industry',
     description: 'Our ERP systems help medical equipment manufacturers streamline inventory, production and quality control, ensuring efficiency and compliance.',
     top_img: '/industries/Medical__top_img.webp',
     bottom_img: '/industries/medical_bottom_img.webp',
     alt_text1: "medical_top_Img",
     alt_text2: "medical_bottom_Img",
     top_description: "In the medical equipment manufacturing sector, accuracy, quality and compliance with regulations are essential. These issues are addressed by our ERP software, which facilitates quality control, inventory management and smooth production process management. With its customized features and real-time analytics, our solution guarantees that companies follow strict standards and cut expenses.",
-    bottom_description: "Tech Cloud ERP is the perfect ERP solution for the medical equipment manufacturing industry, offers extensive features to efficiently manage production, compliance and inventory, making it a perfect ERP system for the medical equipment manufacturing sector. In addition to reducing expenses and improving teamwork, our cloud-based platform guarantees the supply of top-notch equipment.",
+    bottom_description: "Tech Cloud ERP is the perfect ERP solution for the Medical Equipment Manufacturing Industry, offers extensive features to efficiently manage production, compliance and inventory, making it a perfect ERP system for the medical equipment manufacturing sector. In addition to reducing expenses and improving teamwork, our cloud-based platform guarantees the supply of top-notch equipment.",
     similar_industries: [
       {
         title: 'FMCG Industry',
@@ -673,15 +739,15 @@ export const sectionsData = {
   
   "microfinance-industry": {
     link: '/industries/microfinance-industry',
-    heading: 'Microfinance Industry',
-    subheading:'The Best ERP For Microfinance Industry',
+    heading: 'Micro Finance Industry',
+    subheading:'The Best ERP For Micro Finance Industry',
     description: 'Our ERP solutions for the microfinance sector streamline loan management, compliance and reporting, boosting efficiency and promoting financial inclusion.',
     top_img: '/industries/Microfinance_top_img.webp',
     bottom_img: '/industries/Microfinance_bottom_img.webp',
     alt_text1: "microfinance_top_Img",
     alt_text2: "microfinance_bottom_Img",
-    top_description: "In the microfinance industry, managing loans, customer data and regulatory compliance are critical for success. Our ERP software is designed to simplify these processes, enabling businesses to automate operations, track financial transactions and provide better services to underserved communities. With real-time insights and robust tools, we help microfinance organizations scale operations, reduce costs and improve transparency.",
-    bottom_description: "Tech Cloud ERP is the ideal ERP solution for the microfinance industry, which provides extensive features for managing loan portfolios, monitoring financial performance and guaranteeing regulatory compliance. Our cloud-based technology offers flexibility for expanding businesses, streamlines processes and lowers manual error rates.",
+    top_description: "In the Micro Finance Industry, managing loans, customer data and regulatory compliance are critical for success. Our ERP software is designed to simplify these processes, enabling businesses to automate operations, track financial transactions and provide better services to underserved communities. With real-time insights and robust tools, we help microfinance organizations scale operations, reduce costs and improve transparency.",
+    bottom_description: "Tech Cloud ERP is the ideal ERP solution for the Micro Finance Industry, which provides extensive features for managing loan portfolios, monitoring financial performance and guaranteeing regulatory compliance. Our cloud-based technology offers flexibility for expanding businesses, streamlines processes and lowers manual error rates.",
     similar_industries: [
       {
       title: 'FMCG Industry',
@@ -1122,6 +1188,10 @@ export const sectionsData = {
       heading: "Tech Cloud ERP Products",
       description: "Tech Cloud ERP is an all-in-one cloud platform that integrates ERP, CRM, POS, Trading, E-commerce, HRM and Accounting Software to streamline operations, improve customer relationships and automate key business processes, all from a unified system.",
     },
+    'allmodules':{
+      heading: "Tech Cloud ERP Modules",
+      description: "Enhance efficiency with cutting-edge ERP modules designed to streamline operations, reduce costs, and drive seamless business growth.",
+      },
     'ContactUs_content':{
       heading: "Contact us",
       description :"Connect with our team today to discover how our expert ERP guidance can streamline your business operations and drive growth. Get in touch now to unlock your business potential.",
@@ -1562,7 +1632,30 @@ export const sectionsData = {
         implementation: "Implementation & Training",
         goLive: "Go Live & Onboarding",
         postGoLive: "Post-Go-Live Support",
+      },
+        // FAQ Section
+    faqs: [
+      {
+        question: "What is Cloud-Based ERP Software?",
+        answer: "A Cloud-Based ERP is basically an integration of all the business processes, including finance, HR, sales, supply chain, inventory, and customer relationships-managed in one platform housed on the cloud. This offers real-time access, scalability, and flexibility over traditional on-premise ERP systems.",
+      },
+      {
+        question: "What are the key advantages of cloud-based ERP software?",
+        answer: "Cost-Efficient: Hardware or IT setup not required Scalable Scale up or down based on your business needs.Accessible: Data available from anywhere and any time using an internet-connected device.Security: Advanced cloud security measures protect your business data Real-Time Data Real-time insights available for faster decision-making.",
+      },
+      {
+        question: "How much does Cloud-Based ERP software cost?",
+        answer: "The amount of Cloud ERP varies with aspects like the number of users, the types of modules you require such as finance, inventory, or HR, and the extents to which customization needs to be done. The usual pricing models are usually based on subscription, and it ranges from monthly to yearly plans and we have flexible pricing models that can accommodate businesses of all sizes.",
+      },
+      {
+        question: "How Can Cloud ERP Help Improve My Business Operations?",
+        answer: "Cloud ERP helps centralize all the data, and thus improvement is created in collaboration between departments, reduces manual tasks, and allows real-time insights. Hence, you can automate the processes, increase efficiency, and make data-driven decisions to maximize productivity and profitability.",
+      },
+      {
+        
       }
+    ],
+
     },
     'customer-relationship-management': {
       productTitle: 'Tech Cloud Customer Relationship Management',
@@ -1706,7 +1799,25 @@ export const sectionsData = {
         implementation: "CRM Implementation",
         goLive: "Go Live & User Adoption",
         postGoLive: "Post-Go-Live CRM Optimization",
-      }
+      },
+          // FAQ Section
+    faqs: [
+      {
+        question: "How Much Would You Benefit from Having All Your Customer Data in One Place?",
+        answer: "Visualize a single platform wherein all these customer interactions, communications, as well as insights, are centralized. Cloud CRM brings you the 360-degree view of all your customers. Track leads, manage relationships, and close deals faster with a simple, intuitive interface.",
+      },
+      {
+        question: "What Would Your Business Do with Real-Time Access to Customer Data?",
+        answer: "Access customer data in real-time with Cloud CRM. See the impact when your team can make faster, more informed decisions-in the office or on the go-by responding instantly to the demands of your customers and driving real-time value.",
+      },
+      {
+        question: "How much would your business benefit from a CRM that scales with you?",
+        answer: "Cloud CRM is one that grows with your business. You can add more users, manage more customers, and track more data, free from the restraint of system limitations. Therefore, Cloud CRM offers a scalable ability to extend your business seamlessly.",
+      },
+      
+
+    ],
+
     },
     'point-of-sale':{
         productTitle: 'Tech Cloud Point of Sale',
@@ -1850,8 +1961,26 @@ export const sectionsData = {
             implementation: "POS Implementation & Training",
             goLive: "Go Live & Monitoring",
             postGoLive: "Post-Go-Live Support & Optimization",
-          }
-      
+          },
+       // FAQ Section
+    faqs: [
+      {
+        question: "How Much Can Your Business Improve with a Cloud POS System?",
+        answer: "Imagine having real-time access to sales, inventory, and customer data from the pub anywhere. A cloud POS system eliminates those old hardware needs, and you'll be able to manage your business from just about any device at any time.",
+      },
+      {
+        question: "How Would You Like to Accept Payments Anywhere, Anytime?",
+        answer: "Accept payments from virtually any device-with Cloud POS: smartphone, tablet, or traditional POS terminal. Whether in-store or on the go, you could not have made it easier.",
+      },
+      {
+        question: "Want to Know How to Cut Operational Costs with a Cloud-Based POS?",
+        answer: "Traditional POS systems come with certain expensive requirements, including cost-expensive hardware and maintenance, while usually demanding updates. The cloud POS system eliminates all these costs through a subscription-based model automatically updating the software and having no upfront hardware costs.",
+      },   
+      {
+        question: "How Could POS Help You Build Stronger Customer Relationships?",
+        answer: "Cloud POS keeps track of customer purchase history and preferences, so you may offer promotions with more personalization, loyalty rewards, and discounts - in other words, relationships will be stronger, and retention better.",
+      },  
+    ],
     },
     'trading-software': {
       productTitle: 'Tech Cloud Trading Software',
@@ -1969,8 +2098,26 @@ export const sectionsData = {
             implementation: "Implementation & Training",
             goLive: "Go Live & Support",
             optimization: "Post-Go-Live Optimization",
-          }
-  
+          },
+   // FAQ Section
+   faqs: [
+    {
+      question: "How Can This Trading Software Help You Make Smarter Decisions in Real-Time?",
+      answer: "Our system offers you the real-time market data, advanced tools for charting, and fully automated alerts, making all decisions as quick as well-informed. What you are watching is stock trends or forex movements-think of everything you need to stay one step ahead in this market.",
+    },
+    {
+      question: "How Do I Monitor My Performance and Improve My Trading?",
+      answer: "Through performance monitoring tools, you can monitor your trades, see your profit/loss history, understand your strengths and areas for improvement, and then tailor your strategy accordingly for better results.",
+    },
+    {
+      question: "How Do I Monitor My Performance and Improve My Trading?",
+      answer: "Through performance monitoring tools, you can monitor your trades, see your profit/loss history, understand your strengths and areas for improvement, and then tailor your strategy accordingly for better results.",
+    },   
+    {
+      question: "How Might You Leverage Your Trading Potential with the Right Software?",
+      answer: "Get all your real-time market data, advanced charting tools and algorism trading strategies at your fingertips as our trading software brings you closer to realizing your full trading potential whether it is just a beginner or an experienced trader.",
+    },  
+  ],
     },
     'Ecommerce-software': {
       productTitle: 'Tech Cloud E-Commerce Software',
@@ -2088,7 +2235,42 @@ export const sectionsData = {
             productManagement: "Product Management",
             orderFulfillment: "Order Fulfillment",
             customerEngagement: "Customer Engagement"
-        }
+        },
+         // FAQ Section
+   faqs: [
+    {
+      question: "What eCommerce software is best?",
+      answer: "Top e commerce platforms in 2024 Squarespace: Best platforms for an e-commerce business Square Online: Best for Omnichannel Selling.Ecwid: Best for existing sites Shopify: Best for Dropshipping. Wix: Best drag-and-drop editor.Weebly: Best value. BigCommerce: Best for increasing sales. WooCommerce: Best for flexibility",
+    },
+    {
+      question: "How Do I Monitor My Performance and Improve My Trading?",
+      answer: "Through performance monitoring tools, you can monitor your trades, see your profit/loss history, understand your strengths and areas for improvement, and then tailor your strategy accordingly for better results.",
+    },
+    {
+      question: "What are the 7 types of e-commerce Exist?",
+      answer: "7 E-commerce Types List B2C (Business to consumer) e commerce B2B (Business to business) e-commerce B2G (Business to government) e commerce C2C (Consumer to consumer) e commerc C2B (Consumer to business) e commerce C2G (Consumer to government) e commerce Business-to-business (B2B2C) e-commerce.",
+    },   
+    {
+      question: "What Is This Best Option Available in the Cloud-Based eCommerce Software for My Business?",
+      answer: "Cloud-based eCommerce software brings scalability, flexibility, and cost-effectiveness. You get upgraded or downgraded seamlessly without your business getting into major infrastructure changes. You save on front-end costs, have automatically updating software, high levels of security and reliability, and are always up-to-date with the latest industry trends.",
+    }, 
+    {
+      question: "How Can Cloud-Based eCommerce Help Me Automate My Business?",
+      answer: "Our platform comes equipped with extremely powerful automation tools. From inventory management to order fulfillment, emails to customers, and even marketing campaigns, everything is handled automatically. Automation frees your time and ensures that your operations run smoothly without requiring constant intervention at each step."
+    },
+    {
+      question: "How Do I Control My Inventory Well with Cloud-Based eCommerce?",
+      answer: "Our cloud-based platform keeps a track of the inventory in real-time; so you will always know what is in stock and what is running low. It automatically updates your suppliers as a result of that, without creating stockouts and overstocking that would have led you far behind customer demand."
+    },
+    {
+      question: "How Does Cloud-Based eCommerce Help Me Improve My Website's Performance?",
+      answer: "When using cloud-based eCommerce software, optimized performance is ensured by the auto-load balancing of website traffic across servers. This would thus eliminate slow page loads at hours of peak traffic. Built-in CDNs ensure that the performance of your website is enhanced worldwide, thus ensuring a great shopping experience on every platform regardless of where your customers shop from."
+    },
+    {
+      question: "How Does Cloud-Based eCommerce Improve My Inventory Management?",
+      answer: "Utilizing our cloud-based application, you will find real-time tracking of your inventory, automatic stock updates, and low-stock alerts. You can connect with vendors and warehouses, which means that you can automate reorders automatically, with products in front of your customers whenever needed. In addition, this helps avoid overstocking or otherwise stockouts, further enhancing customer satisfaction."
+    }, 
+  ],
     },
     'hr-managament-software': {
       productTitle: 'Tech Cloud HRMS Management Software',
@@ -2236,14 +2418,38 @@ export const sectionsData = {
             complianceManagement: "Compliance Management",
             employeeEngagement: "Employee Engagement",
             analyticsAndReporting: "Analytics & Reporting"
-        }
+        },
+         // FAQ Section
+    faqs: [
+      {
+        question: "How Do HRMS Software Systems Improve Employee Management for My Business?",
+        answer: "HRMS Software automates core HR Functions in payroll processing, attendance, leave management, and performance evaluation. HRMS can be considered an integrated platform where employee data can be centralized and, therefore, assist the HR team in efficiently managing the entire lifecycle of employees and making easy tracking of performance, growth, and compliance.",
+      },
+      {
+        question: "How Does HRMS Software Help in Handling Payroll and Taxes Management?",
+        answer: "HRMS software supports errorless and tax laws compliance payroll processing through the automated calculations of wages, taxes, bonuses, deductions, and benefits. This system integrates tax calculation tools to ensure correct filing with the necessary reports towards tax compliance as well as yearly filings to avoid delays and mistakes.",
+      },
+      {
+        question: "How Does HRMS Improve Employee Engagement and Performance?",
+        answer: "HRMS Software Tools for Managing Employee Performance management through regular appraisals, goal tracking, and the feedback system is provided by HRMS software tools. It provides real-time performance insight to the managers so that they can easily bridge their gaps in performance and celebrate their achievements. Features such as surveys and employee satisfaction tools help maintain higher levels of engagement and morale with HRMS.",
+      },   
+      {
+        question: "In what ways does HRMS software support real-time reporting and analytics?",
+        answer: "HRMS offers rich reporting and analytics capabilities that allow HR teams to track the following: employee turnover, absenteeism, performance scores, and compensation. All of these in real-time means that you can stay always data-driven - making decisions and tracking HR initiatives.",
+      }, 
+      {
+        question: "Which Businesses Will Benefit from the HRMS Software?",
+        answer: "HRMS software can benefit any size category, ranging from small startup companies to big enterprises. This software will make easier the task of those businesses managing employee information, payroll, performance reviews, recruitments, and so many other things. It is scalable due to its adaptability in trying to fit the different needs of various industries, from retail to healthcare, technology, manufacturing, and many others.",
+      }, 
+
+    ],
     },
     'financial-management-systems': {
       productTitle: 'Tech Cloud Financial Management Systems',
       heading: "Financial Management Solutions",
       description: "Accelerate financial success with our ERP finance module—real-time insights and automation for growth.",
       imageSrc : "/products/Finance-pdt.webp",
-      mainTitle : "Finance provide you best services",
+      mainTitle : "Finance Provide You Best Services",
       title : "Tech Cloud Finance",
       productDescription: [
         "Tech Cloud Finance ERP is designed to help companies in streamlining complex financial procedures, such as creating revenue graphs and keeping track of accounts. In addition to giving real-time data on capacity, employee performance and overall financial health, our cloud-based software integrates seamlessly.",
@@ -2330,7 +2536,43 @@ export const sectionsData = {
         implementation: "Implementation & Training",
         goLive: "Go Live & Onboarding",
         postGoLive: "Post-Go-Live Support"
-    }
+    },
+
+      // FAQ Section
+      faqs: [
+        {
+          question: "What is the most widely used software in finance?",
+          answer: "Best Financial Management Software Xero Accounting Software. Expensify Expense Management.PlanGuru Budgeting.Approve.com Spend Management.FreshBooks Billing and Payment Processing.BrightPay Payroll Management.Gusto Tax Preparation.SOS Inventory Tracking.",
+        },
+        {
+          question: "Which is the best financial software?",
+          answer: "FreshBooks. FreshBooks is one of the top small business accounting choices. .Quicken. Quicken is the class of personal finance software. .YNAB. YNAB aims to help users of the \"paycheck to paycheck\" grind.Moneydance.Banktivity.Qapital.Mint.Personal Capital.",
+        },
+        {
+          question: "What Are the Key Advantages of Using Finance Software for My Business?",
+          answer: "A finance software automates major financial functions such as accounting, budgeting, tax compliance, and reporting. You will have real-time visibility into the financial health of your business, reduce possible human errors, and streamline workflow processes. Using finance software helps you with data-driven decision making and cash flow tracking, thus enhancing overall financial management.",
+        },   
+        {
+          question: "How Does Finance Software Enhance Financial Reporting?",
+          answer: "Finance software allows automation of financial reporting and will help you generate customized reports with balance sheets, profit and loss statements, or cash flow reports. Its analytics are already in-built, so you can get deeper insights into your financial data; it allows you to track your KPI in real-time, predict trends, and be proactive in the decisions you'll make about them.",
+        }, 
+        {
+          question: "Does finance software integrate well with other business tools?",
+          answer: "Yes! A piece of finance software will integrate with CRM systems, inventory management software, payroll systems, and banking platforms, among others. This integration causes all the data to move automatically between various systems, thus reducing manual entry to allow for better accuracy and more updated financial information.",
+        }, 
+        {
+          question: "How Does Finance Software Help People Control Expenses?",
+          answer: "Finance software is used for tracking and categorization of expenses, automation of expense approvals, and thereby generation of expense reports. Some of it can be used for tracking of spending in comparison with budgeted amounts and highlighting unusual or unapproved expenses. Automatic tracking of expenses reduces errors and also improves control of company spending.",
+        }, 
+        {
+          question: "How do I customize my finance software to suit my business needs?",
+          answer: "Our finance software is of high customization. You can even modify the dashboards, reports and workflows to suit your particular business needs. Whether you require some customized charting, certain tax configurations or unique budgetary controls, our software will adapt to your needs.",
+        }, 
+        {
+          question: "How Does Finance Software Help Manage Payroll?",
+          answer: "Finance software puts the payroll function in a bank account by computing salaries, deductions (taxes and other benefits), and pay disbursement. Additionally, the finance software will always ensure that your business adheres to all the local and federal tax regulations. You will also get payroll reports, direct deposit payments, and the ability to control employee bonuses with this system."
+        },
+      ],
     },
     'integrated-erp-software': {
         productTitle: 'Tech Cloud Integrated ERP Software',
@@ -2414,7 +2656,51 @@ export const sectionsData = {
             implementation: "System Integration Implementation",
             goLive: "Integration Launch & Monitoring",
             postGoLive: "Post-Integration Support"
-        }
+        },
+           // FAQ Section
+    faqs: [
+      {
+        question: "What is integrated ERP software?",
+        answer: "An integrated ERP software is a single application that controls all aspects of a business, ensuring seamless data flow and informed decision-making. It increases efficiency and streamlines processes, ensuring smooth operations.",
+      },
+      {
+        question: "What is the ERP integration?",
+        answer: "ERP integration is the process of connecting a company's ERP software with other specialized applications and processes throughout the entire business.",
+      },
+      {
+        question: "What is an ERP system integrator?",
+        answer: "An ERP system integrator, specializing in specific software components like Dynamics 365, Oracle, SAP, or Sage, oversees, manages, installs, and maintains information systems supporting a company's business processes.",
+      },   
+      {
+        question: "What is an example of ERP software?",
+        answer: "ERP software, such as Productive for professional services businesses, Oracle NetSuite, SAP Business One, and Microsoft Dynamics 365, streamline operations, improve efficiency, and support decision-making.",
+      }, 
+      {
+        question: "Why CRM is integrated with ERP?",
+        answer: "CRM and ERP integration offers a strategic competitive edge by enabling faster, better, and personalized customer experiences. This allows sales representatives to complete orders faster, enhancing the overall purchasing experience and enhancing customer satisfaction.",
+      }, 
+      {
+      question :"What type of software can be integrated with ERP software?",
+      answer :"ERP software can integrate various systems such as CRM, eCommerce, SCM, WMS, TMS, financial systems, HCM, and marketing automation platforms, connecting them to streamline operations and improve overall business performance.",
+      },
+      {
+        question :"Which is the most expensive ERP?",
+        answer :"SAP S/4HANA is considered the most expensive ERP system due to its Enterprise Focus, designed for large enterprises, while SAP Business One and SAP Business ByDesign cater to small to mid-sized companies.",
+        },
+        {
+          question :"What is the most commonly used ERP?",
+          answer :"Common ERP deployment types include hybrid, multi-cloud, Oracle ERP Cloud, Microsoft Dynamics 365, Acumatica, NetSuite, and SAP S/4 HANA.",
+          },
+          {
+            question :"What are the three main ERP systems?",
+            answer :"The three main ERP systems are cloud ERP, on-premise ERP, and hybrid ERP, each with different deployment models, and their functions vary depending on the specific deployment model.",
+          },
+          {
+          question :"Is there free ERP software?",
+          answer :"Flowlu is a free ERP software that offers various features such as task and project management, invoicing and accounting, client and sales tracking, knowledge management, cash flow forecasting, and analytics.",
+         },
+              
+    ],
     },
     'erp-for-restaraunt': {
         productTitle: 'Tech Cloud ERP For Restaraunt Business',
@@ -2532,14 +2818,49 @@ export const sectionsData = {
             implementation: "Implementation Process",
             goLive: "Go Live Transition",
             postGoLive: "Post-Go-Live Support"
-        }
+        },
+            // FAQ Section
+    faqs: [
+      {
+        question: "What is Restaurant ERP Software and How Does it Benefit My Restaurant?",
+        answer: "Restaurant ERP software is defined as an integrated system that manages food service operations in an effective manner, including and not limited to inventory management, order processing, scheduling of employees, billing, even customer relationship management (CRM). Financial reporting is included as well and helps make the most of data-driven decisions so that profitability and the level of customer satisfaction can be improved.",
+      },
+      {
+        question: "How Can Restaurant ERP Software Help Me Improve My Operations in a Restaurant?",
+        answer: "Restaurant ERP software streamlined several kinds of operations in the restaurant, from inventory management to scheduling an appropriate workforce for orders, and even financial tracking. Automating some of the tasks and including most of its basic functionalities reduces the need to manually do it, increases accuracy, and is basically accompanied with a total efficiency that gives you time to better focus on delivering excellent customer services.",
+      },
+      {
+        question: "What is Restaurant ERP Software?",
+        answer: "Restaurant ERP represents an integrated software system specially designed to make easier all of the restaurant's business processes. All the functions like inventory management, order processing, staff scheduling, billing, CRM, financial reporting, and analytics can be handled and maintained in one single system. A centralized system allows restaurant owners and managers to achieve efficiently the given business processes in real-time, make correct decisions, and optimize workflows and customer service.",
+      },   
+      {
+        question: "Why Restaurants Require Restaurant ERP?",
+        answer: "Today, restaurant ERP software is the most important in restaurant businesses. With all cutthroat competitions in restaurants, running a well-efficiency and customer-focused operation becomes more important than ever. Restaurant ERP software helps business streamline their operations, eliminate unnecessary costs, and advance customer experience. Restaurant owners will optimize resources, boost productivity, and gain an edge over the competitors, leading to profits and steady growth of the business.",
+      }, 
+      {
+        question: "Why Restaurant ERP Software Is Important to Your Business?",
+        answer: "Restaurant ERP is the best method of optimization in a highly competitive restaurant business. With increasing competition in restaurants, running an operation has become more efficient and customer-focused. Restaurant ERP software helps firms operate more smartly, save on costs, and make the dining experience better for customers. Restaurant owners can optimize resources, boost productivity, and gain competitive leverage that leads to higher profits and sustained business growth.",
+      }, 
+      {
+      question :"How Does Restaurant ERP Support Marketing and Promotion?",
+      answer :"Restaurant ERP software helps you track the purchase history and preferences of each customer so that you can plan targeted marketing campaigns and promotions. Furthermore, ERP software promotes the automation of loyalty programs and email marketing so that the customer does not lose interest and is reminded about visiting the same restaurant repeatedly.",
+      },
+      {
+        question :"How Does Restaurant ERP Enhance Reporting and Analytics of My Restaurant?",
+        answer :"Restaurant ERP tool provides restaurant operator real-time analytics reporting on current key performance indicators to understand sales trends, customer satisfaction, level of inventory, and gross margins. All this helps keep you informed of the most appropriate decisions and spotting trends early.",
+        },
+        {
+          question :"How Does Restaurant ERP Software Enhance Menu Management and Pricing?",
+          answer :"Restaurant ERP enables the analysis of sales data, allowing you to figure out which menu items are most popular and profitable for your restaurant. It further assists with pricing optimization through calculation of food cost percentage to adjust menu prices for better profitability without losing competitiveness in their market.",
+          },
+    ],
     },
     'erp-for-accounting-software':{
         productTitle: 'Tech Cloud ERP for Accounting Software',
         heading: "ERP for Accounting Software",
         description: "Our ERP accounting software streamlines finances with automation, real-time insights and seamless integration.",
         imageSrc : "/products/accounting-pdt.webp",
-        mainTitle : "Reliable, efficient delivery",
+        mainTitle : "Reliable, Efficient Delivery",
         title : "Tech Cloud Accounting Software",
         productDescription: [
           "We at Tech Cloud ERP offer a powerful accounting software program that makes financial management easier for companies of all kinds. Real-time, accurate tracking of income, expenses and transactions is made possible by our software. Businesses can make wise decisions to guarantee development and sustainability with the help of advanced bookkeeping, tax compliance and financial reporting systems.",
@@ -2630,7 +2951,47 @@ export const sectionsData = {
             implementation: "Implementation & User Training",
             goLive: "ERP Go Live Process",
             postGoLive: "Post Go Live Support & Maintenance",
-        }
+        },
+        
+            // FAQ Section
+    faqs: [
+      {
+        question: "How can accounting software help my business?",
+        answer: "It will provide management with streamlined financial processes, accuracy, security on the data, and deliver real-time financial insights. Accounting software allows you to have an overview of your business finances clearly. It will help you decide upon valuable data for considerations.",
+      },
+      {
+        question: "What is accounting software? How do accounting softwares work?",
+        answer: "Accounting software is the bringing together of all financial transactions, records, and reporting in a computerized system. It automates time-consuming duties like invoicing and expense tracking and prepares financial statements, saving lots of time and preventing human error.",
+      },
+      {
+        question: "Does this accounting software integrate with other business tools?",
+        answer: "Yes, as most accounting software solutions will now integrate with payroll, CRM, and ERP systems so you can easily sync up data to build even greater workflow efficiency across your business.",
+      },   
+      {
+        question: "What features should I look for when choosing accounting software?",
+        answer: "I'll be looking at features that include generating invoices, tracking expenses, reconciliations with a bank account, managing the payroll of the company, tax compliance, and all forms of financial reporting. Good software also allows customization to suit the needs of the business.",
+      }, 
+      {
+        question: "How Does Accounting Software Support Small Business?",
+        answer: "Accounting software for small business is a tremendous asset. It simplifies finances, minimizes manual work, and provides suitable cash flow management. For small businesses, this software will ensure that one remains better organized while maintaining financial health as the business grows.",
+      }, 
+      {
+      question :"Does accounting software have real-time financial insights?",
+      answer :"Yes, as you may know, most solutions offer real-time dashboards and reports that really allow you to see the update the financial situation is in, allowing you to decide in time.",
+      },
+      {
+        question :"Can accounting software be customized for specific business needs?",
+        answer :"Many solutions offer the functionality of a modification: adding modules, reports, or features according to the industry or certain requirements of the business.",
+        },
+        {
+          question :"How does accounting software help with inventory management?",
+          answer :"An accounting software that comes with an inventory feature can include your stock levels, reorder points, and cost of goods sold, making it easier for you to manage your inventory and make sure you don't run out of stock.",
+          },
+          {
+            question :"Can I connect my e-commerce store with accounting software?",
+            answer :"Yes, many accounting software solutions are integrated with e-commerce platforms and synchronize their sales data and manage the inventory.",
+            },
+    ],
     },
    
   };
@@ -2701,6 +3062,34 @@ export const sectionsData = {
           answer: 'Website maintenance involves regularly checking your website for issues, updating software and ensuring security, which keeps your site functional and secure over time.',
         },
       ],
+      
+    // FAQ Section
+    faqs: [
+      {
+        question: "What are the web development services?",
+        answer: "However, the specific web development services include some, such as a website design, e-commerce development, integrated with content management system (CMS), search engine optimization (SEO), etc",
+      },
+      {
+        question: "What is web development?",
+        answer: "Building and maintaining a website or a web application requires the process of developing the Web, which is done through coding, designing, structuring, and managing content to create an interactive online presence that is functional.",
+      },
+      {
+        question: "Which platforms or technologies do you use for web development?",
+        answer: "We use a number of technologies, mainly depending upon the needs of the project, like HTML, CSS, JavaScript, PHP, WordPress, React, Angular, and also third-party integration which will be about CMS platforms, Shopify or WordPress.",
+      },
+      {
+        question: "What is web development? Why is it important to my business?",
+        answer: "Web development is the development and creation of websites, web applications, as well as online systems. It includes designing the layout and structure to coding the functionality behind it. A good website is an indispensable part of any setting up of an online presence so one can reach out to potential customers for business growth.",
+      },
+      {
+        question :"What are 3 types of web development?",
+        answer: "There are three types of web development: developers working on the user interface (\"front-end\"), those writing the base code for executing all website functions (\"back-end\"), and those who do everything involved in managing a website.",
+      },
+      {
+        question :"What technologies we use for web development?",
+        answer: "We are quite an array of technologies. We use HTML5, CSS3, JavaScript, PHP along with frameworks like React, Angular, and Vue.js. CMS-based websites like WordPress, Shopify, and Joomla-we've all that necessary expertise. We'll choose the best technology stack based on what your project requires.",
+      },
+    ],
       image: ('/services/web-app.webp'), 
       altText: 'Laptop displaying digital marketing concepts such as advertising, research, product, branding and strategy',
     },
@@ -2769,6 +3158,34 @@ export const sectionsData = {
           answer: 'Yes, definitely, as mobile ERP apps can be customized according to specific needs of the businesses. Custom dashboards, reports, or workflows can be created through mobile applications for matching ones business objectives and are highly flexible and scalable.',
         },
       ],
+
+       // FAQ Section
+    faqs: [
+      {
+        question: "What software is used for mobile app development?",
+        answer: "There are many software tools used to develop mobile apps, including frameworks, code editors, and app builders. The best tool depends on your project's needs, budget, and the platform you want to target.",
+      },
+      {
+        question: "What is an ERP mobile application?",
+        answer: "Mobile ERP apps simplify and streamline day-to-day business processes by reducing the time and resources required to enter data into the ERP system manually. With mobile ERP, users can easily create, access, and share business information directly from their mobile device.",
+      },
+      {
+        question: "Which software is used for mobile application development?",
+        answer: "Apache Cordova, React Native, Flutter, Xamarin, Ionic, Corona SDK, Framework7, and NativeScript are some of the top frameworks available for Android app development. Swift UI, React Native, Sencha Ext JS, Flutter, Swiftic, and Xamarin are some of the leading frameworks available for iOS mobile app development.",
+      },
+      {
+        question: "Which is the best for mobile app development?",
+        answer: "The best mobile app development software of 2025 in full Appy Pie. The best no coding app development platform. Today's Best Deals. Zoho Creator. The flexible app developer. Today's Best Deals.AppSheet. Apps for business software solutions. Appian. Tanked up about mobile apps. Appery.io. For digital mobile platforms.",
+      },
+      {
+        question :"What are 3 types of web development?",
+        answer: "There are three types of web development: developers working on the user interface (\"front-end\"), those writing the base code for executing all website functions (\"back-end\"), and those who do everything involved in managing a website.",
+      },
+      {
+        question :"What technologies we use for web development?",
+        answer: "We are quite an array of technologies. We use HTML5, CSS3, JavaScript, PHP along with frameworks like React, Angular, and Vue.js. CMS-based websites like WordPress, Shopify, and Joomla-we've all that necessary expertise. We'll choose the best technology stack based on what your project requires.",
+      },
+    ],
       image: ('/services/mobile-app.webp'),
       altText: 'Mobile devices displaying various application interfaces.',
     },
@@ -2837,6 +3254,26 @@ export const sectionsData = {
           answer: 'SEO can make your website rank better; because of this, it becomes easier for you to be found by potential customers. In addition to these, the higher ranking translates into a higher organic traffic and more industry credibility for your business.',
         },
       ],
+          // FAQ Section
+    faqs: [
+      {
+        question: "What Is Digital Marketing? How Will This Affect My Business?",
+        answer: "Digital marketing is the wide internet that encompasses all of these myriad online marketing strategies like SEO, social media marketing, and pay ads and aids in reaching the target audience more effectively. You will increase leads, sales, and brand awareness by driving relevant traffic to your website.",
+      },
+      {
+        question: "What Makes SEO Important to My Business?",
+        answer: "SEO can make your website rank better; because of this, it becomes easier for you to be found by potential customers. In addition to these, the higher ranking translates into a higher organic traffic and more industry credibility for your business.",
+      },
+      {
+        question: "How Can Digital Marketing Increase My Revenue?",
+        answer: "The targeted traffic goes on to become permanent traffic on your website, thereby boosting the conversion rate and eliciting long-term customer relationship. Strategies in this line include SEO and PPC, and the results will be measurable and directly impacting your bottom line.",
+      },
+      {
+        question: "What Are the Trends in Digital Marketing That Are on the Rise?",
+        answer: "The latest trends in digital marketing, ranging from AI-driven marketing to video content, voice search optimization, and interactive ads, would denote a trend in making the future. Keeping updated about trends will keep you competitive and innovative.",
+      },
+     
+    ],
       image: ('/services/digital.webp'), 
       altText: 'The average monthly cost of digital marketing includes SEO, PPC advertising, email marketing and content marketing, with costs ranging from $1,500 to $5,000 and $2,000 to $10,000, respectively.',
     },
@@ -3169,6 +3606,34 @@ export const coFoundersData = [
         description: 'That automatically notify teams when important data changes.'
       }
     ],
+     // FAQ Section
+     faqs: [
+      {
+        question: "What is Business Intelligence (BI) software?",
+        answer: "BI software assists an organization in gathering, processing, and analyzing data that is transformed into actionable insights for better decision-making/",
+      },
+      {
+        question: "How is Business Intelligence Software helpful to my business?",
+        answer: "BI software helps in making business decisions by providing information on trends of business, efficiency in operational activities, and the performance of the business regarding customer behavior that leads to better performance.",
+      },
+      {
+        question: "Is BI software good for small business?",
+        answer: "Yes. It is valuable to businesses of all sizes and represents specifically tailored solutions for small businesses to gain insights without requiring complex setups.",
+      },
+      {
+        question: "Can I perform competitive analysis with BI software?",
+        answer: "Yes, BI software helps you analyze competitive data.",
+      },
+      {
+        question :"What industries can benefit from BI software?",
+        answer: "BI software benefits various industries across healthcare, finance, manufacturing, logistics, and education, among many others.",
+      },
+      {
+        question :"How customizable are BI dashboards?",
+        answer: "Most BI software allows for extensive dashboard customization, from colors and layout to specific data sources and visualization types.",
+      },
+    ],
+
     imageSrc: ("/BI/report_img.webp"),
     imageAlt: 'Report Summary'
   };
@@ -3510,6 +3975,124 @@ export const coFoundersData = [
     },
     ];
 
+
+//separate page 
+
+    export const OurModulesCards = [
+      {
+        id: 1,
+        image: "/home/crmimg.webp", 
+        title: "CRM",
+        description:
+          "Manage leads, inquiries, follow-ups, meetings, and customer interactions efficiently. Track the entire sales pipeline and improve conversion rates.",
+      },
+      {
+        id: 2,
+        image: "/home/sales.webp",
+        title: "Sales Management",
+        description:
+          "Handle sales inquiries, quotations, sales orders, invoices, and customer transactions seamlessly. Get real-time insights into order processing and revenue tracking.",
+      },
+      {
+        id: 3,
+        image: "/home/Purchasemanagement.webp",
+        title: "Purchase Management",
+        description:
+          "Manage procurement with purchase indents, approvals, quotations, quotation comparisons, supplier details, and purchase orders—ensuring a smooth procurement cycle.",
+      },
+      {
+        id: 4,
+        image: "/home/secure.webp",
+        title: "Inventory Management",
+        description:
+          "Track stock movements with GRN, direct GRN, material requests, inventory transfers, pricing details, subcategories, and gate entries for complete stock control.",
+      },
+      {
+        id: 5,
+        image: "/home/Productiomanagement.webp",
+        title: "Production Management",
+        description:
+          "Plan and monitor manufacturing activities with work order entries, BOM (Bill of Materials), machine allocations, stages, work centers, and real-time production tracking.",
+      },
+      {
+        id: 6,
+        image: "/home/jobwork.webp",
+        title: "Job Work Management",
+        description:
+          "Ideal for businesses outsourcing production tasks to third parties. Manage work orders, vendor tracking, job costing, and outsourced material handling efficiently.",
+      },
+      {
+        id: 7,
+        image: "/home/qualitycontrol.webp",
+        title: "Quality Control",
+        description:
+          "Ensure product quality with raw material inspections, in-process checks, and finished goods QC. Follow ISO standards like AQL and QAP to minimize defects and rework.",
+      },
+      {
+        id: 8,
+        image: "/home/QualityAssurance.webp",
+        title: "Quality Assurance",
+        description:
+          "Verify and maintain quality standards across all production processes. QA ensures that final products meet specifications before reaching customers.",
+      },
+      {
+        id: 9,
+        image: "/home/assetmanagement.webp",
+        title: "Fixed Assets",
+        description:
+          "Track asset depreciation, movement, categories, and reports. Manage asset lifecycle from procurement to disposal with complete visibility.",
+      },
+      {
+        id: 10,
+        image: "/home/plant maintenance.webp",
+        title: "Plant Maintenance",
+        description:
+          "Monitor and schedule preventive and corrective maintenance for machinery. Track breakdown analysis, servicing, and spare part requirements to reduce downtime.",
+      },
+      {
+        id: 11,
+        image: "/home/hrms.webp",
+        title: "HRM",
+        description:
+          "Manage employee attendance, payroll, tax compliance, departments, and documents. Features include a dedicated HRM app with Geo-fencing & Geo-tagging capabilities.",
+      },
+      {
+        id: 12,
+        image: "/home/financeaccounting.webp",
+        title: "Finance & Accounting",
+        description:
+          "A full-fledged accounting module covering General Ledger, bank transactions, GST validation, e-way bills, e-invoicing, and complete financial reporting.",
+      },
+      {
+        id: 13,
+        image: "/home/exportandimport.webp",
+        title: "Imports and Exports",
+        description:
+          "Streamline international trade with customs documentation, shipment tracking, compliance management, and import/export financial handling.",
+      },
+      {
+        id: 14,
+        image: "/home/projmanage.webp",
+        title: "Project Management",
+        description:
+          "Plan and execute projects with task tracking, timelines, resource allocation, and budget management, ensuring efficient project execution.",
+      },
+      {
+        id: 15,
+        image: "/home/Design.webp",
+        title: "Design",
+        description:
+          "Manage product design specifications, revisions, and approvals within the ERP system, ensuring accurate production planning and execution.",
+      },
+      {
+        id: 16,
+        image: "/home/point of sale.webp",
+        title: "POS",
+        description:
+          "Integrated POS system for retail businesses, enabling seamless billing, inventory sync, and customer transaction tracking in real time.",
+      },
+    ];
+    
     export const featuresData = [
       {
           image: "/features/webbased.webp", // Use absolute path
@@ -3569,12 +4152,75 @@ export const coFoundersData = [
   ];
   
 
+
+
+//unique features separate page 
+
+export const uniquefeaturesdata = [
+  {
+      image: "/features/webbased.webp", // Use absolute path
+      title: "Web Based And Cloud Computing",
+      description: "No IT infrastructure or server maintenance required—access our cloud-based ERP securely from anywhere, anytime.",
+  },
+  {
+      image: "/features/dynamic.webp",
+      title: "Dynamic Dashboards",
+      description: "Get real-time insights with dashboards tailored for business owners and employees, enabling quick, data-driven decisions.",
+  },
+  {
+      image: "/features/Whatsapp_email.webp",
+      title: "Email & Whatsapp Integration",
+      description: "Send purchase orders, invoices, and updates instantly via email or WhatsApp, reducing manual effort and follow-ups.",
+  },
+  {
+      image: "/features/mobilenadtab.webp",
+      title: "Mobile & Tab Compatibility",
+      description: "Access the ERP on any device—desktop, mobile, or tablet—without installation, making business management seamless.",
+  },
+  {
+      image: "/features/autobackup.webp",
+      title: "Data Auto Backup",
+      description: "Automatic cloud backups ensure data security and recovery without manual intervention, keeping operations smooth.",
+  },
+  {
+      image: "/features/customisable.webp",
+      title: "Customizable Software",
+      description: "Our ERP is 90-95% ready for manufacturing businesses, with easy customization to match specific needs.",
+  },
+  {
+      image: "/features/payasgo.webp",
+      title: "Pay As You Go",
+      description: "Scalable pricing ensures you only pay for what you use, making it cost-effective for businesses of all sizes.",
+  },
+  {
+      image: "/features/chatusers.webp",
+      title: "Chat Between Users",
+      description: "Internal Chat System - Built-in chat enables real-time communication among users, improving collaboration within the ERP system.",
+  },
+  {
+      image: "/features/infiniteusers.webp",
+      title: "Unlimited Users",
+      description: "No per-user licensing fees—add unlimited users with role-based permissions for secure access control.",
+  },
+  {
+      image: "/features/Audit_trail.webp",
+      title: "Audit Trail",
+      description: "Every action is logged for accountability, ensuring transparency and preventing unauthorized changes.",
+  },
+  {
+      image: "/features/Inventory.webp",
+      title: "Multiple Inventory Location",
+      description: "Track stock movement across multiple warehouses, ensuring proper inventory management and availability.",
+  }
+];
+
+
   //pricing plans
 export const pricingPlans = [
   {
     price: "2000*",
     title: "Basic",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "1-5 Modules",
       "1-5 Users",
@@ -3587,7 +4233,7 @@ export const pricingPlans = [
   {
     price: "1500*",
     title: "",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "1-15 Modules",
       "1-25 Users",
@@ -3600,7 +4246,7 @@ export const pricingPlans = [
   {
     price: "0*",
     title: " Ultimate",
-    description: "Per member, per Month.",
+    description: "Per Member, Per Month.",
     coverages: [
       "Unlimited Modules",
       "Unlimited Customization",
@@ -3636,7 +4282,7 @@ export const comparisonData = {
       {
           id: 3,
           name: "Dynamic Dashboards",
-          techCloudERP: "Dynamic DashboardS with a Graphical User Interface",
+          techCloudERP: "Dynamic Dashboards with a Graphical User Interface",
           sapBusinessOne: "No Dynamic Dashboards",
       },
 

@@ -1,41 +1,3 @@
-// import Navigation from '../components/Header/navigation'
-// import Form from '../contact-us/Form'
-// import Footer from '../components/Footer';
-// import MapSection from './MapSection'
-// import { Col, Container, Row } from "react-bootstrap";
-// import industrystyles from "../industries/[slug]/industry.module.css"
-// import { aboutus_data } from '../utils/constants'
-
-
-// export default function Page() {
-//   // Meta information for the page
-
-
-//   return (
-//     <>
-
-//       <Navigation />
-//       <section className={industrystyles.section}>
-//         <Container>
-//           <Row>
-//             <Col md={6}>
-//               <h2 className={industrystyles.heading}>{aboutus_data.ContactUs_content.heading}</h2>
-//               <div className={industrystyles.divider}></div>
-//               <p className={industrystyles.description}>{aboutus_data.ContactUs_content.description}</p>
-//             </Col>
-//           </Row>
-//         </Container>
-//       </section>
-
-//       <main>
-//         <Form />
-//         <MapSection />
-//       </main>
-
-//       <Footer />
-//     </>
-//   );
-// }
 
 
 import Navigation from "../components/Header/navigation";
@@ -46,7 +8,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import industrystyles from "../industries/[slug]/industry.module.css";
 import { aboutus_data } from "../utils/constants";
 
-// Metadata for the Contact Us Page
 export const metadata = {
   title: "Contact Us | Tech Cloud ERP - Get in Touch",
   description:
@@ -61,7 +22,7 @@ export const metadata = {
     "ERP System Inquiry",
     "Tech Cloud Contact",
     "Business Management Software",
-    "Cloud ERP Consultation"
+    "Cloud ERP Consultation",
   ],
   robots: "index, follow",
   openGraph: {
@@ -77,17 +38,58 @@ export const metadata = {
   },
 };
 
-export default function Page() {
-  // Meta information for the page
-  const metadata = {
-    title: "Expert ERP Solutions Tailored for Your Business",
-    description: "Contact Tech Cloud ERP today to learn how our innovative ERP solutions can optimize your business operations. Our expert team is here to support you every step of the way.",
-    keywords: "erp software contact, erp solutions inquiry, get in touch erp, erp support team",
-  };
+// Contact Page Schema Markup
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://www.techclouderp.com/contact-us",
+  "about": {
+    "@type": "Organization",
+    "name": "Tech Cloud ERP",
+    "url": "https://techclouderp.com/",
+    "logo": "https://techclouderp.com/static/media/tcerplogo.3b11ab040b09729a98e9.webp",
+    "description": "Tech Cloud ERP provides cloud-based enterprise resource planning (ERP) solutions to help businesses manage their operations efficiently.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500081",
+      "addressCountry": "India",
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91 8919439603",
+        "contactType": "customer service",
+        "email": "info@techclouderp.com",
+        "availableLanguage": "English",
+        "areaServed": "Global",
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91 8919439603",
+        "contactType": "sales",
+        "email": "info@techclouderp.com",
+        "availableLanguage": "English",
+      },
+    ],
+  },
+};
 
+export default function Page() {
   return (
     <>
       <Navigation />
+
+      {/* Inject Schema Markup in Head */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+        />
+      </head>
+
       <section className={industrystyles.section}>
         <Container>
           <Row>

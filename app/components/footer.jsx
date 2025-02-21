@@ -53,7 +53,8 @@ export default function Footer() {
               <li><Link href="/industries/agriculture-industry">Agriculture</Link></li>
               <li><Link href="/industries/beverage-industry">Beverage</Link></li>
               <li><Link href="/industries/leather-industry">Leather</Link></li>
-              <li><Link href="/industries/textiles-industry">Garment & Textile</Link></li>
+              <li><Link href="/industries/textiles-industry">Textile</Link></li>
+              <li><Link href="/industries/food-industry">Food</Link></li>
               <li><Link href="/products/trading-software">Tech Cloud Trading</Link></li>
             </ul>
           </Col>

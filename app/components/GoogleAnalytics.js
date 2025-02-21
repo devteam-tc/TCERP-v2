@@ -1,7 +1,7 @@
 "use client";
 import Script from "next/script";
 
-const GA_TRACKING_ID = "G-R5VWD5JYCT"; // Replace with your GA4 Measurement ID
+const GA_TRACKING_ID = "G-62R9VKE9YC"; // Replace with your GA4 Measurement ID
 
 export default function GoogleAnalytics() {
   return (

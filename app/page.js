@@ -27,6 +27,8 @@ export default function Page() {
         <GalleryTabs /> 
         <Testimonials/>
         <PricingSection />
+        <CallToAction/>
+
       </main>
       <OurPartnerSection/>
       <Footer/>

@@ -22,8 +22,8 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,11 +60,6 @@ th, thead{
   color: #ef5226 !important;
   font-weight: 600 !important;
 }
-/* ✅ Ensuring Background Colors Apply */
-tbody tr:nth-child(even) {
-  background-color: #fdeee9 !important; /* Light Orange */
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #e6f6fa !important; /* Light Blue */
+tbody tr {
+  background-color: inherit !important;
 }

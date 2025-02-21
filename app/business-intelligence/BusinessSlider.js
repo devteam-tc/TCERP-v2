@@ -27,7 +27,7 @@ const BusinessSlider = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 1500,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 3 } },
@@ -51,10 +51,10 @@ const BusinessSlider = () => {
                   <Card.Title className={styles.cardTitle}>{item.title}</Card.Title>
                   <Card.Text className={styles.cardText}>{item.description}</Card.Text>
                   <div className={styles.exploreWrapper}>
-                    <Link href={item.link} className={styles.exploreLink}>
-                      {item.linkText} <FaArrowRight className={styles.exploreArrow} />
-                    </Link>
-                  </div>
+                  <Link href={item.link} className={styles.exploreLink}>
+                    {item.linkText} <FaArrowRight className={styles.exploreArrow} />
+                  </Link>
+                </div>
                 </Card.Body>
               </Card>
             </div>

@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import Link from "next/link"; // ✅ Import Link
 import "slick-carousel/slick/slick-theme.css";
 import { ModulecardsData } from "../../utils/constants";
 import { Container } from "react-bootstrap";
@@ -54,17 +55,15 @@ const ImportantModuleSection = () => {
         </button>
 
         <Slider ref={sliderRef} {...settings} className={styles.carouselContainer}>
-          {ModulecardsData.map((card) => (
+        {ModulecardsData.map((card) => (
             <div key={card.id} className={styles.cardWrapper}>
-              <div className={styles.card}>
-                <img
-                  src={card.image}
-                  alt={card.alt}
-                  className={styles.cardImage}
-                />
-                <h5 className={styles.cardTitle}>{card.title}</h5>
-                <p className={styles.cardText}>{card.description}</p>
-              </div>
+              <Link href="/modules" passHref>
+                <div className={styles.card}>
+                  <img src={card.image} alt={card.alt} className={styles.cardImage} />
+                  <h5 className={styles.cardTitle}>{card.title}</h5>
+                  <p className={styles.cardText}>{card.description}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </Slider>

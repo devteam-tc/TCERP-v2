@@ -19,6 +19,7 @@ import Footer from '../../components/Footer';
 const TabContent = ({ content, image, alt }) => {
   const contentArray = Array.isArray(content) ? content : [];
 
+
   return (
     <div className={styles.tabContent}>
       <div className="row align-items-center">
@@ -44,7 +45,23 @@ const TabContent = ({ content, image, alt }) => {
     </div>
   );
 };
+// Function to generate FAQ structured data
+const generateFAQSchema = (faqs) => {
+  if (!faqs || faqs.length === 0) return null;
 
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+};
 const ProductPage = () => {
   const { slug } = useParams();
   const product = productData[slug] || {
@@ -64,6 +81,10 @@ const ProductPage = () => {
   }, [activeTab, product.tabsHeadings, firstTab]);
 
   const tabContent = product.tabData[activeTab] || { content: [], image: '/default-image.png', alt: 'Default image' };
+
+  const faqSchema = generateFAQSchema(product.faqs); // Assuming FAQs are inside `data.faqs`
+  // const breadcrumbSchema = generateBreadcrumbSchema(slug, data.heading);
+  // const articleSchema = generateArticleSchema(data.heading, data.description, data.top_img, slug);
 
   return (
     <>
@@ -207,7 +228,10 @@ const ProductPage = () => {
     </div>
       <OurPartnerSection className="py-2" />
       <Footer />
-
+  {/* Inject Structured Data */}
+  {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      {/* {breadcrumbSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />} */}
+      {/* {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />} */}
     </>
   );
 };
