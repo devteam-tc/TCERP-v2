@@ -1,64 +1,77 @@
-/* HomeVideoLanding.module.css */
-
 .videoBackground {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .bannerWrapper {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-  }
-  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.bannerWrapper {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.bannerContent {
+  border-radius: 8px;
+  border: 2px solid #FCE2DB;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px);
+  background: linear-gradient(150deg, rgba(237, 237, 255, 0.81) 0%, rgba(239, 248, 251, 0.51) 22%, rgba(193, 222, 228, 0.49) 52%, rgba(211, 226, 230, 0.4) 66%, rgba(241, 241, 254, 0.83) 100%);
+  padding: 40px;
+  border-radius: 8px;
+  width: 80%; /* Restrict width to center content */
+  max-width: 1200px; /* Prevent it from becoming too wide */
+  min-width: 300px; /* Ensures it doesn’t shrink too much */
+  margin: auto;
+}
+
+.bannerTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #EF5226;
+  margin-bottom: 10px;
+}
+
+.bannerSubtitle {
+  font-weight: 800;
+  font-size: 3rem;
+  color: #EF5226;
+  margin-bottom: 10px;
+}
+
+.bannerText {
+  font-size: 1.3rem;
+  color: #000;
+  text-align: center !important;
+  margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
   .bannerContent {
-    border-radius: 10px;
-    border: 3px solid #FCE2DB;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(7.5px);
-    background: linear-gradient(150deg, rgb(237 237 255 / 81%) 0%, rgb(239 248 251 / 51%) 22%, rgb(193 222 228 / 49%) 52%, rgb(211 226 230 / 40%) 66%, rgb(241 241 254 / 83%) 100%);
-    padding: 40px;
-    border-radius: 10px;
+      width: 80%; /* Allow a bit more width on smaller screens */
+      max-width: 500px;
+      padding: 15px;
   }
-  
+
   .bannerTitle {
-    font-size: 4rem;
-    font-weight: 900;
-    color: #EF5226;
+      font-size: 1.6rem;
   }
-  
+
   .bannerSubtitle {
-    font-weight: 900;
-    font-size: 5rem;
-    color: #EF5226;
+      font-size: 1.5rem;
   }
-  
+
   .bannerText {
-    font-size: 17px;
-    color: #000;
-    text-align: center !important;
+      font-size: 0.8rem;
   }
-  
-  @media (max-width: 992px) {
-    .bannerTitle {
-      font-size: 1.9rem;
-    }
-  
-    .bannerSubtitle {
-      font-size: 1.9rem;
-    }
-  
-    .bannerText {
-      font-size: 1rem;
-    }
-  }
-  
+}
