@@ -10,7 +10,7 @@ import industryStyles from "../industries/[slug]/industry.module.css";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import Navigation from "../components/Header/navigation";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import CTA from "../components/Home/CTA";
 
 export const metadata = {

@@ -86,7 +86,7 @@ export const dynamic = "force-static"; // Ensures this page is statically genera
 import { Container, Row, Col } from "react-bootstrap";
 import { aboutus_data, industriesDataList } from "../utils/constants";
 import Navigation from "../components/Header/navigation";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import IndustryList from "./industryList";
 import industryStyles from '../industries/[slug]/industry.module.css'
 

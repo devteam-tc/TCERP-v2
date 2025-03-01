@@ -161,7 +161,7 @@ Global
     font-weight: 400;
   }
   .dropdown_content li a:hover {
-    color: #ef5226;
+    color: #ef5226 !important;
     font-weight: 500;
   }
   

@@ -1,7 +1,7 @@
 // page.js
 import ReportingSection from './ReportingSection';
 import Navigation from '../components/Header/navigation';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import BusinessSlider from './BusinessSlider';
 import { Col, Container, Row } from "react-bootstrap";
 import OurPartnerSection from '../components/OurPartnerSection';

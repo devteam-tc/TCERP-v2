@@ -2,7 +2,7 @@
 
 import Navigation from "../components/Header/navigation";
 import Form from "../contact-us/Form";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import MapSection from "./MapSection";
 import { Col, Container, Row } from "react-bootstrap";
 import industrystyles from "../industries/[slug]/industry.module.css";

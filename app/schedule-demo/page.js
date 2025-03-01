@@ -3,13 +3,13 @@ import styles from "./demo.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import industrystyles from "../industries/[slug]/industry.module.css"
 import Navigation from "../components/Header/navigation";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 
 // Generate Metadata for SEO
 // Generate Metadata for SEO
 export async function generateMetadata() {
   return {
-    title: "Book a Demo | TechCloud ERP",
+    title: "Book a Demo | Tech Cloud ERP",
     description:
       "Schedule a live, personalized demo of TechCloud ERP to explore key features, streamline your business processes, and get expert insights.",
     keywords: [

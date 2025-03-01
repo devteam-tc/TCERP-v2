@@ -1,5 +1,5 @@
 
-import Footer from './components/Footer'
+import Footer from './components/footer'
 import Testimonials from './components/Testimonials'
 import Navigation from './components/Header/navigation'
 import CallToAction from './components/Home/CallToAction'
@@ -13,6 +13,7 @@ import Recordsection from './about-us/RecordSection'
 import ScrollFeature from './components/Home/ScrollFeature'
 import ImportantModuleSection from './components/Home/ImportantModuleSection'
 import StickyButton from './components/StickyButton'
+
 export default function Page() {
   return (
     <div className="min-h-screen">

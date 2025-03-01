@@ -31,6 +31,8 @@ export async function generateMetadata({ params }) {
 export default function ProductPageWrapper({ params }) {
   const { slug } = params;
 
+
+
   // Check if productData exists for the given slug
   if (!productData[slug]) {
     notFound(); // Redirects to `app/not-found.js`

@@ -105,25 +105,6 @@ const organizationSchema = {
     "https://www.linkedin.com/company/tech-cloud-erp/?viewAsMember=true"
   ]
 }
-
-// Review Schema Markup
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "TechCloud ERP",
-  "image": "https://techclouderp.com/logo.webp",
-  "description": "TechCloud ERP is a cloud-based enterprise resource planning solution designed to streamline business operations.",
-  "brand": {
-    "@type": "Brand",
-    "name": "TechCloud ERP"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "955"
-  }
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -137,12 +118,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
 
-        {/* Google Review Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-        />
-
+      
         {/* Google Tag Manager & Google Analytics */}
         <GTM />
         <GoogleAnalytics />
