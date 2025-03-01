@@ -1,0 +1,46 @@
+"use client";
+
+import { useState } from "react";
+import styles from "./page.module.css";
+import BlogGrid from "./BlogGrid";
+import Pagination from "./Pagination";
+import Navigation from "../components/Header/navigation"
+import Footer from "../components/footer"
+
+const POSTS_PER_PAGE = 4;
+
+export default function BlogsClient({ blogPosts }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const displayedPosts = blogPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
+
+  return (
+    <main className={styles.main}>
+        <Navigation/>
+      <section className={styles.hero}>
+        <div className={styles.container}>
+          <h1>
+            Tech Cloud ERP Blogs <span className={styles.rssIcon}>📰</span>
+          </h1>
+        </div>
+      </section>
+
+      <BlogGrid posts={displayedPosts} />
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+      <Footer/>
+    </main>
+  );
+}

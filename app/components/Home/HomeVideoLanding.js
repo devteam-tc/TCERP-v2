@@ -41,7 +41,7 @@ const HomeVideoLanding = () => {
           <h1 className={styles.bannerTitle}>INNOVATE, INTEGRATE & EXCEL</h1>
           <h2 className={styles.bannerSubtitle}>the era of ERP solution.</h2>
           <Row className='justify-content-center'>
-            <h6 className={`${styles.bannerText} text-center w-75 md-0`}>
+            <h6 className={`${styles.bannerText} text-center md-0`}>
               Tech Cloud ERP is a customizable solution that streamlines operations, boosts productivity, and offers real-time insights, driving growth and efficiency across industries.
             </h6>
           </Row>
