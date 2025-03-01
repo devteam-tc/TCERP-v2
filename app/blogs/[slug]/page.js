@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./socialShare";
 import KeywordParser from "./keywordParser"
+import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogPosts", slug);
@@ -163,7 +164,7 @@ export default async function BlogPost({ params }) {
 </section>
 
         {/* Key Takeaways Section */}
-        {keyTakeaways.length > 0 && (
+        {/* {keyTakeaways.length > 0 && (
           <section className={styles.keyPoints}>
             <div className={styles.container}>
               <h2>{post.titleTwo}</h2>
@@ -174,7 +175,7 @@ export default async function BlogPost({ params }) {
               </ul>
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Choosing the Best CRM Software Section */}
         <section className={styles.factorsSection}>
@@ -190,6 +191,47 @@ export default async function BlogPost({ params }) {
             </div>
           </div>
         </section>
+
+        {/* CTA Section */}
+
+
+
+
+       
+
+
+        <div className={styles.ctaContainer}>
+  <h2>{post.ctaTitle}</h2>
+
+  {post.cta && post.cta.length > 0 ? (
+    post.cta.map((cta, index) => (
+      <div key={index}>
+        <p>{cta.description}</p>
+        <p className={styles.contactInfo}>
+          <strong>{cta.para}</strong>
+        </p>
+      </div>
+    ))
+  ) : (
+    <p>No CTA data available</p>
+  )}
+
+  <div className={styles.buttonsContainer}>
+    {/* ✅ Ensure indices exist before accessing */}
+    {post.cta && post.cta.length > 2 && (
+      <a href="mailto:info@techclouderp.com" className={styles.button}>
+        <FaEnvelope /> {post.cta[2].emailtxt}
+      </a>
+    )}
+
+    {post.cta && post.cta.length > 3 && (
+      <Link href="https://techclouderp.com/" className={styles.button} target="_blank">
+        <FaGlobe /> {post.cta[3].contacttxt}
+      </Link>
+    )}
+  </div>
+</div>
+
 
         {/* FAQ Section */}
       <section className={styles.faqSection}>
@@ -210,7 +252,7 @@ export default async function BlogPost({ params }) {
     </div>
   </div>
       </section>
-
+   
 
       <SocialShare title={post.title} />
 
