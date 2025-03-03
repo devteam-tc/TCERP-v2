@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { db, addDoc, collection } from "../firebaseConfig"; // Ensure correct import
+import { db } from "../firebaseConfig"; 
+import { addDoc, collection } from "firebase/firestore"; // Correct import
+import { doc, setDoc } from "firebase/firestore";
 
 const AddSectionsForm = () => {
   const [sections, setSections] = useState([
@@ -33,20 +35,22 @@ const AddSectionsForm = () => {
     setSections(updatedSections);
   };
 
-  // Submit Data to Firebase
-  const handleSubmit = async (e) => {
+
+const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
-      await addDoc(collection(db, "posts"), {
+      const docRef = doc(db, "blogPosts");
+  
+      await setDoc(docRef, {
         pointsWiseText: sections.reduce((acc, section) => {
           acc[section.sectionName] = section.data;
           return acc;
         }, {})
-      });
-
+      }); // ✅ Use merge to prevent overwriting entire document
+  
       alert("Data successfully added to Firebase!");
-      setSections([{ sectionName: "firstSectionData", data: [{ TopHeading: "", TopIntro: "" }] }]);
+      setSections([{ sectionName: "section1", data: [{ TopHeading: "", TopIntro: "" }] }]);
     } catch (error) {
       console.error("Error adding document: ", error);
       alert("Error adding data.");

@@ -127,26 +127,6 @@ export default async function BlogPost({ params }) {
         </div>
       </div>
 
-{/* Features Section */}
-{/* <section>
-  <div className={styles.container}>
-  <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{post.titleOne}</h4>
-  <p style={{ fontSize: "1rem !important", textAlign: "justify"}}>{post.titleOneIntro}</p>
-    {Array.isArray(post.features) && post.features.length > 0 ? (
-      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
-        {post.features.map((item, index) => (
-          <li key={index} style={{ marginBottom: "8px" }}>
-            <h5 style={{ fontSize: "1.3rem" }}>{item?.title}</h5>
-            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>No key takeaways available.</p>
-    )}
-  </div>
-</section> */}
-
 <section>
   <div className={styles.container}>
     {post.pointsWiseText &&
@@ -184,29 +164,6 @@ export default async function BlogPost({ params }) {
           ))}
         </div>
       ))}
-  </div>
-</section>
-
-
-
-<section>
-  <div className={styles.container}>
-    <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>{post.titleTwo}</h4>
-    <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>{post.titleTwoIntro}</p>
-
-    {/* Ensure keyTakeaways is an array before mapping */}
-    {Array.isArray(post.choosingBest) && post.choosingBest.length > 0 ? (
-      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
-        {post.choosingBest.map((item, index) => (
-          <li key={index} style={{ marginBottom: "8px" }}>
-            <h5 style={{ color: "#05a7cc", fontSize: "1.3rem" }}>{item?.title}</h5>
-            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>No key takeaways available.</p>
-    )}
   </div>
 </section>
   
