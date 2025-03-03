@@ -6,18 +6,7 @@ const KeywordParser = ({ text, keywordLinks }) => {
   
     return text.split(regex).map((part, index) =>
       words.includes(part) ? (
-        <a
-          key={index}
-          href={keywordLinks[part]}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "blue",
-            textDecoration: "none",
-          }}
-          onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-          onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
-        >
+        <a key={index} href={keywordLinks[part]} target="_blank" rel="noopener noreferrer" style={{ color: "blue", textDecoration: "none" }}>
           {part}
         </a>
       ) : (
@@ -27,5 +16,4 @@ const KeywordParser = ({ text, keywordLinks }) => {
   };
   
   export default KeywordParser;
-  
   
