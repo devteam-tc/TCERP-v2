@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./socialShare";
 import KeywordParser from "./keywordParser"
@@ -110,20 +110,7 @@ export default async function BlogPost({ params }) {
             </time>
           </div>
           
-          {/* <div className={styles.content}>
-            {post.content.map((section, index) => (
-              <div key={index}>
-                <h5>{section.heading}</h5>
-                  {section.text.map((paragraph, index) => (
-                    <p key={index} style={{ marginTop: "1vh", marginBottom: "1vh", textAlign: "justify" }}>
-                      {paragraph}
-                      <br />
-                    </p>
-                  ))}
-
-              </div>
-            ))}
-          </div> */}
+      
 
 <div>
         {post.content.map((section, index) => (
@@ -164,21 +151,10 @@ export default async function BlogPost({ params }) {
 </section>
 
         {/* Key Takeaways Section */}
-        {/* {keyTakeaways.length > 0 && (
-          <section className={styles.keyPoints}>
-            <div className={styles.container}>
-              <h2>{post.titleTwo}</h2>
-              <ul className={styles.bulletList}>
-                {keyTakeaways.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )} */}
+    
 
         {/* Choosing the Best CRM Software Section */}
-        <section className={styles.factorsSection}>
+        {/* <section className={styles.factorsSection}>
           <div className={styles.container}>
             <h3>{post.titleThree}</h3>
             <div className={styles.factorGrid}>
@@ -190,7 +166,7 @@ export default async function BlogPost({ params }) {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
 
@@ -234,7 +210,7 @@ export default async function BlogPost({ params }) {
 
 
         {/* FAQ Section */}
-      <section className={styles.faqSection}>
+        <section className={styles.faqSection}>
   <div className={styles.container}>
     <h2>Frequently Asked Questions</h2>
     {console.log("FAQ Data: ",  faqs)}
