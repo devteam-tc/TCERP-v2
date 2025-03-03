@@ -81,8 +81,6 @@ export default async function BlogPost({ params }) {
   if (!post) notFound();
 
   const relevantPosts = await getRelevantPosts(post.tags, params.slug);
-  const crmFeatures = await getDynamicData("crmFeatures");
-  const crmFactors = await getDynamicData("crmFactors");
   const faqs = await getDynamicData("faqs");
   
   // Fetching Key Takeaways from Firestore
@@ -91,12 +89,14 @@ export default async function BlogPost({ params }) {
   return (
     <main className={styles.main}>
       <Navigation />
+      {/* Top Section Container */}
       <section className={PageStyles.hero}>
         <div className={PageStyles.container}>
           <h1>{post.title}</h1>
         </div>
       </section>
 
+      {/* Article Tags and Date Container */}
       <article className={styles.article}>
         <div className={styles.container}>
           <div className={styles.meta}>
@@ -110,51 +110,114 @@ export default async function BlogPost({ params }) {
             </time>
           </div>
           
-      
+          {/* <div className={styles.content}>
+            {post.content.map((section, index) => (
+              <div key={index}>
+                <h5>{section.heading}</h5>
+                  {section.text.map((paragraph, index) => (
+                    <p key={index} style={{ marginTop: "1vh", marginBottom: "1vh", textAlign: "justify" }}>
+                      {paragraph}
+                      <br />
+                    </p>
+                  ))}
+
+              </div>
+            ))}
+          </div> */}
 
 <div>
         {post.content.map((section, index) => (
           <div key={index}>
-            <h5>{section.heading}</h5>
+            <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{section.heading}</h4>
             {section.text.map((paragraph, pIndex) => (
-              <p key={pIndex} style={{ textAlign: "justify" }}>
+              <p key={pIndex} style={{ textAlign: "justify", fontSize: "1rem !important" }}>
                 <KeywordParser text={paragraph} keywordLinks={post.keywordLinks} />
               </p>
             ))}
           </div>
         ))}
       </div>
-
-
-
-
-          <div className={styles.imageContainer}>
-            <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
-          </div>
+        <div className={styles.imageContainer}>
+        <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
         </div>
+      </div>
 
 {/* Features Section */}
-<section className={styles.featuresSection}>
+{/* <section>
   <div className={styles.container}>
-    <h4 className={styles.sectionTitle}>{post.titleOne}</h4>
-    <div className={styles.featureGrid}>
-      {post.features.map((feature, index) => (
-        <div key={index} className={styles.featureCard}>
-          <h5 className={styles.featureTitle}>
-            {index + 1}. {feature.title}
-          </h5>
-          <p className={styles.featureDescription}>{feature.description}</p>
+  <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{post.titleOne}</h4>
+  <p style={{ fontSize: "1rem !important", textAlign: "justify"}}>{post.titleOneIntro}</p>
+    {Array.isArray(post.features) && post.features.length > 0 ? (
+      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
+        {post.features.map((item, index) => (
+          <li key={index} style={{ marginBottom: "8px" }}>
+            <h5 style={{ fontSize: "1.3rem" }}>{item?.title}</h5>
+            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No key takeaways available.</p>
+    )}
+  </div>
+</section> */}
+
+<section>
+  <div className={styles.container}>
+    {post.pointsWiseText &&
+      post.pointsWiseText.map((sectionData, sectionIndex) => (
+        <div key={sectionIndex}>
+          {Object.keys(sectionData).map((sectionKey, keyIndex) => (
+            <div key={keyIndex}>
+              {/* Display Section Top Heading & Top Intro (for firstSectionData, secondSectionsData, etc.) */}
+              {sectionData[sectionKey]?.[0]?.TopHeading && sectionData[sectionKey]?.[0]?.TopIntro && (
+                <>
+                  <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>
+                    {sectionData[sectionKey][0].TopHeading}
+                  </h4>
+                  <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>
+                    {sectionData[sectionKey][0].TopIntro}
+                  </p>
+                </>
+              )}
+
+              {/* Render Additional Points inside Each Section (excluding first item if it's Title & TitleIntro) */}
+              {Array.isArray(sectionData[sectionKey]) &&
+              sectionData[sectionKey].length > 1 ? (
+                sectionData[sectionKey]
+                  .slice(1)
+                  .map((section, index) => (
+                    <div key={index}>
+                      <h5 style={{ fontSize: "1.3rem", color: "#333" }}>{section.title}</h5>
+                      <p style={{ fontSize: "1rem", textAlign: "justify" }}>{section.description}</p>
+                    </div>
+                  ))
+              ) : (
+                <p>No additional data available for {sectionKey}.</p>
+              )}
+            </div>
+          ))}
         </div>
       ))}
-    </div>
   </div>
 </section>
 
         {/* Key Takeaways Section */}
-    
+        {keyTakeaways.length > 0 && (
+          <section className={styles.keyPoints}>
+            <div className={styles.container}>
+              <h2>{post.titleTwo}</h2>
+              <ul className={styles.bulletList}>
+                {keyTakeaways.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         {/* Choosing the Best CRM Software Section */}
-        {/* <section className={styles.factorsSection}>
+        <section className={styles.factorsSection}>
           <div className={styles.container}>
             <h3>{post.titleThree}</h3>
             <div className={styles.factorGrid}>
@@ -166,51 +229,10 @@ export default async function BlogPost({ params }) {
               ))}
             </div>
           </div>
-        </section> */}
-
-        {/* CTA Section */}
-
-
-
-
-       
-
-
-        <div className={styles.ctaContainer}>
-  <h2>{post.ctaTitle}</h2>
-
-  {post.cta && post.cta.length > 0 ? (
-    post.cta.map((cta, index) => (
-      <div key={index}>
-        <p>{cta.description}</p>
-        <p className={styles.contactInfo}>
-          <strong>{cta.para}</strong>
-        </p>
-      </div>
-    ))
-  ) : (
-    <p>No CTA data available</p>
-  )}
-
-  <div className={styles.buttonsContainer}>
-    {/* ✅ Ensure indices exist before accessing */}
-    {post.cta && post.cta.length > 2 && (
-      <a href="mailto:info@techclouderp.com" className={styles.button}>
-        <FaEnvelope /> {post.cta[2].emailtxt}
-      </a>
-    )}
-
-    {post.cta && post.cta.length > 3 && (
-      <Link href="https://techclouderp.com/" className={styles.button} target="_blank">
-        <FaGlobe /> {post.cta[3].contacttxt}
-      </Link>
-    )}
-  </div>
-</div>
-
+        </section>
 
         {/* FAQ Section */}
-        <section className={styles.faqSection}>
+      <section className={styles.faqSection}>
   <div className={styles.container}>
     <h2>Frequently Asked Questions</h2>
     {console.log("FAQ Data: ",  faqs)}
