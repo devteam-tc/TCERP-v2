@@ -453,3 +453,35 @@
   margin-bottom: 8px;
   list-style-type: "✅ ";
 }
+.ctaContainer {
+  /* max-width: 700px; */
+  margin: auto;
+  text-align: center;
+  padding: 40px 20px;
+  /* background: #f8f9fa; */
+  border-radius: 12px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+.contactInfo {
+  font-size: 1rem;
+  color: #222;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.buttonsContainer {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: #fff !important;
+    background: #ef5226;
+}

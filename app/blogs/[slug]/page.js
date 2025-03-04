@@ -5,9 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
-import SocialShare from "./socialShare";
+import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser"
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 
@@ -109,23 +109,9 @@ export default async function BlogPost({ params }) {
               {post.date ? new Date(post.date.seconds * 1000).toLocaleDateString() : "Unknown Date"}
             </time>
           </div>
-          
-          {/* <div className={styles.content}>
-            {post.content.map((section, index) => (
-              <div key={index}>
-                <h5>{section.heading}</h5>
-                  {section.text.map((paragraph, index) => (
-                    <p key={index} style={{ marginTop: "1vh", marginBottom: "1vh", textAlign: "justify" }}>
-                      {paragraph}
-                      <br />
-                    </p>
-                  ))}
 
-              </div>
-            ))}
-          </div> */}
-
-<div>
+      {/* Question and Answer Type Data after the image  */}
+      <div>
         {post.content.map((section, index) => (
           <div key={index}>
             <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{section.heading}</h4>
@@ -142,25 +128,7 @@ export default async function BlogPost({ params }) {
         </div>
       </div>
 
-{/* Features Section */}
-{/* <section>
-  <div className={styles.container}>
-  <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{post.titleOne}</h4>
-  <p style={{ fontSize: "1rem !important", textAlign: "justify"}}>{post.titleOneIntro}</p>
-    {Array.isArray(post.features) && post.features.length > 0 ? (
-      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
-        {post.features.map((item, index) => (
-          <li key={index} style={{ marginBottom: "8px" }}>
-            <h5 style={{ fontSize: "1.3rem" }}>{item?.title}</h5>
-            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>No key takeaways available.</p>
-    )}
-  </div>
-</section> */}
+
 
 <section>
   <div className={styles.container}>
@@ -202,43 +170,68 @@ export default async function BlogPost({ params }) {
   </div>
 </section>
 
-        {/* Key Takeaways Section */}
-        {keyTakeaways.length > 0 && (
-          <section className={styles.keyPoints}>
-            <div className={styles.container}>
-              <h2>{post.titleTwo}</h2>
-              <ul className={styles.bulletList}>
-                {keyTakeaways.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
 
-        {/* Choosing the Best CRM Software Section */}
-        <section className={styles.factorsSection}>
-          <div className={styles.container}>
-            <h3>{post.titleThree}</h3>
-            <div className={styles.factorGrid}>
-              {post.choosingBest.map((factor, index) => (
-                <div key={index} className={styles.factorCard}>
-                  <h5>{factor.title}</h5>
-                  <p>{factor.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* FAQ Section */}
-      <section className={styles.faqSection}>
+<section>
   <div className={styles.container}>
-    <h2>Frequently Asked Questions</h2>
-    {console.log("FAQ Data: ",  faqs)}
+    <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>{post.titleTwo}</h4>
+    <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>{post.titleTwoIntro}</p>
+
+    {/* Ensure keyTakeaways is an array before mapping */}
+    {Array.isArray(post.choosingBest) && post.choosingBest.length > 0 ? (
+      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
+        {post.choosingBest.map((item, index) => (
+          <li key={index} style={{ marginBottom: "8px" }}>
+            <h5 style={{ color: "#05a7cc", fontSize: "1.3rem" }}>{item?.title}</h5>
+            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No key takeaways available.</p>
+    )}
+  </div>
+</section>
+          {/* cta section */}
+          <div className={styles.ctaContainer}>
+            <h2>{ctaSection.ctaTitle}</h2>
+            {Array.isArray(ctaSection.data) && ctaSection.data.length > 0 ? (
+              ctaSection.data.map((item, index) => (
+                <div key={index}>
+                  <p>{item.description}</p>
+                </div>
+              ))
+            ) : (
+              <div>
+                <p>{ctaSection.description}</p>
+              </div>
+            )}
+          </div>
+
+{/* <div className={styles.buttonsContainer}>
+    {post.cta && post.cta.length > 2 && (
+      <a href="mailto:info@techclouderp.com" className={styles.button}>
+        <FaEnvelope /> {post.cta[2].emailtxt}
+      </a>
+    )}
+
+    {post.cta && post.cta.length > 3 && (
+      <Link href="https://techclouderp.com/" className={styles.button} target="_blank">
+        <FaGlobe /> {post.cta[3].contacttxt}
+      </Link>
+    )}
+  </div> */}
+
+
+
+ {/* Frequently Asked Questions Container */}
+<section className={styles.faqSection}>
+  <div className={styles.container}>
+    <h2>{faqTitle}</h2>
+    {console.log("FAQ Data: ", faqs)}
     <div className={styles.faqContainer}>
-      {post.faqs && post.faqs.length > 0 ? (
-        post.faqs.map((faq, index) => (
+      {faqs && faqs.length > 0 ? (
+        faqs.map((faq, index) => (
           <div key={index} className={styles.faqItem}>
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
@@ -249,8 +242,9 @@ export default async function BlogPost({ params }) {
       )}
     </div>
   </div>
-      </section>
-   
+</section>
+
+
 
       <SocialShare title={post.title} />
 
