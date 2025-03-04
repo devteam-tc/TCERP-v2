@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import BlogGrid from "./BlogGrid";
 import Pagination from "./Pagination";
 import Navigation from "../components/Header/navigation"
-import Footer from "../components/footer"
+import Footer from "../components/Footer"
 
 const POSTS_PER_PAGE = 4;
 

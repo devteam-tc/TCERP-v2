@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { getRemoteConfig } from "firebase/remote-config";
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 // Firebase configuration
@@ -15,6 +15,7 @@ const firebaseConfig = {
   messagingSenderId: "595044081279",
   appId: "1:595044081279:web:3320af7c412fbc33bb694a",
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

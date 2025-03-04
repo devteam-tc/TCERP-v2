@@ -1,13 +1,8 @@
-import React from 'react'
-import AddSectionsForm from './form'
+import AdminPanel from "./AdminPanel";
 
 const page = () => {
-  return (
-    <div>
-        
-        <AddSectionsForm/>
-    </div>
-  )
+  return <AdminPanel />;
 }
 
 export default page
+
