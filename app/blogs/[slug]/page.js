@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
-import KeywordParser from "./keywordParser"
+import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
+import AnimatedColumn from "../../components/Home/AnimatedColumn";
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogPosts", slug);
@@ -70,8 +71,8 @@ async function getRelevantPosts(tags, currentSlug) {
   const querySnapshot = await getDocs(blogCollection);
   const allPosts = querySnapshot.docs
     .map((doc) => ({ id: doc.id, ...doc.data() }))
-    .filter((post) => post.id !== currentSlug && post.tags.some((tag) => tags.includes(tag)))
-    .sort((a, b) => b.date.seconds - a.date.seconds)
+    .filter((post) => post.id !== currentSlug && post.tags?.some((tag) => tags.includes(tag)))
+    .sort((a, b) => (b.date?.seconds || 0) - (a.date?.seconds || 0))
     .slice(0, 3);
   return allPosts;
 }
@@ -82,156 +83,146 @@ export default async function BlogPost({ params }) {
 
   const relevantPosts = await getRelevantPosts(post.tags, params.slug);
   const faqs = await getDynamicData("faqs");
-  
-  // Fetching Key Takeaways from Firestore
-  const keyTakeaways = post.keyTakeaways || [];
 
   return (
     <main className={styles.main}>
       <Navigation />
-      {/* Top Section Container */}
-      <section className={PageStyles.hero}>
+      
+      {/* Hero Section */}
+      {/* <section className={PageStyles.hero}>
         <div className={PageStyles.container}>
           <h1>{post.title}</h1>
         </div>
+      </section> */}
+      <section className={styles.sectionbeg}>
+        <div className="container">
+          <AnimatedColumn direction="left">
+            <div>
+            <h2 className={styles.heading}>{post.title}</h2>
+        <div className={styles.divider}></div>
+            </div>
+          </AnimatedColumn>
+        </div>
       </section>
+      <div className={styles.bodySection}>
 
-      {/* Article Tags and Date Container */}
+      <div className="container">
+          <div className="row">
+            <div className="col-md-8">
       <article className={styles.article}>
         <div className={styles.container}>
-          <div className={styles.meta}>
-            <div className={styles.tags}>
-              {post.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>{tag}</span>
-              ))}
-            </div>
-            <time className={styles.date}>
-              {post.date ? new Date(post.date.seconds * 1000).toLocaleDateString() : "Unknown Date"}
-            </time>
-          </div>
-
-      {/* Question and Answer Type Data after the image  */}
-      <div>
-        {post.content.map((section, index) => (
-          <div key={index}>
-            <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{section.heading}</h4>
-            {section.text.map((paragraph, pIndex) => (
-              <p key={pIndex} style={{ textAlign: "justify", fontSize: "1rem !important" }}>
-                <KeywordParser text={paragraph} keywordLinks={post.keywordLinks} />
-              </p>
-            ))}
-          </div>
-        ))}
-      </div>
-        <div className={styles.imageContainer}>
-        <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
-        </div>
-      </div>
-
-
-
-<section>
-  <div className={styles.container}>
-    {post.pointsWiseText &&
-      post.pointsWiseText.map((sectionData, sectionIndex) => (
-        <div key={sectionIndex}>
-          {Object.keys(sectionData).map((sectionKey, keyIndex) => (
-            <div key={keyIndex}>
-              {/* Display Section Top Heading & Top Intro (for firstSectionData, secondSectionsData, etc.) */}
-              {sectionData[sectionKey]?.[0]?.TopHeading && sectionData[sectionKey]?.[0]?.TopIntro && (
-                <>
-                  <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>
-                    {sectionData[sectionKey][0].TopHeading}
-                  </h4>
-                  <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>
-                    {sectionData[sectionKey][0].TopIntro}
-                  </p>
-                </>
-              )}
-
-              {/* Render Additional Points inside Each Section (excluding first item if it's Title & TitleIntro) */}
-              {Array.isArray(sectionData[sectionKey]) &&
-              sectionData[sectionKey].length > 1 ? (
-                sectionData[sectionKey]
-                  .slice(1)
-                  .map((section, index) => (
-                    <div key={index}>
-                      <h5 style={{ fontSize: "1.3rem", color: "#333" }}>{section.title}</h5>
-                      <p style={{ fontSize: "1rem", textAlign: "justify" }}>{section.description}</p>
-                    </div>
-                  ))
-              ) : (
-                <p>No additional data available for {sectionKey}.</p>
-              )}
-            </div>
-          ))}
-        </div>
-      ))}
-  </div>
-</section>
-
-
-
-<section>
-  <div className={styles.container}>
-    <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>{post.titleTwo}</h4>
-    <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>{post.titleTwoIntro}</p>
-
-    {/* Ensure keyTakeaways is an array before mapping */}
-    {Array.isArray(post.choosingBest) && post.choosingBest.length > 0 ? (
-      <ul style={{ listStyleType: "circle", paddingLeft: "20px", }}>
-        {post.choosingBest.map((item, index) => (
-          <li key={index} style={{ marginBottom: "8px" }}>
-            <h5 style={{ color: "#05a7cc", fontSize: "1.3rem" }}>{item?.title}</h5>
-            <p style={{ fontSize: "1rem !important", margin: "4px 0 0" }}>{item?.description}</p>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p>No key takeaways available.</p>
-    )}
-  </div>
-</section>
-          {/* cta section */}
-          <div className={styles.ctaContainer}>
-            <h2>{ctaSection.ctaTitle}</h2>
-            {Array.isArray(ctaSection.data) && ctaSection.data.length > 0 ? (
-              ctaSection.data.map((item, index) => (
-                <div key={index}>
-                  <p>{item.description}</p>
-                </div>
-              ))
-            ) : (
-              <div>
-                <p>{ctaSection.description}</p>
+          {/* Tags */}
+          {post.tagsSection && (
+            <div className={styles.meta}>
+              <div className={styles.tags}>
+                {post.tagsSection.map((tag) => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
+ 
+          {/* Blog Content */}
+          <div>
+          <div className={styles.imageContainer}>
+              <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
+              </div>
+          {post.contentSection?.map((section, index) => (
+    <div key={index}>
+      {/* Render the title as the heading */}
+      <h4 className={styles.topheading}>{section.title}</h4>
+      {/* Render the description */}
+      {section.description && (
+        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
+          <KeywordParser description={section.description} anchorWordsSection={post.anchorWordsSection} />
+        </p>
+      )}
 
-{/* <div className={styles.buttonsContainer}>
-    {post.cta && post.cta.length > 2 && (
-      <a href="mailto:info@techclouderp.com" className={styles.button}>
-        <FaEnvelope /> {post.cta[2].emailtxt}
-      </a>
-    )}
+      {/* Render subpara if available */}
+      {section.subpara && (
+        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
+          {section.subpara}
+        </p>
+      )}
+    </div>
+  ))}
+</div>
 
-    {post.cta && post.cta.length > 3 && (
-      <Link href="https://techclouderp.com/" className={styles.button} target="_blank">
-        <FaGlobe /> {post.cta[3].contacttxt}
-      </Link>
-    )}
-  </div> */}
+       
+      </div>
+
+      </article>
 
 
+      {/* Key Takeaways Section */}
+      <section className={styles.section}>
+      <div className={styles.container}>
+       
 
- {/* Frequently Asked Questions Container */}
-<section className={styles.faqSection}>
+        {post?.pointsWiseText &&
+        Object.keys(post.pointsWiseText).length > 0 ? (
+          Object.keys(post.pointsWiseText).map((sectionKey) => {
+            const sectionArray = post.pointsWiseText[sectionKey];
+
+            if (!Array.isArray(sectionArray) || sectionArray.length === 0)
+              return null;
+
+            return (
+              <div key={sectionKey}>
+                {/* Render TopHeading & TopIntro for the first item */}
+                {sectionArray[0]?.TopHeading && sectionArray[0]?.TopIntro && (
+                  <>
+                    <h4 className={styles.sectionTitle}>
+                      {sectionArray[0].TopHeading}
+                    </h4>
+                    <p className={styles.description}>
+                      {sectionArray[0].TopIntro}
+                    </p>
+                  </>
+                )}
+
+                {/* Render Remaining Points (if any) */}
+                {sectionArray.length > 1 &&
+                  sectionArray.slice(1).map((item, index) => (
+                    <div key={index}>
+                      <h5 className={styles.subHeading}>{item.title}</h5>
+                      <p className={styles.description}>{item.description}</p>
+                    </div>
+                  ))}
+              </div>
+            );
+          })
+        ) : (
+          <p className={styles.description}>No content available</p>
+        )}
+      </div>
+    </section>
+
+
+      {/* Call to Action Section */}
+      {post.ctaSection && (
+        <div className={styles.ctaContainer}>
+          <h2>{post.ctaSection.ctaTitle}</h2>
+          {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
+            post.ctaSection.data.map((item, index) => (
+              <div key={index}>
+                <p>{item.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>{post.ctaSection.description}</p>
+          )}
+        </div>
+      )}
+
+     {/* Frequently Asked Questions Container */}
+     <section className={styles.faqSection}>
   <div className={styles.container}>
-    <h2>{faqTitle}</h2>
-    {console.log("FAQ Data: ", faqs)}
+    <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
+    {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
-      {faqs && faqs.length > 0 ? (
-        faqs.map((faq, index) => (
+      {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
+        post.faqSection.faqs.map((faq, index) => (
           <div key={index} className={styles.faqItem}>
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
@@ -244,28 +235,21 @@ export default async function BlogPost({ params }) {
   </div>
 </section>
 
+<SocialShare title={post.title} />
+          </div>
 
 
-      <SocialShare title={post.title} />
+          <div className="col-md-4">
+                      hi
+          {/* <DropdownSection /> */}
+                      </div>
+          </div>
 
-        {/* Related Posts Section */}
-        {relevantPosts.length > 0 && (
-          <section className={styles.relatedPosts}>
-            <h2>Related Posts</h2>
-            <div className={styles.relatedContainer}>
-              {relevantPosts.map((related) => (
-                <div key={related.id} className={styles.relatedPost}>
-                  <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
-                    <Image src={related.image || "/placeholder.svg"} alt={related.title} width={300} height={200} className={styles.relatedImage} />
-                    <h3>{related.title}</h3>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </article>
-      <Footer />
-    </main>
+          </div>
+
+          </div>
+
+                <Footer />
+              </main>
   );
 }
