@@ -151,19 +151,6 @@ const Navigation = () => {
               onMouseLeave={handleMouseLeave}
             >
               <FaPhone className={navigationStyles.phoneIcon} />
-              {/* {showPhoneDropdown && (
-                <div className={navigationStyles.phoneDropdown}>
-                  <div className={navigationStyles.phoneItem} href="tel:+91 8919439603">
-                    <ReactCountryFlag countryCode="IN" svg className={navigationStyles.flag} />
-                    <span >+91 8919439603</span>
-                  </div>
-                  <div className={navigationStyles.phoneItem} href="tel:+13127663390">
-                    <ReactCountryFlag countryCode="US" svg className={navigationStyles.flag} />
-                    <span>+1 (312) 766-3390</span>
-                  </div>
-                  
-                </div>
-              )} */}
               {showPhoneDropdown && (
                 <div className={navigationStyles.phoneDropdown}>
                   <a href="tel:+918919439603" className={navigationStyles.phoneItem}>

@@ -1,34 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation"; // Correct import
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
-import { servicesData } from "../../utils/constants";
 import styles from "./ServicePage.module.css";
 import Navigation from "../../components/Header/navigation";
 import industrystyles from "../../industries/[slug]/industry.module.css";
 import Footer from "../../components/Footer";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import ServiceSchema from "./ServiceSchema";
 
-const ServicePage = () => {
-  const { slug } = useParams();
+const ServicePage = ({ service }) => {
   const router = useRouter();
-
-  const [service, setService] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(null);
+// Function to generate FAQ structured data
+const generateFAQSchema = (faqs) => {
+  if (!faqs || faqs.length === 0) return null;
 
-  useEffect(() => {
-    if (slug) {
-      console.log("Slug:", slug);
-      console.log("Available servicesData keys:", Object.keys(servicesData));
-
-      const selectedService = servicesData[slug] || null;
-      setService(selectedService);
-      setLoading(false);
-    }
-  }, [slug]);
-
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  };
+};
   const handleReadMoreClick = (serviceTitle) => {
     const link = `/services/${serviceTitle.replace(/\s+/g, "-").toLowerCase()}`;
     router.push(link);
@@ -42,28 +43,13 @@ const ServicePage = () => {
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
-  if (loading) {
-    return (
-      <Container className="text-center py-5">
-        <h2>Loading...</h2>
-      </Container>
-    );
-  }
-
-  if (!service) {
-    return (
-      <Container className="text-center py-5">
-        <h2>Service Not Found</h2>
-        <p>The service you're looking for does not exist.</p>
-      </Container>
-    );
-  }
-
+  const faqSchema = generateFAQSchema(service.faqs); // Assuming FAQs are inside `data.faqs`
+  // const breadcrumbSchema = generateBreadcrumbSchema(slug, data.heading);
+  // const articleSchema = generateArticleSchema(data.heading, data.description, data.top_img, slug);
   return (
     <>
       <Navigation />
-
+      <ServiceSchema  />
       <section className={industrystyles.section}>
         <Container>
           <Row>
@@ -150,6 +136,10 @@ const ServicePage = () => {
       )}
 
       <Footer />
+       {/* Inject Structured Data */}
+  {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      {/* {breadcrumbSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />} */}
+      {/* {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />} */}
     </>
   );
 };

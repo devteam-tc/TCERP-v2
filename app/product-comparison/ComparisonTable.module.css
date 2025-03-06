@@ -2,12 +2,38 @@
     width: 80%;
     margin: auto;
     margin-top: 2rem;
+    background: #fff;
+    box-shadow: rgba(173, 216, 230, 0.5) 0px 10px 20px, 
+    rgba(173, 216, 230, 0.7) 0px 6px 6px;
 }
 
-.dangerText {
+/* .dangerText {
     color: red;
+} */
+
+.customTable {
+    width: 100%;
+    border-collapse: collapse;
 }
 
+.customTable th, .customTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.customTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.evenRow {
+    background-color: #fff9f7 !important;
+}
+
+.oddRow {
+    background-color: #f6fdff !important;
+}
 .section {
     padding: 2rem 0;
 }
@@ -28,4 +54,23 @@
 .description {
     font-size: 1.1rem;
     color: #555;
+}
+
+.title {
+    font-size: 30px;
+    color: #ef5226;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .title {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
 }

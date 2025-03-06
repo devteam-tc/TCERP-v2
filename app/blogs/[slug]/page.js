@@ -7,8 +7,9 @@ import styles from "./page.module.css";
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
-import SocialShare from "./socialShare";
+import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser"
+import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogPosts", slug);
@@ -100,7 +101,7 @@ export default async function BlogPost({ params }) {
         <div className={styles.container}>
           <div className={styles.meta}>
             <div className={styles.tags}>
-              {post.tags.map((tag) => (
+              {post.tagsSection.map((tag) => (
                 <span key={tag} className={styles.tag}>{tag}</span>
               ))}
             </div>
@@ -111,14 +112,19 @@ export default async function BlogPost({ params }) {
 
       {/* Question and Answer Type Data after the image  */}
       <div>
-        {post.content.map((section, index) => (
+        {post.contentSection.map((section, index) => (
           <div key={index}>
-            <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{section.heading}</h4>
-            {section.text.map((paragraph, pIndex) => (
+            <h4 style={{color: "#ef5226", fontSize: "1.5rem"}}>{section.title}</h4>
+            {/* {section.text.map((paragraph, pIndex) => (
               <p key={pIndex} style={{ textAlign: "justify", fontSize: "1rem !important" }}>
                 <KeywordParser text={paragraph} keywordLinks={post.keywordLinks} />
               </p>
-            ))}
+            ))} */}
+
+            <p  className="paragraph">
+              <KeywordParser description={section.description} keywordLinks={post.keywordLinks} />
+            </p>
+
           </div>
         ))}
       </div>
@@ -127,54 +133,54 @@ export default async function BlogPost({ params }) {
         </div>
       </div>
 
-<section>
-  <div className={styles.container}>
-    {post.pointsWiseText &&
-      post.pointsWiseText.map((sectionData, sectionIndex) => (
-        <div key={sectionIndex}>
-          {Object.keys(sectionData).map((sectionKey, keyIndex) => (
-            <div key={keyIndex}>
-              {/* Display Section Top Heading & Top Intro (for firstSectionData, secondSectionsData, etc.) */}
-              {sectionData[sectionKey]?.[0]?.TopHeading && sectionData[sectionKey]?.[0]?.TopIntro && (
-                <>
-                  <h4 style={{ color: "#ef5226", fontSize: "1.5rem" }}>
-                    {sectionData[sectionKey][0].TopHeading}
-                  </h4>
-                  <p style={{ fontSize: "1rem !important", textAlign: "justify" }}>
-                    {sectionData[sectionKey][0].TopIntro}
-                  </p>
-                </>
-              )}
 
-              {/* Render Additional Points inside Each Section (excluding first item if it's Title & TitleIntro) */}
-              {Array.isArray(sectionData[sectionKey]) &&
-              sectionData[sectionKey].length > 1 ? (
-                sectionData[sectionKey]
-                  .slice(1)
-                  .map((section, index) => (
-                    <div key={index}>
-                      <h5 style={{ fontSize: "1.3rem", color: "#333" }}>{section.title}</h5>
-                      <p style={{ fontSize: "1rem", textAlign: "justify" }}>{section.description}</p>
-                    </div>
-                  ))
-              ) : (
-                <p>No additional data available for {sectionKey}.</p>
-              )}
-            </div>
-          ))}
-        </div>
-      ))}
-  </div>
-</section>
-  
-  {/* Frequently Asked Questions Container */}
-  <section className={styles.faqSection}>
+
+
+
+
+          {/* cta section */}
+          <div className={styles.ctaContainer}>
+            
+            {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
+              post.ctaSection.data.map((item, index) => (
+                <>
+                <h2>{ctaSection.ctaTitle}</h2>
+                <div key={index}>
+                  <p>{item.description}</p>
+                </div>
+                </>
+              ))
+            ) : (
+              <div>
+                <p>hi</p>
+              </div>
+            )}
+          </div>
+
+{/* <div className={styles.buttonsContainer}>
+    {post.cta && post.cta.length > 2 && (
+      <a href="mailto:info@techclouderp.com" className={styles.button}>
+        <FaEnvelope /> {post.cta[2].emailtxt}
+      </a>
+    )}
+
+    {post.cta && post.cta.length > 3 && (
+      <Link href="https://techclouderp.com/" className={styles.button} target="_blank">
+        <FaGlobe /> {post.cta[3].contacttxt}
+      </Link>
+    )}
+  </div> */}
+
+
+
+ {/* Frequently Asked Questions Container */}
+<section className={styles.faqSection}>
   <div className={styles.container}>
-    <h2>Frequently Asked Questions</h2>
-    {console.log("FAQ Data: ",  faqs)}
+    <h2>{faqTitle}</h2>
+    {console.log("FAQ Data: ", faqs)}
     <div className={styles.faqContainer}>
-      {post.faqs && post.faqs.length > 0 ? (
-        post.faqs.map((faq, index) => (
+      {faqs && faqs.length > 0 ? (
+        faqs.map((faq, index) => (
           <div key={index} className={styles.faqItem}>
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
@@ -185,8 +191,7 @@ export default async function BlogPost({ params }) {
       )}
     </div>
   </div>
-      </section>
-
+</section>
 
       <SocialShare title={post.title} />
 

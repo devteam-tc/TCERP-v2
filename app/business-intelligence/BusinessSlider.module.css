@@ -56,22 +56,16 @@
   margin: 0 20px; /* Add spacing between cards */
 }
 
-.card-body {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important; /* Ensure content starts at the top */
-  height: 100% !important;
-  flex-grow: 1; /* Allow card-body to take up remaining space */
-}
 
-.card-title {
+
+.cardTitle {
   font-weight: 500;
   margin-top: 20px;
   overflow: hidden;
   text-align: left;
 }
 
-.card-text {
+.cardText {
   color: #666;
   font-size: 1rem;
   margin: 10px 0px;
@@ -79,20 +73,23 @@
   text-align: left;
 }
 
-/* Explore Link */
 .exploreWrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Aligns to right */
+  color: #ef5226;
+  align-items: center;
   margin-top: auto; /* Pushes the link to the bottom */
-  margin-bottom: 14px; /* Ensures uniform spacing */
+  margin-bottom: 14px;
 }
 
+/* Explore link styles */
 .exploreLink {
-  color: #ff5733;
-  text-align: right;
+  color: #ef5226; /* Updated color */
   text-decoration: none;
   font-weight: 500;
   font-size: 1.3rem;
+  display: flex;
+  align-items: center;
   transition: transform 0.3s ease;
 }
 
@@ -100,11 +97,19 @@
   transform: translateX(5px);
 }
 
+/* Arrow styles */
 .exploreArrow {
   font-size: 1.5rem;
   margin-left: 10px;
   transition: transform 0.3s ease;
 }
+.exploreArrow {
+  font-size: 1.5rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+
 
 /* Responsive Card */
 @media (max-width: 992px) {
@@ -135,4 +140,11 @@
   .exploreLink {
     font-size: 0.9rem;
   }
+}
+.cardBody {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  flex-grow: 1; /* Makes sure the body takes full height */
 }

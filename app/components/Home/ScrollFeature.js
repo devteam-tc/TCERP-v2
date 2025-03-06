@@ -1,6 +1,7 @@
-"use client"; // It is CLIENT COMPONENT
+"use client";
 
 import React, { useRef } from "react";
+import Link from "next/link"; // ✅ Import Link
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -16,8 +17,16 @@ const CustomArrow = ({ onClick, children, className }) => (
   </button>
 );
 
-const FeatureSlider = () => {
+const ScrollFeature = () => {
   const swiperRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (swiperRef.current) swiperRef.current.autoplay.stop();
+  };
+
+  const handleMouseLeave = () => {
+    if (swiperRef.current) swiperRef.current.autoplay.start();
+  };
 
   return (
     <section className={styles.sliderSection}>
@@ -26,45 +35,51 @@ const FeatureSlider = () => {
         Tech Cloud ERP provides an easy-to-use solution with smooth integration, powerful real-time analytics, and tools to help businesses improve operations, boost productivity, and make smarter decisions.
       </p>
       <div className={styles.sliderWrapper}>
-        <CustomArrow className={styles.leftArrow} onClick={() => swiperRef.current && swiperRef.current.slidePrev()}>
+        <CustomArrow className={styles.leftArrow} onClick={() => swiperRef.current?.slidePrev()}>
           <BiChevronLeft size={32} />
         </CustomArrow>
-        <div className={styles.sliderContainer}>
-          <Swiper
+        <div className={`${styles.sliderContainer} mt-3 mb-3`}>
+        <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={20}
             slidesPerView={3}
-            autoplay={{ delay: 4000 }}
-            navigation={false}
+            slidesPerGroup={1}
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            navigation={{
+              prevEl: `.${styles.leftArrow}`,
+              nextEl: `.${styles.rightArrow}`,
+            }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
+              320: { slidesPerView: 1, slidesPerGroup: 1 },
+              768: { slidesPerView: 2, slidesPerGroup: 1 },
+              1024: { slidesPerView: 3, slidesPerGroup: 1 },
             }}
           >
             {featuresData.map((feature, index) => (
               <SwiperSlide key={index}>
-                <div className={styles.card}>
-                  <img src={feature.image} alt={feature.title} className={styles.cardImage} />
-                  <h5 className={styles.cardTitle}>{feature.title}</h5>
-                  <p className={styles.cardText}>{feature.description}</p>
-                </div>
+                <Link href="/features" passHref> {/* ✅ Link added */}
+                  <div
+                    className={styles.card}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <img loading="lazy" src={feature.image} alt={feature.title} className={styles.cardImage} />
+                    <h5 className={styles.cardTitle}>{feature.title}</h5>
+                    <p className={styles.cardText}>{feature.description}</p>
+                  </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <CustomArrow className={styles.rightArrow} onClick={() => swiperRef.current && swiperRef.current.slideNext()}>
+        <CustomArrow className={styles.rightArrow} onClick={() => swiperRef.current?.slideNext()}>
           <BiChevronRight size={32} />
         </CustomArrow>
-      </div>
-      <div className={styles.paginationDots}>
-        {featuresData.map((_, index) => (
-          <span key={index} className={styles.dot}></span>
-        ))}
       </div>
     </section>
   );
 };
 
-export default FeatureSlider;
+export default ScrollFeature;

@@ -1,14 +1,14 @@
 import { servicesData } from '../../utils/constants';
 import metaInfo from '../../utils/metaInfo.json';
-import ServicePage from './ServicePage'
+import ServicePage from './ServicePage';
+import { notFound } from 'next/navigation'; // Ensure this is properly imported
+
 export function generateStaticParams() {
   return Object.keys(servicesData).map((slug) => ({ slug }));
 }
-  
+
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  
-  // Find metadata from metaInfo.json
   const metadata = metaInfo.services[slug];
 
   return metadata
@@ -25,5 +25,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default function ServicePageWrapper({ params }) {
-  return <ServicePage  slug={params.slug} />;
+  const { slug } = params;
+  const service = servicesData[slug];
+
+  if (!service) {
+    return notFound();
+  }
+
+  return <ServicePage service={service} />;
 }

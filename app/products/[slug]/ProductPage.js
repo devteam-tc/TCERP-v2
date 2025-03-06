@@ -19,6 +19,7 @@ import Footer from '../../components/Footer';
 const TabContent = ({ content, image, alt }) => {
   const contentArray = Array.isArray(content) ? content : [];
 
+
   return (
     <div className={styles.tabContent}>
       <div className="row align-items-center">
@@ -44,7 +45,6 @@ const TabContent = ({ content, image, alt }) => {
     </div>
   );
 };
-
 // Function to generate FAQ structured data
 const generateFAQSchema = (faqs) => {
   if (!faqs || faqs.length === 0) return null;
@@ -62,57 +62,6 @@ const generateFAQSchema = (faqs) => {
     })),
   };
 };
-
-// // Function to generate Breadcrumb structured data
-// const generateBreadcrumbSchema = (slug, title) => ({
-//   "@context": "https://schema.org",
-//   "@type": "BreadcrumbList",
-//   "itemListElement": [
-//     {
-//       "@type": "ListItem",
-//       "position": 1,
-//       "name": "Home",
-//       "item": "https://www.techclouderp.com/"
-//     },
-//     {
-//       "@type": "ListItem",
-//       "position": 2,
-//       "name": "Industries",
-//       "item": "https://www.techclouderp.com/industries"
-//     },
-//     {
-//       "@type": "ListItem",
-//       "position": 3,
-//       "name": title,
-//       "item": `https://www.techclouderp.com/industries/${slug}`
-//     }
-//   ]
-// });
-
-// // Function to generate Article structured data
-// const generateArticleSchema = (title, description, imageUrl, slug) => ({
-//   "@context": "https://schema.org",
-//   "@type": "Article",
-//   "headline": title,
-//   "description": description,
-//   "image": imageUrl,
-//   "author": {
-//     "@type": "Organization",
-//     "name": "Tech Cloud ERP"
-//   },
-//   "publisher": {
-//     "@type": "Organization",
-//     "name": "Tech Cloud ERP",
-//     "logo": {
-//       "@type": "ImageObject",
-//       "url": "https://www.techclouderp.com/logo.png"
-//     }
-//   },
-//   "url": `https://www.techclouderp.com/industries/${slug}`,
-//   "datePublished": "2024-01-01",
-//   "dateModified": "2024-01-01"
-// });
-
 const ProductPage = () => {
   const { slug } = useParams();
   const product = productData[slug] || {
@@ -133,9 +82,9 @@ const ProductPage = () => {
 
   const tabContent = product.tabData[activeTab] || { content: [], image: '/default-image.png', alt: 'Default image' };
 
-    const faqSchema = generateFAQSchema(product.faqs); // Assuming FAQs are inside `data.faqs`
-    // const breadcrumbSchema = generateBreadcrumbSchema(slug, data.heading);
-    // const articleSchema = generateArticleSchema(data.heading, data.description, data.top_img, slug);
+  const faqSchema = generateFAQSchema(product.faqs); // Assuming FAQs are inside `data.faqs`
+  // const breadcrumbSchema = generateBreadcrumbSchema(slug, data.heading);
+  // const articleSchema = generateArticleSchema(data.heading, data.description, data.top_img, slug);
 
   return (
     <>
@@ -164,15 +113,15 @@ const ProductPage = () => {
       <div className={styles.whyContainer}>
         <Container>
         <Row className="align-items-center">
-          <Col md={6}>
+          <Col md={6}  className="pl-6rem">
             <AnimatedColumn direction="left">
               <div className={styles.imageContainer}>
                 <img src={product.imageSrc} alt={product.imageAlt} />
               </div>
             </AnimatedColumn>
           </Col>
-          <Col md={6}>
-            <AnimatedColumn direction="right">
+          <Col md={6} className="pr-6rem" >
+            <AnimatedColumn direction="right" >
               <div className={styles.textContainer}>
               <h1 className={styles.productTitle}>{product.title }</h1>
               {product.productDescription.map((paragraph, index) => (
@@ -279,10 +228,10 @@ const ProductPage = () => {
     </div>
       <OurPartnerSection className="py-2" />
       <Footer />
-      {/* Inject Structured Data */}
-      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
-      {/* {breadcrumbSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />}
-      {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />} */}
+  {/* Inject Structured Data */}
+  {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      {/* {breadcrumbSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />} */}
+      {/* {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />} */}
     </>
   );
 };

@@ -18,7 +18,7 @@ const CardSection = () => {
   const moreCardsToShow = [...cardData.normal, ...cardData['Show More']].slice(0, visiblePlans);
 
   return (
-    <div className="my-md-5" style={{ backgroundColor: '#F5FDFF', padding: '60px 0px' }}>
+    <div className="mt-5 my-md-5" style={{ backgroundColor: '#F5FDFF', padding: '60px 0px' }}>
       <h1 className={`${styles.title} text-center pt-4 pt-md-0`}>
         Discover the Advantages of Tech Cloud ERP
       </h1>

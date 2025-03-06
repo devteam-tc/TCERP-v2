@@ -242,15 +242,52 @@ export const metadata = {
   },
 };
 
+// Organization Schema Markup
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tech Cloud ERP (Solutions Unlimited)",
+  "url": "https://techclouderp.com/",
+  "logo": "https://techclouderp.com/logo.webp",
+  "description": "Tech Cloud ERP is a leading provider of cloud-based enterprise resource planning (ERP) solutions, helping businesses streamline operations and improve efficiency.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91 8919439603",
+    "contactType": "customer service",
+    "email": "info@techclouderp.com",
+    "availableLanguage": ["English", "Hindi"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Office Unit No. 705, Jain Sadguru Capital Park",
+    "addressLocality": " Madhapur",
+    "addressRegion": "Hyderabad",
+    "postalCode": "500081",
+    "addressCountry": "IND"
+  },
+  "sameAs": [
+    "https://www.facebook.com/TechCloudERPSoftwareSolutions/",
+    "https://x.com/TechCloudERP",
+    "https://www.linkedin.com/company/tech-cloud-erp/?viewAsMember=true"
+  ]
+}
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
         {/* Google Search Console Site Verification */}
-        <meta
-          name="google-site-verification"
-          content="tYN1pLqI0Tr2O39pXENnpPijDUfufS4bOQM0sne-r38"
+        <meta name="google-site-verification" content="tYN1pLqI0Tr2O39pXENnpPijDUfufS4bOQM0sne-r38" />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+
+      
+        {/* Google Tag Manager & Google Analytics */}
+        <GTM />
+        <GoogleAnalytics />
       </head>
       <body
         className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable}`}

@@ -1,8 +1,15 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import { featuresData, aboutus_data } from "../utils/constants";
+import { uniquefeaturesdata, aboutus_data } from "../utils/constants";
 import styles from "./FeaturePage.module.css";
 import AnimatedSection from "../components/Home/AnimatedSection";
+
+
+export const metadata = {
+  title: " Advanced ERP Features for Smarter Business Management",
+  description:
+    "Enhance business efficiency with powerful ERP features like cloud computing, automation, real-time dashboards, and seamless user collaboration.",
+};
 
 const FeaturePage = () => {
   const { heading, description } = aboutus_data.featurescontent;
@@ -10,32 +17,21 @@ const FeaturePage = () => {
   return (
     <>
      
-      <Container className="mt-5">
+      <Container className={styles.container}>
         <Row>
-          <h3 className={styles.title}>Unique Features</h3>
-
-          <p className={styles.subTitle}>
-            Tech Cloud ERP offers a cutting-edge solution with seamless integration, 
-            intuitive design, and robust real-time analytics. It empowers businesses 
-            to streamline operations, enhance productivity, and drive informed decision-making effortlessly.
-          </p>
-          {featuresData.map((feature, index) => (
-          
-
-<Col key={index} sm={12} md={6} lg={4}>
-<AnimatedSection>
-  <div className={styles.styledCard}>
-    <img variant="top" 
-    
-     src={feature.image} alt={feature.title}  className={styles.cardImage} />
-    <div className={styles.cardBody}>
-      <h5>{feature.title}</h5>
-      <p>{feature.description}</p>
-    
-    </div>
-  </div>
-</AnimatedSection>
-</Col>
+          {uniquefeaturesdata.map((feature, index) => (
+            <Col key={index} sm={12} md={6} lg={4}>
+            <AnimatedSection>
+              <div className={styles.styledCard}>
+                <img variant="top" 
+                src={feature.image} alt={feature.title}  className={styles.cardImage} />
+                <div className={styles.cardBody}>
+                  <h5>{feature.title}</h5>
+                  <p>{feature.description}</p>
+                </div>
+              </div>
+            </AnimatedSection>
+            </Col>
           ))}
         </Row>
       </Container>

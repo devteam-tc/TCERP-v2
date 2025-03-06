@@ -1,23 +1,10 @@
-// export const metadata = {
-//     title: "404 - Page Not Found",
-//     description: "The page you are looking for could not be found. Please check the URL or return to the homepage.",
-//   };
-  
-//   export default function NotFound() {
-//     return (
-//       <div style={{ textAlign: "center", marginTop: "20vh" }}>
-//         <h1>404 - Page Not Found</h1>
-//         <p>Sorry, the page you are looking for does not exist.</p>
-        
-//       </div>
-//     );
-//   }
+
   
 import Link from "next/link";
 import Image from "next/image";
 import { Button, Container } from "react-bootstrap";
 import Navigation from "./components/Header/navigation";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "404 - Page Not Found",

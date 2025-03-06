@@ -22,8 +22,8 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,4 +39,27 @@ hr{
      color: none !important; 
     border: none !important;
      opacity: inherit !important;
+}
+.pl-6rem {
+  padding-left: 4rem !important;
+}
+@media screen and (max-width: 992px) {
+  .pl-6rem {
+    padding-left: 1rem !important;
+  }
+}
+.pr-6rem {
+  padding-left: 0rem !important;
+}
+@media screen and (max-width: 992px) {
+  .pr-6rem {
+    padding-left: 1rem !important;
+  }
+}
+th, thead{
+  color: #ef5226 !important;
+  font-weight: 600 !important;
+}
+tbody tr {
+  background-color: inherit !important;
 }

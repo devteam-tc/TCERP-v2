@@ -109,7 +109,7 @@ export default function Footer() {
               <h5 className={styles.footerHeader}>Corporate Office</h5>
               <p><FaMapMarkerAlt /> Office Unit No. 705, Jain Sadguru Capital Park, Hyderabad, India-500081.</p>
               <p><FaEnvelope /> <a href={`mailto:${corporateEmail}`}>{corporateEmail}</a></p>
-              <p><FaPhoneAlt /> +91 8919439603</p>
+              <p><FaPhoneAlt /> +91 8919439603 , +91 7032082300</p>
             </div>
             <div className={styles.contactInfo}>
               <h5 className={styles.footerHeader}>Headquarters</h5>

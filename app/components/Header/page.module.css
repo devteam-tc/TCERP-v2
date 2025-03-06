@@ -161,7 +161,7 @@ Global
     font-weight: 400;
   }
   .dropdown_content li a:hover {
-    color: #ef5226;
+    color: #ef5226 !important;
     font-weight: 500;
   }
   
@@ -452,6 +452,7 @@ Global
 .menuButton{
   background-color: #fff;
   color: #797575;
-  border: 2px solid #797575;
+  /* border: 2px solid #797575; */
+  border: none ;
 }
 

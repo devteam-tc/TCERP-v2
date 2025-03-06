@@ -11,7 +11,7 @@ const firebaseConfig = {
   authDomain: "tech-cloud-erp-1532582683650.firebaseapp.com",
   databaseURL: "https://tech-cloud-erp-1532582683650.firebaseio.com",
   projectId: "tech-cloud-erp-1532582683650",
-  storageBucket: "tech-cloud-erp-1532582683650.appspot.com",
+  storageBucket: "tech-cloud-erp-1532582683650.firebasestorage.app",
   messagingSenderId: "595044081279",
   appId: "1:595044081279:web:3320af7c412fbc33bb694a",
 };
@@ -34,3 +34,4 @@ if (typeof window !== "undefined") {
 }
 
 export { analytics };
+
