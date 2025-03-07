@@ -19,9 +19,9 @@ const AddSectionsForm = () => {
     { question: "", answer: "" }
   ]);
   const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
-  // const [tags, setTags] = useState([]); // ✅ Tags state
-  // const [tagInput, setTagInput] = useState("");
-  // const [anchorWords, setAnchorWords] = useState([]); // ✅ Updated state to object (map)
+  const [tags, setTags] = useState([]); // ✅ Tags state
+const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
+  const [tagInput, setTagInput] = useState("");
   // State for CTA Section
   const [ctaSection, setCtaSection] = useState({
     ctaTitle: "",
@@ -128,8 +128,8 @@ const handleSubmit = async (e) => {
       },
       contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
       ctaSection ,// ✅ Storing CTA section separately
-      // tagsSection,
-      // anchorWordsSection,
+      tagsSection: tags, // ✅ Fix: Directly using tags array
+      anchorWordsSection: anchorWords,
     }, );
     
     alert("Data successfully added to Firebase!");
@@ -142,10 +142,9 @@ const handleSubmit = async (e) => {
       ctaTitle: "",
       description: "",
     });
-    // setTags(""); // ✅ Reset tags after submission
-    // setAnchorWords("");  
-
-
+    setTags([]); // ✅ Reset as empty array, not string
+    setAnchorWords([]); // ✅ Reset as empty array, not string
+    
   } catch (error) {
     console.error("Error adding document: ", error);
     alert("Error adding data.");
@@ -226,8 +225,9 @@ const handleSubmit = async (e) => {
         <button type="button" onClick={addSection} style={{ marginBottom: "10px" }}>
           + Add Section
         </button>
-          {/* Content Section */}
-          <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+
+      {/* Content Section */}
+      <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
           <h3>Content Section</h3>
           {content.map((item, index) => (
             <div key={index}>
@@ -251,32 +251,33 @@ const handleSubmit = async (e) => {
           <button type="button" onClick={addContentItem}>+ Add Content</button>
         </div>
 
-          {/* Tags Section UI */}
-          {/* <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-          <h3>Tags</h3>
-          
-          <input
-            type="text"
-            placeholder="tags"
-            value={tagInput}
-            onChange={(e) => setTagInput(e.target.value)}
-            onKeyDown={addTag} // Enter Key to Add
-            style={{ width: "100%", marginBottom: "10px" }}
-          /> */}
-          
-          {/* Add Button */}
-          {/* <button type="button" onClick={addTagItem}>+ Add tag</button> */}
-          
-          {/* Tags List */}
-          {/* <div style={{ marginTop: "10px" }}>
-            {tags.map((tag, index) => (
-              <span key={index} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
-                {tag} 
-                <button onClick={() => removeTag(index)}>x</button>
-              </span>
-            ))}
-          </div>
-        </div> */}
+                {/* Tags Section UI */}
+                <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+                <h3>Tags</h3>
+                
+                <input
+                  type="text"
+                  placeholder="tags"
+                  value={tagInput}
+                  onChange={(e) => setTagInput(e.target.value)}
+                  onKeyDown={addTag} // Enter Key to Add
+                  style={{ width: "100%", marginBottom: "10px" }}
+                />
+                
+                {/* Add Button */}
+                <button type="button" onClick={addTagItem}>+ Add tag</button>
+                
+                {/* Tags List */}
+                <div style={{ marginTop: "10px" }}>
+                  {tags.map((tag, index) => (
+                    <span key={index} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
+                      {tag} 
+                      <button onClick={() => removeTag(index)}>x</button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
 
         {/* Anchor Words Section */}
         {/* <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
@@ -294,7 +295,9 @@ const handleSubmit = async (e) => {
               </span>
             ))}
           </div>
-        </div> */}
+        </div>
+
+
         {/* FAQ Section */}
         <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
           <h3>FAQ Section</h3>
@@ -338,7 +341,9 @@ const handleSubmit = async (e) => {
             required
             style={{ width: "100%", marginBottom: "5px" }}
           />
+        
         </div>
+
         <button type="submit" style={{ marginTop: "10px" }}>
           Submit
         </button>

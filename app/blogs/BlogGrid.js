@@ -25,7 +25,7 @@ const BlogGrid = ({ posts }) => {
                   <h2>
                     {post.title} <span className={styles.arrow}>→</span>
                   </h2>
-                  <p>{post.excerpt}</p>
+                  <p>{post.description}</p>
                   <div className={styles.tags}>
                     {post.tagsSection.map((tag) => (
                       <span key={tag} className={styles.tag}>
