@@ -8,6 +8,9 @@ import { addDoc, collection } from "firebase/firestore"; // Correct import
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [content, setContent] = useState([
+    { title: "", description: [""] } // Default structure
+  ]);
   const [sections, setSections] = useState([
     {
       sectionName: "section1",
@@ -18,7 +21,7 @@ const AddSectionsForm = () => {
   const [faqs, setFaqs] = useState([
     { question: "", answer: "" }
   ]);
-  const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
+  //const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
   const [tags, setTags] = useState([]); // ✅ Tags state
 const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
   const [tagInput, setTagInput] = useState("");
@@ -45,9 +48,9 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
   };
 
   // ✅ Remove a tag
-  // const removeTag = (index) => {
-  //   setTags(tags.filter((_, i) => i !== index));
-  // };
+  const removeTag = (index) => {
+    setTags(tags.filter((_, i) => i !== index));
+  };
 
   // Add anchor words dynamically
  
@@ -74,9 +77,9 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
     setFaqs([...faqs, { question: "", answer: "" }]);
   };
 
-  const addContentItem = () => {
-    setContent([...content, { title: "", description: "" }]); // ✅ Add new content item
-  };
+  // const addContentItem = () => {
+  //   setContent([...content, { title: "", description: "" }]); // ✅ Add new content item
+  // };
   const addTagItem = () => {
     if (tagInput.trim() !== "" && !tags.includes(tagInput.trim())) {
       setTags([...tags, tagInput.trim()]);
@@ -102,12 +105,48 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
  const handleCtaChange = (field, value) => {
   setCtaSection({ ...ctaSection, [field]: value });
 };
-// content section
-const handleContentChange = (contentIndex, field, value) => {
+// // content section
+// const handleContentChange = (contentIndex, field, value) => {
+//   const updatedContent = [...content];
+//   updatedContent[contentIndex][field] = value;
+//   setContent(updatedContent);
+// };
+
+
+
+// Handle title change
+const handleContentChange = (index, field, value) => {
   const updatedContent = [...content];
-  updatedContent[contentIndex][field] = value;
+  updatedContent[index][field] = value;
   setContent(updatedContent);
 };
+
+// Handle description change for a specific point
+const handleDescriptionChange = (contentIndex, descIndex, value) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description[descIndex] = value;
+  setContent(updatedContent);
+};
+
+// Add a new description point inside a content section
+const addDescriptionPoint = (contentIndex) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description.push("");
+  setContent(updatedContent);
+};
+
+// Remove a description point
+const removeDescriptionPoint = (contentIndex, descIndex) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description.splice(descIndex, 1);
+  setContent(updatedContent);
+};
+
+// Add a new content section
+const addContentItem = () => {
+  setContent([...content, { title: "", description: [""] }]);
+};
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -126,7 +165,11 @@ const handleSubmit = async (e) => {
         faqTitle: "Frequently Asked Questions",
         faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()) // Avoid empty entries
       },
-      contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
+      //contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
+      contentSection: content.filter(
+        item => item.title.trim() && item.description.some(desc => desc.trim())
+      ),
+      
       ctaSection ,// ✅ Storing CTA section separately
       tagsSection: tags, // ✅ Fix: Directly using tags array
       anchorWordsSection: anchorWords,
@@ -227,7 +270,7 @@ const handleSubmit = async (e) => {
         </button>
 
       {/* Content Section */}
-      <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+      {/* <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
           <h3>Content Section</h3>
           {content.map((item, index) => (
             <div key={index}>
@@ -249,7 +292,46 @@ const handleSubmit = async (e) => {
             </div>
           ))}
           <button type="button" onClick={addContentItem}>+ Add Content</button>
+        </div> */}
+
+<div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+  <h3>Content Section</h3>
+  {content.map((item, contentIndex) => (
+    <div key={contentIndex}>
+      <input
+        type="text"
+        placeholder="Content Title"
+        value={item.title}
+        onChange={(e) => handleContentChange(contentIndex, "title", e.target.value)}
+        required
+        style={{ width: "100%", marginBottom: "5px" }}
+      />
+
+      {/* Loop through descriptions array */}
+      {item.description.map((desc, descIndex) => (
+        <div key={descIndex} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <textarea
+            placeholder={`Description Point ${descIndex + 1}`}
+            value={desc}
+            onChange={(e) =>
+              handleDescriptionChange(contentIndex, descIndex, e.target.value)
+            }
+            required
+            style={{ width: "90%", marginBottom: "5px" }}
+          />
+          <button type="button" onClick={() => removeDescriptionPoint(contentIndex, descIndex)}>
+            ❌
+          </button>
         </div>
+      ))}
+
+      <button type="button" onClick={() => addDescriptionPoint(contentIndex)}>+ Add Description Point</button>
+    </div>
+  ))}
+
+  <button type="button" onClick={addContentItem}>+ Add Content</button>
+</div>
+
 
                 {/* Tags Section UI */}
                 <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>

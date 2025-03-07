@@ -542,3 +542,10 @@
     height: auto;
   }
 }
+
+.highlighted_keyword {
+  color: #ef5226 !important; /* Ensure color applies */
+  text-decoration: none !important; /* Force underline */
+  font-weight: bold; /* Make it stand out */
+  cursor: pointer;
+}

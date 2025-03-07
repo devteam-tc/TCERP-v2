@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
@@ -127,25 +127,31 @@ export default async function BlogPost({ params }) {
           <div className={styles.imageContainer}>
               <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
-          {post.contentSection?.map((section, index) => (
-    <div key={index}>
-      {/* Render the title as the heading */}
-      <h4 className={styles.topheading}>{section.title}</h4>
-      {/* Render the description */}
-      {section.description && (
-        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-          <KeywordParser description={section.description} anchorWordsSection={post.anchorWordsSection} />
-        </p>
-      )}
+              {post.contentSection?.map((section, index) => {
+                  const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
+                    return {
+                      ...acc,
+                      ...Object.fromEntries(
+                        Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
+                      ),
+                    };
+                  }, {});
 
-      {/* Render subpara if available */}
-      {section.subpara && (
-        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-          {section.subpara}
-        </p>
-      )}
-    </div>
-  ))}
+                  return (
+                    <div key={index}>
+                      <h4 className={styles.topheading}>{section.title}</h4>
+
+                      {/* Now handling description as an array */}
+                      {section.description?.map((desc, descIndex) => (
+                        <p key={descIndex}>
+                          <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} />
+                        </p>
+                      ))}
+                    </div>
+                  );
+                })}
+
+
 </div>
 
        
@@ -216,8 +222,8 @@ export default async function BlogPost({ params }) {
       )}
 
      {/* Frequently Asked Questions Container */}
-     <section className={styles.faqSection}>
-  <div className={styles.container}>
+    <section className={styles.faqSection}>
+    <div className={styles.container}>
     <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
     {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
