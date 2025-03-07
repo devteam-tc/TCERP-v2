@@ -139,7 +139,7 @@
     margin-bottom: 20px;
   }
   .topheading{
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     font-weight: 600;
     color: #ef5226;
     margin-bottom: 10px;
@@ -364,7 +364,7 @@
 
 
 .sectionTitle {
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   font-weight: 600;
   color: #ef5226;
   margin-bottom: 10px;
@@ -541,4 +541,10 @@
   .sectionbeg {
     height: auto;
   }
+}
+.stickysidebar {
+  position: fixed;
+  /* top: 80px;  */
+  /* right: 0;  */
+  width: 25%;
 }

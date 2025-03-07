@@ -4,12 +4,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import industrystyles from '../../industries/[slug]/industry.module.css'
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
+import DropdownSection from '../../blogs/Dropdown';
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
 
 async function getBlogPost(slug) {
@@ -89,64 +91,62 @@ export default async function BlogPost({ params }) {
       <Navigation />
       
       {/* Hero Section */}
-      {/* <section className={PageStyles.hero}>
-        <div className={PageStyles.container}>
-          <h1>{post.title}</h1>
-        </div>
-      </section> */}
-      <section className={styles.sectionbeg}>
-        <div className="container">
-          <AnimatedColumn direction="left">
-            <div>
-            <h2 className={styles.heading}>{post.title}</h2>
-        <div className={styles.divider}></div>
-            </div>
-          </AnimatedColumn>
-        </div>
-      </section>
-      <div className={styles.bodySection}>
-
-      <div className="container">
-          <div className="row">
-            <div className="col-md-8">
-      <article className={styles.article}>
-        <div className={styles.container}>
-          {/* Tags */}
-          {post.tagsSection && (
-            <div className={styles.meta}>
-              <div className={styles.tags}>
-                {post.tagsSection.map((tag) => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
+     
+            <section className={styles.sectionbeg}>
+              <div className="container">
+                <AnimatedColumn direction="left">
+                  <div>
+                  <h2 className={industrystyles.heading}>{post.title}</h2>
+              <div className={industrystyles.divider}></div>
+                  </div>
+                </AnimatedColumn>
               </div>
-            </div>
-          )}
- 
-          {/* Blog Content */}
-          <div>
+            </section>
+            <div className={styles.bodySection}>
+
+            <div className="container">
+                <div className="row">
+                  <div className="col-md-8 ">
+            <article className={styles.article}>
+              <div className={styles.container}>
+                {/* Tags */}
+                {post.tagsSection && (
+                  <div className={styles.meta}>
+                    <div className={styles.tags}>
+                      {post.tagsSection.map((tag) => (
+                        <span key={tag} className={styles.tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+      
+                {/* Blog Content */}
+                <div>
           <div className={styles.imageContainer}>
               <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
-          {post.contentSection?.map((section, index) => (
-    <div key={index}>
-      {/* Render the title as the heading */}
-      <h4 className={styles.topheading}>{section.title}</h4>
-      {/* Render the description */}
-      {section.description && (
-        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-          <KeywordParser description={section.description} anchorWordsSection={post.anchorWordsSection} />
-        </p>
-      )}
+       {post.contentSection?.map((section, index) => (
+        <div key={index}>
+          {/* Render the title as the heading */}
+          <h4 className={styles.topheading}>{section.title}</h4>
 
-      {/* Render subpara if available */}
-      {section.subpara && (
-        <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-          {section.subpara}
-        </p>
-      )}
-    </div>
-  ))}
-</div>
+          {/* Render the description */}
+          {section.description && (
+            <p style={{ textAlign: "justify", fontSize: "1rem" }}>
+              <KeywordParser description={section.description} anchorWordsSection={post.anchorWordsSection} />
+            </p>
+          )}
+
+          {/* Render subpara if available */}
+          {section.subpara && (
+            <p style={{ textAlign: "justify", fontSize: "1rem" }}>
+              {section.subpara}
+            </p>
+          )}
+        </div>
+      ))}
+
+          </div>
 
        
       </div>
@@ -195,61 +195,59 @@ export default async function BlogPost({ params }) {
         ) : (
           <p className={styles.description}>No content available</p>
         )}
-      </div>
-    </section>
+          </div>
+        </section>
 
 
-      {/* Call to Action Section */}
-      {post.ctaSection && (
-        <div className={styles.ctaContainer}>
-          <h2>{post.ctaSection.ctaTitle}</h2>
-          {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
-            post.ctaSection.data.map((item, index) => (
-              <div key={index}>
-                <p>{item.description}</p>
-              </div>
-            ))
-          ) : (
-            <p>{post.ctaSection.description}</p>
+          {/* Call to Action Section */}
+          {post.ctaSection && (
+            <div className={styles.ctaContainer}>
+              <h2>{post.ctaSection.ctaTitle}</h2>
+              {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
+                post.ctaSection.data.map((item, index) => (
+                  <div key={index}>
+                    <p>{item.description}</p>
+                  </div>
+                ))
+              ) : (
+                <p>{post.ctaSection.description}</p>
+              )}
+            </div>
           )}
-        </div>
-      )}
 
      {/* Frequently Asked Questions Container */}
-     <section className={styles.faqSection}>
-  <div className={styles.container}>
-    <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
-    {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
-    <div className={styles.faqContainer}>
-      {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
-        post.faqSection.faqs.map((faq, index) => (
-          <div key={index} className={styles.faqItem}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </div>
-        ))
-      ) : (
-        <p>No FAQs available</p>
-      )}
-    </div>
-  </div>
-</section>
-
-<SocialShare title={post.title} />
-          </div>
-
-
-          <div className="col-md-4">
-                      hi
-          {/* <DropdownSection /> */}
+                <section className={styles.faqSection}>
+                <div className={styles.container}>
+                <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
+                {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
+                <div className={styles.faqContainer}>
+                  {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
+                    post.faqSection.faqs.map((faq, index) => (
+                      <div key={index} className={styles.faqItem}>
+                        <h3>{faq.question}</h3>
+                        <p>{faq.answer}</p>
                       </div>
+                    ))
+                  ) : (
+                    <p>No FAQs available</p>
+                  )}
+                </div>
+              </div>
+            </section>
+
+        <SocialShare title={post.title} />
           </div>
 
+      {/* categories section */}
+          <div className="col-md-4 ">
+            <div className={styles.stickysidebar}>
+          <DropdownSection />
           </div>
-
           </div>
-
-                <Footer />
-              </main>
+          </div>
+          </div>
+          </div>
+          <Footer />
+          </main>
   );
 }
