@@ -11,6 +11,7 @@ import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
+import TableOfContents from "./TableOfContents";
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogPosts", slug);
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }) {
     };
   }
   return {
-    title: post.meta?.title || "Tech Cloud ERP Blog",
+    title: post.title || "Tech Cloud ERP Blog",
     description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
     keywords: post.meta?.keywords?.join(", ") || "ERP, software, business solutions",
     openGraph: {
@@ -87,13 +88,6 @@ export default async function BlogPost({ params }) {
   return (
     <main className={styles.main}>
       <Navigation />
-      
-      {/* Hero Section */}
-      {/* <section className={PageStyles.hero}>
-        <div className={PageStyles.container}>
-          <h1>{post.title}</h1>
-        </div>
-      </section> */}
       <section className={styles.sectionbeg}>
         <div className="container">
           <AnimatedColumn direction="left">
@@ -123,7 +117,7 @@ export default async function BlogPost({ params }) {
           )}
  
           {/* Blog Content */}
-          <div>
+          <div className="blog-content">
           <div className={styles.imageContainer}>
               <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
@@ -152,19 +146,13 @@ export default async function BlogPost({ params }) {
                 })}
 
 
-</div>
-
-       
+</div>  
       </div>
-
       </article>
-
-
       {/* Key Takeaways Section */}
+      <div className="blog-content"> 
       <section className={styles.section}>
       <div className={styles.container}>
-       
-
         {post?.pointsWiseText &&
         Object.keys(post.pointsWiseText).length > 0 ? (
           Object.keys(post.pointsWiseText).map((sectionKey) => {
@@ -203,6 +191,7 @@ export default async function BlogPost({ params }) {
         )}
       </div>
     </section>
+      </div>
 
 
       {/* Call to Action Section */}
@@ -240,15 +229,30 @@ export default async function BlogPost({ params }) {
     </div>
   </div>
 </section>
-
+{/* Related Posts Section */}
+{relevantPosts.length > 0 && (
+          <section className={styles.relatedPosts}>
+            <h2>Related Posts</h2>
+            <div className={styles.relatedContainer}>
+              {relevantPosts.map((related) => (
+                <div key={related.id} className={styles.relatedPost}>
+                  <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                    <Image src={related.image || "/placeholder.svg"} alt={related.title} width={300} height={200} className={styles.relatedImage} />
+                    <h3>{related.title}</h3>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 <SocialShare title={post.title} />
           </div>
 
+          {/* Sidebar with Table of Contents */}
+    <div className="col-md-4">
+      <TableOfContents />
+    </div>
 
-          <div className="col-md-4">
-                      hi
-          {/* <DropdownSection /> */}
-                      </div>
           </div>
 
           </div>
