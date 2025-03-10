@@ -9,7 +9,7 @@ import styles from "./ServiceContentSection.module.css";
 import Navigation from "../components/Header/navigation";
 import industryStyles from "../industries/[slug]/industry.module.css";
 import { aboutus_data } from "../utils/constants";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import PartnershipSection from "../components/PartnershipSection";
 
 const ServiceContentSection = () => {

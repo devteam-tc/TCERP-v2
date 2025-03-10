@@ -9,7 +9,7 @@ import { getDocs, collection, addDoc } from 'firebase/firestore';
 import industryStyles from '../industries/[slug]/industry.module.css';
 import styles from './CareersList.module.css';
 import Navigation from '../components/Header/navigation';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import Perks from './[id]/Perks';
 
 const CareersList = () => {

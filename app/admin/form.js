@@ -1,12 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../firebaseConfig"; 
 import { doc, setDoc  } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore"; // Correct import
 
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [slug, setSlug] = useState(""); // ✅ New slug state
+
+  const [content, setContent] = useState([
+    { title: "", description: [""] } // Default structure
+  ]);
   const [sections, setSections] = useState([
     {
       sectionName: "section1",
@@ -17,7 +23,7 @@ const AddSectionsForm = () => {
   const [faqs, setFaqs] = useState([
     { question: "", answer: "" }
   ]);
-  const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
+  //const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
   const [tags, setTags] = useState([]); // ✅ Tags state
 const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
   const [tagInput, setTagInput] = useState("");
@@ -33,6 +39,27 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
       { sectionName: `section${sections.length + 1}`, data: [{ TopHeading: "", TopIntro: "" }] }
     ]);
   };
+  const generateSlug = (text) => {
+    return text
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with hyphens
+      .replace(/[^a-z0-9-]/g, ""); // Remove special characters
+  };
+  
+
+  useEffect(() => {
+    if (title) {
+      setSlug(
+        title
+          .toLowerCase()
+          .replace(/\s+/g, "-") // Replace spaces with hyphens
+          .replace(/[^a-z0-9-]/g, "") // Remove special characters
+      );
+    } else {
+      setSlug("");
+    }
+  }, [title]);
+
  // Function to add tags dynamically
   // ✅ Add tags dynamically
   const addTag = (e) => {
@@ -42,24 +69,30 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
       setTagInput(""); 
     }
   };
-
-  // ✅ Remove a tag
-  const removeTag = (index) => {
-    setTags(tags.filter((_, i) => i !== index));
-  };
-
-  // Add anchor words dynamically
- 
   const addAnchorWord = (e) => {
     if (e.key === "Enter" && e.target.value.trim()) {
-      setAnchorWords([...anchorWords, e.target.value.trim()]); // Push to array
+      e.preventDefault();
+      setAnchorWords((prevWords) => [...prevWords, e.target.value.trim()]);
       e.target.value = "";
     }
   };
   
   const removeAnchorWord = (index) => {
-    setAnchorWords(anchorWords.filter((_, i) => i !== index)); // Remove by index
+    setAnchorWords((prevWords) => prevWords.filter((_, i) => i !== index)); 
   };
+  
+  const addAnchorItem = () => {
+    if (tagInput.trim()) {
+      setAnchorWords((prevWords) => [...prevWords, e.target.value.trim()]);
+      e.target.value = "";
+    }
+  };
+  
+  // ✅ Remove a tag
+  const removeTag = (index) => {
+    setTags(tags.filter((_, i) => i !== index));
+  };
+
 
   // Add a new point inside a section
   const addPoint = (sectionIndex) => {
@@ -73,16 +106,16 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
     setFaqs([...faqs, { question: "", answer: "" }]);
   };
 
-  const addContentItem = () => {
-    setContent([...content, { title: "", description: "" }]); // ✅ Add new content item
-  };
+  // const addContentItem = () => {
+  //   setContent([...content, { title: "", description: "" }]); // ✅ Add new content item
+  // };
   const addTagItem = () => {
     if (tagInput.trim() !== "" && !tags.includes(tagInput.trim())) {
       setTags([...tags, tagInput.trim()]);
       setTagInput(""); // Clear input
     }
   };
-  
+                                                                                           
   
   // Handle input changes for sections
   const handleChange = (sectionIndex, pointIndex, field, value) => {
@@ -101,31 +134,82 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
  const handleCtaChange = (field, value) => {
   setCtaSection({ ...ctaSection, [field]: value });
 };
-// content section
-const handleContentChange = (contentIndex, field, value) => {
+// // content section
+// const handleContentChange = (contentIndex, field, value) => {
+//   const updatedContent = [...content];
+//   updatedContent[contentIndex][field] = value;
+//   setContent(updatedContent);
+// };
+
+
+
+// Handle title change
+const handleContentChange = (index, field, value) => {
   const updatedContent = [...content];
-  updatedContent[contentIndex][field] = value;
+  updatedContent[index][field] = value;
   setContent(updatedContent);
 };
+
+// Handle description change for a specific point
+const handleDescriptionChange = (contentIndex, descIndex, value) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description[descIndex] = value;
+  setContent(updatedContent);
+};
+
+// Add a new description point inside a content section
+const addDescriptionPoint = (contentIndex) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description.push("");
+  setContent(updatedContent);
+};
+
+// Remove a description point
+const removeDescriptionPoint = (contentIndex, descIndex) => {
+  const updatedContent = [...content];
+  updatedContent[contentIndex].description.splice(descIndex, 1);
+  setContent(updatedContent);
+};
+
+// Add a new content section
+const addContentItem = () => {
+  setContent([...content, { title: "", description: [""] }]);
+};
+
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   
+    // Generate slug dynamically
+    const generatedSlug = generateSlug(title);
+  
+    if (!generatedSlug) {
+      alert("Slug generation failed. Check the title input.");
+      return;
+    }
   try {
-    const docRef = doc(db, "blogPosts", "finding-right-erp-shopify-store");
-
+    const docRef = doc(db, "blogPosts", generatedSlug);
+    if (!title.trim()) {
+      alert("Title is required.");
+      return;
+    }
     await setDoc(docRef, {
       title, // ✅ Added title
       description, // ✅ Added description
+      slug: generatedSlug, // Store the slug inside Firestore
       pointsWiseText: sections.reduce((acc, section) => {
         acc[section.sectionName] = section.data;
         return acc;
       }, {}),
       faqSection: { 
-        faqTitle: "Frequently Asked Questions",
+        faqTitle: "FAQ'S",
         faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()) // Avoid empty entries
       },
-      contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
+      //contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
+      contentSection: content.filter(
+        item => item.title.trim() && item.description.some(desc => desc.trim())
+      ),
+      
       ctaSection ,// ✅ Storing CTA section separately
       tagsSection: tags, // ✅ Fix: Directly using tags array
       anchorWordsSection: anchorWords,
@@ -134,6 +218,7 @@ const handleSubmit = async (e) => {
     alert("Data successfully added to Firebase!");
     setTitle("");
     setDescription("");
+    setSlug("");
     setSections([{ sectionName: "section1", data: [{ TopHeading: "", TopIntro: "" }] }]);
     setFaqs([{ question: "", answer: "" }]); // Reset FAQ form after submission
     setContent([{ title: "", description: "" }]); // ✅ Reset content section after submission
@@ -174,6 +259,11 @@ const handleSubmit = async (e) => {
           required
           style={{ width: "100%", marginBottom: "10px" }}
         />
+        <div>
+          <label>Slug (Auto-generated):</label>
+          <input type="text" value={slug} readOnly />
+        </div>
+
 
         {sections.map((section, sectionIndex) => (
           <div key={sectionIndex} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
@@ -226,7 +316,7 @@ const handleSubmit = async (e) => {
         </button>
 
       {/* Content Section */}
-      <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+      {/* <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
           <h3>Content Section</h3>
           {content.map((item, index) => (
             <div key={index}>
@@ -248,7 +338,46 @@ const handleSubmit = async (e) => {
             </div>
           ))}
           <button type="button" onClick={addContentItem}>+ Add Content</button>
+        </div> */}
+
+<div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+  <h3>Content Section</h3>
+  {content.map((item, contentIndex) => (
+    <div key={contentIndex}>
+      <input
+        type="text"
+        placeholder="Content Title"
+        value={item.title}
+        onChange={(e) => handleContentChange(contentIndex, "title", e.target.value)}
+        required
+        style={{ width: "100%", marginBottom: "5px" }}
+      />
+
+      {/* Loop through descriptions array */}
+      {item.description.map((desc, descIndex) => (
+        <div key={descIndex} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <textarea
+            placeholder={`Description Point ${descIndex + 1}`}
+            value={desc}
+            onChange={(e) =>
+              handleDescriptionChange(contentIndex, descIndex, e.target.value)
+            }
+            required
+            style={{ width: "90%", marginBottom: "5px" }}
+          />
+          <button type="button" onClick={() => removeDescriptionPoint(contentIndex, descIndex)}>
+            ❌
+          </button>
         </div>
+      ))}
+
+      <button type="button" onClick={() => addDescriptionPoint(contentIndex)}>+ Add Description Point</button>
+    </div>
+  ))}
+
+  <button type="button" onClick={addContentItem}>+ Add Content</button>
+</div>
+
 
                 {/* Tags Section UI */}
                 <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
@@ -279,22 +408,24 @@ const handleSubmit = async (e) => {
 
 
         {/* Anchor Words Section */}
-        <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-          <h3>Anchor Words</h3>
-          <input
-            type="text"
-            placeholder="Enter anchor word and press Enter"
-            onKeyDown={addAnchorWord}
-            style={{ width: "100%", marginBottom: "10px" }}
-          />
-          <div>
-            {Object.entries(anchorWords).map(([key, value]) => (
-              <span key={key} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
-                {value} <button onClick={() => removeAnchorWord(key)}>x</button>
-              </span>
-            ))}
+          <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+            <h3>Anchor Words</h3>
+            <input
+              type="text"
+              placeholder="Enter anchor word and press Enter"
+              onKeyDown={addAnchorWord}
+              style={{ width: "100%", marginBottom: "10px" }}
+            />
+               <button type="button" onClick={addAnchorItem}>+ Add Anchor</button>
+            <div style={{ marginTop: "10px" }}>
+              {anchorWords.map((anchor, index) => (
+                <span key={index} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
+                  {anchor}
+                   <button onClick={() => removeAnchorWord(index)}>x</button>
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
 
 
         {/* FAQ Section */}

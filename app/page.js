@@ -1,5 +1,5 @@
 
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import Testimonials from './components/Testimonials'
 import Navigation from './components/Header/navigation'
 import CallToAction from './components/Home/CallToAction'

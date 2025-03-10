@@ -14,7 +14,7 @@ import AnimatedSection from '../../components/Home/AnimatedSection';
 import styles from './ProductPage.module.css';
 import industryStyles from '../../industries/[slug]/industry.module.css';
 import Navigation from '../../components/Header/navigation';
-import Footer from '../../components/footer';
+import Footer from '../../components/Footer';
 
 const TabContent = ({ content, image, alt }) => {
   const contentArray = Array.isArray(content) ? content : [];

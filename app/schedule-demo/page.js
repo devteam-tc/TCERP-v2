@@ -3,7 +3,7 @@ import styles from "./demo.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import industrystyles from "../industries/[slug]/industry.module.css"
 import Navigation from "../components/Header/navigation";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 // Generate Metadata for SEO
 // Generate Metadata for SEO

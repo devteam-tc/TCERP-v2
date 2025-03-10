@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import industrystyles from '../../industries/[slug]/industry.module.css'
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
@@ -125,28 +125,32 @@ export default async function BlogPost({ params }) {
           <div className={styles.imageContainer}>
               <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
-       {post.contentSection?.map((section, index) => (
-        <div key={index}>
-          {/* Render the title as the heading */}
-          <h4 className={styles.topheading}>{section.title}</h4>
+              {post.contentSection?.map((section, index) => {
+                  const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
+                    return {
+                      ...acc,
+                      ...Object.fromEntries(
+                        Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
+                      ),
+                    };
+                  }, {});
 
-          {/* Render the description */}
-          {section.description && (
-            <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-              <KeywordParser description={section.description} anchorWordsSection={post.anchorWordsSection} />
-            </p>
-          )}
+                  return (
+                    <div key={index}>
+                      <h4 className={styles.topheading}>{section.title}</h4>
 
-          {/* Render subpara if available */}
-          {section.subpara && (
-            <p style={{ textAlign: "justify", fontSize: "1rem" }}>
-              {section.subpara}
-            </p>
-          )}
-        </div>
-      ))}
+                      {/* Now handling description as an array */}
+                      {section.description?.map((desc, descIndex) => (
+                        <p key={descIndex}>
+                          <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} />
+                        </p>
+                      ))}
+                    </div>
+                  );
+                })}
 
-          </div>
+
+</div>
 
        
       </div>
@@ -215,25 +219,25 @@ export default async function BlogPost({ params }) {
             </div>
           )}
 
-     {/* Frequently Asked Questions Container */}
-                <section className={styles.faqSection}>
-                <div className={styles.container}>
-                <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
-                {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
-                <div className={styles.faqContainer}>
-                  {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
-                    post.faqSection.faqs.map((faq, index) => (
-                      <div key={index} className={styles.faqItem}>
-                        <h3>{faq.question}</h3>
-                        <p>{faq.answer}</p>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No FAQs available</p>
-                  )}
+          {/* Frequently Asked Questions Container */}
+          <section className={styles.faqSection}>
+          <div className={styles.container}>
+          <h2>{post?.faqSection?.faqTitle || "FAQ'S"}</h2>
+          {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
+          <div className={styles.faqContainer}>
+            {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
+              post.faqSection.faqs.map((faq, index) => (
+                <div key={index} className={styles.faqItem}>
+                  <h3>{faq.question}</h3>
+                  <p>{faq.answer}</p>
                 </div>
-              </div>
-            </section>
+              ))
+            ) : (
+              <p>No FAQs available</p>
+            )}
+          </div>
+        </div>
+      </section>
 
         <SocialShare title={post.title} />
           </div>

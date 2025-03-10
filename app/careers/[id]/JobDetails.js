@@ -11,7 +11,7 @@ import industryStyles from "../../industries/[slug]/industry.module.css";
 
 import styles from "./JobDetails.module.css";
 import Navigation from "../../components/Header/navigation";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import Link from "next/link";
 import Perks from "./Perks";
 

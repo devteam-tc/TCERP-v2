@@ -278,7 +278,7 @@ import styles from "./industry.module.css";
 import Navigation from "../../components/Header/navigation";
 import metaInfo from "../../utils/metaInfo.json";
 import ElfsightScript from "./ElfsightScript";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import PartnershipSection from "../../components/PartnershipSection";
 
 // Generate Static Params

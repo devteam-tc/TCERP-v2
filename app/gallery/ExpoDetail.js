@@ -126,7 +126,7 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import styles from "./ExpoDetail.module.css";
 import Navigation from "../components/Header/navigation";
 import industrystyles from "../industries/[slug]/industry.module.css"
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 const ExpoDetail = () => {
   const { id } = useParams();

@@ -27,11 +27,11 @@ const BlogGrid = ({ posts }) => {
                   </h2>
                   <p>{post.description}</p>
                   <div className={styles.tags}>
-                    {/* {post.tagsSection.map((tag) => (
+                    {post.tagsSection.map((tag) => (
                       <span key={tag} className={styles.tag}>
                         {tag}
                       </span>
-                    ))} */}
+                    ))}
                   </div>
                 </div>
               </Link>

@@ -36,7 +36,7 @@
 
 import React from "react";
 import Navigation from "../components/Header/navigation";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import OurModules from './OurModules';
 import industryStyles from "../industries/[slug]/industry.module.css";
 import { aboutus_data } from '../utils/constants';

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button, Container } from "react-bootstrap";
 import Navigation from "./components/Header/navigation";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "404 - Page Not Found",

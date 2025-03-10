@@ -6,7 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "./ServicePage.module.css";
 import Navigation from "../../components/Header/navigation";
 import industrystyles from "../../industries/[slug]/industry.module.css";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import ServiceSchema from "./ServiceSchema";
 

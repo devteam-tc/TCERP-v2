@@ -14,6 +14,9 @@
 const nextConfig = {
   output: 'export', // Enables static export
   trailingSlash: true, // Adds trailing slashes to URLs
+  experimental: {
+    dynamicParams: false, // Ensures all slugs are pre-defined
+  },
   images: {
     unoptimized: true, // Required for next/image in static export
     

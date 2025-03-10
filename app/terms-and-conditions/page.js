@@ -4,7 +4,7 @@ import CTA from '../components/Home/CTA'
 import OurPartnerSection from '../components/OurPartnerSection'
 import industrystyles from "../industries/[slug]/industry.module.css"
 import { aboutus_data } from '../utils/constants'
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import TermsPage from './TermsPage'
 
 export const metadata = {
