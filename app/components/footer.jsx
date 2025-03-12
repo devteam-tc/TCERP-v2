@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import SocialMediaIcons from "./Header/socialmedia-icons";
+import Counter from './Counter';
 
 const obfuscateEmail = (user, domain, tld) => `${user}@${domain}.${tld}`;
 
@@ -31,6 +32,7 @@ export default function Footer() {
               <p className={`${styles.footerText} pt-3`}>
                 Tech Cloud ERP delivers top-notch solutions tailored for any business, combining advanced technology, intuitive design, and comprehensive features.
               </p>
+              <Counter />
               <SocialMediaIcons />
             </Col>
             <Col md={4} xl={2} sm={6}>
@@ -91,7 +93,7 @@ export default function Footer() {
           </Row>
         </Container>
         <div className={styles.copyrightText}>
-          &copy; 2024 Tech Cloud ERP. <Link href="/terms-and-conditions">Terms & Conditions</Link> | <Link href="/privacypolicy">Privacy Policy</Link>
+          &copy; 2025 Tech Cloud ERP. <Link href="/terms-and-conditions">Terms & Conditions</Link> | <Link href="/privacypolicy">Privacy Policy</Link>
         </div>
       </footer>
     </>

@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./Dropdown.module.css";
-
+import TableOfContentsStyles from "../blogs/[slug]/TableOfContents.module.css";
 const industries = [
   {
     label: "Industries",
@@ -83,7 +83,7 @@ const DropdownSection = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2>Categories</h2>
+      <h2 className={TableOfContentsStyles.tocTitle}>Categories</h2>
       <div
         className={`${styles.dropdowndata} ${isOpen ? styles.opened : ""}`}
         ref={dropdownRef}

@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { db } from "../firebaseConfig"; 
-import { doc, setDoc  } from "firebase/firestore";
-import { addDoc, collection } from "firebase/firestore"; // Correct import
+import { db ,storage } from "../firebaseConfig"; 
+import { doc, setDoc, addDoc, collection, Timestamp } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [slug, setSlug] = useState(""); // ✅ New slug state
-
+ 
   const [content, setContent] = useState([
     { title: "", description: [""] } // Default structure
   ]);
@@ -25,8 +26,14 @@ const AddSectionsForm = () => {
   ]);
   //const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
   const [tags, setTags] = useState([]); // ✅ Tags state
-const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
+  const [anchorWords, setAnchorWords] = useState([{ word: "", href: "" }]);
   const [tagInput, setTagInput] = useState("");
+  const [metaKeywordInput, setMetaKeywordInput] = useState("");
+  const [metaKeywords, setMetaKeywords] = useState([]);
+  const [image, setImage] = useState(null); // Store image file
+const [imageUrl, setImageUrl] = useState(""); // Store uploaded image URL
+const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
+
   // State for CTA Section
   const [ctaSection, setCtaSection] = useState({
     ctaTitle: "",
@@ -45,8 +52,10 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
       .replace(/\s+/g, "-") // Replace spaces with hyphens
       .replace(/[^a-z0-9-]/g, ""); // Remove special characters
   };
-  
+ 
 
+  
+  
   useEffect(() => {
     if (title) {
       setSlug(
@@ -69,23 +78,20 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
       setTagInput(""); 
     }
   };
-  const addAnchorWord = (e) => {
-    if (e.key === "Enter" && e.target.value.trim()) {
-      e.preventDefault();
-      setAnchorWords((prevWords) => [...prevWords, e.target.value.trim()]);
-      e.target.value = "";
-    }
+  const addAnchorWord = () => {
+    setAnchorWords([...anchorWords, { word: "", href: "" }]);
   };
   
+  // Function to remove an anchor word entry
   const removeAnchorWord = (index) => {
-    setAnchorWords((prevWords) => prevWords.filter((_, i) => i !== index)); 
+    setAnchorWords(anchorWords.filter((_, i) => i !== index));
   };
   
-  const addAnchorItem = () => {
-    if (tagInput.trim()) {
-      setAnchorWords((prevWords) => [...prevWords, e.target.value.trim()]);
-      e.target.value = "";
-    }
+  // Function to update anchor word and href
+  const handleAnchorWordChange = (index, field, value) => {
+    const updatedAnchorWords = [...anchorWords];
+    updatedAnchorWords[index][field] = value;
+    setAnchorWords(updatedAnchorWords);
   };
   
   // ✅ Remove a tag
@@ -93,7 +99,23 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
     setTags(tags.filter((_, i) => i !== index));
   };
 
-
+  const addMetaKeyword = (e) => {
+    if (e.key === "Enter" && metaKeywordInput.trim() !== "") {
+      setMetaKeywords([...metaKeywords, metaKeywordInput.trim()]);
+      setMetaKeywordInput("");
+    }
+  };
+  
+  const addMetaKeywordItem = () => {
+    if (metaKeywordInput.trim() !== "") {
+      setMetaKeywords([...metaKeywords, metaKeywordInput.trim()]);
+      setMetaKeywordInput("");
+    }
+  };
+  
+  const removeMetaKeyword = (index) => {
+    setMetaKeywords(metaKeywords.filter((_, i) => i !== index));
+  };
   // Add a new point inside a section
   const addPoint = (sectionIndex) => {
     const updatedSections = [...sections];
@@ -134,13 +156,6 @@ const [anchorWords, setAnchorWords] = useState([]); // ✅ Should be an array
  const handleCtaChange = (field, value) => {
   setCtaSection({ ...ctaSection, [field]: value });
 };
-// // content section
-// const handleContentChange = (contentIndex, field, value) => {
-//   const updatedContent = [...content];
-//   updatedContent[contentIndex][field] = value;
-//   setContent(updatedContent);
-// };
-
 
 
 // Handle title change
@@ -170,7 +185,24 @@ const removeDescriptionPoint = (contentIndex, descIndex) => {
   updatedContent[contentIndex].description.splice(descIndex, 1);
   setContent(updatedContent);
 };
+useEffect(() => {
+  if (!image) {
+    setPreviewUrl(null);
+    return;
+  }
 
+  const objectUrl = URL.createObjectURL(image);
+  setPreviewUrl(objectUrl);
+
+  // Cleanup function to revoke the object URL when component unmounts or image changes
+  return () => URL.revokeObjectURL(objectUrl);
+}, [image]);
+const handleImageChange = (e) => {
+  if (e.target.files[0]) {
+    setImage(e.target.files[0]); // Save selected file
+  }
+};
+  
 // Add a new content section
 const addContentItem = () => {
   setContent([...content, { title: "", description: [""] }]);
@@ -187,16 +219,33 @@ const handleSubmit = async (e) => {
       alert("Slug generation failed. Check the title input.");
       return;
     }
+  
+
   try {
     const docRef = doc(db, "blogPosts", generatedSlug);
     if (!title.trim()) {
       alert("Title is required.");
       return;
     }
+  
+    const createdAt = Timestamp.fromDate(new Date()); // Firestore Timestamp
+    let imageUrl  = ""; // Default empty URL
+
+    // If an image is selected, upload it to Firebase Storage
+    if (image) {
+      const storageRef = ref(storage, `blogImages/${generatedSlug}-${image.name}`);
+      await uploadBytes(storageRef, image); // Upload image
+      imageUrl  = await getDownloadURL(storageRef); // Get image URL
+    }
+    const currentDate = new Date().toISOString().split("T")[0]; // YYYY-MM-DD format
     await setDoc(docRef, {
       title, // ✅ Added title
       description, // ✅ Added description
+      metaKeywords: metaKeywords, // ✅ Save Meta Keywords
       slug: generatedSlug, // Store the slug inside Firestore
+      createdAt,
+      imageUrl, // Store image URL
+      date: currentDate, // ✅ Dynamically added date in YYYY-MM-DD format
       pointsWiseText: sections.reduce((acc, section) => {
         acc[section.sectionName] = section.data;
         return acc;
@@ -218,6 +267,7 @@ const handleSubmit = async (e) => {
     alert("Data successfully added to Firebase!");
     setTitle("");
     setDescription("");
+    setImage(null);
     setSlug("");
     setSections([{ sectionName: "section1", data: [{ TopHeading: "", TopIntro: "" }] }]);
     setFaqs([{ question: "", answer: "" }]); // Reset FAQ form after submission
@@ -227,6 +277,7 @@ const handleSubmit = async (e) => {
       description: "",
     });
     setTags([]); // ✅ Reset as empty array, not string
+    setMetaKeywords([]); // ✅ Clear meta keywords after saving
     setAnchorWords([]); // ✅ Reset as empty array, not string
     
   } catch (error) {
@@ -262,8 +313,8 @@ const handleSubmit = async (e) => {
         <div>
           <label>Slug (Auto-generated):</label>
           <input type="text" value={slug} readOnly />
-        </div>
 
+          </div>
 
         {sections.map((section, sectionIndex) => (
           <div key={sectionIndex} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
@@ -284,6 +335,7 @@ const handleSubmit = async (e) => {
               required
               style={{ width: "100%", marginBottom: "10px" }}
             />
+                 
 
             {section.data.slice(1).map((point, pointIndex) => (
               <div key={pointIndex}>
@@ -314,31 +366,8 @@ const handleSubmit = async (e) => {
         <button type="button" onClick={addSection} style={{ marginBottom: "10px" }}>
           + Add Section
         </button>
+           
 
-      {/* Content Section */}
-      {/* <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-          <h3>Content Section</h3>
-          {content.map((item, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                placeholder="Content Title"
-                value={item.title}
-                onChange={(e) => handleContentChange(index, "title", e.target.value)}
-                required
-                style={{ width: "100%", marginBottom: "5px" }}
-              />
-              <textarea
-                placeholder="Content Description"
-                value={item.description}
-                onChange={(e) => handleContentChange(index, "description", e.target.value)}
-                required
-                style={{ width: "100%", marginBottom: "10px" }}
-              />
-            </div>
-          ))}
-          <button type="button" onClick={addContentItem}>+ Add Content</button>
-        </div> */}
 
 <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
   <h3>Content Section</h3>
@@ -378,9 +407,13 @@ const handleSubmit = async (e) => {
   <button type="button" onClick={addContentItem}>+ Add Content</button>
 </div>
 
+ {/* Image Upload Input */}
+  {/* Image Upload Input */}
+  <input type="file" accept="image/*" onChange={handleImageChange} />
 
-                {/* Tags Section UI */}
-                <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+{/* Show Image Preview */}
+{previewUrl && <img src={previewUrl} alt="Preview" width="100" />}           {/* Tags Section UI */}
+                  <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
                 <h3>Tags</h3>
                 
                 <input
@@ -408,24 +441,60 @@ const handleSubmit = async (e) => {
 
 
         {/* Anchor Words Section */}
-          <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-            <h3>Anchor Words</h3>
-            <input
-              type="text"
-              placeholder="Enter anchor word and press Enter"
-              onKeyDown={addAnchorWord}
-              style={{ width: "100%", marginBottom: "10px" }}
-            />
-               <button type="button" onClick={addAnchorItem}>+ Add Anchor</button>
-            <div style={{ marginTop: "10px" }}>
-              {anchorWords.map((anchor, index) => (
-                <span key={index} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
-                  {anchor}
-                   <button onClick={() => removeAnchorWord(index)}>x</button>
-                </span>
-              ))}
-            </div>
-          </div>
+        <div>
+  <h3>Anchor Words</h3>
+  {anchorWords.map((item, index) => (
+    <div key={index} style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+      {/* Input for Anchor Word */}
+      <input
+        type="text"
+        placeholder="Anchor Word"
+        value={item.word}
+        onChange={(e) => handleAnchorWordChange(index, "word", e.target.value)}
+      />
+
+      {/* Input for Href (URL) */}
+      <input
+        type="text"
+        placeholder="Href (URL)"
+        value={item.href}
+        onChange={(e) => handleAnchorWordChange(index, "href", e.target.value)}
+      />
+
+      {/* Remove Button */}
+      <button onClick={() => removeAnchorWord(index)}>Remove</button>
+    </div>
+  ))}
+
+  {/* Button to Add New Anchor Word */}
+  <button onClick={addAnchorWord}>Add Anchor Word</button>
+</div>
+
+                  <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+                    <h3>Meta Keywords</h3>
+
+                    <input
+                      type="text"
+                      placeholder="meta keywords"
+                      value={metaKeywordInput}
+                      onChange={(e) => setMetaKeywordInput(e.target.value)}
+                      onKeyDown={addMetaKeyword} // Enter Key to Add
+                      style={{ width: "100%", marginBottom: "10px" }}
+                    />
+
+                    {/* Add Button */}
+                    <button type="button" onClick={addMetaKeywordItem}>+ Add Meta Keyword</button>
+
+                    {/* Meta Keywords List */}
+                    <div style={{ marginTop: "10px" }}>
+                      {metaKeywords.map((keyword, index) => (
+                        <span key={index} style={{ marginRight: "5px", padding: "5px", border: "1px solid #000", borderRadius: "5px", display: "inline-block" }}>
+                          {keyword} 
+                          <button onClick={() => removeMetaKeyword(index)}>x</button>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
 
         {/* FAQ Section */}

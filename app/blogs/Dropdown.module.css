@@ -9,7 +9,7 @@
     background: #fff;
     border-radius: 7px;
     position: relative;
-    top: 65px;
+    /* top: 65px; */
   }
   
   @media (max-width: 480px) {
@@ -84,19 +84,20 @@
   }
   
   .option:hover {
-    color: #fff;
-    background: #ef5226;
+    /* color: #fff; */
+    /* background: #ef5226; */
+    font-weight: 700;
   }
   
   .opened::before {
     top: 50%;
     transform: rotate(135deg) translateY(50%);
-    border-color: #ef5226;
+    border-color: #ccc;
   }
   
   .opened .input {
-    border-color: #ef5226;
-    color: #ef5226;
+    border-color: #ccc;
+    /* color: #ef5226; */
   }
   
   .opened .options {

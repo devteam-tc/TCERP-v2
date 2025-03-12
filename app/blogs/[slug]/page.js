@@ -13,6 +13,7 @@ import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 import DropdownSection from '../../blogs/Dropdown';
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
+import TableOfContents from "./TableOfContents";
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogPosts", slug);
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }) {
     };
   }
   return {
-    title: post.meta?.title || "Tech Cloud ERP Blog",
+    title: post.title || "Tech Cloud ERP Blog",
     description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
     keywords: post.meta?.keywords?.join(", ") || "ERP, software, business solutions",
     openGraph: {
@@ -89,39 +90,36 @@ export default async function BlogPost({ params }) {
   return (
     <main className={styles.main}>
       <Navigation />
-      
-      {/* Hero Section */}
-     
-            <section className={styles.sectionbeg}>
-              <div className="container">
-                <AnimatedColumn direction="left">
-                  <div>
-                  <h2 className={industrystyles.heading}>{post.title}</h2>
+      <section className={styles.sectionbeg}>
+        <div className="container">
+          <AnimatedColumn direction="left">
+            <div>
+            <h2 className={industrystyles.heading}>{post.title}</h2>
               <div className={industrystyles.divider}></div>
-                  </div>
-                </AnimatedColumn>
-              </div>
-            </section>
-            <div className={styles.bodySection}>
+            </div>
+          </AnimatedColumn>
+        </div>
+      </section>
+      <div className={styles.bodySection}>
 
-            <div className="container">
-                <div className="row">
-                  <div className="col-md-8 ">
-            <article className={styles.article}>
-              <div className={styles.container}>
-                {/* Tags */}
-                {post.tagsSection && (
-                  <div className={styles.meta}>
-                    <div className={styles.tags}>
-                      {post.tagsSection.map((tag) => (
-                        <span key={tag} className={styles.tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-      
-                {/* Blog Content */}
-                <div>
+      <div className="container">
+          <div className="row">
+            <div className="col-md-8">
+      <article className={styles.article}>
+        <div className={styles.container}>
+          {/* Tags */}
+          {post.tagsSection && (
+            <div className={styles.meta}>
+              <div className={styles.tags}>
+                {post.tagsSection.map((tag) => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          )}
+ 
+          {/* Blog Content */}
+          <div className="blog-content">
           <div className={styles.imageContainer}>
               <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
@@ -150,19 +148,13 @@ export default async function BlogPost({ params }) {
                 })}
 
 
-</div>
-
-       
+</div>  
       </div>
-
       </article>
-
-
       {/* Key Takeaways Section */}
+      <div className="blog-content"> 
       <section className={styles.section}>
       <div className={styles.container}>
-       
-
         {post?.pointsWiseText &&
         Object.keys(post.pointsWiseText).length > 0 ? (
           Object.keys(post.pointsWiseText).map((sectionKey) => {
@@ -199,8 +191,9 @@ export default async function BlogPost({ params }) {
         ) : (
           <p className={styles.description}>No content available</p>
         )}
-          </div>
-        </section>
+      </div>
+    </section>
+      </div>
 
 
           {/* Call to Action Section */}
@@ -219,35 +212,52 @@ export default async function BlogPost({ params }) {
             </div>
           )}
 
-          {/* Frequently Asked Questions Container */}
-          <section className={styles.faqSection}>
-          <div className={styles.container}>
-          <h2>{post?.faqSection?.faqTitle || "FAQ'S"}</h2>
-          {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
-          <div className={styles.faqContainer}>
-            {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
-              post.faqSection.faqs.map((faq, index) => (
-                <div key={index} className={styles.faqItem}>
-                  <h3>{faq.question}</h3>
-                  <p>{faq.answer}</p>
+     {/* Frequently Asked Questions Container */}
+    <section className={styles.faqSection}>
+    <div className={styles.container}>
+    <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
+    {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
+    <div className={styles.faqContainer}>
+      {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
+        post.faqSection.faqs.map((faq, index) => (
+          <div key={index} className={styles.faqItem}>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </div>
+        ))
+      ) : (
+        <p>No FAQs available</p>
+      )}
+    </div>
+  </div>
+</section>
+{/* Related Posts Section */}
+{relevantPosts.length > 0 && (
+          <section className={styles.relatedPosts}>
+            <h2>Related Posts</h2>
+            <div className={styles.relatedContainer}>
+              {relevantPosts.map((related) => (
+                <div key={related.id} className={styles.relatedPost}>
+                  <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                    <Image src={related.image || "/placeholder.svg"} alt={related.title} width={300} height={200} className={styles.relatedImage} />
+                    <h3>{related.title}</h3>
+                  </Link>
                 </div>
-              ))
-            ) : (
-              <p>No FAQs available</p>
-            )}
+              ))}
+            </div>
+          </section>
+        )}
           </div>
-        </div>
-      </section>
-
-        <SocialShare title={post.title} />
-          </div>
-
-      {/* categories section */}
-          <div className="col-md-4 ">
+          <div className="col-md-4">
             <div className={styles.stickysidebar}>
-          <DropdownSection />
-          </div>
-          </div>
+              <DropdownSection />
+              <TableOfContents />
+              <SocialShare title={post.title} />
+
+            </div>
+              </div>
+
+
           </div>
           </div>
           </div>

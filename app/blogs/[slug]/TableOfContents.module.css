@@ -1,0 +1,49 @@
+.tocContainer {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;    
+    border: 1px solid #fac9bc;
+    background: #fdeee9;
+  }
+  
+  .tocTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .tocList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tocItem {
+    cursor: pointer;
+    padding: 5px;
+    transition: background 0.3s;
+  }
+  
+  .tocItem:hover {
+    /* background: #ef5226; */
+    color: #541d0d;
+    font-weight: bold;
+  }
+  
+  .tocItem-level1 {
+    font-weight: bold;
+    margin-left: 0px;
+  }
+  
+  .tocItem-level2 {
+    margin-left: 15px;
+    font-weight: 600;
+  }
+  
+  .tocItem-level3 {
+    margin-left: 30px;
+  }
+  
+  .tocItem-level4 {
+    margin-left: 45px;
+  }
+  

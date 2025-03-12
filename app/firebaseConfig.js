@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 // Correct Firebase configuration
 const firebaseConfig = {
@@ -10,7 +10,7 @@ const firebaseConfig = {
   authDomain: "tech-cloud-erp-1532582683650.firebaseapp.com",
   databaseURL: "https://tech-cloud-erp-1532582683650.firebaseio.com",
   projectId: "tech-cloud-erp-1532582683650",
-  storageBucket: "tech-cloud-erp-1532582683650.appspot.com", // ✅ FIXED
+  storageBucket: "tech-cloud-erp-1532582683650.firebasestorage.app",
   messagingSenderId: "595044081279",
   appId: "1:595044081279:web:3320af7c412fbc33bb694a",
 };
