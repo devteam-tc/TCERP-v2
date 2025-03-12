@@ -24,16 +24,41 @@ const AddSectionsForm = () => {
   const [faqs, setFaqs] = useState([
     { question: "", answer: "" }
   ]);
-  //const [content, setContent] = useState([{ title: "", description: "" }]); // ✅ Content section state
   const [tags, setTags] = useState([]); // ✅ Tags state
   const [anchorWords, setAnchorWords] = useState([{ word: "", href: "" }]);
   const [tagInput, setTagInput] = useState("");
   const [metaKeywordInput, setMetaKeywordInput] = useState("");
   const [metaKeywords, setMetaKeywords] = useState([]);
-  const [image, setImage] = useState(null); // Store image file
-const [imageUrl, setImageUrl] = useState(""); // Store uploaded image URL
-const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
+  const [image, setImage] = useState(null);
+  const [uploading, setUploading] = useState(false);
 
+  const handleImageUpload = async (generatedSlug) => {
+    if (!image) return;
+    setUploading(true);
+  
+    try {
+      // Ensure generatedSlug is a string
+      const slug = String(generatedSlug);
+  
+      // Store the image inside the 'blogs_images/' folder
+      const imageRef = ref(storage, `blogs_images/${image.name}`);
+      
+      // Upload image to Firebase Storage
+      const snapshot = await uploadBytes(imageRef, image);
+      const url = await getDownloadURL(snapshot.ref);
+  
+      // Reference to the document with the given `slug`
+      const docRef = doc(db, "blogPosts", generatedSlug);
+  
+      // Set the document with imageUrl, merging existing data
+      await setDoc(docRef, { imageUrl: url }, { merge: true });
+  
+      alert("Image uploaded and stored successfully in Firestore!");
+    } catch (error) {
+      console.error("Upload failed:", error);
+    }
+    setUploading(false);
+  };
   // State for CTA Section
   const [ctaSection, setCtaSection] = useState({
     ctaTitle: "",
@@ -53,9 +78,6 @@ const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
       .replace(/[^a-z0-9-]/g, ""); // Remove special characters
   };
  
-
-  
-  
   useEffect(() => {
     if (title) {
       setSlug(
@@ -69,7 +91,6 @@ const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
     }
   }, [title]);
 
- // Function to add tags dynamically
   // ✅ Add tags dynamically
   const addTag = (e) => {
     if (e.key === "Enter" && tagInput.trim() !== "" && !tags.includes(tagInput.trim())) {
@@ -86,7 +107,7 @@ const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
   const removeAnchorWord = (index) => {
     setAnchorWords(anchorWords.filter((_, i) => i !== index));
   };
-  
+ 
   // Function to update anchor word and href
   const handleAnchorWordChange = (index, field, value) => {
     const updatedAnchorWords = [...anchorWords];
@@ -128,9 +149,6 @@ const [previewUrl, setPreviewUrl] = useState(null); // Store preview URL
     setFaqs([...faqs, { question: "", answer: "" }]);
   };
 
-  // const addContentItem = () => {
-  //   setContent([...content, { title: "", description: "" }]); // ✅ Add new content item
-  // };
   const addTagItem = () => {
     if (tagInput.trim() !== "" && !tags.includes(tagInput.trim())) {
       setTags([...tags, tagInput.trim()]);
@@ -185,24 +203,7 @@ const removeDescriptionPoint = (contentIndex, descIndex) => {
   updatedContent[contentIndex].description.splice(descIndex, 1);
   setContent(updatedContent);
 };
-useEffect(() => {
-  if (!image) {
-    setPreviewUrl(null);
-    return;
-  }
 
-  const objectUrl = URL.createObjectURL(image);
-  setPreviewUrl(objectUrl);
-
-  // Cleanup function to revoke the object URL when component unmounts or image changes
-  return () => URL.revokeObjectURL(objectUrl);
-}, [image]);
-const handleImageChange = (e) => {
-  if (e.target.files[0]) {
-    setImage(e.target.files[0]); // Save selected file
-  }
-};
-  
 // Add a new content section
 const addContentItem = () => {
   setContent([...content, { title: "", description: [""] }]);
@@ -228,57 +229,47 @@ const handleSubmit = async (e) => {
       return;
     }
   
-    const createdAt = Timestamp.fromDate(new Date()); // Firestore Timestamp
-    let imageUrl  = ""; // Default empty URL
-
-    // If an image is selected, upload it to Firebase Storage
-    if (image) {
-      const storageRef = ref(storage, `blogImages/${generatedSlug}-${image.name}`);
-      await uploadBytes(storageRef, image); // Upload image
-      imageUrl  = await getDownloadURL(storageRef); // Get image URL
-    }
-    const currentDate = new Date().toISOString().split("T")[0]; // YYYY-MM-DD format
+    const createdAt = Timestamp.fromDate(new Date()); 
+   
+    const currentDate = new Date().toISOString().split("T")[0]; 
     await setDoc(docRef, {
-      title, // ✅ Added title
-      description, // ✅ Added description
-      metaKeywords: metaKeywords, // ✅ Save Meta Keywords
-      slug: generatedSlug, // Store the slug inside Firestore
+      title,
+      description,
+      metaKeywords: metaKeywords, 
+      slug: generatedSlug, 
       createdAt,
-      imageUrl, // Store image URL
-      date: currentDate, // ✅ Dynamically added date in YYYY-MM-DD format
+      date: currentDate, 
       pointsWiseText: sections.reduce((acc, section) => {
         acc[section.sectionName] = section.data;
         return acc;
       }, {}),
       faqSection: { 
         faqTitle: "FAQ'S",
-        faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()) // Avoid empty entries
+        faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()) 
       },
-      //contentSection: content.filter(item => item.title.trim() && item.description.trim()), // ✅ Storing content section
       contentSection: content.filter(
         item => item.title.trim() && item.description.some(desc => desc.trim())
       ),
       
-      ctaSection ,// ✅ Storing CTA section separately
-      tagsSection: tags, // ✅ Fix: Directly using tags array
+      ctaSection ,
+      tagsSection: tags, 
       anchorWordsSection: anchorWords,
     }, );
     
     alert("Data successfully added to Firebase!");
     setTitle("");
     setDescription("");
-    setImage(null);
     setSlug("");
     setSections([{ sectionName: "section1", data: [{ TopHeading: "", TopIntro: "" }] }]);
-    setFaqs([{ question: "", answer: "" }]); // Reset FAQ form after submission
-    setContent([{ title: "", description: "" }]); // ✅ Reset content section after submission
+    setFaqs([{ question: "", answer: "" }]); 
+    setContent([{ title: "", description: "" }]); 
     setCtaSection({
       ctaTitle: "",
       description: "",
     });
-    setTags([]); // ✅ Reset as empty array, not string
-    setMetaKeywords([]); // ✅ Clear meta keywords after saving
-    setAnchorWords([]); // ✅ Reset as empty array, not string
+    setTags([]); 
+    setMetaKeywords([]);
+    setAnchorWords([]); 
     
   } catch (error) {
     console.error("Error adding document: ", error);
@@ -369,50 +360,44 @@ const handleSubmit = async (e) => {
            
 
 
-<div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-  <h3>Content Section</h3>
-  {content.map((item, contentIndex) => (
-    <div key={contentIndex}>
-      <input
-        type="text"
-        placeholder="Content Title"
-        value={item.title}
-        onChange={(e) => handleContentChange(contentIndex, "title", e.target.value)}
-        required
-        style={{ width: "100%", marginBottom: "5px" }}
-      />
+            <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+              <h3>Content Section</h3>
+              {content.map((item, contentIndex) => (
+                <div key={contentIndex}>
+                  <input
+                    type="text"
+                    placeholder="Content Title"
+                    value={item.title}
+                    onChange={(e) => handleContentChange(contentIndex, "title", e.target.value)}
+                    required
+                    style={{ width: "100%", marginBottom: "5px" }}
+                  />
 
-      {/* Loop through descriptions array */}
-      {item.description.map((desc, descIndex) => (
-        <div key={descIndex} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <textarea
-            placeholder={`Description Point ${descIndex + 1}`}
-            value={desc}
-            onChange={(e) =>
-              handleDescriptionChange(contentIndex, descIndex, e.target.value)
-            }
-            required
-            style={{ width: "90%", marginBottom: "5px" }}
-          />
-          <button type="button" onClick={() => removeDescriptionPoint(contentIndex, descIndex)}>
-            ❌
-          </button>
-        </div>
-      ))}
+                  {/* Loop through descriptions array */}
+                  {item.description.map((desc, descIndex) => (
+                    <div key={descIndex} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <textarea
+                        placeholder={`Description Point ${descIndex + 1}`}
+                        value={desc}
+                        onChange={(e) =>
+                          handleDescriptionChange(contentIndex, descIndex, e.target.value)
+                        }
+                        required
+                        style={{ width: "90%", marginBottom: "5px" }}
+                      />
+                      <button type="button" onClick={() => removeDescriptionPoint(contentIndex, descIndex)}>
+                        ❌
+                      </button>
+                    </div>
+                  ))}
 
-      <button type="button" onClick={() => addDescriptionPoint(contentIndex)}>+ Add Description Point</button>
-    </div>
-  ))}
+                  <button type="button" onClick={() => addDescriptionPoint(contentIndex)}>+ Add Description Point</button>
+                </div>
+              ))}
 
-  <button type="button" onClick={addContentItem}>+ Add Content</button>
-</div>
-
- {/* Image Upload Input */}
-  {/* Image Upload Input */}
-  <input type="file" accept="image/*" onChange={handleImageChange} />
-
-{/* Show Image Preview */}
-{previewUrl && <img src={previewUrl} alt="Preview" width="100" />}           {/* Tags Section UI */}
+              <button type="button" onClick={addContentItem}>+ Add Content</button>
+            </div>
+          {/* Tags Section UI */}
                   <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
                 <h3>Tags</h3>
                 
@@ -441,34 +426,34 @@ const handleSubmit = async (e) => {
 
 
         {/* Anchor Words Section */}
-        <div>
-  <h3>Anchor Words</h3>
-  {anchorWords.map((item, index) => (
-    <div key={index} style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
-      {/* Input for Anchor Word */}
-      <input
-        type="text"
-        placeholder="Anchor Word"
-        value={item.word}
-        onChange={(e) => handleAnchorWordChange(index, "word", e.target.value)}
-      />
+                    <div>
+              <h3>Anchor Words</h3>
+              {anchorWords.map((item, index) => (
+                <div key={index} style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+                  {/* Input for Anchor Word */}
+                  <input
+                    type="text"
+                    placeholder="Anchor Word"
+                    value={item.word}
+                    onChange={(e) => handleAnchorWordChange(index, "word", e.target.value)}
+                  />
 
-      {/* Input for Href (URL) */}
-      <input
-        type="text"
-        placeholder="Href (URL)"
-        value={item.href}
-        onChange={(e) => handleAnchorWordChange(index, "href", e.target.value)}
-      />
+                  {/* Input for Href (URL) */}
+                  <input
+                    type="text"
+                    placeholder="Href (URL)"
+                    value={item.href}
+                    onChange={(e) => handleAnchorWordChange(index, "href", e.target.value)}
+                  />
 
-      {/* Remove Button */}
-      <button onClick={() => removeAnchorWord(index)}>Remove</button>
-    </div>
-  ))}
+                  {/* Remove Button */}
+                  <button onClick={() => removeAnchorWord(index)}>Remove</button>
+                </div>
+              ))}
 
-  {/* Button to Add New Anchor Word */}
-  <button onClick={addAnchorWord}>Add Anchor Word</button>
-</div>
+              {/* Button to Add New Anchor Word */}
+              <button onClick={addAnchorWord}>Add Anchor Word</button>
+            </div>
 
                   <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
                     <h3>Meta Keywords</h3>
@@ -497,52 +482,57 @@ const handleSubmit = async (e) => {
                   </div>
 
 
-        {/* FAQ Section */}
-        <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-          <h3>FAQ Section</h3>
-          {faqs.map((faq, faqIndex) => (
-            <div key={faqIndex}>
-              <input
-                type="text"
-                placeholder="FAQ Question"
-                value={faq.question}
-                onChange={(e) => handleFaqChange(faqIndex, "question", e.target.value)}
-                required
-                style={{ width: "100%", marginBottom: "5px" }}
-              />
-              <textarea
-                placeholder="FAQ Answer"
-                value={faq.answer}
-                onChange={(e) => handleFaqChange(faqIndex, "answer", e.target.value)}
-                required
-                style={{ width: "100%", marginBottom: "10px" }}
-              />
-            </div>
-          ))}
-          <button type="button" onClick={addFaq}>
-            + Add FAQ
-          </button>
-        </div>
-        <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
-          <h3>CTA Section</h3>
-          <input
-            type="text"
-            placeholder="CTA Title"
-            value={ctaSection.ctaTitle}
-            onChange={(e) => handleCtaChange("ctaTitle", e.target.value)}
-            required
-            style={{ width: "100%", marginBottom: "5px" }}
-          />
-          <textarea
-            placeholder="Description"
-            value={ctaSection.description}
-            onChange={(e) => handleCtaChange("description", e.target.value)}
-            required
-            style={{ width: "100%", marginBottom: "5px" }}
-          />
-        
-        </div>
-
+                {/* FAQ Section */}
+                <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+                  <h3>FAQ Section</h3>
+                  {faqs.map((faq, faqIndex) => (
+                    <div key={faqIndex}>
+                      <input
+                        type="text"
+                        placeholder="FAQ Question"
+                        value={faq.question}
+                        onChange={(e) => handleFaqChange(faqIndex, "question", e.target.value)}
+                        required
+                        style={{ width: "100%", marginBottom: "5px" }}
+                      />
+                      <textarea
+                        placeholder="FAQ Answer"
+                        value={faq.answer}
+                        onChange={(e) => handleFaqChange(faqIndex, "answer", e.target.value)}
+                        required
+                        style={{ width: "100%", marginBottom: "10px" }}
+                      />
+                    </div>
+                  ))}
+                  <button type="button" onClick={addFaq}>
+                    + Add FAQ
+                  </button>
+                </div>
+                <div style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+                  <h3>CTA Section</h3>
+                  <input
+                    type="text"
+                    placeholder="CTA Title"
+                    value={ctaSection.ctaTitle}
+                    onChange={(e) => handleCtaChange("ctaTitle", e.target.value)}
+                    required
+                    style={{ width: "100%", marginBottom: "5px" }}
+                  />
+                  <textarea
+                    placeholder="Description"
+                    value={ctaSection.description}
+                    onChange={(e) => handleCtaChange("description", e.target.value)}
+                    required
+                    style={{ width: "100%", marginBottom: "5px" }}
+                  />
+                
+                </div>
+                <div>
+      <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+      <button onClick={handleImageUpload} disabled={uploading}>
+        {uploading ? "Uploading..." : "Upload"}
+      </button>
+    </div>
         <button type="submit" style={{ marginTop: "10px" }}>
           Submit
         </button>
