@@ -4,12 +4,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
+import industrystyles from '../../industries/[slug]/industry.module.css'
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
+import DropdownSection from '../../blogs/Dropdown';
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
 import TableOfContents from "./TableOfContents";
 
@@ -92,8 +94,8 @@ export default async function BlogPost({ params }) {
         <div className="container">
           <AnimatedColumn direction="left">
             <div>
-            <h2 className={styles.heading}>{post.title}</h2>
-        <div className={styles.divider}></div>
+            <h2 className={industrystyles.heading}>{post.title}</h2>
+              <div className={industrystyles.divider}></div>
             </div>
           </AnimatedColumn>
         </div>
@@ -204,21 +206,21 @@ export default async function BlogPost({ params }) {
       </div>
 
 
-      {/* Call to Action Section */}
-      {post.ctaSection && (
-        <div className={styles.ctaContainer}>
-          <h2>{post.ctaSection.ctaTitle}</h2>
-          {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
-            post.ctaSection.data.map((item, index) => (
-              <div key={index}>
-                <p>{item.description}</p>
-              </div>
-            ))
-          ) : (
-            <p>{post.ctaSection.description}</p>
+          {/* Call to Action Section */}
+          {post.ctaSection && (
+            <div className={styles.ctaContainer}>
+              <h2>{post.ctaSection.ctaTitle}</h2>
+              {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
+                post.ctaSection.data.map((item, index) => (
+                  <div key={index}>
+                    <p>{item.description}</p>
+                  </div>
+                ))
+              ) : (
+                <p>{post.ctaSection.description}</p>
+              )}
+            </div>
           )}
-        </div>
-      )}
 
      {/* Frequently Asked Questions Container */}
     <section className={styles.faqSection}>
@@ -269,7 +271,21 @@ export default async function BlogPost({ params }) {
             </div>
           </section>
         )}
-                <Footer />
-              </main>
+          </div>
+          <div className="col-md-4">
+            <div className={styles.stickysidebar}>
+              <DropdownSection />
+              <TableOfContents />
+              <SocialShare title={post.title} />
+
+            </div>
+              </div>
+
+
+          </div>
+          </div>
+          </div>
+          <Footer />
+          </main>
   );
 }

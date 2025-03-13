@@ -1,13 +1,14 @@
 .tocContainer {
     padding: 15px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    background: #f9f9f9;
+    margin-top: 20px;    
+    border: 1px solid #fac9bc;
+    background: #fdeee9;
   }
   
   .tocTitle {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 10px;
   }
   
@@ -23,7 +24,9 @@
   }
   
   .tocItem:hover {
-    background: #e0e0e0;
+    /* background: #ef5226; */
+    color: #541d0d;
+    font-weight: bold;
   }
   
   .tocItem-level1 {
@@ -33,6 +36,7 @@
   
   .tocItem-level2 {
     margin-left: 15px;
+    font-weight: 600;
   }
   
   .tocItem-level3 {

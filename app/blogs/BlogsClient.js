@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 import Navigation from "../components/Header/navigation"
 import Footer from "../components/Footer"
 
-const POSTS_PER_PAGE = 4;
+const POSTS_PER_PAGE = 6;
 
 export default function BlogsClient({ blogPosts }) {
   const [currentPage, setCurrentPage] = useState(1);

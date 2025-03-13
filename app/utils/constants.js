@@ -4329,14 +4329,14 @@ export const coFoundersData = [
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3916.198273209867!2d77.00275377504545!3d11.0237456891404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDAxJzI1LjUiTiA3N8KwMDAnMTkuMiJF!5e0!3m2!1sen!2sin!4v1731044790506!5m2!1sen!2sin',
           address: 'MayFlower Signature, Office No. 7C, 531-537 , Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004.', 
           email: 'info@techclouderp.com',
-          phone: '+91 9159044666 , +91 7032082300  ',
+          phone: '+91 8919439603 , +91 7032082300  ',
         },
         {
           name: 'Chennai',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3887.1930149392415!2d80.20511247507736!3d13.023377387296796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAxJzI0LjIiTiA4MMKwMTInMjcuNyJF!5e0!3m2!1sen!2sin!4v1731043909152!5m2!1sen!2sin',
-          address: 'North Gate, NP 11, Developed PLot,Thiru Vi-Ka Industrial Estate,Ekkathuthangal, Chennai, TamilNadu - 600035.', 
+          address: 'North Gate, NP 11, Developed PLot, Thiru Vi-Ka Industrial Estate, Ekkathuthangal, Chennai, TamilNadu - 600035.', 
           email: 'info@techclouderp.com',
-          phone: '+91 9159044666 , +91 7032082300',
+          phone: '+91 8919439603 , +91 7032082300',
         },
         {
           name: 'Indore',
