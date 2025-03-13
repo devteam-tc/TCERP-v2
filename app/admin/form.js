@@ -183,9 +183,9 @@ const AddSectionsForm = () => {
     setFaqs(updatedFaqs);
   };
  // Handle input changes for CTA Section
- const handleCtaChange = (field, value) => {
-  setCtaSection({ ...ctaSection, [field]: value });
-};
+//  const handleCtaChange = (field, value) => {
+//   setCtaSection({ ...ctaSection, [field]: value });
+// };
 
 
 // Handle title change
