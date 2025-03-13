@@ -21,6 +21,7 @@
     "clsx": "^2.1.1",
     "firebase": "^11.4.0",
     "formik": "^2.4.6",
+    "googleapis": "^146.0.0",
     "lightgallery": "^2.8.2",
     "lucide-react": "^0.469.0",
     "next": "^15.1.2",

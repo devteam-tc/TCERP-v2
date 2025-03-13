@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
@@ -13,7 +14,23 @@ const obfuscateEmail = (user, domain, tld) => `${user}@${domain}.${tld}`;
 export default function Footer() {
   const corporateEmail = obfuscateEmail("info", "techclouderp", "com");
   const headquartersEmail = obfuscateEmail("contact", "techclouderp", "com");
+  const [views, setViews] = useState(null);
 
+  useEffect(() => {
+    async function fetchViews() {
+      try {
+        const res = await fetch("../api/analytics");
+        const data = await res.json();
+        if (data.views) {
+          setViews(data.views);
+        }
+      } catch (error) {
+        console.error("Failed to fetch visit count:", error);
+      }
+    }
+
+    fetchViews();
+  }, []);
   return (
     <footer className={styles.footerSection}>
       <Container>
@@ -29,6 +46,7 @@ export default function Footer() {
             <p className={`${styles.footerText} pt-3`}>
               Tech Cloud ERP delivers top-notch solutions tailored for any business, combining advanced technology, intuitive design, and comprehensive features.
             </p>
+            <p>Website Visits: {views !== null ? views : "Loading..."}</p>
             <SocialMediaIcons />
           </Col>
           <Col md={4} xl={2} sm={6}>
