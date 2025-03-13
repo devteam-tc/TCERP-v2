@@ -68,13 +68,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
-async function getRelevantPosts(tagsSection, currentSlug) {
-  if (!tagsSection || tagsSection.length === 0) return [];
+async function getRelevantPosts(tags, currentSlug) {
+  if (!tags || tags.length === 0) return [];
   const blogCollection = collection(db, "blogPosts");
   const querySnapshot = await getDocs(blogCollection);
   const allPosts = querySnapshot.docs
     .map((doc) => ({ id: doc.id, ...doc.data() }))
-    .filter((post) => post.id !== currentSlug && post.tagsSection?.some((tag) => tagsSection.includes(tag)))
+    .filter((post) => post.id !== currentSlug && post.tags?.some((tag) => tags.includes(tag)))
     .sort((a, b) => (b.date?.seconds || 0) - (a.date?.seconds || 0))
     .slice(0, 3);
   return allPosts;
@@ -84,7 +84,7 @@ export default async function BlogPost({ params }) {
   const post = await getBlogPost(params.slug);
   if (!post) notFound();
 
-  const relevantPosts = await getRelevantPosts(post.tagsSection, params.slug);
+  const relevantPosts = await getRelevantPosts(post.tags, params.slug);
   const faqs = await getDynamicData("faqs");
 
   return (
@@ -146,6 +146,8 @@ export default async function BlogPost({ params }) {
                     </div>
                   );
                 })}
+
+
 </div>  
       </div>
       </article>
@@ -161,14 +163,6 @@ export default async function BlogPost({ params }) {
             if (!Array.isArray(sectionArray) || sectionArray.length === 0)
               return null;
 
-            const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
-              return {
-                ...acc,
-                ...Object.fromEntries(
-                  Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
-                ),
-              };
-            }, {});
             return (
               <div key={sectionKey}>
                 {/* Render TopHeading & TopIntro for the first item */}
@@ -188,11 +182,7 @@ export default async function BlogPost({ params }) {
                   sectionArray.slice(1).map((item, index) => (
                     <div key={index}>
                       <h5 className={styles.subHeading}>{item.title}</h5>
-                      {/* <p className={styles.description}>{item.description}</p> */}
-                      
-                        <p key={index}>
-                          <KeywordParser description={item.description} anchorWordsSection={anchorWordsObject} />
-                        </p>
+                      <p className={styles.description}>{item.description}</p>
                     </div>
                   ))}
               </div>
@@ -241,24 +231,10 @@ export default async function BlogPost({ params }) {
     </div>
   </div>
 </section>
-
-<SocialShare title={post.title} />
-          </div>
-
-          {/* Sidebar with Table of Contents */}
-    <div className="col-md-4">
-      <TableOfContents />
-    </div>
-
-          </div>
-
-          </div>
-
-          </div>
-  {/* Related Posts Section */}
+{/* Related Posts Section */}
 {relevantPosts.length > 0 && (
           <section className={styles.relatedPosts}>
-            <h2>Related Blogs</h2>
+            <h2>Related Posts</h2>
             <div className={styles.relatedContainer}>
               {relevantPosts.map((related) => (
                 <div key={related.id} className={styles.relatedPost}>

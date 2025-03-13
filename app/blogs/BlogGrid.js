@@ -27,11 +27,18 @@ const BlogGrid = ({ posts }) => {
                   </h2>
                   <p>{post.description}</p>
                   <div className={styles.tags}>
-                    {post.tagsSection.map((tag) => (
+                  <div className={styles.tags}>
+                  {Array.isArray(post.tagsSection) ? (
+                    post.tagsSection.map((tag) => (
                       <span key={tag} className={styles.tag}>
                         {tag}
                       </span>
-                    ))}
+                    ))
+                  ) : (
+                    <span className={styles.tag}>No Tags</span> // Optional fallback
+                  )}
+                </div>
+
                   </div>
                 </div>
               </Link>
