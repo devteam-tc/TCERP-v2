@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { db ,storage } from "../firebaseConfig"; 
 import { doc, setDoc, addDoc, collection, Timestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Select from "react-select";
 
 
 const AddSectionsForm = () => {
@@ -31,34 +32,96 @@ const AddSectionsForm = () => {
   const [metaKeywords, setMetaKeywords] = useState([]);
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [customOption, setCustomOption] = useState("");
+  const industryOptions = [
+    { value: "Agriculture Industry", label: "Agriculture Industry" },
+    { value: "Apparel Industry", label: "Apparel Industry" },
+    { value: "Automotive Industry", label: "Automotive Industry" },
+    { value: "Beverage Industry", label: "Beverage Industry" },
+    { value: "Chemical Industry", label: "Chemical Industry" },
+    { value: "Educational Institutes", label: "Educational Institutes" },
+    { value: "Electrical Solar Industry", label: "Electrical Solar Industry" },
+    { value: "Electronics Industry", label: "Electronics Industry" },
+    { value: "FMCG Industry", label: "FMCG Industry" },
+    { value: "Finance Industry", label: "Finance Industry" },
+  ];
 
-  const handleImageUpload = async (generatedSlug) => {
-    if (!image) return;
+ 
+        const handleChangee = async (selected) => {
+          setSelectedOption(selected);
+        
+          if (selected?.value === "Other") {
+            setCustomOption(""); // Reset the input field for custom entry
+            return;
+          }
+        
+          // If selected is not "Other," store in Firestore
+          try {
+            await addDoc(collection(db, "industries"), {
+              industry: selected.value,
+              timestamp: Timestamp.now(),
+            });
+            console.log("Industry added:", selected.value);
+          } catch (error) {
+            console.error("Error adding industry:", error);
+          }
+        };
+        
+        const handleCustomIndustrySubmit = async () => {
+          if (!customOption.trim()) return;
+        
+          try {
+            await addDoc(collection(db, "industries"), {
+              industry: customOption,
+              timestamp: Timestamp.now(),
+            });
+            console.log("Custom industry added:", customOption);
+            setCustomOption(""); // Clear input after saving
+            setSelectedOption({ value: customOption, label: customOption }); // Update UI
+          } catch (error) {
+            console.error("Error adding custom industry:", error);
+          }
+        };
+        
+       
+  const handleImageUpload = async () => {
+    if (!image) {
+      alert("Please select an image first!");
+      return;
+    }
+
+    if (!slug || typeof slug !== "string") {
+      console.error("Invalid slug:", slug);
+      alert("Error: Invalid blog post slug!");
+      return;
+    }
+
     setUploading(true);
-  
+
     try {
-      // Ensure generatedSlug is a string
-      const slug = String(generatedSlug);
-  
-      // Store the image inside the 'blogs_images/' folder
-      const imageRef = ref(storage, `blogs_images/${image.name}`);
-      
+      // Store the image in Firebase Storage inside 'blogs_images/'
+      const imageRef = ref(storage, `blogs_images/${Date.now()}_${image.name}`);
+
       // Upload image to Firebase Storage
       const snapshot = await uploadBytes(imageRef, image);
       const url = await getDownloadURL(snapshot.ref);
-  
-      // Reference to the document with the given `slug`
-      const docRef = doc(db, "blogPosts", generatedSlug);
-  
-      // Set the document with imageUrl, merging existing data
+
+      // Reference to the Firestore document (blog post)
+      const docRef = doc(db, "blogPosts", slug);
+
+      // Update Firestore document with the image URL
       await setDoc(docRef, { imageUrl: url }, { merge: true });
-  
-      alert("Image uploaded and stored successfully in Firestore!");
+
+      alert("Image uploaded and URL stored successfully!");
     } catch (error) {
       console.error("Upload failed:", error);
+      alert("Upload failed. See console for details.");
     }
+
     setUploading(false);
   };
+
   // State for CTA Section
   const [ctaSection, setCtaSection] = useState({
     ctaTitle: "",
@@ -423,6 +486,30 @@ const handleSubmit = async (e) => {
                   ))}
                 </div>
               </div>
+
+
+             <div>
+        <label>Select Category:</label>
+        <Select
+          options={[...industryOptions, { value: "Other", label: "Other" }]}
+          value={selectedOption}
+          onChange={handleChangee}
+          placeholder="Select Category..."
+        />
+
+        {selectedOption?.value === "Other" && (
+          <div>
+            <input
+              type="text"
+              placeholder="Enter custom industry"
+              value={customOption}
+              onChange={(e) => setCustomOption(e.target.value)}
+            />
+            <button onClick={handleCustomIndustrySubmit}>Save</button>
+          </div>
+        )}
+      </div>
+
 
 
         {/* Anchor Words Section */}
