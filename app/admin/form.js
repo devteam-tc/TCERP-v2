@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { db ,storage } from "../firebaseConfig"; 
 import { doc, setDoc, addDoc, collection, Timestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import Select from "react-select";
-
+import IndustryForm from './Categories';
 
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");
@@ -32,58 +31,8 @@ const AddSectionsForm = () => {
   const [metaKeywords, setMetaKeywords] = useState([]);
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
   const [customOption, setCustomOption] = useState("");
-  const industryOptions = [
-    { value: "Agriculture Industry", label: "Agriculture Industry" },
-    { value: "Apparel Industry", label: "Apparel Industry" },
-    { value: "Automotive Industry", label: "Automotive Industry" },
-    { value: "Beverage Industry", label: "Beverage Industry" },
-    { value: "Chemical Industry", label: "Chemical Industry" },
-    { value: "Educational Institutes", label: "Educational Institutes" },
-    { value: "Electrical Solar Industry", label: "Electrical Solar Industry" },
-    { value: "Electronics Industry", label: "Electronics Industry" },
-    { value: "FMCG Industry", label: "FMCG Industry" },
-    { value: "Finance Industry", label: "Finance Industry" },
-  ];
-
  
-        const handleChangee = async (selected) => {
-          setSelectedOption(selected);
-        
-          if (selected?.value === "Other") {
-            setCustomOption(""); // Reset the input field for custom entry
-            return;
-          }
-        
-          // If selected is not "Other," store in Firestore
-          try {
-            await addDoc(collection(db, "industries"), {
-              industry: selected.value,
-              timestamp: Timestamp.now(),
-            });
-            console.log("Industry added:", selected.value);
-          } catch (error) {
-            console.error("Error adding industry:", error);
-          }
-        };
-        
-        const handleCustomIndustrySubmit = async () => {
-          if (!customOption.trim()) return;
-        
-          try {
-            await addDoc(collection(db, "industries"), {
-              industry: customOption,
-              timestamp: Timestamp.now(),
-            });
-            console.log("Custom industry added:", customOption);
-            setCustomOption(""); // Clear input after saving
-            setSelectedOption({ value: customOption, label: customOption }); // Update UI
-          } catch (error) {
-            console.error("Error adding custom industry:", error);
-          }
-        };
-        
        
   const handleImageUpload = async () => {
     if (!image) {
@@ -488,27 +437,7 @@ const handleSubmit = async (e) => {
               </div>
 
 
-             <div>
-        <label>Select Category:</label>
-        <Select
-          options={[...industryOptions, { value: "Other", label: "Other" }]}
-          value={selectedOption}
-          onChange={handleChangee}
-          placeholder="Select Category..."
-        />
-
-        {selectedOption?.value === "Other" && (
-          <div>
-            <input
-              type="text"
-              placeholder="Enter custom industry"
-              value={customOption}
-              onChange={(e) => setCustomOption(e.target.value)}
-            />
-            <button onClick={handleCustomIndustrySubmit}>Save</button>
-          </div>
-        )}
-      </div>
+        <IndustryForm />
 
 
 

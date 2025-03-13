@@ -41,6 +41,7 @@
     "swiper": "^11.2.3",
     "tailwind-merge": "^2.6.0",
     "typewriter-effect": "^2.21.0",
+    "uuid": "^11.1.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
