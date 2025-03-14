@@ -19,6 +19,7 @@
     "@reduxjs/toolkit": "^2.6.0",
     "bootstrap": "^5.3.3",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "firebase": "^11.4.0",
     "formik": "^2.4.6",
     "lightgallery": "^2.8.2",

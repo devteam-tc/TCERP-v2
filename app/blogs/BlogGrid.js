@@ -29,18 +29,27 @@ const BlogGrid = ({ posts }) => {
                   <div className={styles.tags}>
                   <div className={styles.tags}>
                   {Array.isArray(post.tagsSection) ? (
-                    post.tagsSection.map((tag) => (
-                      <span key={tag} className={styles.tag}>
-                        {tag}
-                      </span>
-                    ))
-                  ) : (
-                    <span className={styles.tag}>No Tags</span> // Optional fallback
-                  )}
+                post.tagsSection.map((tag) => (
+                  <div key={tag}>
+                    <span className={styles.tag}>{tag}</span>
+                    <h3>
+                      {post.createdAt && !isNaN(Date.parse(post.createdAt))
+                        ? new Date(post.createdAt).toLocaleString()
+                        : "Date not available"}
+                    </h3>
+                  </div>
+                ))
+              ) : (
+                <span className={styles.tag}>No Tags</span>
+              )}
+
                 </div>
 
                   </div>
                 </div>
+             
+
+
               </Link>
             </article>
           ))}
