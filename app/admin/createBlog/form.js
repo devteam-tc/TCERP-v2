@@ -562,22 +562,21 @@
 
 import { useState } from "react";
 //import TitleExcerptForm from "./TitleExcerptForm";
-import TitleAndDescription from "./createBlog/TitleAndDescription";
+import TitleAndDescription from "./TitleAndDescription";
 // import MetaKeywordsForm from "./MetaKeywordsForm";
 // import MetaForm from "./MetaForm";
-import ContentForm from "./createBlog/ContentForm";
-import TagsForm from "./createBlog/TagsForm";
-import AnchorWordsForm from "./createBlog/AnchorWordsForm";
-import FAQsForm from "./createBlog/FAQsForm";
-import CTASection from "./createBlog/CTASection";
-import MetaKeywordsForm from "./createBlog/MetaKeywordsForm";
-import ImageUpload from "./createBlog/ImageUpload";
-import { db } from "../firebaseConfig"; // Firebase Firestore instance
+import ContentForm from "./ContentForm";
+import TagsForm from "./TagsForm";
+import AnchorWordsForm from "./AnchorWordsForm";
+import FAQsForm from "./FAQsForm";
+import CTASection from "./CTASection";
+import MetaKeywordsForm from "./MetaKeywordsForm";
+import ImageUpload from "./ImageUpload";
+import { db } from "../../firebaseConfig"; // Firebase Firestore instance
 import { doc, setDoc } from "firebase/firestore";
 
 const Form = () => {
   const [title, setTitle] = useState("");
-  const [excerpt, setExcerpt] = useState("");
   const [description, setDescription] = useState("");
   const [meta, setMeta] = useState({ title: "", description: "" });
   const [content, setContent] = useState([]);

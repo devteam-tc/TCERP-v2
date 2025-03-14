@@ -40,8 +40,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import AddSectionsForm from "./form";
-import LogoutButton from "../utils/LogoutButton";
+import AddSectionsForm from "../admin/createBlog/form";
 
 const AdminPanel = () => {
   const router = useRouter();
@@ -59,7 +58,6 @@ const AdminPanel = () => {
 
   return (
     <div>
-      <LogoutButton/>
       <AddSectionsForm />
     </div>
   );
