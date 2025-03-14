@@ -36,17 +36,13 @@ const AddSectionsForm = () => {
   ]);
   const [tags, setTags] = useState([]); // ✅ Tags state
   const [anchorWords, setAnchorWords] = useState([{ word: "", href: "" }]);
-  const [tagInput, setTagInput] = useState("");
-  const [metaKeywordInput, setMetaKeywordInput] = useState("");
   const [metaKeywords, setMetaKeywords] = useState([]);
   const [image, setImage] = useState(null);
-  const [uploading, setUploading] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [customOption, setCustomOption] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState(""); // Store selected industry
+  const [uploading, setUploading] = useState(false); // ✅ Define uploading state
 
 
- 
-  // State for CTA Section
+  // State for Conclusion
   const [ctaSection, setCtaSection] = useState({
     ctaTitle: "",
     description: "",
@@ -110,32 +106,35 @@ const handleSubmit = async (e) => {
       alert("Slug generation failed. Check the title input.");
       return;
     }
-  
-    let imageUrl = null;
-
-    // ✅ Debugging Log: Check if an image is selected
-    console.log("Selected Image:", image);
+    let imageUrl = ""; // ✅ Ensure imageUrl is always defined
 
     if (image) {
-      setUploading(true);
-      const imageRef = ref(storage, `blog_images/${Date.now()}_${image.name}`);
+      try {
+          setUploading(true);
 
-      // ✅ Upload the image
-      await uploadBytes(imageRef, image);
-      console.log("Image uploaded successfully");
+          const imageRef = ref(storage, `blogs_images/${Date.now()}_${image.name}`);
+          await uploadBytes(imageRef, image); // ✅ Upload image
 
-      // ✅ Get Image URL
-      imageUrl = await getDownloadURL(imageRef);
-      console.log("Image URL:", imageUrl);
+          // ✅ Retrieve image URL
+          imageUrl = await getDownloadURL(imageRef);
+          console.log("Image URL:", imageUrl);
 
-      setUploading(false);
-    }
+      } catch (error) {
+          console.error("Error uploading image:", error);
+          alert("Error uploading image. Please try again.");
+          setUploading(false);
+          return;
+      } finally {
+          setUploading(false);
+      }
+  }
 
-    if (!imageUrl) {
+  if (image && !imageUrl) {
       console.error("Image URL is null. Upload failed!");
       alert("Image upload failed. Please try again.");
       return;
-    }
+  }
+    
   try {
     setUploading(true);
 
@@ -153,9 +152,10 @@ const handleSubmit = async (e) => {
       description,
       metaKeywords: metaKeywords, 
       slug: generatedSlug, 
+      imageUrl: imageUrl,
       createdAt,
       date: currentDate, 
-      imageUrl, // ✅ Store image URL
+      industry: selectedIndustry, // ✅ Store industry
       pointsWiseText: sections.reduce((acc, section) => {
         acc[section.sectionName] = section.data;
         return acc;
@@ -204,7 +204,6 @@ const handleSubmit = async (e) => {
 <h2>Add Sections Data</h2>
       <form onSubmit={handleSubmit}>
       <TitleAndDescription title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
-
         {sections.map((section, sectionIndex) => (
           <div key={sectionIndex} className={styles.section}>
             <h3>{section.sectionName}</h3>
@@ -276,7 +275,7 @@ const handleSubmit = async (e) => {
       </form>
 </div>
       <div className="col-md-4">
-      <Categories />
+      <Categories setSelectedIndustry={setSelectedIndustry} />
 
       <TagsForm tags={tags} setTags={setTags} />
       <MetaKeywordsForm metaKeywords={metaKeywords} setMetaKeywords={setMetaKeywords} />
