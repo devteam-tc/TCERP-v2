@@ -72,7 +72,6 @@ const WorldMapWithMarkers = () => {
         strokeWidth: 2
       }
     ]);
-
     let graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
     graticuleSeries.mapLines.template.setAll({
       strokeOpacity: 0.1,
@@ -102,7 +101,6 @@ const WorldMapWithMarkers = () => {
     ]);
 
     chart.appear(1000, 100);
-
     return () => {
       root.dispose();
     };

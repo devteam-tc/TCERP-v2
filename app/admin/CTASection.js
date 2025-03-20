@@ -9,7 +9,7 @@ const CTASection = ({ ctaSection, setCtaSection }) => {
   
     return (
       <div className={styles.section}>
-        <h3>CTA Section</h3>
+        <h3>Conclusion</h3>
         <input className={styles.input}
           type="text"
           placeholder="CTA Title"
