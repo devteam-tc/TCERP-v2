@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { db, storage } from "../../firebaseConfig";
+import { db, storage } from "../firebaseConfig";
 import { doc, setDoc, addDoc, collection, Timestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import AnchorWordsForm from "../AnchorWordsForm";
-import TagsForm from '../TagsForm';
-import FAQsForm from '../FAQsForm';
-import MetaKeywordsForm from '../MetaKeywordsForm';
-import CTASection from '../CTASection';
-import ContentForm from '../ContentForm';
-import TitleAndDescription from '../TitleAndDescription';
-import Categories from '../Categories';
-import styles from '../Form.module.css';
+import AnchorWordsForm from "./AnchorWordsForm";
+import TagsForm from './TagsForm';
+import FAQsForm from './FAQsForm';
+import MetaKeywordsForm from './MetaKeywordsForm';
+import CTASection from './CTASection';
+import ContentForm from './ContentForm';
+import TitleAndDescription from './TitleAndDescription';
+import Categories from './Categories';
+import styles from './Form.module.css';
 
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");

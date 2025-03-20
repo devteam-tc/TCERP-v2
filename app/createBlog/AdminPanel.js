@@ -4,7 +4,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import AddSectionsForm from "../admin/createBlog/form";
+import AddSectionsForm from "../admin/form";
 
 const AdminPanel = () => {
   const router = useRouter();
