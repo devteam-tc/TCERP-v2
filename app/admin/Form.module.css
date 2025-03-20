@@ -47,7 +47,16 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  .submitbutton{
+    background: #05A7CC;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+  }
   .addButton:hover {
     background: #005f79;
   }

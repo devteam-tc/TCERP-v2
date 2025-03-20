@@ -14,7 +14,7 @@ const BlogGrid = ({ posts }) => {
               <Link href={`/blogs/${post.slug}`} className={styles.cardLink}>
                 <div className={styles.imageContainer}>
                   <Image
-                    src={post.image || "/placeholder.svg"}
+                    src={post.imageUrl || "/placeholder.svg"}
                     alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -29,15 +29,15 @@ const BlogGrid = ({ posts }) => {
                   <div className={styles.tags}>
                   <div className={styles.tags}>
                   {Array.isArray(post.tagsSection) ? (
-                post.tagsSection.map((tag) => (
-                  <div key={tag}>
+                    post.tagsSection.map((tag) => (
+                    <div key={tag}>
                     <span className={styles.tag}>{tag}</span>
                     <h3>
                       {post.createdAt && !isNaN(Date.parse(post.createdAt))
                         ? new Date(post.createdAt).toLocaleString()
                         : "Date not available"}
                     </h3>
-                  </div>
+                    </div>
                 ))
               ) : (
                 <span className={styles.tag}>No Tags</span>
