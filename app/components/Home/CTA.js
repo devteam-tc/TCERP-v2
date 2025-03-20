@@ -20,7 +20,7 @@ const CTA = () => {
         <Col md={8} className={styles.textSection}>
           <h1>Progress Through Partnership</h1>
           <p>
-            Our expert team is committed to building tailored solutions that meet your specific needs and budget. With Tech Cloud ERP, you can trust that your construction business is in safe hands.
+          We offer tailored ERP solutions to improve efficiency, optimize processes, and enhance growth. With Tech Cloud ERP, experience innovation, seamless integration and dedicated support for long-term success.
           </p>
           <Button onClick={handleDemoClick}>Request a demo</Button>
         </Col>

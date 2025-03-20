@@ -288,7 +288,7 @@ const BlogList = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const querySnapshot = await getDocs(collection(db, "blogs"));
+      const querySnapshot = await getDocs(collection(db, "blogPosts"));
       const blogsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -300,7 +300,7 @@ const BlogList = () => {
 
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this blog?")) {
-      await deleteDoc(doc(db, "blogs", id));
+      await deleteDoc(doc(db, "blogPosts", id));
       setBlogs(blogs.filter((blog) => blog.id !== id));
     }
   };
@@ -341,7 +341,7 @@ const BlogList = () => {
                 <tr key={blog.id}>
                   <td>{blog.title}</td>
                   <td>{blog.categories ? blog.categories.join(", ") : "No Categories"}</td>
-                  <td>{blog.date ? new Date(blog.date.toDate()).toLocaleDateString() : "N/A"}</td>
+                  <td>{blog.createdAt ? new Date(blog.createdAt.toDate()).toLocaleDateString() : "N/A"}</td>
                   <td>
                     {isAuthenticated && (
                       <Button variant="warning" onClick={() => router.push(`/editBlog/${blog.id}`)}>

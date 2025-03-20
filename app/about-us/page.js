@@ -13,6 +13,7 @@ import industrystyles from "../industries/[slug]/industry.module.css"
 import { aboutus_data } from '../utils/constants'
 import Footer from '../components/Footer';
 import Script from 'next/script';  // ✅ Use next/script for structured data
+import BlogForm from './BlogForm';
 
 
 export const metadata = {

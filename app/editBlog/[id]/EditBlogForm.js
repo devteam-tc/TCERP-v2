@@ -7,14 +7,14 @@ import { db } from "../../firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { Button } from "react-bootstrap";
 
-import TitleAndDescription from "../../admin/createBlog/TitleAndDescription";
-import ContentForm from "../../admin/createBlog/ContentForm";
-import TagsForm from "../../admin/createBlog/TagsForm";
-import AnchorWordsForm from "../../admin/createBlog/AnchorWordsForm";
-import FAQsForm from "../../admin/createBlog/FAQsForm";
-import CTASection from "../../admin/createBlog/CTASection";
-import MetaKeywordsForm from "../../admin/createBlog/MetaKeywordsForm";
-import ImageUpload from "../../admin/createBlog/ImageUpload";
+import TitleAndDescription from "../../admin/TitleAndDescription";
+import ContentForm from "../../admin/ContentForm";
+import TagsForm from "../../admin/TagsForm";
+import AnchorWordsForm from "../../admin/AnchorWordsForm";
+import FAQsForm from "../../admin/FAQsForm";
+import CTASection from "../../admin/CTASection";
+import MetaKeywordsForm from "../../admin/MetaKeywordsForm";
+import ImageUpload from "../../admin/ImageUpload";
 
 const EditBlogForm = ({ id }) => {
   const router = useRouter();
@@ -43,7 +43,7 @@ const EditBlogForm = ({ id }) => {
 
       if (id) {
         try {
-          const docRef = doc(db, "blogs", id);
+          const docRef = doc(db, "blogPosts", id);
           const docSnap = await getDoc(docRef);
 
           if (docSnap.exists()) {
@@ -69,7 +69,7 @@ const EditBlogForm = ({ id }) => {
     e.preventDefault();
 
     try {
-      const docRef = doc(db, "blogs", id);
+      const docRef = doc(db, "blogPosts", id);
       await updateDoc(docRef, { ...blogData, date: new Date() });
       alert("✅ Blog updated successfully!");
       router.push("/blogs");

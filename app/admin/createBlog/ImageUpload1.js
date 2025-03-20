@@ -2,7 +2,7 @@ const ImageUpload = ({ image, setImage }) => {
     const handleImageChange = (e) => {
       const file = e.target.files[0];
       if (file) {
-        setImage(URL.createObjectURL(file));
+        setImage(file);
       }
     };
   

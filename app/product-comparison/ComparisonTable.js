@@ -27,7 +27,6 @@ const ComparisonTable = () => {
                     ))}
                 </tbody>
             </table>
-
             <br /><br />
 
 

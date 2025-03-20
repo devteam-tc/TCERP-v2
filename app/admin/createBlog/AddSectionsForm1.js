@@ -3,15 +3,15 @@
 import { useState, useEffect } from "react";
 import { db, storage } from "../firebaseConfig";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
-import TitleAndDescription from "./TitleAndDescription";
-import SectionsForm from "./SectionsForm";
-import ContentForm from "./ContentForm";
-import TagsForm from "./TagsForm";
-import AnchorWordsForm from "./AnchorWordsForm";
-import CTASection from "./CTASection";
-import FAQsForm from "./FAQsForm";
-import ImageUpload from "./ImageUpload";
-import MetaKeywordsForm from "./MetaKeywordsForm";
+import TitleAndDescription from "./TitleAndDescription1";
+import SectionsForm from "./SectionsForm1";
+import ContentForm from "./ContentForm1";
+import TagsForm from "./TagsForm1";
+import AnchorWordsForm from "./AnchorWordsForm1";
+import CTASection from "./CTASection1";
+import FAQsForm from "./FAQsForm1";
+import ImageUpload from "./ImageUpload1";
+import MetaKeywordsForm from "./MetaKeywordsForm1";
 
 const AddSectionsForm = () => {
   const [title, setTitle] = useState("");

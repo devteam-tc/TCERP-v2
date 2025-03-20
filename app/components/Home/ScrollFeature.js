@@ -57,9 +57,9 @@ const ScrollFeature = () => {
               1024: { slidesPerView: 3, slidesPerGroup: 1 },
             }}
           >
-            {featuresData.map((feature, index) => (
+            {/* {featuresData.map((feature, index) => (
               <SwiperSlide key={index}>
-                <Link href="/features" passHref> {/* ✅ Link added */}
+                <Link href="/features" passHref> 
                   <div
                     className={styles.card}
                     onMouseEnter={handleMouseEnter}
@@ -71,7 +71,23 @@ const ScrollFeature = () => {
                   </div>
                 </Link>
               </SwiperSlide>
-            ))}
+            ))} */}
+
+{featuresData.map((feature, index) => (
+  <SwiperSlide key={index}>
+    <a href="/features" target="_blank" rel="noopener noreferrer" className={styles.card}>
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <img loading="lazy" src={feature.image} alt={feature.title} className={styles.cardImage} />
+        <h5 className={styles.cardTitle}>{feature.title}</h5>
+        <p className={styles.cardText}>{feature.description}</p>
+      </div>
+    </a>
+  </SwiperSlide>
+))}
+
           </Swiper>
         </div>
         <CustomArrow className={styles.rightArrow} onClick={() => swiperRef.current?.slideNext()}>
