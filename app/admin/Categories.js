@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Select from "react-select";
-import styles from '../admin/Form.module.css';
+import styles from './Form.module.css';
 
 const Categories = ({ setSelectedIndustry }) => {
     const [selectedOption, setSelectedOption] = useState(null);

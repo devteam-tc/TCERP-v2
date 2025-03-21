@@ -87,8 +87,15 @@
   .grid {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+  .blogCard {
+    min-height: auto; /* Ensures it adapts to content */
+  }
 }
-
+@media screen and (max-width: 992px) {
+  .blogCard {
+    min-height: auto; /* Ensures it adapts to content */
+  }
+}
 .blogCard {
   border-radius: 8px;
   overflow: hidden;
@@ -96,6 +103,7 @@
   box-shadow: 0 10px 20px rgba(173,216,230,.5),0 6px 6px rgba(173,216,230,.7);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: white;
+  min-height: 50vh; /* Change from fixed height to min-height */
 }
 
 .blogCard:hover {
@@ -118,7 +126,28 @@
 .cardImage {
   object-fit: cover;
 }
-
+.cardDate{
+  padding: 1.5rem;
+}
+.cardDate h2{
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #ef5226;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardDate p{
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  }
+.createdDate{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 .cardContent {
   padding: 1.5rem;
 }

@@ -288,7 +288,7 @@ const BlogList = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const querySnapshot = await getDocs(collection(db, "blogs"));
+      const querySnapshot = await getDocs(collection(db, "blogPosts"));
       const blogsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -300,7 +300,7 @@ const BlogList = () => {
 
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this blog?")) {
-      await deleteDoc(doc(db, "blogs", id));
+      await deleteDoc(doc(db, "blogPosts", id));
       setBlogs(blogs.filter((blog) => blog.id !== id));
     }
   };

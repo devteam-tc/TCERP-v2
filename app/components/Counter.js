@@ -30,7 +30,7 @@ export default function Counter() {
   return (
     <div className={styles.container}>
       {/* <div>Website visit count:</div> */}
-      <div className={styles.counter}>{visitCount}</div>
+      {/* <div className={styles.counter}>{visitCount}</div> */}
     </div>
   );
 }

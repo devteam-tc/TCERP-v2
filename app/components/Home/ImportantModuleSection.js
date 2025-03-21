@@ -55,7 +55,7 @@ const ImportantModuleSection = () => {
         </button>
 
         <Slider ref={sliderRef} {...settings} className={styles.carouselContainer}>
-        {ModulecardsData.map((card) => (
+        {/* {ModulecardsData.map((card) => (
             <div key={card.id} className={styles.cardWrapper}>
               <Link href="/modules" passHref>
                 <div className={styles.card}>
@@ -64,8 +64,20 @@ const ImportantModuleSection = () => {
                   <p className={styles.cardText}>{card.description}</p>
                 </div>
               </Link>
+
             </div>
-          ))}
+          ))} */}
+
+      {ModulecardsData.map((card) => (
+        <div key={card.id} className={styles.cardWrapper}>
+          <a href="/modules" target="_blank" rel="noopener noreferrer" className={styles.card}>
+            <img src={card.image} alt={card.alt} className={styles.cardImage} />
+            <h5 className={styles.cardTitle}>{card.title}</h5>
+            <p className={styles.cardText}>{card.description}</p>
+          </a>
+        </div>
+      ))}
+
         </Slider>
       </Container>
     </AnimatedSection>

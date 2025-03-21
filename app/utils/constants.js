@@ -38,9 +38,7 @@ export const releavant = {
         India's leading ERP software developer with a focus on reducing operational costs, especially for
         manufacturing companies.`,
       missionTitle: 'Our Mission',
-      missionText: `Our mission is to help our clients respond faster and more efficiently to market
-        dynamics. We strive to make them more agile in a competitive marketplace through high-tech
-        strategies and action plans.`,
+      missionText: `Enterprise Resource Planning (ERP) software integrates business functions into one system. Cloud-based ERP solutions now enable small and mid-sized businesses to leverage the best ERP software for efficiency, cost reduction and growth.`,
       experience: {
         years: '25+',
         text: 'Years of Experience'
@@ -51,9 +49,8 @@ export const releavant = {
 }
 
 export const ctaData = {
-  heading: "Call To Action",
-  description:
-    "Join us today and make a difference! Take action now to create significant changes in your business. Together, we can build a technology revolution. Become part of our movement today.",
+  heading: "Don’t Miss Out—Click Now!",
+  description: "Transform your business with all-in-one ERP system! Stay ahead with real-time insights and effortless management. Get started now!",
   buttonText: "Call To Action",
   buttonLink: "https://api.whatsapp.com/send?phone=+918886606458&text=Hi",
   calltoaction_bg_img: "/home/cta-bg-image-one.webp",
@@ -2029,7 +2026,7 @@ export const sectionsData = {
     },
     'OurBranches':{
       heading: "Where We Work",
-      description: "Join our dynamic team and be part of an innovative company. Shape the future, grow professionally and inspire success!",
+      description: "Tech Cloud ERP operates globally, delivering innovative cloud-based ERP solutions to enhance business efficiency and streamline operations across multiple locations.",
     },
     'allservices':{
       heading: "Our Services",
@@ -4148,10 +4145,10 @@ export const sectionsData = {
     imageSrc: "/about-us/why_tech_cloud_erp_img.webp", // Ensure file extension is correct
     title: "Why Tech Cloud ERP?",
     description: [
-      "The complete solution by Tech Cloud ERP will meet all your business requirements and is designed to ease your process and increase efficiency. Our system has scalability built into it, so you can expand your business without pains of migrating into a new platform.",
-      "You get direct access to real-time data and enjoy some of the best reporting tools available with Tech Cloud ERP, as it drives your insights in making informed decisions. With an easy user interface, there is easy adoption and integration to any team right away with improved workflows."
+      "The complete solution by Tech Cloud ERP will meet all your business requirements and is designed to ease your process and increase efficiency. Our system has scalability built into it, so you can expand your business without pain of migrating into a new platform.",
+      "You get direct access to real-time data and enjoy some of the best reporting tools available with Tech Cloud ERP, as it drives your insights in making informed decisions. With a user-friendly interface, teams can quickly adopt and integrate the system, leading to smoother workflows and enhanced efficiency."
     ],
-  };
+  }
   export const BiIntroContent = {
     imageSrc: "/about-us/bi-img.webp", // Ensure file extension is correct
     title: "Business Intelligence",
@@ -4322,28 +4319,28 @@ export const coFoundersData = [
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2634991537893!2d78.38372387594076!3d17.44709790108069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb910d8d1c4f8b%3A0x6ef1b184af90fa3f!2sCapital%20Park!5e0!3m2!1sen!2sus!4v1731043718127!5m2!1sen!2sus',
           address: 'Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur, Hyderabad, Telangana, India-500081.',
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603 , +91 7032082300',
+          phone: '+91 8919439603, +91 7032082300',
         },
         {
           name: 'Coimbatore',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3916.198273209867!2d77.00275377504545!3d11.0237456891404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDAxJzI1LjUiTiA3N8KwMDAnMTkuMiJF!5e0!3m2!1sen!2sin!4v1731044790506!5m2!1sen!2sin',
-          address: 'MayFlower Signature, Office No. 7C, 531-537 , Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004.', 
+          address: 'MayFlower Signature, Office No. 7C, 531-537, Avinashi Road, Peelamedu, Coimbatore, Tamilnadu - 641004.', 
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603 , +91 7032082300  ',
+          phone: '+91 8919439603, +91 7032082300  ',
         },
         {
           name: 'Chennai',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3887.1930149392415!2d80.20511247507736!3d13.023377387296796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAxJzI0LjIiTiA4MMKwMTInMjcuNyJF!5e0!3m2!1sen!2sin!4v1731043909152!5m2!1sen!2sin',
           address: 'North Gate, NP 11, Developed PLot, Thiru Vi-Ka Industrial Estate, Ekkathuthangal, Chennai, TamilNadu - 600035.', 
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603 , +91 7032082300',
+          phone: '+91 8919439603, +91 7032082300',
         },
         {
           name: 'Indore',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.367069331865!2d75.89414307603104!3d22.751755026378873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302aa5e382429%3A0xcc759bbcdf086959!2sNRK%20Business%20Park!5e0!3m2!1sen!2sus!4v1731043840362!5m2!1sen!2sus',
           address: 'Unit No 903-B, NRK Business Park, Vijay Nagar, Indore, Madhya Pradesh - 452010.', 
           email: 'info@techclouderp.com',
-          phone: '+91 8919439603 , +91 7032082300',
+          phone: '+91 8919439603, +91 7032082300',
         },
       ],
     },

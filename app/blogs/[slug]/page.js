@@ -58,7 +58,7 @@ export async function generateMetadata({ params }) {
       description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
       images: [
         {
-          url: post.image || "/placeholder.svg",
+          url: post.imageUrl || "/placeholder.svg",
           width: 800,
           height: 600,
           alt: post.title,
@@ -121,7 +121,7 @@ export default async function BlogPost({ params }) {
           {/* Blog Content */}
           <div className="blog-content">
           <div className={styles.imageContainer}>
-              <img src={post.image || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
+              <img src={post.imageUrl || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
               {post.contentSection?.map((section, index) => {
                   const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {

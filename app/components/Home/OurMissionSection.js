@@ -56,7 +56,7 @@ const OurMissionSection = () => {
                 <p>{content.description}</p>
                 <div className="experience-text">
                   <div className="mt-4">
-                    <h3 style={{ color: '#05A7CC' }}>{content.missionTitle}</h3>
+                    {/* <h3 style={{ color: '#05A7CC' }}>{content.missionTitle}</h3> */}
                     <p>{content.missionText}</p>
                   </div>
                 </div>
