@@ -341,7 +341,7 @@ const BlogList = () => {
                 <tr key={blog.id}>
                   <td>{blog.title}</td>
                   <td>{blog.categories ? blog.categories.join(", ") : "No Categories"}</td>
-                  <td>{blog.date ? new Date(blog.date.toDate()).toLocaleDateString() : "N/A"}</td>
+                  <td>{blog.createdAt ? new Date(blog.createdAt.toDate()).toLocaleDateString() : "N/A"}</td>
                   <td>
                     {isAuthenticated && (
                       <Button variant="warning" onClick={() => router.push(`/editBlog/${blog.id}`)}>

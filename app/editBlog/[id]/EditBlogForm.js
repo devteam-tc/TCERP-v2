@@ -24,10 +24,10 @@ const EditBlogForm = ({ id }) => {
     title: "",
     description: "",
     meta: { title: "", description: "" },
-    content: [],
+    contentSection: [],
     tags: [],
-    anchorWords: [],
-    faqs: [],
+    anchorWordsSection: [],
+    faqSection: [],
     ctaSection: { ctaTitle: "", description: "" },
     metaKeywords: [],
     image: "",
@@ -84,10 +84,10 @@ const EditBlogForm = ({ id }) => {
   ) : (
     <form onSubmit={handleUpdate}>
       <TitleAndDescription title={blogData.title} setTitle={(value) => setBlogData({ ...blogData, title: value })} description={blogData.description} setDescription={(value) => setBlogData({ ...blogData, description: value })} />
-      <ContentForm content={blogData.content} setContent={(value) => setBlogData({ ...blogData, content: value })} />
-      <TagsForm tags={blogData.tags} setTags={(value) => setBlogData({ ...blogData, tags: value })} />
-      <AnchorWordsForm anchorWords={blogData.anchorWords} setAnchorWords={(value) => setBlogData({ ...blogData, anchorWords: value })} />
-      <FAQsForm faqs={blogData.faqs} setFaqs={(value) => setBlogData({ ...blogData, faqs: value })} />
+      <ContentForm content={blogData.contentSection} setContent={(value) => setBlogData({ ...blogData, contentSection: value })} />
+      <TagsForm tags={blogData.tagsSection} setTags={(value) => setBlogData({ ...blogData, tagsSection: value })} />
+      <AnchorWordsForm anchorWords={blogData.anchorWordsSection} setAnchorWords={(value) => setBlogData({ ...blogData, anchorWordsSection: value })} />
+      <FAQsForm faqs={blogData.faqSection.faqs} setFaqs={(value) => setBlogData({ ...blogData, faqSection: value })} />
       <CTASection ctaSection={blogData.ctaSection} setCtaSection={(value) => setBlogData({ ...blogData, ctaSection: value })} />
       <MetaKeywordsForm metaKeywords={blogData.metaKeywords} setMetaKeywords={(value) => setBlogData({ ...blogData, metaKeywords: value })} />
       <ImageUpload image={blogData.image} setImage={(value) => setBlogData({ ...blogData, image: value })} />
