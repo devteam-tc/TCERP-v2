@@ -14,6 +14,7 @@ import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
 import DropdownSection from '../../blogs/Dropdown';
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
 import TableOfContents from "./TableOfContents";
+import ImageComponent from '../../admin/ImageComponent';
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogs", slug);
@@ -310,6 +311,7 @@ export default async function BlogPost({ params }) {
             <div className={styles.stickysidebar}>
               <DropdownSection />
               <TableOfContents />
+              <ImageComponent />
               <SocialShare title={post.title} />
 
             </div>
