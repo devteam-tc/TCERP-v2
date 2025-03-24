@@ -247,7 +247,7 @@
   position: relative;
   display: inline-block;
   /* left: 50%; */
-    left: 7%;
+    left: 28%;
   transform: translateX(-50%);
 }
 
@@ -551,7 +551,7 @@
 }
 
 .highlighted_keyword {
-  color: #ef5226 !important; /* Ensure color applies */
+  color: #05a7cc !important; /* Ensure color applies */
   text-decoration: none !important; /* Force underline */
   font-weight: bold; /* Make it stand out */
   cursor: pointer;

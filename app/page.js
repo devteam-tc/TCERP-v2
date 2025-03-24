@@ -27,7 +27,7 @@ export default function Page() {
         <ScrollFeature />
         <GalleryTabs /> 
         <Testimonials/>
-        {/* <PricingSection />  Hold for sometime until and unless we have the pricing section ready with new plans */} 
+        <PricingSection />
         <CallToAction/>
 
       </main>

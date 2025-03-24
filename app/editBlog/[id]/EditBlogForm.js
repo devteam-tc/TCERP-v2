@@ -2,48 +2,41 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
-import { db } from "../../firebaseConfig"; 
+import { db } from "../../firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { Button } from "react-bootstrap";
 
-import TitleAndDescription from "../../admin/TitleAndDescription";
-import ContentForm from "../../admin/ContentForm";
-import TagsForm from "../../admin/TagsForm";
-import AnchorWordsForm from "../../admin/AnchorWordsForm";
-import FAQsForm from "../../admin/FAQsForm";
-import CTASection from "../../admin/CTASection";
-import MetaKeywordsForm from "../../admin/MetaKeywordsForm";
-import ImageUpload from "../../admin/ImageUpload";
+import TitleAndDescription from "../../admin/createBlog/TitleAndDescription";
+import ContentForm from "../../admin/createBlog/ContentForm";
+import TagsForm from "../../admin/createBlog/TagsForm";
+import AnchorWordsForm from "../../admin/createBlog/AnchorWordsForm";
+import FAQsForm from "../../admin/createBlog/FAQsForm";
+import CTASection from "../../admin/createBlog/CTASection";
+import MetaKeywordsForm from "../../admin/createBlog/MetaKeywordsForm";
+import ImageUpload from "../../admin/createBlog/ImageUpload";
+import styles from "../../admin/createBlog/Form.module.css";
 
 const EditBlogForm = ({ id }) => {
   const router = useRouter();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [loading, setLoading] = useState(true);
   const [blogData, setBlogData] = useState({
     title: "",
     description: "",
-    meta: { title: "", description: "" },
     contentSection: [],
-    tags: [],
+    tagsSection: [],
     anchorWordsSection: [],
-    faqSection: [],
-    ctaSection: { ctaTitle: "", description: "" },
+    faqs: [],
+    ctaSection: { ctaTitle: "", descriptions: [] },
     metaKeywords: [],
-    image: "",
+    imageUrl: "",
   });
 
-  // ✅ Single useEffect for authentication & fetching data
+  // ✅ Fetch blog data
   useEffect(() => {
-    const init = async () => {
-      if (!isAuthenticated) {
-        router.replace("/login");
-        return;
-      }
-
+    const fetchBlogData = async () => {
       if (id) {
         try {
-          const docRef = doc(db, "blogPosts", id);
+          const docRef = doc(db, "blogs", id);
           const docSnap = await getDoc(docRef);
 
           if (docSnap.exists()) {
@@ -53,24 +46,17 @@ const EditBlogForm = ({ id }) => {
           console.error("Error fetching blog:", error);
         }
       }
-
       setLoading(false);
     };
 
-    init();
-  }, [id, isAuthenticated, router]);
-
-  // Show redirecting message if user is not authenticated
-  if (!isAuthenticated) {
-    return <div>🔒 Redirecting to login...</div>;
-  }
+    fetchBlogData();
+  }, [id]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-
     try {
-      const docRef = doc(db, "blogPosts", id);
-      await updateDoc(docRef, { ...blogData, date: new Date() });
+      const docRef = doc(db, "blogs", id);
+      await updateDoc(docRef, { ...blogData, createdAt: new Date() });
       alert("✅ Blog updated successfully!");
       router.push("/blogs");
     } catch (error) {
@@ -82,17 +68,93 @@ const EditBlogForm = ({ id }) => {
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <form onSubmit={handleUpdate}>
-      <TitleAndDescription title={blogData.title} setTitle={(value) => setBlogData({ ...blogData, title: value })} description={blogData.description} setDescription={(value) => setBlogData({ ...blogData, description: value })} />
-      <ContentForm content={blogData.contentSection} setContent={(value) => setBlogData({ ...blogData, contentSection: value })} />
-      <TagsForm tags={blogData.tagsSection} setTags={(value) => setBlogData({ ...blogData, tagsSection: value })} />
-      <AnchorWordsForm anchorWords={blogData.anchorWordsSection} setAnchorWords={(value) => setBlogData({ ...blogData, anchorWordsSection: value })} />
-      <FAQsForm faqs={blogData.faqSection.faqs} setFaqs={(value) => setBlogData({ ...blogData, faqSection: value })} />
-      <CTASection ctaSection={blogData.ctaSection} setCtaSection={(value) => setBlogData({ ...blogData, ctaSection: value })} />
-      <MetaKeywordsForm metaKeywords={blogData.metaKeywords} setMetaKeywords={(value) => setBlogData({ ...blogData, metaKeywords: value })} />
-      <ImageUpload image={blogData.image} setImage={(value) => setBlogData({ ...blogData, image: value })} />
-      
-      <Button type="submit">Update Blog</Button>
+    <form onSubmit={handleUpdate} style={{ maxWidth: "800px", margin: "auto" }}>
+      <TitleAndDescription
+        title={blogData.title}
+        setTitle={(value) =>
+          setBlogData((prev) => ({ ...prev, title: value }))
+        }
+        description={blogData.description}
+        setDescription={(value) =>
+          setBlogData((prev) => ({ ...prev, description: value }))
+        }
+      />
+
+      <ContentForm
+        content={blogData.contentSection || []}
+        setContent={(updateFn) => {
+          setBlogData((prevData) => {
+            const updatedContent =
+              typeof updateFn === "function" ? updateFn(prevData.contentSection) : updateFn;
+            return {
+              ...prevData,
+              contentSection: Array.isArray(updatedContent) ? updatedContent : prevData.contentSection,
+            };
+          });
+        }}
+      />
+
+      <TagsForm 
+        tags={blogData.tags} 
+        setTags={(value) => setBlogData((prev) => ({ ...prev, tags: value }))} 
+      />
+
+      <AnchorWordsForm
+        anchorWords={blogData.anchorWordsSection || []}
+        setAnchorWords={(updateFn) => {
+          setBlogData((prevData) => {
+            const updatedWords =
+              typeof updateFn === "function" ? updateFn(prevData.anchorWordsSection) : updateFn;
+            return {
+              ...prevData,
+              anchorWordsSection: Array.isArray(updatedWords) ? updatedWords : prevData.anchorWordsSection,
+            };
+          });
+        }}
+      />
+
+      <FAQsForm
+        faqs={blogData.faqs || []}
+        setFaqs={(updateFn) => {
+          setBlogData((prevData) => {
+            const updatedFaqs =
+              typeof updateFn === "function" ? updateFn(prevData.faqs) : updateFn;
+            return {
+              ...prevData,
+              faqs: Array.isArray(updatedFaqs) ? updatedFaqs : prevData.faqs,
+            };
+          });
+        }}
+      />
+
+      <CTASection
+        ctaSection={blogData.ctaSection || { ctaTitle: "", descriptions: [] }}
+        setCtaSection={(update) => {
+          setBlogData((prev) => ({
+            ...prev,
+            ctaSection: {
+              ...prev.ctaSection,
+              descriptions: update.descriptions || [...prev.ctaSection.descriptions, ""],
+            },
+          }));
+        }}
+      />
+
+      <MetaKeywordsForm
+        metaKeywords={blogData.metaKeywords}
+        setMetaKeywords={(value) =>
+          setBlogData((prev) => ({ ...prev, metaKeywords: value }))
+        }
+      />
+
+      <ImageUpload
+        image={blogData.imageUrl}
+        setImage={(newImage) => setBlogData((prev) => ({ ...prev, imageUrl: newImage }))}
+      />
+
+      <div style={{ textAlign: "center" }}>
+        <Button className={styles.submitbutton} type="submit">Update Blog</Button>
+      </div>
     </form>
   );
 };

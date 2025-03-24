@@ -57,7 +57,7 @@ export default function DemoPage() {
           <Col>
             <div
               className={`calendly-inline-widget ${styles.calendlyWrapper}`}
-              data-url="https://calendly.com/padmini-techclouderp/demo"
+              data-url="https://calendly.com/dvignesh-techclouderp/demo"
             ></div>
           </Col>
         </Row>

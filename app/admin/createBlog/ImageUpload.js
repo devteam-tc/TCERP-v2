@@ -1,3 +1,4 @@
+// import styles from "./Form.module.css"
 // const ImageUpload = ({ image, setImage }) => {
 //     const handleImageChange = (e) => {
 //       const file = e.target.files[0];
@@ -7,7 +8,7 @@
 //     };
   
 //     return (
-//       <div>
+//       <div className={styles.section}>
 //         <h3>Image Upload</h3>
 //         <input type="file" onChange={handleImageChange} accept="image/*" />
 //         {image && <img src={image} alt="Preview" style={{ width: "100px", height: "100px", marginTop: "10px" }} />}
@@ -16,25 +17,73 @@
 //   };
   
 //   export default ImageUpload;
-  
+
+
+// import React, { useState } from "react";
+// import { storage } from "../../firebaseConfig";
+// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+// const ImageUpload = ({ image, setImage }) => {
+//   const [file, setFile] = useState(null);
+//   const [progress, setProgress] = useState(0);
+
+//   const handleFileChange = (e) => {
+//     setFile(e.target.files[0]);
+//   };
+
+//   const handleUpload = () => {
+//     if (!file) return alert("Please select an image!");
+
+//     const storageRef = ref(storage, `blogs_images/${Date.now()}-${file.name}`);
+//     const uploadTask = uploadBytesResumable(storageRef, file);
+
+//     uploadTask.on(
+//       "state_changed",
+//       (snapshot) => {
+//         const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+//         setProgress(percent);
+//       },
+//       (error) => {
+//         console.error("Upload error:", error);
+//         alert("❌ Image upload failed!");
+//       },
+//       async () => {
+//         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+//         setImage(downloadURL); // ✅ Update the image URL in parent state
+//         alert("✅ Image uploaded successfully!");
+//       }
+//     );
+//   };
+
+//   return (
+//     <div>
+//       <input type="file" onChange={handleFileChange} />
+//       <button type="button" onClick={handleUpload}>Upload</button>
+//       {progress > 0 && <p>Uploading: {Math.round(progress)}%</p>}
+//       {image && <img src={image} alt="Uploaded" width="200" />}
+//     </div>
+//   );
+// };
+
+// export default ImageUpload;
+
 
 import React, { useState } from "react";
-import { storage, db } from "../../firebaseConfig";
+import { storage } from "../../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+import styles from "./Form.module.css"
 
-const ImageUpload = () => {
-  const [file, setFile] = useState(null);
+const ImageUpload = ({ image, setImage }) => {
   const [progress, setProgress] = useState(0);
-  const [imageUrl, setImageUrl] = useState("");
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
+
+    uploadImage(selectedFile); // ✅ Automatically upload when selected
   };
 
-  const handleUpload = () => {
-    if (!file) return alert("Please select an image!");
-
+  const uploadImage = (file) => {
     const storageRef = ref(storage, `blogs_images/${Date.now()}-${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -46,25 +95,21 @@ const ImageUpload = () => {
       },
       (error) => {
         console.error("Upload error:", error);
+        alert("❌ Image upload failed!");
       },
       async () => {
         const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-        setImageUrl(downloadURL);
-
-        // Save image URL to Firestore
-        await addDoc(collection(db, "blogs"), { url: downloadURL });
-
-        alert("Image uploaded successfully!");
+        setImage(downloadURL); // ✅ Update parent state with URL
+        alert("✅ Image uploaded successfully!");
       }
     );
   };
 
   return (
-    <div>
+    <div className={styles.section}>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
       {progress > 0 && <p>Uploading: {Math.round(progress)}%</p>}
-      {imageUrl && <img src={imageUrl} alt="Uploaded" width="200" />}
+      {image && <img src={image} alt="Uploaded" width="200" />}
     </div>
   );
 };

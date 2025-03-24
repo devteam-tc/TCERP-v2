@@ -16,7 +16,7 @@ import AnimatedColumn from "../../components/Home/AnimatedColumn";
 import TableOfContents from "./TableOfContents";
 
 async function getBlogPost(slug) {
-  const docRef = doc(db, "blogPosts", slug);
+  const docRef = doc(db, "blogs", slug);
   const docSnap = await getDoc(docRef);
   if (!docSnap.exists()) {
     return null;
@@ -31,7 +31,7 @@ async function getDynamicData(collectionName) {
 
 export async function generateStaticParams() {
   try {
-    const blogCollection = collection(db, "blogPosts");
+    const blogCollection = collection(db, "blogs");
     const querySnapshot = await getDocs(blogCollection);
     return querySnapshot.docs.map((doc) => ({ slug: doc.id }));
   } catch (error) {
@@ -39,6 +39,26 @@ export async function generateStaticParams() {
     return [];
   }
 }
+
+const formatDate = (date) => {
+  const day = date.getDate();
+  const month = date.toLocaleString("en-US", { month: "long" });
+  const year = date.getFullYear();
+
+  // Convert day to ordinal (1st, 2nd, 3rd, etc.)
+  const ordinalSuffix = (n) => {
+    if (n > 3 && n < 21) return "th"; // Covers 11-13 (special cases)
+    switch (n % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
+
+  return `${day}${ordinalSuffix(day)} ${month} ${year}`;
+};
+
 
 export async function generateMetadata({ params }) {
   const post = await getBlogPost(params.slug);
@@ -58,7 +78,7 @@ export async function generateMetadata({ params }) {
       description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
       images: [
         {
-          url: post.imageUrl || "/placeholder.svg",
+          url: post.image || "/placeholder.svg",
           width: 800,
           height: 600,
           alt: post.title,
@@ -70,7 +90,7 @@ export async function generateMetadata({ params }) {
 
 async function getRelevantPosts(tags, currentSlug) {
   if (!tags || tags.length === 0) return [];
-  const blogCollection = collection(db, "blogPosts");
+  const blogCollection = collection(db, "blogs");
   const querySnapshot = await getDocs(blogCollection);
   const allPosts = querySnapshot.docs
     .map((doc) => ({ id: doc.id, ...doc.data() }))
@@ -86,7 +106,15 @@ export default async function BlogPost({ params }) {
 
   const relevantPosts = await getRelevantPosts(post.tags, params.slug);
   const faqs = await getDynamicData("faqs");
+  const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
+    if (item.word && item.href) {
+      acc[item.word.toLowerCase().trim()] = item.href;
+    }
+    return acc;
+  }, {});
 
+    // ✅ Define a Set to track used keywords
+    const usedKeywords = new Set();
   return (
     <main className={styles.main}>
       <Navigation />
@@ -108,15 +136,21 @@ export default async function BlogPost({ params }) {
       <article className={styles.article}>
         <div className={styles.container}>
           {/* Tags */}
-          {post.tagsSection && (
+          {post.tags && (
             <div className={styles.meta}>
               <div className={styles.tags}>
-                {post.tagsSection.map((tag) => (
+                {post.tags.map((tag) => (
                   <span key={tag} className={styles.tag}>{tag}</span>
                 ))}
               </div>
             </div>
           )}
+          <p style={{margin: "10px"}}>Published Date: {formatDate(post.createdAt.toDate())}</p>
+
+
+
+
+
  
           {/* Blog Content */}
           <div className="blog-content">
@@ -124,15 +158,17 @@ export default async function BlogPost({ params }) {
               <img src={post.imageUrl || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
               {post.contentSection?.map((section, index) => {
-                  const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
-                    return {
-                      ...acc,
-                      ...Object.fromEntries(
-                        Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
-                      ),
-                    };
-                  }, {});
+                  // const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
+                  //   return {
+                  //     ...acc,
+                  //     ...Object.fromEntries(
+                  //       Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
+                  //     ),
+                  //   };
+                  // }, {});
 
+                  
+                  
                   return (
                     <div key={index}>
                       <h4 className={styles.topheading}>{section.title}</h4>
@@ -140,14 +176,18 @@ export default async function BlogPost({ params }) {
                       {/* Now handling description as an array */}
                       {section.description?.map((desc, descIndex) => (
                         <p key={descIndex}>
-                          <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} />
+                          {/* <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} /> */}
+
+                          <KeywordParser
+                              description={desc}
+                              anchorWordsSection={anchorWordsObject}
+                              usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                            />
                         </p>
                       ))}
                     </div>
                   );
                 })}
-
-
 </div>  
       </div>
       </article>
@@ -171,9 +211,17 @@ export default async function BlogPost({ params }) {
                     <h4 className={styles.sectionTitle}>
                       {sectionArray[0].TopHeading}
                     </h4>
-                    <p className={styles.description}>
+                    {/* <p className={styles.description}>
                       {sectionArray[0].TopIntro}
-                    </p>
+                    </p> */}
+
+                    {/* <KeywordParser description={sectionArray[0].TopIntro} anchorWordsSection={anchorWordsObject} /> */}
+
+                    <KeywordParser
+                                description={sectionArray[0].TopIntro}
+                                anchorWordsSection={anchorWordsObject}
+                                usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                              />
                   </>
                 )}
 
@@ -182,7 +230,13 @@ export default async function BlogPost({ params }) {
                   sectionArray.slice(1).map((item, index) => (
                     <div key={index}>
                       <h5 className={styles.subHeading}>{item.title}</h5>
-                      <p className={styles.description}>{item.description}</p>
+                      {/* <p className={styles.description}>{item.description}</p> */}
+                      {/* <KeywordParser description={item.description} anchorWordsSection={anchorWordsObject} /> */}
+                      <KeywordParser
+                                  description={item.description}
+                                  anchorWordsSection={anchorWordsObject}
+                                  usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                        />
                     </div>
                   ))}
               </div>
@@ -194,20 +248,24 @@ export default async function BlogPost({ params }) {
       </div>
     </section>
       </div>
-
-
-          {/* Call to Action Section */}
+        {/* Call to Action Section */}
           {post.ctaSection && (
             <div className={styles.ctaContainer}>
               <h2>{post.ctaSection.ctaTitle}</h2>
-              {Array.isArray(post.ctaSection.data) && post.ctaSection.data.length > 0 ? (
-                post.ctaSection.data.map((item, index) => (
+              {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
+                post.ctaSection.descriptions.map((item, index) => (
                   <div key={index}>
-                    <p>{item.description}</p>
+                    {/* <p>{item}</p> */}
+                    {/* <KeywordParser description={item} anchorWordsSection={anchorWordsObject} /> */}
+                    <KeywordParser
+                          description={item}
+                          anchorWordsSection={anchorWordsObject}
+                          usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                        />
                   </div>
                 ))
               ) : (
-                <p>{post.ctaSection.description}</p>
+                <p>No Conclusions</p>
               )}
             </div>
           )}
@@ -215,11 +273,11 @@ export default async function BlogPost({ params }) {
      {/* Frequently Asked Questions Container */}
     <section className={styles.faqSection}>
     <div className={styles.container}>
-    <h2>{post?.faqSection?.faqTitle || "Frequently Asked Questions"}</h2>
+    <h2>Frequently Asked Questions</h2>
     {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
-      {Array.isArray(post?.faqSection?.faqs) && post.faqSection.faqs.length > 0 ? (
-        post.faqSection.faqs.map((faq, index) => (
+      {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
+        post.faqs.map((faq, index) => (
           <div key={index} className={styles.faqItem}>
             <h3>{faq.question}</h3>
             <p>{faq.answer}</p>
@@ -265,3 +323,4 @@ export default async function BlogPost({ params }) {
           </main>
   );
 }
+

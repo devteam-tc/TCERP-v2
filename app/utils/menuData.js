@@ -4,7 +4,7 @@ export const menuData = [
       href: '/',
     },
     {
-      label: 'About Us',
+      label: 'About',
       href: '/about-us',
     },
     {
@@ -131,10 +131,10 @@ export const menuData = [
         }
       ],
     },
-    // { label: 'Pricing',  
-    //   href: '/pricing' }, hold for some time until new pricing page is ready
-      // { label: 'Blogs',
-      //   href: '/blogs' },
+    { label: 'Pricing', 
+      href: '/pricing' },
+      { label: 'Blogs',
+        href: '/blogs' },
 
     { label: 'Contact Us', 
       href: '/contact-us' },

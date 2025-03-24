@@ -32,8 +32,8 @@ export default function Footer() {
               <p className={`${styles.footerText} pt-3`}>
                 Tech Cloud ERP delivers top-notch solutions tailored for any business, combining advanced technology, intuitive design, and comprehensive features.
               </p>
-              <SocialMediaIcons />
               <Counter />
+              <SocialMediaIcons />
             </Col>
             <Col md={4} xl={2} sm={6}>
               <h5 className={styles.footerHeading}>Useful Links</h5>

@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 async function getBlogPosts() {
-  const querySnapshot = await getDocs(collection(db, "blogPosts"));
+  const querySnapshot = await getDocs(collection(db, "blogs"));
   return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 }
 
