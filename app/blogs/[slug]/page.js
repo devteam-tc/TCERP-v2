@@ -119,7 +119,7 @@ export default async function BlogPost({ params }) {
   return (
     <main className={styles.main}>
       <Navigation />
-      <section className={styles.sectionbeg}>
+      {/* <section className={styles.sectionbeg}>
         <div className="container">
           <AnimatedColumn direction="left">
             <div>
@@ -128,7 +128,7 @@ export default async function BlogPost({ params }) {
             </div>
           </AnimatedColumn>
         </div>
-      </section>
+      </section> */}
       <div className={styles.bodySection}>
 
       <div className="container">
@@ -136,6 +136,8 @@ export default async function BlogPost({ params }) {
             <div className="col-md-8">
       <article className={styles.article}>
         <div className={styles.container}>
+        <h2 className={industrystyles.heading}>{post.title}</h2>
+
           {/* Tags */}
           {post.tags && (
             <div className={styles.meta}>
@@ -143,10 +145,12 @@ export default async function BlogPost({ params }) {
                 {post.tags.map((tag) => (
                   <span key={tag} className={styles.tag}>{tag}</span>
                 ))}
+                          <p style={{margin: "10px"}}>Published Date: {formatDate(post.createdAt.toDate())}</p>
+
               </div>
+              
             </div>
           )}
-          <p style={{margin: "10px"}}>Published Date: {formatDate(post.createdAt.toDate())}</p>
 
 
 
@@ -191,6 +195,7 @@ export default async function BlogPost({ params }) {
                 })}
 </div>  
       </div>
+      
       </article>
       {/* Key Takeaways Section */}
       <div className="blog-content"> 
@@ -252,7 +257,7 @@ export default async function BlogPost({ params }) {
         {/* Call to Action Section */}
           {post.ctaSection && (
             <div className={styles.ctaContainer}>
-              <h2>{post.ctaSection.ctaTitle}</h2>
+              <h2 className={styles.conclusiontitle}>{post.ctaSection.ctaTitle}</h2>
               {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
                 post.ctaSection.descriptions.map((item, index) => (
                   <div key={index}>
@@ -266,7 +271,7 @@ export default async function BlogPost({ params }) {
                   </div>
                 ))
               ) : (
-                <p>No Conclusions</p>
+                <p >No Conclusions</p>
               )}
             </div>
           )}
@@ -274,7 +279,7 @@ export default async function BlogPost({ params }) {
      {/* Frequently Asked Questions Container */}
     <section className={styles.faqSection}>
     <div className={styles.container}>
-    <h2>Frequently Asked Questions</h2>
+    <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
     {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
       {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
@@ -292,20 +297,31 @@ export default async function BlogPost({ params }) {
 </section>
 {/* Related Posts Section */}
 {relevantPosts.length > 0 && (
-          <section className={styles.relatedPosts}>
-            <h2>Related Posts</h2>
-            <div className={styles.relatedContainer}>
-              {relevantPosts.map((related) => (
-                <div key={related.id} className={styles.relatedPost}>
-                  <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
-                    <Image src={related.image || "/placeholder.svg"} alt={related.title} width={300} height={200} className={styles.relatedImage} />
-                    <h3>{related.title}</h3>
-                  </Link>
-                </div>
-              ))}
+  <section className={styles.relatedPosts}>
+    <div className="row">
+      <div className="col-md-12">
+        <h2>Related Posts</h2>
+        <div className={styles.relatedContainer}>
+          {relevantPosts.map((related) => (
+            <div key={related.id} className={styles.relatedPost}>
+              <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                <Image
+                  src={related.imageUrl || "/placeholder.svg"}
+                  alt={related.title}
+                  width={300}
+                  height={200}
+                  className={styles.relatedImage}
+                />
+                <h3>{related.title}</h3>
+              </Link>
             </div>
-          </section>
-        )}
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
           </div>
           <div className="col-md-4">
             <div className={styles.stickysidebar}>

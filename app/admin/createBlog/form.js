@@ -1,73 +1,4 @@
-// import { useState } from "react";
-// //import TitleExcerptForm from "./TitleExcerptForm";
-// import TitleAndDescription from "./TitleAndDescription";
-// // import MetaKeywordsForm from "./MetaKeywordsForm";
-// // import MetaForm from "./MetaForm";
-// import ContentForm from "./ContentForm";
-// import TagsForm from "./TagsForm";
-// import AnchorWordsForm from "./AnchorWordsForm";
-// import FAQsForm from "./FAQsForm";
-// import CTASection from "./CTASection";
-// import MetaKeywordsForm from "./MetaKeywordsForm";
-// import ImageUpload from "./ImageUpload";
-// import { db } from "../../firebaseConfig"; // Firebase Firestore instance
-// import { doc, setDoc } from "firebase/firestore";
 
-// const Form = () => {
-//   const [title, setTitle] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [meta, setMeta] = useState({ title: "", description: "" });
-//   const [content, setContent] = useState([]);
-//   const [tags, setTags] = useState([]);
-//   const [anchorWords, setAnchorWords] = useState([]);
-//   const [faqs, setFaqs] = useState([]);
-//   const [ctaSection, setCtaSection] = useState({ ctaTitle: "", description: "" });
-//   const [metaKeywords, setMetaKeywords] = useState([]);
-//   const [image, setImage] = useState("");
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const blogData = {
-//       title,
-//       description,
-//       meta,
-//       contentSection,
-//       tags,
-//       anchorWords,
-//       faqs,
-//       ctaSection,
-//       metaKeywords,
-//       image,
-//       date: new Date(),
-//     };
-
-//     try {
-//       await setDoc(doc(db, "blogs", title.toLowerCase().replace(/\s+/g, "-")), blogData);
-//       alert("Blog saved successfully!");
-//     } catch (error) {
-//       console.error("Error saving blog:", error);
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <TitleAndDescription title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
-//       {/* <MetaForm meta={meta} setMeta={setMeta} /> */}
-//       <ContentForm content={content} setContent={setContent} />
-//       <TagsForm tags={tags} setTags={setTags} />
-//       <AnchorWordsForm anchorWords={anchorWords} setAnchorWords={setAnchorWords} />
-//       <FAQsForm faqs={faqs} setFaqs={setFaqs} />
-//       <CTASection ctaSection={ctaSection} setCtaSection={setCtaSection} />
-//       <MetaKeywordsForm metaKeywords={metaKeywords} setMetaKeywords={setMetaKeywords} />
-//       <ImageUpload image={image} setImage={setImage} />
-      
-//       <button type="submit">Submit</button>
-//     </form>
-//   );
-// };
-
-// export default Form;
 
 
 "use client";
@@ -230,10 +161,7 @@ const AddSectionsForm = () => {
           acc[section.sectionName] = section.data;
           return acc;
         }, {}),
-        // faqSection: {
-        //   faqTitle: "FAQ'S",
-        //   faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim())
-        // },
+      
         faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()),
         contentSection: content.filter(
           item => item.title.trim() && item.description.some(desc => desc.trim())

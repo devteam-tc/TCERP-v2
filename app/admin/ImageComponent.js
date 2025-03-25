@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./ImageComponent.module.css";
 
 const ImageComponent = () => {
@@ -7,7 +8,9 @@ const ImageComponent = () => {
 
   return (
     <div className={styles.imageWrapper}>
-      <img src={posterImage} alt="Poster" className={styles.image} />
+      <Link href="/schedule-demo">
+        <img src={posterImage} alt="Poster" className={styles.image} />
+      </Link>
     </div>
   );
 };
