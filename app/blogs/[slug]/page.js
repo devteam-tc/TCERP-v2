@@ -163,24 +163,13 @@ export default async function BlogPost({ params }) {
               <img src={post.imageUrl || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
               </div>
               {post.contentSection?.map((section, index) => {
-                  // const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
-                  //   return {
-                  //     ...acc,
-                  //     ...Object.fromEntries(
-                  //       Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
-                  //     ),
-                  //   };
-                  // }, {});
-
-                  
-                  
                   return (
                     <div key={index}>
                       <h4 className={styles.topheading}>{section.title}</h4>
 
                       {/* Now handling description as an array */}
                       {section.description?.map((desc, descIndex) => (
-                        <p key={descIndex}>
+                        <p key={descIndex}  style={{ fontSize: "16px", textAlign: "justify" }}>
                           {/* <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} /> */}
 
                           <KeywordParser
@@ -222,12 +211,13 @@ export default async function BlogPost({ params }) {
                     </p> */}
 
                     {/* <KeywordParser description={sectionArray[0].TopIntro} anchorWordsSection={anchorWordsObject} /> */}
-
-                    <KeywordParser
+                               <p style={{ fontSize: "18px" , textAlign: "justify" }}>
+                               <KeywordParser
                                 description={sectionArray[0].TopIntro}
                                 anchorWordsSection={anchorWordsObject}
                                 usedKeywords={usedKeywords} // ✅ Pass usedKeywords
                               />
+                      </p>
                   </>
                 )}
 
@@ -238,11 +228,13 @@ export default async function BlogPost({ params }) {
                       <h5 className={styles.subHeading}>{item.title}</h5>
                       {/* <p className={styles.description}>{item.description}</p> */}
                       {/* <KeywordParser description={item.description} anchorWordsSection={anchorWordsObject} /> */}
-                      <KeywordParser
+                          <p style={{ fontSize: "18px" , textAlign: "justify" }}>
+                          <KeywordParser
                                   description={item.description}
                                   anchorWordsSection={anchorWordsObject}
                                   usedKeywords={usedKeywords} // ✅ Pass usedKeywords
                         />
+                      </p>
                     </div>
                   ))}
               </div>
@@ -255,31 +247,32 @@ export default async function BlogPost({ params }) {
     </section>
       </div>
         {/* Call to Action Section */}
-          {post.ctaSection && (
-            <div className={styles.ctaContainer}>
-              <h2 className={styles.conclusiontitle}>{post.ctaSection.ctaTitle}</h2>
-              {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
-                post.ctaSection.descriptions.map((item, index) => (
-                  <div key={index}>
-                    {/* <p>{item}</p> */}
-                    {/* <KeywordParser description={item} anchorWordsSection={anchorWordsObject} /> */}
-                    <KeywordParser
+                    {post.ctaSection && (
+              <div className={styles.ctaContainer}>
+                <h3 className={styles.conclusiontitle}>{post.ctaSection.ctaTitle}</h3>
+                {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
+                  post.ctaSection.descriptions.map((item, index) => (
+                    <div key={index}>
+                      <p style={{ fontSize: "18px" , textAlign: "justify" }}>
+                        <KeywordParser
                           description={item}
                           anchorWordsSection={anchorWordsObject}
                           usedKeywords={usedKeywords} // ✅ Pass usedKeywords
                         />
-                  </div>
-                ))
-              ) : (
-                <p >No Conclusions</p>
-              )}
-            </div>
-          )}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p style={{ fontSize: "18px" }}>No Conclusions</p>
+                )}
+              </div>
+            )}
+
 
      {/* Frequently Asked Questions Container */}
     <section className={styles.faqSection}>
     <div className={styles.container}>
-    <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+    <h3 className={styles.faqTitle}>Frequently Asked Questions</h3>
     {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
       {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
@@ -295,32 +288,6 @@ export default async function BlogPost({ params }) {
     </div>
   </div>
 </section>
-{/* Related Posts Section */}
-{relevantPosts.length > 0 && (
-  <section className={styles.relatedPosts}>
-    <div className="row">
-      <div className="col-md-12">
-        <h2>Related Posts</h2>
-        <div className={styles.relatedContainer}>
-          {relevantPosts.map((related) => (
-            <div key={related.id} className={styles.relatedPost}>
-              <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
-                <Image
-                  src={related.imageUrl || "/placeholder.svg"}
-                  alt={related.title}
-                  width={300}
-                  height={200}
-                  className={styles.relatedImage}
-                />
-                <h3>{related.title}</h3>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-)}
 
           </div>
           <div className="col-md-4">
@@ -336,6 +303,43 @@ export default async function BlogPost({ params }) {
 
           </div>
           </div>
+          {/* relevant posts Section */}
+                            {relevantPosts.length > 0 && (
+                    <section className={styles.relatedPosts}>
+                      <h3>Relevant Posts</h3>
+                      <div className="container">
+                        <div className={styles.scrollContainer}>
+                          <div className={styles.gridContainer}>
+                            {relevantPosts.map((related) => (
+                              <div key={related.id} className={styles.gridItem}>
+                                <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                                  <Image
+                                    src={related.imageUrl || "/placeholder.svg"}
+                                    alt={related.title}
+                                    width={300}
+                                    height={200}
+                                    className={styles.relatedImage}
+                                  />
+                                  <h2 className={styles.gridItemh2}>
+                                    {related.title} <span className={styles.arrow}>→</span>
+                                  </h2>
+                                  <p className={styles.gridItemDescription}>
+                                    {related.description.length > 100
+                                      ? `${related.description.substring(0, 100)}...`
+                                      : related.description}
+                                  </p>
+                                </Link>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  )}
+
+
+
+
           </div>
           <Footer />
           </main>

@@ -25,6 +25,7 @@
   list-style: none;
 }
 
+/* Optional: Customize scrollbar */
 .tocList::-webkit-scrollbar {
   width: 6px;
 }
@@ -36,7 +37,6 @@
   .tocTitle {
     font-size: 24px;
     font-weight: 600;
-    border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
   }
   
