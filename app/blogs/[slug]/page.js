@@ -4,17 +4,17 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
-import industrystyles from '../../industries/[slug]/industry.module.css'
+import industrystyles from "../../industries/[slug]/industry.module.css";
 import Navigation from "../../components/Header/navigation";
 import Footer from "../../components/Footer";
 import PageStyles from "../page.module.css";
 import SocialShare from "./SocialShare";
 import KeywordParser from "./keywordParser";
 import { FaEnvelope, FaGlobe } from "react-icons/fa"; // Import React Icons
-import DropdownSection from '../../blogs/Dropdown';
+import DropdownSection from "../../blogs/Dropdown";
 import AnimatedColumn from "../../components/Home/AnimatedColumn";
 import TableOfContents from "./TableOfContents";
-import ImageComponent from '../../admin/ImageComponent';
+import ImageComponent from "../../admin/ImageComponent";
 
 async function getBlogPost(slug) {
   const docRef = doc(db, "blogs", slug);
@@ -50,16 +50,19 @@ const formatDate = (date) => {
   const ordinalSuffix = (n) => {
     if (n > 3 && n < 21) return "th"; // Covers 11-13 (special cases)
     switch (n % 10) {
-      case 1: return "st";
-      case 2: return "nd";
-      case 3: return "rd";
-      default: return "th";
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
     }
   };
 
   return `${day}${ordinalSuffix(day)} ${month} ${year}`;
 };
-
 
 export async function generateMetadata({ params }) {
   const post = await getBlogPost(params.slug);
@@ -72,11 +75,15 @@ export async function generateMetadata({ params }) {
   }
   return {
     title: post.title || "Tech Cloud ERP Blog",
-    description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
-    keywords: post.meta?.keywords?.join(", ") || "ERP, software, business solutions",
+    description:
+      post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
+    keywords:
+      post.meta?.keywords?.join(", ") || "ERP, software, business solutions",
     openGraph: {
       title: post.meta?.title || "Tech Cloud ERP Blog",
-      description: post.meta?.description || "Read the latest articles from Tech Cloud ERP.",
+      description:
+        post.meta?.description ||
+        "Read the latest articles from Tech Cloud ERP.",
       images: [
         {
           url: post.image || "/placeholder.svg",
@@ -95,9 +102,12 @@ async function getRelevantPosts(tags, currentSlug) {
   const querySnapshot = await getDocs(blogCollection);
   const allPosts = querySnapshot.docs
     .map((doc) => ({ id: doc.id, ...doc.data() }))
-    .filter((post) => post.id !== currentSlug && post.tags?.some((tag) => tags.includes(tag)))
+    .filter(
+      (post) =>
+        post.id !== currentSlug && post.tags?.some((tag) => tags.includes(tag))
+    )
     .sort((a, b) => (b.date?.seconds || 0) - (a.date?.seconds || 0))
-    .slice(0, 3);
+    .slice(0, 5);
   return allPosts;
 }
 
@@ -114,8 +124,8 @@ export default async function BlogPost({ params }) {
     return acc;
   }, {});
 
-    // ✅ Define a Set to track used keywords
-    const usedKeywords = new Set();
+  // ✅ Define a Set to track used keywords
+  const usedKeywords = new Set();
   return (
     <main className={styles.main}>
       <Navigation />
@@ -130,219 +140,234 @@ export default async function BlogPost({ params }) {
         </div>
       </section> */}
       <div className={styles.bodySection}>
-
-      <div className="container">
+        <div className="container">
           <div className="row">
             <div className="col-md-8">
-      <article className={styles.article}>
-        <div className={styles.container}>
-        <h2 className={industrystyles.heading}>{post.title}</h2>
+              <article className={styles.article}>
+                <div className={styles.container}>
+                  <h2 className={industrystyles.heading}>{post.title}</h2>
 
-          {/* Tags */}
-          {post.tags && (
-            <div className={styles.meta}>
-              <div className={styles.tags}>
-                {post.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>{tag}</span>
-                ))}
-                          <p style={{margin: "10px"}}>Published Date: {formatDate(post.createdAt.toDate())}</p>
-
-              </div>
-              
-            </div>
-          )}
-
-
-
-
-
- 
-          {/* Blog Content */}
-          <div className="blog-content">
-          <div className={styles.imageContainer}>
-              <img src={post.imageUrl || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
-              </div>
-              {post.contentSection?.map((section, index) => {
-                  return (
-                    <div key={index}>
-                      <h4 className={styles.topheading}>{section.title}</h4>
-
-                      {/* Now handling description as an array */}
-                      {section.description?.map((desc, descIndex) => (
-                        <p key={descIndex}  style={{ fontSize: "16px", textAlign: "justify" }}>
-                          {/* <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} /> */}
-
-                          <KeywordParser
-                              description={desc}
-                              anchorWordsSection={anchorWordsObject}
-                              usedKeywords={usedKeywords} // ✅ Pass usedKeywords
-                            />
+                  {/* Tags */}
+                  {post.tags && (
+                    <div className={styles.meta}>
+                      <div className={styles.tags}>
+                        {post.tags.map((tag) => (
+                          <span key={tag} className={styles.tag}>
+                            {tag}
+                          </span>
+                        ))}
+                        <p style={{ margin: "10px" }}>
+                          Published Date: {formatDate(post.createdAt.toDate())}
                         </p>
-                      ))}
+                      </div>
                     </div>
-                  );
-                })}
-</div>  
-      </div>
-      
-      </article>
-      {/* Key Takeaways Section */}
-      <div className="blog-content"> 
-      <section className={styles.section}>
-      <div className={styles.container}>
-        {post?.pointsWiseText &&
-        Object.keys(post.pointsWiseText).length > 0 ? (
-          Object.keys(post.pointsWiseText).map((sectionKey) => {
-            const sectionArray = post.pointsWiseText[sectionKey];
+                  )}
 
-            if (!Array.isArray(sectionArray) || sectionArray.length === 0)
-              return null;
+                  {/* Blog Content */}
+                  <div className="blog-content">
+                    <div className={styles.imageContainer}>
+                      <img
+                        src={post.imageUrl || "/placeholder.svg"}
+                        alt={post.title}
+                        className={styles.responsiveImage}
+                      />
+                    </div>
+                    {post.contentSection?.map((section, index) => {
+                      return (
+                        <div key={index}>
+                          <h4 className={styles.topheading}>{section.title}</h4>
 
-            return (
-              <div key={sectionKey}>
-                {/* Render TopHeading & TopIntro for the first item */}
-                {sectionArray[0]?.TopHeading && sectionArray[0]?.TopIntro && (
-                  <>
-                    <h4 className={styles.sectionTitle}>
-                      {sectionArray[0].TopHeading}
-                    </h4>
-                    {/* <p className={styles.description}>
-                      {sectionArray[0].TopIntro}
-                    </p> */}
+                          {/* Now handling description as an array */}
+                          {section.description?.map((desc, descIndex) => (
+                            <p
+                              key={descIndex}
+                              style={{ fontSize: "16px", textAlign: "justify" }}
+                            >
+                              {/* <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} /> */}
 
-                    {/* <KeywordParser description={sectionArray[0].TopIntro} anchorWordsSection={anchorWordsObject} /> */}
-                               <p style={{ fontSize: "18px" , textAlign: "justify" }}>
-                               <KeywordParser
-                                description={sectionArray[0].TopIntro}
+                              <KeywordParser
+                                description={desc}
                                 anchorWordsSection={anchorWordsObject}
                                 usedKeywords={usedKeywords} // ✅ Pass usedKeywords
                               />
-                      </p>
-                  </>
-                )}
-
-                {/* Render Remaining Points (if any) */}
-                {sectionArray.length > 1 &&
-                  sectionArray.slice(1).map((item, index) => (
-                    <div key={index}>
-                      <h5 className={styles.subHeading}>{item.title}</h5>
-                      {/* <p className={styles.description}>{item.description}</p> */}
-                      {/* <KeywordParser description={item.description} anchorWordsSection={anchorWordsObject} /> */}
-                          <p style={{ fontSize: "18px" , textAlign: "justify" }}>
-                          <KeywordParser
-                                  description={item.description}
-                                  anchorWordsSection={anchorWordsObject}
-                                  usedKeywords={usedKeywords} // ✅ Pass usedKeywords
-                        />
-                      </p>
-                    </div>
-                  ))}
-              </div>
-            );
-          })
-        ) : (
-          <p className={styles.description}>No content available</p>
-        )}
-      </div>
-    </section>
-      </div>
-        {/* Call to Action Section */}
-                    {post.ctaSection && (
-              <div className={styles.ctaContainer}>
-                <h3 className={styles.conclusiontitle}>{post.ctaSection.ctaTitle}</h3>
-                {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
-                  post.ctaSection.descriptions.map((item, index) => (
-                    <div key={index}>
-                      <p style={{ fontSize: "18px" , textAlign: "justify" }}>
-                        <KeywordParser
-                          description={item}
-                          anchorWordsSection={anchorWordsObject}
-                          usedKeywords={usedKeywords} // ✅ Pass usedKeywords
-                        />
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <p style={{ fontSize: "18px" }}>No Conclusions</p>
-                )}
-              </div>
-            )}
-
-
-     {/* Frequently Asked Questions Container */}
-    <section className={styles.faqSection}>
-    <div className={styles.container}>
-    <h3 className={styles.faqTitle}>Frequently Asked Questions</h3>
-    {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
-    <div className={styles.faqContainer}>
-      {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
-        post.faqs.map((faq, index) => (
-          <div key={index} className={styles.faqItem}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </div>
-        ))
-      ) : (
-        <p>No FAQs available</p>
-      )}
-    </div>
-  </div>
-</section>
-
-          </div>
-          <div className="col-md-4">
-            <div className={styles.stickysidebar}>
-              <DropdownSection />
-              <TableOfContents />
-              <ImageComponent />
-              <SocialShare title={post.title} />
-
-            </div>
-              </div>
-
-
-          </div>
-          </div>
-          {/* relevant posts Section */}
-                            {relevantPosts.length > 0 && (
-                    <section className={styles.relatedPosts}>
-                      <h3>Relevant Posts</h3>
-                      <div className="container">
-                        <div className={styles.scrollContainer}>
-                          <div className={styles.gridContainer}>
-                            {relevantPosts.map((related) => (
-                              <div key={related.id} className={styles.gridItem}>
-                                <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
-                                  <Image
-                                    src={related.imageUrl || "/placeholder.svg"}
-                                    alt={related.title}
-                                    width={300}
-                                    height={200}
-                                    className={styles.relatedImage}
-                                  />
-                                  <h2 className={styles.gridItemh2}>
-                                    {related.title} <span className={styles.arrow}>→</span>
-                                  </h2>
-                                  <p className={styles.gridItemDescription}>
-                                    {related.description.length > 100
-                                      ? `${related.description.substring(0, 100)}...`
-                                      : related.description}
-                                  </p>
-                                </Link>
-                              </div>
-                            ))}
-                          </div>
+                            </p>
+                          ))}
                         </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </article>
+              {/* Key Takeaways Section */}
+              <div className="blog-content">
+                <section className={styles.section}>
+                  <div className={styles.container}>
+                    {post?.pointsWiseText &&
+                    Object.keys(post.pointsWiseText).length > 0 ? (
+                      Object.keys(post.pointsWiseText).map((sectionKey) => {
+                        const sectionArray = post.pointsWiseText[sectionKey];
+
+                        if (
+                          !Array.isArray(sectionArray) ||
+                          sectionArray.length === 0
+                        )
+                          return null;
+
+                        return (
+                          <div key={sectionKey}>
+                            {/* Render TopHeading & TopIntro for the first item */}
+                            {sectionArray[0]?.TopHeading &&
+                              sectionArray[0]?.TopIntro && (
+                                <>
+                                  <h4 className={styles.sectionTitle}>
+                                    {sectionArray[0].TopHeading}
+                                  </h4>
+                                  {/* <p className={styles.description}>
+                      {sectionArray[0].TopIntro}
+                    </p> */}
+
+                                  {/* <KeywordParser description={sectionArray[0].TopIntro} anchorWordsSection={anchorWordsObject} /> */}
+                                  <p
+                                    style={{
+                                      fontSize: "18px",
+                                      textAlign: "justify",
+                                    }}
+                                  >
+                                    <KeywordParser
+                                      description={sectionArray[0].TopIntro}
+                                      anchorWordsSection={anchorWordsObject}
+                                      usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                                    />
+                                  </p>
+                                </>
+                              )}
+
+                            {/* Render Remaining Points (if any) */}
+                            {sectionArray.length > 1 &&
+                              sectionArray.slice(1).map((item, index) => (
+                                <div key={index}>
+                                  <h5 className={styles.subHeading}>
+                                    {item.title}
+                                  </h5>
+                                  {/* <p className={styles.description}>{item.description}</p> */}
+                                  {/* <KeywordParser description={item.description} anchorWordsSection={anchorWordsObject} /> */}
+                                  <p
+                                    style={{
+                                      fontSize: "18px",
+                                      textAlign: "justify",
+                                    }}
+                                  >
+                                    <KeywordParser
+                                      description={item.description}
+                                      anchorWordsSection={anchorWordsObject}
+                                      usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                                    />
+                                  </p>
+                                </div>
+                              ))}
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <p className={styles.description}>No content available</p>
+                    )}
+                  </div>
+                </section>
+              </div>
+              {/* Call to Action Section */}
+              {post.ctaSection && (
+                <div className={styles.ctaContainer}>
+                  <h3 className={styles.conclusiontitle}>
+                    {post.ctaSection.ctaTitle}
+                  </h3>
+                  {Array.isArray(post.ctaSection.descriptions) &&
+                  post.ctaSection.descriptions.length > 0 ? (
+                    post.ctaSection.descriptions.map((item, index) => (
+                      <div key={index}>
+                        <p style={{ fontSize: "18px", textAlign: "justify" }}>
+                          <KeywordParser
+                            description={item}
+                            anchorWordsSection={anchorWordsObject}
+                            usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                          />
+                        </p>
                       </div>
-                    </section>
+                    ))
+                  ) : (
+                    <p style={{ fontSize: "18px" }}>No Conclusions</p>
                   )}
+                </div>
+              )}
 
-
-
-
+              {/* Frequently Asked Questions Container */}
+              <section className={styles.faqSection}>
+                <div className={styles.container}>
+                  <h3 className={styles.faqTitle}>
+                    Frequently Asked Questions
+                  </h3>
+                  {console.log("FAQ Data: ", post?.faqSection?.faqs)}
+                  <div className={styles.faqContainer}>
+                    {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
+                      post.faqs.map((faq, index) => (
+                        <div key={index} className={styles.faqItem}>
+                          <h3>{faq.question}</h3>
+                          <p>{faq.answer}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <p>No FAQs available</p>
+                    )}
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div className="col-md-4">
+              <div className={styles.stickysidebar}>
+                <DropdownSection />
+                <TableOfContents />
+                <ImageComponent />
+                <SocialShare title={post.title} />
+              </div>
+            </div>
           </div>
-          <Footer />
-          </main>
+        </div>
+        {/* relevant posts Section */}
+        {relevantPosts.length > 0 && (
+  <section className={styles.relatedPosts}>
+    <h3>Relevant Posts</h3>
+    <div className="container">
+      <div className={styles.scrollWrapper}>
+        <div className={styles.scrollContainer}>
+          {relevantPosts.map((related) => (
+            <div key={related.id} className={styles.card}>
+              <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                <Image
+                  src={related.imageUrl || "/placeholder.svg"}
+                  alt={related.title}
+                  width={300}
+                  height={200}
+                  className={styles.relatedImage}
+                />
+                <h2 className={styles.cardTitle}>
+                  {related.title}{" "}
+                  <span className={styles.arrow}>→</span>
+                </h2>
+                <p className={styles.cardDescription}>
+                  {related.description.length > 100
+                    ? `${related.description.substring(0, 100)}...`
+                    : related.description}
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+      </div>
+      <Footer />
+    </main>
   );
 }
-

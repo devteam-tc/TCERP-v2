@@ -74,4 +74,11 @@
   .tocItem-level4 {
     margin-left: 45px;
   }
-  
+  .blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content .topheading,
+.blog-content .subHeading {
+  scroll-margin-top: 150px; /* Adjust based on header height */
+}
