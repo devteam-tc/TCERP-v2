@@ -145,7 +145,6 @@ const BlogList = () => {
         setLoading(false);
       }
     };
-
     fetchBlogs();
   }, []);
 

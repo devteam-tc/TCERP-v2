@@ -299,7 +299,7 @@ const EditBlogForm = ({ id }) => {
 
       await updateDoc(docRef, updatedData);
       alert("Blog updated successfully!");
-      router.push("/admin/blogs");
+      router.push("/blogs");
     } catch (error) {
       console.error("Error updating document: ", error);
       alert("Error updating blog.");

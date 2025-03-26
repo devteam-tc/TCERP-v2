@@ -15,7 +15,7 @@ export default function SocialShare({ title }) {
 
   return (
     <div className={styles.shareContainer}>
-      <p>Share this article:</p>
+      <p>Share this Blog:</p>
       <div className={styles.socialIcons}>
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}

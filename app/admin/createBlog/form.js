@@ -158,10 +158,7 @@ const AddSectionsForm = () => {
           acc[section.sectionName] = section.data;
           return acc;
         }, {}),
-        // faqSection: {
-        //   faqTitle: "FAQ'S",
-        //   faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim())
-        // },
+      
         faqs: faqs.filter(faq => faq.question.trim() && faq.answer.trim()),
         contentSection: content.filter(
           item => item.title.trim() && item.description.some(desc => desc.trim())

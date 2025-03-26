@@ -1,22 +1,50 @@
-.tocContainer {
+/* .tocContainer {
     padding: 15px;
     border-radius: 8px;
     margin-top: 20px;    
     border: 1px solid #fac9bc;
     background: #fdeee9;
   }
-  
+   */
+   .tocContainer {
+    position: sticky;
+    top: 20px; /* Adjust as needed */
+    max-height: 80vh; /* Prevents it from taking too much space */
+    overflow-y: auto; /* Enables scrolling if content overflows */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #fac9bc;
+    background: #fdeee9;
+}
+.tocList {
+  max-height: 350px; /* Adjust as needed */
+  overflow-y: auto; /* Makes the list scrollable */
+  padding-right: 2px;
+  padding-left: 2px;
+  list-style: none;
+}
+
+.tocList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tocList::-webkit-scrollbar-thumb {
+  background: #d17968;
+  border-radius: 3px;
+}
   .tocTitle {
     font-size: 24px;
     font-weight: 600;
+    border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
   }
   
-  .tocList {
+  /* .tocList {
     list-style: none;
     padding: 0;
   }
-  
+   */
   .tocItem {
     cursor: pointer;
     padding: 5px;
@@ -25,8 +53,8 @@
   
   .tocItem:hover {
     /* background: #ef5226; */
-    color: #541d0d;
-    font-weight: bold;
+    color: #ef5226;
+    /* font-weight: bold; */
   }
   
   .tocItem-level1 {
@@ -36,7 +64,7 @@
   
   .tocItem-level2 {
     margin-left: 15px;
-    font-weight: 600;
+    font-weight: 500;
   }
   
   .tocItem-level3 {

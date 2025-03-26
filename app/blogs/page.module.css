@@ -117,6 +117,7 @@
 
 .cardImage {
   object-fit: cover;
+  width: auto !important;
 }
 
 .cardContent {
@@ -141,8 +142,16 @@
 .cardContent p {
   color: #666;
   margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.5; /* Adjusts the spacing between lines */
+  max-height: 4rem; /* Ensures only 2 lines are visible (line-height * 2) */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limits to 2 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
+
 
 .tags {
   display: flex;
@@ -346,4 +355,5 @@
   font-weight: 500;
   display: inline-block;
   transition: background 0.3s ease;
+
 }

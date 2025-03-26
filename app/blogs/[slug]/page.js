@@ -134,24 +134,67 @@ export default async function BlogPost({ params }) {
           <div className="row">
             <div className="col-md-8">
       <article className={styles.article}>
-      <div className={styles.blogHeader}>
-  <h2 className={styles.blogTitle}>{post.title}</h2>
-  <div className={styles.metaContainer}>
-    <div className={styles.tags}>
-      {post.tags?.map((tag) => (
-        <span key={tag} className={styles.tag}>{tag}</span>
-      ))}
-    </div>
-    
-    <div className={styles.publishedDate}>
-      📅 Published on: {formatDate(post.createdAt.toDate())}
-    </div>
-  </div>
-  <div className={styles.imageWrapper}>
-    <img src={post.imageUrl || "/placeholder.svg"} alt={post.title} className={styles.blogImage} />
-  </div>
-</div>
+        <div className={styles.container}>
+        <h2 className={industrystyles.heading}>{post.title}</h2>
 
+          {/* Tags */}
+          {post.tags && (
+            <div className={styles.meta}>
+              <div className={styles.tags}>
+                {post.tags.map((tag) => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
+                          <p style={{margin: "10px"}}>Published Date: {formatDate(post.createdAt.toDate())}</p>
+
+              </div>
+              
+            </div>
+          )}
+
+
+
+
+
+ 
+          {/* Blog Content */}
+          <div className="blog-content">
+          <div className={styles.imageContainer}>
+              <img src={post.imageUrl || "/placeholder.svg"} alt={post.title}  className={styles.responsiveImage} />
+              </div>
+              {post.contentSection?.map((section, index) => {
+                  // const anchorWordsObject = post.anchorWordsSection?.reduce((acc, item) => {
+                  //   return {
+                  //     ...acc,
+                  //     ...Object.fromEntries(
+                  //       Object.entries(item).map(([key, value]) => [key.toLowerCase().trim(), value])
+                  //     ),
+                  //   };
+                  // }, {});
+
+                  
+                  
+                  return (
+                    <div key={index}>
+                      <h4 className={styles.topheading}>{section.title}</h4>
+
+                      {/* Now handling description as an array */}
+                      {section.description?.map((desc, descIndex) => (
+                        <p key={descIndex}>
+                          {/* <KeywordParser description={desc} anchorWordsSection={anchorWordsObject} /> */}
+
+                          <KeywordParser
+                              description={desc}
+                              anchorWordsSection={anchorWordsObject}
+                              usedKeywords={usedKeywords} // ✅ Pass usedKeywords
+                            />
+                        </p>
+                      ))}
+                    </div>
+                  );
+                })}
+</div>  
+      </div>
+      
       </article>
       {/* Key Takeaways Section */}
       <div className="blog-content"> 
@@ -206,7 +249,7 @@ export default async function BlogPost({ params }) {
         {/* Call to Action Section */}
           {post.ctaSection && (
             <div className={styles.ctaContainer}>
-              <h2>{post.ctaSection.ctaTitle}</h2>
+              <h2 className={styles.conclusiontitle}>{post.ctaSection.ctaTitle}</h2>
               {Array.isArray(post.ctaSection.descriptions) && post.ctaSection.descriptions.length > 0 ? (
                 post.ctaSection.descriptions.map((item, index) => (
                   <div key={index}>
@@ -218,14 +261,14 @@ export default async function BlogPost({ params }) {
                   </div>
                 ))
               ) : (
-                <p>No Conclusions</p>
+                <p >No Conclusions</p>
               )}
             </div>
           )}
      {/* Frequently Asked Questions Container */}
     <section className={styles.faqSection}>
     <div className={styles.container}>
-    <h2>Frequently Asked Questions</h2>
+    <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
     {console.log("FAQ Data: ", post?.faqSection?.faqs)} 
     <div className={styles.faqContainer}>
       {Array.isArray(post?.faqs) && post.faqs.length > 0 ? (
@@ -243,20 +286,31 @@ export default async function BlogPost({ params }) {
 </section>
 {/* Related Posts Section */}
 {relevantPosts.length > 0 && (
-          <section className={styles.relatedPosts}>
-            <h2>Related Posts</h2>
-            <div className={styles.relatedContainer}>
-              {relevantPosts.map((related) => (
-                <div key={related.id} className={styles.relatedPost}>
-                  <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
-                    <Image src={related.image || "/placeholder.svg"} alt={related.title} width={300} height={200} className={styles.relatedImage} />
-                    <h3>{related.title}</h3>
-                  </Link>
-                </div>
-              ))}
+  <section className={styles.relatedPosts}>
+    <div className="row">
+      <div className="col-md-12">
+        <h2>Related Posts</h2>
+        <div className={styles.relatedContainer}>
+          {relevantPosts.map((related) => (
+            <div key={related.id} className={styles.relatedPost}>
+              <Link href={`/blogs/${related.slug}`} className={styles.relatedLink}>
+                <Image
+                  src={related.imageUrl || "/placeholder.svg"}
+                  alt={related.title}
+                  width={300}
+                  height={200}
+                  className={styles.relatedImage}
+                />
+                <h3>{related.title}</h3>
+              </Link>
             </div>
-          </section>
-        )}
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
           </div>
           <div className="col-md-4">
             <div className={styles.stickysidebar}>
