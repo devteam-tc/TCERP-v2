@@ -103,6 +103,7 @@
   .opened .options {
     opacity: 1;
     padding-left: 0px !important;
+    z-index: 1000;
     visibility: visible;
     transform: translateY(0);
     border: 1px solid #eee;
