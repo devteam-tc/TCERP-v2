@@ -51,7 +51,7 @@ const contactPageSchema = {
     "description": "Tech Cloud ERP provides cloud-based enterprise resource planning (ERP) solutions to help businesses manage their operations efficiently.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur",
+      "streetAddress": "Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Phase - 2",
       "addressLocality": "Hyderabad",
       "addressRegion": "Telangana",
       "postalCode": "500081",

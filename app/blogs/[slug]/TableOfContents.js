@@ -60,11 +60,15 @@ const TableOfContents = () => {
   }, []);
 
   const handleClick = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -80; // Adjust this value based on your header height
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
+  
 
   return (
     <div className={styles.tocContainer}>

@@ -38,20 +38,6 @@ const nextConfig = {
     ];
   },
 
-  async redirects() {
-    return [
-      {
-        source: '/industries/:industry/industries/:wrongIndustry',
-        destination: '/industries/:industry',
-        permanent: true,
-      },
-      {
-        source: '/products/:product/industries/:wrongIndustry',
-        destination: '/products/:product',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

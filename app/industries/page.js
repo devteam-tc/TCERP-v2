@@ -82,7 +82,6 @@
 // app/industries/page.js
 export const dynamic = "force-static"; // Ensures this page is statically generated
 
-
 import { Container, Row, Col } from "react-bootstrap";
 import { aboutus_data, industriesDataList } from "../utils/constants";
 import Navigation from "../components/Header/navigation";
@@ -113,11 +112,9 @@ export default function IndustriesPage() {
           <p className={industryStyles.description}>{aboutus_data.allindustries.description}</p>
         </div>
       </section>
-
       {[industriesDataList.agricultureList, industriesDataList.fmcgList, industriesDataList.oilandgasList].map((industryList, index) => (
         <IndustryList key={index} industryList={industryList} index={index} />
       ))}
-
       <Footer />
     </>
   );

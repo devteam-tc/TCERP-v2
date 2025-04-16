@@ -22,8 +22,9 @@ const ContactForm = () => {
     <Container className={`my-md-5 ${styles.styledContainer}`}>
       <Row>
         <Col md={6} className="m-auto">
-          <h6 className={styles.letsGetInTouch}>Let's Get in Touch</h6>
-          <h3>Drop a Message.<br /> Let's Engage..!</h3>
+        <h6 className={styles.letsGetInTouch}>Let&#39;s Get in Touch</h6>
+        <h3>Drop a Message.<br /> Let&#39;s Engage..!</h3>
+
 
           <ul className='list-unstyled'>
             <h5 className={styles.sectionTitle}>Corporate Office</h5>

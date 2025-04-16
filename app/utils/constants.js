@@ -4300,7 +4300,7 @@ export const coFoundersData = [
 
   export const contactData = {
     corporateOffice: {
-      address: "Office Unit No. 705, Jain Sadguru Capital Park Madhapur, Hyderabad-500081",
+      address: "Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Phase - 2",
       phoneNumber: "+91 8919439603 , +91 7032082300",
       email: "info@techclouderp.com",
     },
@@ -4311,8 +4311,6 @@ export const coFoundersData = [
     },
   };
 
-
-
   export const regions = [
     {
       title: 'India',
@@ -4320,7 +4318,7 @@ export const coFoundersData = [
         {
           name: 'Hyderabad',
           mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2634991537893!2d78.38372387594076!3d17.44709790108069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb910d8d1c4f8b%3A0x6ef1b184af90fa3f!2sCapital%20Park!5e0!3m2!1sen!2sus!4v1731043718127!5m2!1sen!2sus',
-          address: 'Office Unit No. 705, Jain Sadguru Capital Park, Image Gardens Road, VIP Hills, Madhapur, Hyderabad, Telangana, India-500081.',
+          address: 'Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Phase - 2, Madhapur, Hyderabad, Telangana - 500081',
           email: 'info@techclouderp.com',
           phone: '+91 8919439603 , +91 7032082300',
         },

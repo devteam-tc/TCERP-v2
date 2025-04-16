@@ -79,9 +79,9 @@ export default function Footer() {
               <h5 className={styles.footerHeading}>Get in Touch</h5>
               <div className={styles.contactInfo}>
                 <h5 className={styles.footerHeader}>Corporate Office</h5>
-                <p><FaMapMarkerAlt /> Office Unit No. 705, Jain Sadguru Capital Park, Hyderabad, India-500081.</p>
-                <p><FaEnvelope /> <a href={`mailto:${corporateEmail}`}>{corporateEmail}</a></p>
-                <p><FaPhoneAlt /> +91 8919439603 , +91 7032082300</p>
+                <p ><FaMapMarkerAlt className={styles.icon} /> Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Madhapur, Hyderabad, Telangana - 500081 </p>
+                <p><FaEnvelope className={styles.icon}/> <a href={`mailto:${corporateEmail}`}>{corporateEmail}</a></p>
+                <p><FaPhoneAlt className={styles.icon}/> +91 8919439603, +91 7032082300</p>
               </div>
               <div className={styles.contactInfo}>
                 <h5 className={styles.footerHeader}>Headquarters</h5>

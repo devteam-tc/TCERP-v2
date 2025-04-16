@@ -8,6 +8,11 @@
   .logo {
     height: 60px;
   }
+  .icon {
+    font-size: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
   
   @media (max-width: 992px) {
     .footerSection {
