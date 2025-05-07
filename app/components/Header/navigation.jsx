@@ -80,7 +80,6 @@ const Navigation = () => {
             <div className={styles.hiddenOnDesktop}>
               <MobileNavigationDrawer {...{ isDrawerOpen, setIsDrawerOpen, drawerButtonRef }} />
             </div>
-
             <div className={navigationStyles.hiddenOnDesktop}>
               <button
                 ref={drawerButtonRef}
@@ -91,8 +90,6 @@ const Navigation = () => {
                 <AlignJustify size={30} />
               </button>
             </div>
-
-
           </div>
         </div>
       </header>
