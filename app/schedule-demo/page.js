@@ -24,7 +24,6 @@ export async function generateMetadata() {
   };
 }
 
-
 // Generate Static Params (for future expansions)
 export function generateStaticParams() {
   return [{ slug: "demo" }];

@@ -131,10 +131,10 @@ export const menuData = [
         }
       ],
     },
-    { label: 'Pricing', 
-      href: '/pricing' },
-      { label: 'Blogs',
-        href: '/blogs' },
+    // { label: 'Pricing', 
+    //   href: '/pricing' },
+    //   { label: 'Blogs',
+    //     href: '/blogs' },
 
     { label: 'Contact Us', 
       href: '/contact-us' },

@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import SocialMediaIcons from "./Header/socialmedia-icons";
-import Counter from './Counter';
+// import Counter from './Counter';
 
 const obfuscateEmail = (user, domain, tld) => `${user}@${domain}.${tld}`;
 
@@ -33,7 +33,7 @@ export default function Footer() {
                 Tech Cloud ERP delivers top-notch solutions tailored for any business, combining advanced technology, intuitive design, and comprehensive features.
               </p>
               <SocialMediaIcons />
-              <Counter />
+              {/* <Counter /> */}
             </Col>
             <Col md={4} xl={2} sm={6}>
               <h5 className={styles.footerHeading}>Useful Links</h5>
@@ -79,7 +79,7 @@ export default function Footer() {
               <h5 className={styles.footerHeading}>Get in Touch</h5>
               <div className={styles.contactInfo}>
                 <h5 className={styles.footerHeader}>Corporate Office</h5>
-                <p ><FaMapMarkerAlt className={styles.icon} /> Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Madhapur, Hyderabad, Telangana - 500081 </p>
+                <p ><FaMapMarkerAlt className={styles.icon} /> Plot No. 241, 3rd Floor, VVG Elite Developers, Kavuri Hills, Madhapur, Hyderabad, Telangana - 500081. </p>
                 <p><FaEnvelope className={styles.icon}/> <a href={`mailto:${corporateEmail}`}>{corporateEmail}</a></p>
                 <p><FaPhoneAlt className={styles.icon}/> +91 8919439603, +91 7032082300</p>
               </div>
